@@ -14,34 +14,19 @@ const creds = {
 };
 
 //setting up mongoose
-mongoose.connect(config.dbURL);
+mongoose.connect(
+  config.dbURL,
+  { useNewUrlParser: true }
+);
 //Using default promises
 mongoose.Promise = global.Promise;
-//database connection
-var db = mongoose.connection;
-
-//placeholder for database
-const plants = require("./content");
 
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, "client/build")));
 
-app.get("/plant", (req, res) => {
-  res.json(plants[3]);
-});
+const plantRouter = require("./router/plantRouter");
 
-app.get("/plants", (req, res) => {
-  res.json(plants);
-});
-
-app.get("/random", (req, res) => {
-  res.json(plants[Math.random() * plants.length]);
-});
-
-// Handles any requests that don't match the ones above
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
-});
+app.use("/plant", plantRouter);
 
 var httpsServer = https.createServer(creds, app);
 

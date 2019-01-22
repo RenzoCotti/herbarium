@@ -8,7 +8,9 @@
     "client": "npm start --client",
     "start": "npm run build-client && concurrently \"npm run server\" \"set HTTPS=true&&cd client && npm start\"",
     "start-local": "npm run build-client && PORT=8080 node server",
-    "build-client": "cd client && npm run build && cd .."
+    "build-client": "cd client && npm run build && cd ..",
+    "install-client": "npm install --client",
+    "seed": "node utility/seed.js"
   },
   "author": "",
   "license": "ISC",
