@@ -1,0 +1,25 @@
+.title {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.super-title {
+  font-weight: bold;
+  font-size: 24pt;
+}
+
+.identification {
+  padding: 20px;
+  background-color: #90ca40bb;
+}
+
+.latin {
+  font-style: italic;
+}
+
+.common {
+  font-size: 25pt;
+  margin-bottom: 50px;
+  font-weight: bold;
+  color: darkgreen;
+}

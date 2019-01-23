@@ -1,0 +1,12 @@
+.list {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 50px;
+  background-color: #90ca40bb;
+}
+
+.link {
+  padding-left: 20px;
+  color: black;
+}

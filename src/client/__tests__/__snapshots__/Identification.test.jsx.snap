@@ -1,0 +1,621 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Identification renders correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Identification
+    plant={
+      Object {
+        "blooming": Array [
+          "mid summer",
+          "late summer",
+        ],
+        "common": "Peppermint",
+        "flowers": Array [
+          "purple",
+        ],
+        "habitat": "gravel",
+        "harvest": "spring",
+        "height": 0.6,
+        "images": Object {
+          "flowers": "https://cdn.shopify.com/s/files/1/1766/2959/products/Peppermint_4_400x400.jpg?v=1535245781",
+          "leaves": "https://images-na.ssl-images-amazon.com/images/I/51TeuM4HqJL.jpg",
+          "overall": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Mentha-piperita.JPG/330px-Mentha-piperita.JPG",
+        },
+        "latin": "Mentha Piperita",
+        "leaves": Object {
+          "height": 2.5,
+          "margin": "toothed",
+          "properties": Array [
+            "dark green",
+            "red",
+          ],
+          "shape": "lanceolate",
+          "width": 6,
+        },
+        "region": "Tundra",
+        "shape": "bush",
+        "stem": "smooth",
+        "type": "herbaceous plant",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="latin"
+        >
+          Mentha Piperita
+        </div>,
+        <div
+          className="common"
+        >
+          Peppermint
+        </div>,
+        <div>
+          <div
+            className="title"
+          >
+            Stem
+          </div>
+          <div>
+            smooth
+          </div>
+          <div
+            className="title"
+          >
+            Leaves
+          </div>
+          <div>
+            Shape: 
+            lanceolate
+          </div>
+          <div>
+            Properties: 
+            dark green red
+          </div>
+          <div>
+            Margin: 
+            toothed
+          </div>
+          <div>
+            Size(W x H): 
+            6
+            cm x
+            2.5
+            cm
+          </div>
+          <div
+            className="title"
+          >
+            Flowers
+          </div>
+          <div>
+            purple
+          </div>
+        </div>,
+      ],
+      "className": "identification",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Mentha Piperita",
+          "className": "latin",
+        },
+        "ref": null,
+        "rendered": "Mentha Piperita",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Peppermint",
+          "className": "common",
+        },
+        "ref": null,
+        "rendered": "Peppermint",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="title"
+            >
+              Stem
+            </div>,
+            <div>
+              smooth
+            </div>,
+            <div
+              className="title"
+            >
+              Leaves
+            </div>,
+            <div>
+              Shape: 
+              lanceolate
+            </div>,
+            <div>
+              Properties: 
+              dark green red
+            </div>,
+            <div>
+              Margin: 
+              toothed
+            </div>,
+            <div>
+              Size(W x H): 
+              6
+              cm x
+              2.5
+              cm
+            </div>,
+            <div
+              className="title"
+            >
+              Flowers
+            </div>,
+            <div>
+              purple
+            </div>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Stem",
+              "className": "title",
+            },
+            "ref": null,
+            "rendered": "Stem",
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "smooth",
+            },
+            "ref": null,
+            "rendered": "smooth",
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Leaves",
+              "className": "title",
+            },
+            "ref": null,
+            "rendered": "Leaves",
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Shape: ",
+                "lanceolate",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Shape: ",
+              "lanceolate",
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Properties: ",
+                "dark green red",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Properties: ",
+              "dark green red",
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Margin: ",
+                "toothed",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Margin: ",
+              "toothed",
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Size(W x H): ",
+                6,
+                "cm x",
+                2.5,
+                "cm",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Size(W x H): ",
+              6,
+              "cm x",
+              2.5,
+              "cm",
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Flowers",
+              "className": "title",
+            },
+            "ref": null,
+            "rendered": "Flowers",
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "purple",
+            },
+            "ref": null,
+            "rendered": "purple",
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="latin"
+          >
+            Mentha Piperita
+          </div>,
+          <div
+            className="common"
+          >
+            Peppermint
+          </div>,
+          <div>
+            <div
+              className="title"
+            >
+              Stem
+            </div>
+            <div>
+              smooth
+            </div>
+            <div
+              className="title"
+            >
+              Leaves
+            </div>
+            <div>
+              Shape: 
+              lanceolate
+            </div>
+            <div>
+              Properties: 
+              dark green red
+            </div>
+            <div>
+              Margin: 
+              toothed
+            </div>
+            <div>
+              Size(W x H): 
+              6
+              cm x
+              2.5
+              cm
+            </div>
+            <div
+              className="title"
+            >
+              Flowers
+            </div>
+            <div>
+              purple
+            </div>
+          </div>,
+        ],
+        "className": "identification",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Mentha Piperita",
+            "className": "latin",
+          },
+          "ref": null,
+          "rendered": "Mentha Piperita",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Peppermint",
+            "className": "common",
+          },
+          "ref": null,
+          "rendered": "Peppermint",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="title"
+              >
+                Stem
+              </div>,
+              <div>
+                smooth
+              </div>,
+              <div
+                className="title"
+              >
+                Leaves
+              </div>,
+              <div>
+                Shape: 
+                lanceolate
+              </div>,
+              <div>
+                Properties: 
+                dark green red
+              </div>,
+              <div>
+                Margin: 
+                toothed
+              </div>,
+              <div>
+                Size(W x H): 
+                6
+                cm x
+                2.5
+                cm
+              </div>,
+              <div
+                className="title"
+              >
+                Flowers
+              </div>,
+              <div>
+                purple
+              </div>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Stem",
+                "className": "title",
+              },
+              "ref": null,
+              "rendered": "Stem",
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "smooth",
+              },
+              "ref": null,
+              "rendered": "smooth",
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Leaves",
+                "className": "title",
+              },
+              "ref": null,
+              "rendered": "Leaves",
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Shape: ",
+                  "lanceolate",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Shape: ",
+                "lanceolate",
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Properties: ",
+                  "dark green red",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Properties: ",
+                "dark green red",
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Margin: ",
+                  "toothed",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Margin: ",
+                "toothed",
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Size(W x H): ",
+                  6,
+                  "cm x",
+                  2.5,
+                  "cm",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Size(W x H): ",
+                6,
+                "cm x",
+                2.5,
+                "cm",
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Flowers",
+                "className": "title",
+              },
+              "ref": null,
+              "rendered": "Flowers",
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "purple",
+              },
+              "ref": null,
+              "rendered": "purple",
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

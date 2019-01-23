@@ -1,0 +1,37 @@
+.secondary-image {
+  width: 100px;
+  height: 100px;
+  margin: 0 0 10px 10px;
+  border: 2px solid white;
+}
+
+.main-image {
+  width: 400px;
+  height: 400px;
+}
+
+.selected-image {
+  border: 2px solid orange;
+}
+
+.secondary-image:hover {
+  border: 2px solid gray;
+}
+
+.side-images {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.media-container {
+  padding: 40px;
+  padding-bottom: 0;
+  background-color: #90ca40bb;
+}
