@@ -6,6 +6,7 @@ import "./style/Identification.css";
 class Identification extends Component {
   state = {};
   render() {
+    console.log("here");
     return (
       <div className="identification">
         <div className="latin">{this.props.plant.latin}</div>

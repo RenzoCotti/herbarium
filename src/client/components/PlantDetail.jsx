@@ -11,8 +11,9 @@ class PlantDetail extends Component {
   }
 
   async getPlant() {
-    let res = await fetch("/plant");
-    let plant = await res.json();
+    let res = await fetch("/api/plant");
+    let plant = await res.text();
+    console.log(plant);
     this.setState({ plant: plant });
   }
 

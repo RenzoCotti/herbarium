@@ -1,7 +1,7 @@
 //modules import
 const express = require("express");
 const path = require("path");
-const https = require("https");
+const http = require("http");
 const fs = require("fs");
 const mongoose = require("mongoose");
 
@@ -12,6 +12,8 @@ const creds = {
   key: fs.readFileSync(__dirname + "/config/certs/server.key"),
   cert: fs.readFileSync(__dirname + "/config/certs/server.crt")
 };
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 //setting up mongoose
 mongoose.connect(
@@ -26,8 +28,13 @@ app.use(express.static(path.join(__dirname, "client/build")));
 
 const plantRouter = require("./router/plantRouter");
 
-app.use("/plant", plantRouter);
+app.use("/api", plantRouter);
 
-var httpsServer = https.createServer(creds, app);
+app.use("/", (req, res) => {
+  console.log(req);
+  console.log("hersdafe");
+});
 
-httpsServer.listen(5000);
+var httpServer = http.createServer(app);
+
+httpServer.listen(8080);

@@ -3,9 +3,11 @@ const router = express.Router();
 var Plant = require("../models/plantModel");
 
 //placeholder for database
-const plants = require("../content");
+const plants = require("../utility/content");
 
-router.get("/", (req, res) => {
+router.get("/plant", (req, res) => {
+  console.log("derp");
+
   Plant.find({ commonName: "sage" }, (err, plant) => {
     res.json(plant);
   });

@@ -4,7 +4,7 @@ import "./style/Media.css";
 
 class Media extends Component {
   state = {
-    showing: "overall"
+    showing: 0
   };
 
   constructor(props) {
@@ -17,16 +17,14 @@ class Media extends Component {
 
   getCaption() {
     let show = this.state.showing;
-    if (show === "overall") {
-      return "An overall view of";
-    } else {
-      return "The " + show + " of";
-    }
+    return this.props.plant.images[show].caption;
   }
 
   getSrc() {
     let show = this.state.showing;
-    return this.props.plant.images[show];
+    console.log("herel lulu");
+    console.log(this.props.plant);
+    return this.props.plant.images[show].url;
   }
 
   getSide() {
