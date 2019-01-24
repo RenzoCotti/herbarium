@@ -25,7 +25,8 @@ class Identification extends Component {
     if (obj) {
       return (
         <tr>
-          <td className="sub-title">{str}: </td> <td>{opt ? opt : obj}</td>
+          <td className="sub-title">{str}:</td>
+          <td>{opt ? opt : obj}</td>
         </tr>
       );
     }
@@ -39,20 +40,24 @@ class Identification extends Component {
           <th className="title">General</th>
         </tr>
         <tr>
-          <td className="sub-title">Type:</td> <td> {plant.typeOfPlant}</td>
+          <td className="sub-title">Type:</td>
+          <td>{plant.typeOfPlant}</td>
         </tr>
         <tr>
           <td className="sub-title">Evergreen:</td>
           <td> {plant.evergreen ? "Yes" : "No"}</td>
         </tr>
         <tr>
-          <td className="sub-title">Zone:</td> <td> {plant.zone.join(", ")}</td>
+          <td className="sub-title">Zone:</td>
+          <td>{plant.zone.join(", ")}</td>
         </tr>
         <tr>
-          <td className="sub-title">Habitat:</td> <td> {plant.habitat}</td>
+          <td className="sub-title">Habitat:</td>
+          <td>{plant.habitat}</td>
         </tr>
         <tr>
-          <td className="sub-title">Height:</td> <td> {plant.height} m</td>
+          <td className="sub-title">Height:</td>
+          <td>{plant.height} m</td>
         </tr>
         {this.renderOptional(plant.description, "Description")}
       </React.Fragment>
@@ -66,14 +71,16 @@ class Identification extends Component {
           <th>Stem</th>
         </tr>
         <tr>
-          <td className="sub-title"> Colour:</td> <td> {plant.stemColour}</td>
+          <td className="sub-title">Colour:</td>
+          <td>{plant.stemColour}</td>
         </tr>
         <tr>
-          <td className="sub-title"> Texture:</td> <td> {plant.stemTexture}</td>
+          <td className="sub-title">Texture:</td>
+          <td>{plant.stemTexture}</td>
         </tr>
         <tr>
-          <td className="sub-title"> Description:</td>{" "}
-          <td> {plant.stemDescription}</td>
+          <td className="sub-title">Description:</td>
+          <td>{plant.stemDescription}</td>
         </tr>
       </React.Fragment>
     );
@@ -85,21 +92,22 @@ class Identification extends Component {
         <tr className="title">
           <th>Leaves</th>
         </tr>
-
         <tr>
-          <td className="sub-title"> Shape: </td> <td> {plant.leafShape} </td>
+          <td className="sub-title">Shape:</td>
+          <td>{plant.leafShape}</td>
         </tr>
         <tr>
-          <td className="sub-title"> Margin: </td> <td> {plant.leafMargin} </td>
+          <td className="sub-title">Margin:</td>
+          <td>{plant.leafMargin}</td>
         </tr>
         {this.renderOptional(plant.leafVenation, "Venation")}
         <tr>
-          <td className="sub-title"> Length: </td>{" "}
-          <td> {plant.leafLength} cm </td>
+          <td className="sub-title">Length:</td>
+          <td>{plant.leafLength} cm</td>
         </tr>
         <tr>
-          <td className="sub-title"> Description: </td>{" "}
-          <td> {plant.leafDescription} </td>
+          <td className="sub-title">Description:</td>
+          <td>{plant.leafDescription}</td>
         </tr>
       </React.Fragment>
     );
@@ -110,7 +118,7 @@ class Identification extends Component {
     return (
       <React.Fragment>
         <tr className="title">
-          <th>Flowers </th>
+          <th>Flowers</th>
         </tr>
         {this.renderOptional(plant.flowerColour, "Colour")}
         {this.renderOptional(
@@ -128,7 +136,7 @@ class Identification extends Component {
     return (
       <React.Fragment>
         <tr className="title">
-          <th>Fruit </th>
+          <th>Fruit</th>
         </tr>
         {this.renderOptional(plant.fruitColour, "Colour")}
         {this.renderOptional(
@@ -149,11 +157,13 @@ class Identification extends Component {
         <div className="latin">{capitaliseString(plant.latinName)}</div>
         <div className="common">{capitaliseString(plant.commonName)}</div>
         <table>
-          {this.renderGeneral(plant)}
-          {this.renderStem(plant)}
-          {this.renderLeaf(plant)}
-          {this.renderFlowers(plant)}
-          {this.renderFruits(plant)}
+          <tbody>
+            {this.renderGeneral(plant)}
+            {this.renderStem(plant)}
+            {this.renderLeaf(plant)}
+            {this.renderFlowers(plant)}
+            {this.renderFruits(plant)}
+          </tbody>
         </table>
       </div>
     );

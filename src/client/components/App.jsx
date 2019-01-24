@@ -7,6 +7,7 @@ import Browse from "./Browse";
 import Footbar from "./Footbar";
 import Home from "./Home";
 import PlantRandom from "./PlantRandom";
+import Create from "./Create";
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
             <Route path="/browse" component={Browse} />
             <Route path="/random" component={PlantRandom} />
             <Route path="/identify" component={PlantDetail} />
+            <Route path="/create" component={Create} />
           </div>
 
           <Footbar />
