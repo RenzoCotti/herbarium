@@ -17,7 +17,7 @@ var sage = new Plant({
   evergreen: true,
   description: "",
   height: 0.6,
-  zone: ["mediterranean"],
+  regions: ["europe"],
   habitat: "gravel",
 
   /********* STEM *********/
@@ -74,7 +74,7 @@ var mint = new Plant({
   evergreen: false,
   description: "",
   height: 0.6,
-  zone: ["europe", "middle-east"],
+  regions: ["europe", "middle-east"],
   habitat: "moist",
 
   /********* STEM *********/

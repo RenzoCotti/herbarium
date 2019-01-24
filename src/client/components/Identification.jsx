@@ -48,8 +48,8 @@ class Identification extends Component {
           <td> {plant.evergreen ? "Yes" : "No"}</td>
         </tr>
         <tr>
-          <td className="sub-title">Zone:</td>
-          <td>{plant.zone.join(", ")}</td>
+          <td className="sub-title">Regions:</td>
+          <td>{plant.regions.join(", ")}</td>
         </tr>
         <tr>
           <td className="sub-title">Habitat:</td>

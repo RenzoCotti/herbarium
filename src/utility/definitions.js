@@ -129,5 +129,17 @@ module.exports = {
     "oct",
     "nov",
     "dec"
+  ],
+  regions: [
+    "africa",
+    "europe",
+    "middle-east",
+    "america",
+    "east-europe",
+    "north-america",
+    "oceania",
+    "asia",
+    "south-america",
+    "caribbean"
   ]
 };
