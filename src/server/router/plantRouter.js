@@ -6,8 +6,6 @@ var Plant = require("../models/plantModel");
 const plants = require("../utility/content");
 
 router.get("/plant", (req, res) => {
-  console.log("derp");
-
   Plant.find({ commonName: "sage" }, (err, plant) => {
     res.json(plant);
   });

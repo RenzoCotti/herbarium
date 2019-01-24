@@ -22,34 +22,27 @@ class Media extends Component {
 
   getSrc() {
     let show = this.state.showing;
-    console.log("herel lulu");
     console.log(this.props.plant);
     return this.props.plant.images[show].url;
   }
 
   getSide() {
-    let arr = [];
-
     let imgs = this.props.plant.images;
-
-    Object.keys(imgs).forEach(function(key, index) {
-      arr.push({ type: key, url: imgs[key] });
-    });
 
     let classSelected = "secondary-image selected-image";
     let classSecondary = "secondary-image";
 
-    return arr.map(tuple => {
-      if (tuple.url === "") return "";
+    return imgs.map((img, index) => {
+      if (img.url === "") return "";
       return (
         <img
-          src={tuple.url}
+          src={img.url}
           className={
-            tuple.type === this.state.showing ? classSelected : classSecondary
+            img.type === this.state.showing ? classSelected : classSecondary
           }
-          key={tuple.url}
+          key={img.url}
           alt=""
-          onClick={() => this.switchImage(tuple.type)}
+          onClick={() => this.switchImage(index)}
         />
       );
     });
@@ -67,7 +60,7 @@ class Media extends Component {
           <div className="side-images">{this.getSide()}</div>
         </div>
         <div className="main-image-subtitle">
-          {this.getCaption()} {this.props.plant.common}
+          {this.getCaption()} {this.props.plant.commonName}
         </div>
       </div>
     );

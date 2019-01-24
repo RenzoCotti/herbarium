@@ -89,7 +89,6 @@ const Plant = new mongoose.Schema({
   leafVenation: {
     type: String,
     lowercase: true,
-    required: true,
     enum: definitions.leafVenation
   },
   leafLength: {
@@ -122,6 +121,13 @@ const Plant = new mongoose.Schema({
     type: String,
     lowercase: true
   },
+  harvestMonth: [
+    {
+      type: String,
+      lowercase: true,
+      enum: definitions.months
+    }
+  ],
   fruitSize: Number, //cm
 
   /********* USES *********/
@@ -134,6 +140,10 @@ const Plant = new mongoose.Schema({
       },
       //can be null
       edible: {
+        type: Boolean
+      },
+      //can be null
+      foodPreparation: {
         type: String,
         lowercase: true
       },

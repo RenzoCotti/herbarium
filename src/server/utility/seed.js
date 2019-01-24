@@ -40,8 +40,8 @@ var sage = new Plant({
   uses: [
     {
       part: "leaves",
-      edible: "eat raw",
-      medicinalProperties: ["antiseptic", "digestive", "relaxant"],
+      edible: true,
+      medicinalProperties: ["antiseptic", "digestive", "relaxant", "aromatic"],
       medicinalPreparation: "brew or apply locally."
     }
   ],
@@ -97,7 +97,7 @@ var mint = new Plant({
   uses: [
     {
       part: "leaves",
-      edible: "eat raw",
+      edible: true,
       medicinalProperties: [
         "refreshing",
         "tonic",
