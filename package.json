@@ -9,7 +9,7 @@
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "seed": "node src/server/utility/seed.js"
+    "seed": "node src/server/models/seed.js"
   },
   "author": "Sandeep Raveesh",
   "license": "ISC",

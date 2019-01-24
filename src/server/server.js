@@ -30,10 +30,10 @@ const plantRouter = require("./router/plantRouter");
 
 app.use("/api", plantRouter);
 
-app.use("/", (req, res) => {
-  console.log(req);
-  console.log("hersdafe");
-});
+// app.use("/", (req, res) => {
+//   console.log(req);
+//   console.log("hersdafe");
+// });
 
 var httpServer = http.createServer(app);
 

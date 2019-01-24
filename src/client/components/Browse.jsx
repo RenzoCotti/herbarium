@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./style/Browse.css";
+import "./style/Media.css";
+import { capitalise } from "../../utility/utility";
 
 class Browse extends Component {
   state = { plants: [] };
@@ -13,17 +15,21 @@ class Browse extends Component {
   }
 
   async getPlants() {
-    let res = await fetch("/plants");
+    let res = await fetch("/api/list");
     let plants = await res.json();
     this.setState({ plants: plants });
   }
 
   getList() {
-    return this.state.plants.map(plant => (
-      <div className="link" key={plant.latin}>
-        {plant.common}
-      </div>
-    ));
+    return this.state.plants.map(plant => {
+      console.log(plant);
+      return (
+        <div key={plant.latinName} className="entry">
+          <img src={plant.images[0].url} className="secondary-image" alt="" />
+          <span className="link">{capitalise(plant.commonName)}</span>
+        </div>
+      );
+    });
   }
 
   render() {

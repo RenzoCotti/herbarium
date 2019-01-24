@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-top: 100px;
+  margin-top: 10px;
 }
 
 html {
@@ -47,4 +47,18 @@ body {
   padding: 10px;
   color: rgba(255, 255, 255, 0.6);
   font-size: 15pt;
+}
+
+.rand {
+  background-color: #8db15c;
+  margin: 50px auto;
+  width: 150px;
+  padding: 10px;
+  font-size: 15pt;
+  text-align: center;
+}
+
+.rand:hover {
+  cursor: pointer;
+  background-color: #90ca40;
 }

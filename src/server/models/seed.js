@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const config = require("../config/config");
-const Plant = require("../models/plantModel");
+const Plant = require("./plantModel");
 
 mongoose.connect(
   config.dbURL,
@@ -26,10 +26,10 @@ var sage = new Plant({
   stemDescription: "woody at the base",
 
   /********* LEAVES *********/
-  leafShape: "elliptic",
+  leafShape: "elliptical",
   leafDescription: "rugose, hairy and green on top, gray on the bottom",
-  leafMargin: "ciliate",
-  leafVenation: "alternate",
+  leafMargin: "crenate",
+  leafVenation: "pinnate",
   leafLength: 6.5,
 
   /********* FLOWERS, optional *********/
@@ -83,10 +83,10 @@ var mint = new Plant({
   stemDescription: "can have some hair",
 
   /********* LEAVES *********/
-  leafShape: "lanceolate",
+  leafShape: "elliptical",
   leafDescription: "green, with reddish veins",
-  leafMargin: "dentate",
-  leafVenation: "alternate",
+  leafMargin: "serrate",
+  leafVenation: "pinnate",
   leafLength: 6,
 
   /********* FLOWERS, optional *********/
@@ -113,17 +113,18 @@ var mint = new Plant({
   images: [
     {
       url:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Mentha-piperita.JPG/330px-Mentha-piperita.JPG",
+        "https://www.victoriananursery.co.uk/images/250/sq_black_peppermint_002.jpg",
       caption: "An overall view of the peppermint herb."
     },
     {
       url:
-        "https://cdn.shopify.com/s/files/1/1766/2959/products/Peppermint_4_400x400.jpg?v=1535245781",
+        "https://thumbs.dreamstime.com/z/peppermint-flowers-leaves-isolated-white-20780064.jpg",
       caption: "A detail of the peppermint flowers"
     },
     {
-      url: "https://images-na.ssl-images-amazon.com/images/I/51TeuM4HqJL.jpg",
-      caption: "A picture of the peppermint's leaves"
+      url:
+        "https://cdn1.medicalnewstoday.com/content/images/articles/265/265214/peppermint.jpg",
+      caption: "A picture of the peppermint leaves"
     }
   ]
 });

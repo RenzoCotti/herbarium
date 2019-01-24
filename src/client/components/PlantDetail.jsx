@@ -13,7 +13,7 @@ class PlantDetail extends Component {
   async getPlant() {
     let res = await fetch("/api/plant");
     let plant = await res.json();
-    this.setState({ plant: plant[0] });
+    this.setState({ plant: plant });
   }
 
   render() {

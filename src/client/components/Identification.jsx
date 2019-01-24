@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./style/Identification.css";
+import { capitaliseString } from "../../utility/utility";
 
 //where, overall appearance, details, season
 
@@ -10,8 +11,6 @@ class Identification extends Component {
     super(props);
 
     //utility
-    this.capitalise = this.capitalise.bind(this);
-    this.capitaliseString = this.capitaliseString.bind(this);
     this.renderOptional = this.renderOptional.bind(this);
 
     this.renderGeneral = this.renderGeneral.bind(this);
@@ -25,9 +24,9 @@ class Identification extends Component {
   renderOptional(obj, str, opt) {
     if (obj) {
       return (
-        <div>
-          {str}: {opt ? opt : obj}
-        </div>
+        <tr>
+          <td className="sub-title">{str}: </td> <td>{opt ? opt : obj}</td>
+        </tr>
       );
     }
     return;
@@ -36,12 +35,25 @@ class Identification extends Component {
   renderGeneral(plant) {
     return (
       <React.Fragment>
-        <div className="title">General</div>
-        <div>Type: {plant.typeOfPlant}</div>
-        <div>Evergreen: {plant.evergreen ? "Yes" : "No"}</div>
-        <div>Zone: {plant.zone.join(", ")}</div>
-        <div>Habitat: {plant.habitat}</div>
-        <div>Height: {plant.height} m</div>
+        <tr>
+          <th className="title">General</th>
+        </tr>
+        <tr>
+          <td className="sub-title">Type:</td> <td> {plant.typeOfPlant}</td>
+        </tr>
+        <tr>
+          <td className="sub-title">Evergreen:</td>
+          <td> {plant.evergreen ? "Yes" : "No"}</td>
+        </tr>
+        <tr>
+          <td className="sub-title">Zone:</td> <td> {plant.zone.join(", ")}</td>
+        </tr>
+        <tr>
+          <td className="sub-title">Habitat:</td> <td> {plant.habitat}</td>
+        </tr>
+        <tr>
+          <td className="sub-title">Height:</td> <td> {plant.height} m</td>
+        </tr>
         {this.renderOptional(plant.description, "Description")}
       </React.Fragment>
     );
@@ -50,10 +62,19 @@ class Identification extends Component {
   renderStem(plant) {
     return (
       <React.Fragment>
-        <div className="title">Stem</div>
-        <div>Colour: {plant.stemColour}</div>
-        <div>Texture: {plant.stemTexture}</div>
-        <div>Description: {plant.stemDescription}</div>
+        <tr className="title">
+          <th>Stem</th>
+        </tr>
+        <tr>
+          <td className="sub-title"> Colour:</td> <td> {plant.stemColour}</td>
+        </tr>
+        <tr>
+          <td className="sub-title"> Texture:</td> <td> {plant.stemTexture}</td>
+        </tr>
+        <tr>
+          <td className="sub-title"> Description:</td>{" "}
+          <td> {plant.stemDescription}</td>
+        </tr>
       </React.Fragment>
     );
   }
@@ -61,12 +82,25 @@ class Identification extends Component {
   renderLeaf(plant) {
     return (
       <React.Fragment>
-        <div className="title">Leaves</div>
-        <div>Shape: {plant.leafShape}</div>
-        <div>Margin: {plant.leafMargin}</div>
+        <tr className="title">
+          <th>Leaves</th>
+        </tr>
+
+        <tr>
+          <td className="sub-title"> Shape: </td> <td> {plant.leafShape} </td>
+        </tr>
+        <tr>
+          <td className="sub-title"> Margin: </td> <td> {plant.leafMargin} </td>
+        </tr>
         {this.renderOptional(plant.leafVenation, "Venation")}
-        <div>Length: {plant.leafLength} cm</div>
-        <div>Description: {plant.leafDescription}</div>
+        <tr>
+          <td className="sub-title"> Length: </td>{" "}
+          <td> {plant.leafLength} cm </td>
+        </tr>
+        <tr>
+          <td className="sub-title"> Description: </td>{" "}
+          <td> {plant.leafDescription} </td>
+        </tr>
       </React.Fragment>
     );
   }
@@ -75,7 +109,9 @@ class Identification extends Component {
     if (!plant.flowerColour) return;
     return (
       <React.Fragment>
-        <div className="title">Flowers</div>
+        <tr className="title">
+          <th>Flowers </th>
+        </tr>
         {this.renderOptional(plant.flowerColour, "Colour")}
         {this.renderOptional(
           this.bloomMonth,
@@ -91,7 +127,9 @@ class Identification extends Component {
     if (!plant.fruitColour) return;
     return (
       <React.Fragment>
-        <div className="title">Fruit</div>
+        <tr className="title">
+          <th>Fruit </th>
+        </tr>
         {this.renderOptional(plant.fruitColour, "Colour")}
         {this.renderOptional(
           this.harvestMonth,
@@ -104,36 +142,19 @@ class Identification extends Component {
     );
   }
 
-  capitalise(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
-
-  capitaliseString(str) {
-    let arr = str.split(" ");
-    if (arr.length > 1) {
-      let tmp = "";
-      for (let s of arr) {
-        tmp += this.capitalise(s) + " ";
-      }
-      return tmp;
-    } else {
-      return this.capitalise(str);
-    }
-  }
-
   render() {
     let plant = this.props.plant;
     return (
       <div className="identification">
-        <div className="latin">{this.capitaliseString(plant.latinName)}</div>
-        <div className="common">{this.capitaliseString(plant.commonName)}</div>
-        <div>
+        <div className="latin">{capitaliseString(plant.latinName)}</div>
+        <div className="common">{capitaliseString(plant.commonName)}</div>
+        <table>
           {this.renderGeneral(plant)}
           {this.renderStem(plant)}
           {this.renderLeaf(plant)}
           {this.renderFlowers(plant)}
           {this.renderFruits(plant)}
-        </div>
+        </table>
       </div>
     );
   }

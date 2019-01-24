@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { capitalise } from "../../utility/utility";
 
 import "./style/Media.css";
 
@@ -60,7 +61,7 @@ class Media extends Component {
           <div className="side-images">{this.getSide()}</div>
         </div>
         <div className="main-image-subtitle">
-          {this.getCaption()} {this.props.plant.commonName}
+          {capitalise(this.getCaption())}
         </div>
       </div>
     );

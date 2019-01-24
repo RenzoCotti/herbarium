@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const definitions = require("../utility/definitions");
+const definitions = require("../../utility/definitions");
 //takes all the arrays within the object and returns a single array
 const medicinalProp = [].concat.apply(
   [],

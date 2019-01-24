@@ -6,17 +6,9 @@ import PlantDetail from "./PlantDetail";
 import Browse from "./Browse";
 import Footbar from "./Footbar";
 import Home from "./Home";
+import PlantRandom from "./PlantRandom";
 
 class App extends Component {
-  // async getRandom() {
-  //   this.setState({ loading: true });
-  //   let res = await fetch("/random");
-  //   let jplant = await res.json();
-
-  //   this.setState({ loading: false });
-  //   return jplant;
-  // }
-
   render() {
     return (
       <HashRouter>
@@ -26,7 +18,7 @@ class App extends Component {
           <div className="content">
             <Route exact path="/" component={Home} />
             <Route path="/browse" component={Browse} />
-            <Route path="/random" component={PlantDetail} />
+            <Route path="/random" component={PlantRandom} />
             <Route path="/identify" component={PlantDetail} />
           </div>
 
