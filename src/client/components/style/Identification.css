@@ -8,19 +8,3 @@
   font-weight: bold;
   color: darkgreen;
 }
-
-td.sub-title {
-  width: 100px;
-}
-
-tr td:last-child {
-  width: 300px;
-}
-
-td.label + td {
-  width: 400px;
-}
-
-td > input {
-  width: 93.5%;
-}

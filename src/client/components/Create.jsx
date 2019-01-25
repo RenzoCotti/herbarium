@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Select from "react-select";
+import { capitalise } from "../../utility/utility";
 
 const definitions = require("../../utility/definitions");
 
@@ -62,13 +63,14 @@ class Create extends Component {
   createRow(label, name) {
     return (
       <tr className="rowCreate">
-        <td className="label">{label}</td>
+        <td className="sub-title">{label}</td>
         <td>
           <input
-            className="form-control"
+            className="form-control forms"
             type="text"
             name={name}
             onChange={this.handleChange}
+            autoComplete="off"
           />
         </td>
       </tr>
@@ -77,19 +79,21 @@ class Create extends Component {
 
   createOptions(label, name, arr, multiple) {
     let temp = [];
-    for (let a of arr) {
+    for (let s of arr) {
+      let a = capitalise(s);
       temp.push({ value: a, label: a });
     }
 
     return (
       <tr className="rowCreate">
-        <td className="label">{label}</td>
+        <td className="sub-title">{label}</td>
         <td>
           <Select
             value={this.state[label]}
             onChange={val => this.handleSelect(val, name, multiple)}
             options={temp}
             isMulti={multiple ? true : false}
+            className="forms"
           />
         </td>
       </tr>

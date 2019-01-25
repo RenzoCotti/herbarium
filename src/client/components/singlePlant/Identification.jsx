@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../style/Identification.css";
-import { capitaliseString } from "../../../utility/utility";
+import { capitalise, capitaliseString } from "../../../utility/utility";
 
 //where, overall appearance, details, season
 
@@ -26,7 +26,7 @@ class Identification extends Component {
       return (
         <tr>
           <td className="sub-title">{str}:</td>
-          <td>{opt ? opt : obj}</td>
+          <td>{opt ? capitalise(opt) : capitalise(obj)}</td>
         </tr>
       );
     }
@@ -41,11 +41,11 @@ class Identification extends Component {
         </tr>
         <tr>
           <td className="sub-title">Type:</td>
-          <td>{plant.typeOfPlant}</td>
+          <td>{capitalise(plant.typeOfPlant)}</td>
         </tr>
         <tr>
           <td className="sub-title">Evergreen:</td>
-          <td> {plant.evergreen ? "Yes" : "No"}</td>
+          <td>{plant.evergreen ? "Yes" : "No"}</td>
         </tr>
         <tr>
           <td className="sub-title">Regions:</td>
@@ -53,7 +53,7 @@ class Identification extends Component {
         </tr>
         <tr>
           <td className="sub-title">Habitat:</td>
-          <td>{plant.habitat}</td>
+          <td>{capitalise(plant.habitat)}</td>
         </tr>
         <tr>
           <td className="sub-title">Height:</td>
@@ -72,15 +72,15 @@ class Identification extends Component {
         </tr>
         <tr>
           <td className="sub-title">Colour:</td>
-          <td>{plant.stemColour}</td>
+          <td>{capitalise(plant.stemColour)}</td>
         </tr>
         <tr>
           <td className="sub-title">Texture:</td>
-          <td>{plant.stemTexture}</td>
+          <td>{capitalise(plant.stemTexture)}</td>
         </tr>
         <tr>
           <td className="sub-title">Description:</td>
-          <td>{plant.stemDescription}</td>
+          <td>{capitalise(plant.stemDescription)}</td>
         </tr>
       </React.Fragment>
     );
@@ -94,11 +94,11 @@ class Identification extends Component {
         </tr>
         <tr>
           <td className="sub-title">Shape:</td>
-          <td>{plant.leafShape}</td>
+          <td>{capitalise(plant.leafShape)}</td>
         </tr>
         <tr>
           <td className="sub-title">Margin:</td>
-          <td>{plant.leafMargin}</td>
+          <td>{capitalise(plant.leafMargin)}</td>
         </tr>
         {this.renderOptional(plant.leafVenation, "Venation")}
         <tr>
@@ -107,7 +107,7 @@ class Identification extends Component {
         </tr>
         <tr>
           <td className="sub-title">Description:</td>
-          <td>{plant.leafDescription}</td>
+          <td>{capitalise(plant.leafDescription)}</td>
         </tr>
       </React.Fragment>
     );
@@ -152,6 +152,7 @@ class Identification extends Component {
 
   render() {
     let plant = this.props.plant;
+
     return (
       <div className="secondary-container">
         <div className="latinName">{capitaliseString(plant.latinName)}</div>
