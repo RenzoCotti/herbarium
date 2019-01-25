@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import "../style/Identification.css";
-import { capitalise, capitaliseString } from "../../../utility/utility";
+import {
+  capitalise,
+  capitaliseString,
+  renderOptional
+} from "../../../utility/utility";
 
 //where, overall appearance, details, season
 
@@ -9,28 +13,11 @@ class Identification extends Component {
 
   constructor(props) {
     super(props);
-
-    //utility
-    this.renderOptional = this.renderOptional.bind(this);
-
     this.renderGeneral = this.renderGeneral.bind(this);
     this.renderStem = this.renderStem.bind(this);
     this.renderLeaf = this.renderLeaf.bind(this);
     this.renderFlowers = this.renderFlowers.bind(this);
     this.renderFruits = this.renderFruits.bind(this);
-  }
-
-  //if obj isnt null, render opt if is not null, otherwise render obj
-  renderOptional(obj, str, opt) {
-    if (obj) {
-      return (
-        <tr>
-          <td className="sub-title">{str}:</td>
-          <td>{opt ? capitalise(opt) : capitalise(obj)}</td>
-        </tr>
-      );
-    }
-    return;
   }
 
   renderGeneral(plant) {
@@ -59,7 +46,7 @@ class Identification extends Component {
           <td className="sub-title">Height:</td>
           <td>{plant.height} m</td>
         </tr>
-        {this.renderOptional(plant.description, "Description")}
+        {renderOptional(plant.description, "Description")}
       </React.Fragment>
     );
   }
@@ -100,7 +87,7 @@ class Identification extends Component {
           <td className="sub-title">Margin:</td>
           <td>{capitalise(plant.leafMargin)}</td>
         </tr>
-        {this.renderOptional(plant.leafVenation, "Venation")}
+        {renderOptional(plant.leafVenation, "Venation")}
         <tr>
           <td className="sub-title">Length:</td>
           <td>{plant.leafLength} cm</td>
@@ -120,13 +107,13 @@ class Identification extends Component {
         <tr className="title">
           <th>Flowers</th>
         </tr>
-        {this.renderOptional(plant.flowerColour, "Colour")}
-        {this.renderOptional(
+        {renderOptional(plant.flowerColour, "Colour")}
+        {renderOptional(
           this.bloomMonth,
           "Blooming Months",
           plant.bloomMonth.join(", ")
         )}
-        {this.renderOptional(plant.flowerDescription, "Description")}
+        {renderOptional(plant.flowerDescription, "Description")}
       </React.Fragment>
     );
   }
@@ -138,14 +125,14 @@ class Identification extends Component {
         <tr className="title">
           <th>Fruit</th>
         </tr>
-        {this.renderOptional(plant.fruitColour, "Colour")}
-        {this.renderOptional(
+        {renderOptional(plant.fruitColour, "Colour")}
+        {renderOptional(
           this.harvestMonth,
           "Harvest Months",
           plant.harvestMonth.join(", ")
         )}
-        {this.renderOptional(plant.fruitDescription, "Description")}
-        {this.renderOptional(plant.fruitSize, "Size", this.fruitSize + " cm")}
+        {renderOptional(plant.fruitDescription, "Description")}
+        {renderOptional(plant.fruitSize, "Size", this.fruitSize + " cm")}
       </React.Fragment>
     );
   }

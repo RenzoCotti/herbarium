@@ -55,7 +55,7 @@ class Media extends Component {
 
   render() {
     return (
-      <div className="secondary-container">
+      <React.Fragment>
         <div className="image-container">
           <img className="main-image" src={this.getSrc()} alt="" />
           <div className="side-images">{this.getSide()}</div>
@@ -63,7 +63,7 @@ class Media extends Component {
         <div className="main-image-subtitle">
           {capitalise(this.getCaption())}
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }

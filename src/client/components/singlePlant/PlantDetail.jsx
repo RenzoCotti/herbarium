@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Media from "./Media";
+import MediaUses from "./MediaUses";
 import Identification from "./Identification";
 
 class PlantDetail extends Component {
@@ -20,7 +20,7 @@ class PlantDetail extends Component {
     if (!this.state.plant) return <div />;
     return (
       <div className="main-container">
-        <Media plant={this.state.plant} />
+        <MediaUses plant={this.state.plant} />
         <Identification plant={this.state.plant} />
       </div>
     );

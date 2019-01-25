@@ -39,3 +39,12 @@
   padding-bottom: 0;
   background-color: #90ca40bb;
 }
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-image-subtitle {
+  margin-bottom: 80px;
+}

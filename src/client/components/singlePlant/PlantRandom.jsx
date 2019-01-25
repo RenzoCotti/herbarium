@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Media from "./Media";
+import MediaUses from "./MediaUses";
 import Identification from "./Identification";
 
 class PlantRandom extends Component {
@@ -29,7 +29,7 @@ class PlantRandom extends Component {
         <div className="button" onClick={this.getPlant}>
           Another one
         </div>
-        <Media plant={this.state.plant} />
+        <MediaUses plant={this.state.plant} />
         <Identification plant={this.state.plant} />
       </React.Fragment>
     );

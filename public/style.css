@@ -29,13 +29,14 @@ body {
 .secondary-container {
   padding: 50px;
   background-color: #90ca40bb;
-  max-width: 50%;
+  max-width: 40%;
   margin: 0 auto;
 }
 
 .button {
   background-color: #8db15c;
-  /* margin: 50px auto; */
+  position: fixed;
+  right: 0;
   width: 150px;
   padding: 10px;
   font-size: 15pt;
@@ -68,8 +69,8 @@ td {
 }
 
 td.sub-title {
-  min-width: 200px;
-  width: 200px;
+  min-width: 100px;
+  width: 100px;
 }
 
 .forms {
