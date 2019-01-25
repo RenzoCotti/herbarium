@@ -7,8 +7,10 @@ class Uses extends Component {
   getList() {
     return this.props.plant.uses.map(use => {
       return (
-        <div>
-          <div className="title">{use.part}</div>
+        <React.Fragment key={use.part}>
+          <tr>
+            <td className="title">{use.part}</td>
+          </tr>
           {renderOptional(use.edible, "Edible", "Yes")}
           {renderOptional(use.foodPreparation, "Preparation")}
           {renderOptional(
@@ -18,7 +20,7 @@ class Uses extends Component {
           )}
           {renderOptional(use.medicinalPreparation, "Medicinal Preparation")}
           {renderOptional(use.material, "Material")}
-        </div>
+        </React.Fragment>
       );
     });
   }

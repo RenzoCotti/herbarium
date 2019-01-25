@@ -54,8 +54,8 @@ class Identification extends Component {
   renderStem(plant) {
     return (
       <React.Fragment>
-        <tr className="title">
-          <th>Stem</th>
+        <tr>
+          <th className="title">Stem</th>
         </tr>
         <tr>
           <td className="sub-title">Colour:</td>
@@ -76,8 +76,8 @@ class Identification extends Component {
   renderLeaf(plant) {
     return (
       <React.Fragment>
-        <tr className="title">
-          <th>Leaves</th>
+        <tr>
+          <th className="title">Leaves</th>
         </tr>
         <tr>
           <td className="sub-title">Shape:</td>
@@ -104,8 +104,8 @@ class Identification extends Component {
     if (!plant.flowerColour) return;
     return (
       <React.Fragment>
-        <tr className="title">
-          <th>Flowers</th>
+        <tr>
+          <th className="title">Flowers</th>
         </tr>
         {renderOptional(plant.flowerColour, "Colour")}
         {renderOptional(
@@ -122,8 +122,8 @@ class Identification extends Component {
     if (!plant.fruitColour) return;
     return (
       <React.Fragment>
-        <tr className="title">
-          <th>Fruit</th>
+        <tr>
+          <th className="title">Fruit</th>
         </tr>
         {renderOptional(plant.fruitColour, "Colour")}
         {renderOptional(
