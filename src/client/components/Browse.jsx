@@ -34,7 +34,7 @@ class Browse extends Component {
 
   render() {
     return (
-      <div className="list">
+      <div className="secondary-container">
         List of plants:
         {this.getList()}
       </div>

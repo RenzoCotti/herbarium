@@ -1,7 +1,6 @@
 .secondary-image {
   width: 100px;
   height: 100px;
-  margin: 10px;
   border: 2px solid white;
 }
 
@@ -22,6 +21,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 10px;
+}
+
+.side-images img {
+  margin-top: 10px;
 }
 
 .image-container {

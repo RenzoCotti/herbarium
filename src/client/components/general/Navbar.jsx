@@ -26,9 +26,9 @@ class Navbar extends Component {
           let link = op.toLowerCase();
           if (op === "Home") link = "";
           return (
-            <div className="nav-element" key={op}>
-              <NavLink to={"/" + link}>{op}</NavLink>
-            </div>
+            <NavLink className="nav-element" key={op} to={"/" + link}>
+              {op}
+            </NavLink>
           );
         })}
       </React.Fragment>

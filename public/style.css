@@ -1,34 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 
-.navbar {
-  display: flex;
-  flex-direction: row;
-  border-bottom: 1px solid black;
-  background-color: #8db15c;
-}
-
-.nav-element {
-  padding: 20px 20px 5px 20px;
-}
-
-.nav-element:hover {
-  cursor: pointer;
-  background-color: #90ca40;
-}
-
-.main-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin-top: 10px;
-}
-
 html {
-  font-family: "Montserrat";
-  font-size: 20pt;
+  font-family: "Montserrat", arial;
+  font-size: 18pt;
   font-weight: 100;
   padding: 0;
   margin: 0;
+  background-color: transparent;
   background-image: url("https://cdn.pixabay.com/photo/2015/03/30/12/36/green-698508_1280.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -40,25 +18,69 @@ body {
   margin: 0;
 }
 
-.foot {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  padding: 10px;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 15pt;
+.main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  margin-top: 20px;
 }
 
-.rand {
+.secondary-container {
+  padding: 50px;
+  background-color: #90ca40bb;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.button {
   background-color: #8db15c;
-  margin: 50px auto;
+  /* margin: 50px auto; */
   width: 150px;
   padding: 10px;
   font-size: 15pt;
   text-align: center;
 }
 
-.rand:hover {
+.button:hover {
   cursor: pointer;
   background-color: #90ca40;
+}
+
+.title {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.super-title {
+  font-weight: bold;
+  font-size: 24pt;
+}
+
+.sub-title {
+  font-size: 15pt;
+}
+
+td {
+  padding: 0 50px 0 0;
+  width: 200px;
+  text-align: justify;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  height: 34px;
+  padding: 6px 12px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+}
+
+input:focus {
+  border-color: #66afe9;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
 }

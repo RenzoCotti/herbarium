@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "./style/Identification.css";
-import { capitaliseString } from "../../utility/utility";
+import "../style/Identification.css";
+import { capitaliseString } from "../../../utility/utility";
 
 //where, overall appearance, details, season
 
@@ -153,9 +153,9 @@ class Identification extends Component {
   render() {
     let plant = this.props.plant;
     return (
-      <div className="identification">
-        <div className="latin">{capitaliseString(plant.latinName)}</div>
-        <div className="common">{capitaliseString(plant.commonName)}</div>
+      <div className="secondary-container">
+        <div className="latinName">{capitaliseString(plant.latinName)}</div>
+        <div className="commonName">{capitaliseString(plant.commonName)}</div>
         <table>
           <tbody>
             {this.renderGeneral(plant)}

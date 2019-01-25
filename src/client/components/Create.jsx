@@ -36,7 +36,14 @@ class Create extends Component {
     });
   }
 
-  handleSelect(e, name) {
+  handleSelect(e, name, multi) {
+    if (!multi) {
+      this.setState({
+        [name]: e.value
+      });
+      return;
+    }
+
     let temp = [];
 
     if (Array.isArray(e)) {
@@ -57,7 +64,12 @@ class Create extends Component {
       <tr className="rowCreate">
         <td className="label">{label}</td>
         <td>
-          <input type="text" name={name} onChange={this.handleChange} />
+          <input
+            className="form-control"
+            type="text"
+            name={name}
+            onChange={this.handleChange}
+          />
         </td>
       </tr>
     );
@@ -75,7 +87,7 @@ class Create extends Component {
         <td>
           <Select
             value={this.state[label]}
-            onChange={val => this.handleSelect(val, name)}
+            onChange={val => this.handleSelect(val, name, multiple)}
             options={temp}
             isMulti={multiple ? true : false}
           />
@@ -86,25 +98,27 @@ class Create extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
-        <table>
-          <tbody>
-            {this.createRow("Latin Name:", "latin")}
-            {this.createRow("Common Name:", "common")}
-            {this.createOptions("Type:", "type", definitions.plantTypes)}
-            {this.createOptions("Evergreen:", "evergreen", ["Yes", "No"])}
-            {this.createRow("Description:", "description")}
-            {this.createOptions(
-              "Regions:",
-              "regions",
-              definitions.regions,
-              true
-            )}
-          </tbody>
-        </table>
+      <div className="secondary-container">
+        <form onSubmit={this.onSubmit}>
+          <table>
+            <tbody>
+              {this.createRow("Latin Name:", "latin")}
+              {this.createRow("Common Name:", "common")}
+              {this.createOptions("Type:", "type", definitions.plantTypes)}
+              {this.createOptions("Evergreen:", "evergreen", ["Yes", "No"])}
+              {this.createRow("Description:", "description")}
+              {this.createOptions(
+                "Regions:",
+                "regions",
+                definitions.regions,
+                true
+              )}
+            </tbody>
+          </table>
 
-        <input type="submit" value="Submit" />
-      </form>
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
     );
   }
 }

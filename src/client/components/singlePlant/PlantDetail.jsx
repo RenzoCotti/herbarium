@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import Media from "./Media";
-import Information from "./Information";
+import Identification from "./Identification";
 
 class PlantDetail extends Component {
   state = {};
@@ -21,7 +21,7 @@ class PlantDetail extends Component {
     return (
       <div className="main-container">
         <Media plant={this.state.plant} />
-        <Information plant={this.state.plant} />
+        <Identification plant={this.state.plant} />
       </div>
     );
   }

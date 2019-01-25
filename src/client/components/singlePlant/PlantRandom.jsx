@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import Media from "./Media";
-import Information from "./Information";
+import Identification from "./Identification";
 
 class PlantRandom extends Component {
   state = {};
@@ -26,13 +26,11 @@ class PlantRandom extends Component {
     if (!this.state.plant) return <div />;
     return (
       <React.Fragment>
-        <div className="rand" onClick={this.getPlant}>
+        <div className="button" onClick={this.getPlant}>
           Another one
         </div>
-        <div className="main-container">
-          <Media plant={this.state.plant} />
-          <Information plant={this.state.plant} />
-        </div>
+        <Media plant={this.state.plant} />
+        <Identification plant={this.state.plant} />
       </React.Fragment>
     );
   }

@@ -1,33 +1,26 @@
-.title {
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-.super-title {
-  font-weight: bold;
-  font-size: 24pt;
-}
-
-.identification {
-  padding: 20px;
-  background-color: #90ca40bb;
-}
-
-.latin {
+.latinName {
   font-style: italic;
 }
 
-.common {
+.commonName {
   font-size: 25pt;
   margin-bottom: 50px;
   font-weight: bold;
   color: darkgreen;
 }
 
-td {
-  padding: 0 50px 0 0;
+td.sub-title {
+  width: 100px;
 }
 
-.sub-title {
-  font-size: 15pt;
+tr td:last-child {
+  width: 300px;
+}
+
+td.label + td {
+  width: 400px;
+}
+
+td > input {
+  width: 93.5%;
 }

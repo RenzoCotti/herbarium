@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { capitalise } from "../../utility/utility";
+import { capitalise } from "../../../utility/utility";
 
-import "./style/Media.css";
+import "../style/Media.css";
 
 class Media extends Component {
   state = {
@@ -55,7 +55,7 @@ class Media extends Component {
 
   render() {
     return (
-      <div className="media-container">
+      <div className="secondary-container">
         <div className="image-container">
           <img className="main-image" src={this.getSrc()} alt="" />
           <div className="side-images">{this.getSide()}</div>
