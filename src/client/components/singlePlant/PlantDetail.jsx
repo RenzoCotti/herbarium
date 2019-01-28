@@ -19,7 +19,7 @@ class PlantDetail extends Component {
   render() {
     if (!this.state.plant) return <Search setPlant={this.setPlant} />;
     return (
-      <div className="main-container">
+      <div className="main-container background">
         <MediaUses plant={this.state.plant} />
         <Identification plant={this.state.plant} />
       </div>

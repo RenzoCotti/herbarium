@@ -102,7 +102,7 @@ class Create extends Component {
 
   render() {
     return (
-      <div className="secondary-container">
+      <div className="secondary-container background">
         <form onSubmit={this.onSubmit}>
           <table>
             <tbody>

@@ -37,11 +37,19 @@ class Search extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
-        <input type="text" name="plant" onChange={this.handleChange} />
-        <input type="submit" value="Submit" />
-        <input type="submit" value="Random" onClick={this.getRandom} />
-      </form>
+      <div className="secondary-container background">
+        Search Plant:
+        <form onSubmit={this.onSubmit}>
+          <input
+            type="text"
+            name="plant"
+            onChange={this.handleChange}
+            autocomplete="off"
+          />
+          <input type="submit" value="Submit" />
+          <input type="submit" value="Random" onClick={this.getRandom} />
+        </form>
+      </div>
     );
   }
 }

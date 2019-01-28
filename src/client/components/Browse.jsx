@@ -47,7 +47,7 @@ class Browse extends Component {
     if (this.state.plant)
       return <Redirect push to={"/plant/" + this.state.plant.commonName} />;
     return (
-      <div className="secondary-container">
+      <div className="secondary-container background">
         List of plants:
         {this.getList()}
       </div>

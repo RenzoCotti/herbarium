@@ -23,14 +23,18 @@ body {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: space-evenly;
+  justify-content: space-around;
   padding: 50px 100px;
+  margin: 0 auto;
   width: 80%;
+}
+
+.background {
+  background-color: #243818cc;
 }
 
 .secondary-container {
   padding: 50px;
-  background-color: #243818cc;
   max-width: 50%;
   margin: 0 auto;
 }
