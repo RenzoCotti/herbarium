@@ -10,9 +10,9 @@ class Navbar extends Component {
   state = {
     options: [
       "Home",
-      "Identify",
+      "Plant",
       "Browse",
-      "Random",
+      "Identify",
       "Create",
       "Search",
       "About"

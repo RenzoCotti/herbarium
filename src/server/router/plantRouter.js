@@ -4,10 +4,13 @@ var Plant = require("../models/plantModel");
 
 //placeholder for database
 
-router.get("/plant", (req, res) => {
-  Plant.find({ commonName: "sage" }, (err, plant) => {
-    res.json(plant[0]);
-  });
+router.get("/plant/:name", (req, res) => {
+  Plant.find(
+    { commonName: new RegExp("^" + req.params.name + "$", "i") },
+    (err, plant) => {
+      res.json(plant[0]);
+    }
+  );
 });
 
 router.get("/list", (req, res) => {

@@ -23,7 +23,6 @@ class Media extends Component {
 
   getSrc() {
     let show = this.state.showing;
-    console.log(this.props.plant);
     return this.props.plant.images[show].url;
   }
 

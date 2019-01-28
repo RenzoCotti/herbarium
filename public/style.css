@@ -7,7 +7,7 @@ html {
   padding: 0;
   margin: 0;
   background-color: transparent;
-  background-image: url("https://cdn.pixabay.com/photo/2015/03/30/12/36/green-698508_1280.jpg");
+  background-image: url("./bg.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100%;
@@ -16,6 +16,7 @@ html {
 body {
   padding: 0;
   margin: 0;
+  color: wheat;
 }
 
 .main-container {
@@ -23,13 +24,14 @@ body {
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-evenly;
-  margin-top: 20px;
+  padding: 50px 100px;
+  width: 80%;
 }
 
 .secondary-container {
   padding: 50px;
-  background-color: #90ca40bb;
-  max-width: 40%;
+  background-color: #243818cc;
+  max-width: 50%;
   margin: 0 auto;
 }
 

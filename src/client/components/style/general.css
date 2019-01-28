@@ -1,17 +1,8 @@
-.main {
-  width: 300px;
-  margin: 0 auto;
-  margin-top: 50px;
-  padding: 50px;
-  font-size: 20pt;
-  background-color: #90ca40bb;
-}
-
 .navbar {
+  position: fixed;
   display: flex;
-  flex-direction: row;
-  border-bottom: 1px solid black;
-  background-color: #8db15c;
+  flex-direction: column;
+  color: wheat;
 }
 
 .nav-element {
