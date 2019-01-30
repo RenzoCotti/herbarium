@@ -9,7 +9,7 @@ import Search from "../Search";
 class PlantDetail extends Component {
   render() {
     let plant = this.props.plant;
-    if (!plant) return <Search />;
+    if (!plant || plant === -1) return <Search />;
     return (
       <div className="main-container background">
         <MediaUses plant={plant} />

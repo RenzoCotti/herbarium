@@ -11,7 +11,7 @@ export const updatePlantAction = plant => ({
 
 export const updateListAction = list => ({
   type: SET_LIST,
-  plant: list
+  plants: list
 });
 
 export const updatePlantFromIndexAction = index => ({

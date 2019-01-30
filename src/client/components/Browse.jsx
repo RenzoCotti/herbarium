@@ -1,15 +1,25 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import { capitalise } from "../../utility/utility";
+import {
+  updatePlantFromIndexAction,
+  updateListAction,
+  getList,
+  getPlant
+} from "../redux/actions";
 
 import "./style/Browse.css";
 import "./style/Media.css";
 
 class Browse extends Component {
-  state = { plants: [] };
+  state = {
+    redirect: false
+  };
+
   constructor(props) {
     super(props);
-    this.getList = this.getList.bind(this);
+    this.getPlants = this.getPlants.bind(this);
   }
 
   componentDidMount() {
@@ -19,17 +29,17 @@ class Browse extends Component {
   async getPlants() {
     let res = await fetch("/api/list");
     let plants = await res.json();
-    this.setState({ plants: plants });
+    this.props.updateList(plants);
   }
 
   async goToPlant(e, i) {
-    //render plant, maybe push it to the parent?
-    this.setState({ plant: this.state.plants[i] });
+    this.props.updatePlantFromIndex(i);
+    this.setState({ redirect: true });
   }
 
-  getList() {
-    return this.state.plants.map((plant, index) => {
-      console.log(plant);
+  renderList(list) {
+    return list.map((plant, index) => {
+      // console.log(plant);
       return (
         <div
           key={plant.latinName}
@@ -44,15 +54,33 @@ class Browse extends Component {
   }
 
   render() {
-    if (this.state.plant)
-      return <Redirect push to={"/plant/" + this.state.plant.commonName} />;
+    if (this.state.redirect)
+      //do somethign on update
+      return <Redirect push to={"/plant/" + this.props.plant.commonName} />;
+
+    console.log("RENDERING");
+    if (!this.props.plants) return <div>DERP</div>;
+
     return (
       <div className="secondary-container background">
         List of plants:
-        {this.getList()}
+        {this.renderList(this.props.plants)}
       </div>
     );
   }
 }
 
-export default Browse;
+const mapStateToProps = state => ({
+  plants: getList(state),
+  plant: getPlant(state)
+});
+
+const mapDispatchToProps = dispatch => ({
+  updatePlantFromIndex: id => dispatch(updatePlantFromIndexAction(id)),
+  updateList: list => dispatch(updateListAction(list))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Browse);

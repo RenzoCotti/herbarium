@@ -10,6 +10,7 @@ const INITIAL_STATE = {
 function reducer(state = INITIAL_STATE, action) {
   let newState = { ...state };
 
+  console.log(state);
   switch (action.type) {
     case SET_PLANT:
       newState.plant = action.plant;
