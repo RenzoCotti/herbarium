@@ -22,7 +22,7 @@ router.get("/list", (req, res) => {
 router.get("/random", (req, res) => {
   Plant.find({}, (err, plants) => {
     let rand = Math.round(Math.random());
-    res.json(plants[rand]);
+    res.json([plants[rand]]);
   });
 });
 

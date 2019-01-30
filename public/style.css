@@ -24,9 +24,14 @@ body {
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-around;
-  padding: 50px 100px;
+  padding: 0 100px;
   margin: 0 auto;
   width: 80%;
+  height: 100%;
+}
+
+.main-container .background {
+  padding: auto 0;
 }
 
 .background {

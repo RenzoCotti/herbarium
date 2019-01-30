@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import "../style/Identification.css";
-import {
-  capitalise,
-  capitaliseString,
-  renderOptional
-} from "../../../utility/utility";
+import { capitaliseString, renderSection } from "../../../utility/utility";
 
 //where, overall appearance, details, season
 
@@ -21,120 +17,127 @@ class Identification extends Component {
   }
 
   renderGeneral(plant) {
-    return (
-      <React.Fragment>
-        <tr>
-          <th className="title">General</th>
-        </tr>
-        <tr>
-          <td className="sub-title">Type:</td>
-          <td>{capitalise(plant.typeOfPlant)}</td>
-        </tr>
-        <tr>
-          <td className="sub-title">Evergreen:</td>
-          <td>{plant.evergreen ? "Yes" : "No"}</td>
-        </tr>
-        <tr>
-          <td className="sub-title">Regions:</td>
-          <td>{plant.regions.join(", ")}</td>
-        </tr>
-        <tr>
-          <td className="sub-title">Habitat:</td>
-          <td>{capitalise(plant.habitat)}</td>
-        </tr>
-        <tr>
-          <td className="sub-title">Height:</td>
-          <td>{plant.height} m</td>
-        </tr>
-        {renderOptional(plant.description, "Description")}
-      </React.Fragment>
-    );
+    let arr = [
+      {
+        property: plant.typeOfPlant,
+        label: "Type"
+      },
+      {
+        property: plant.evergreen,
+        label: "Evergreen",
+        alt: plant.evergreen ? "Yes" : "No"
+      },
+      {
+        property: plant.regions,
+        label: "Regions",
+        alt: plant.regions.join(", ")
+      },
+      {
+        property: plant.habitat,
+        label: "Habitat"
+      },
+      {
+        property: plant.height,
+        label: "Height",
+        alt: plant.height + " m"
+      },
+      {
+        property: plant.description,
+        label: "Description"
+      }
+    ];
+    return renderSection("General", arr);
   }
 
   renderStem(plant) {
-    return (
-      <React.Fragment>
-        <tr>
-          <th className="title">Stem</th>
-        </tr>
-        <tr>
-          <td className="sub-title">Colour:</td>
-          <td>{capitalise(plant.stemColour)}</td>
-        </tr>
-        <tr>
-          <td className="sub-title">Texture:</td>
-          <td>{capitalise(plant.stemTexture)}</td>
-        </tr>
-        <tr>
-          <td className="sub-title">Description:</td>
-          <td>{capitalise(plant.stemDescription)}</td>
-        </tr>
-      </React.Fragment>
-    );
+    let arr = [
+      {
+        property: plant.stemColour,
+        label: "Colour"
+      },
+      {
+        property: plant.stemTexture,
+        label: "Texture"
+      },
+      {
+        property: plant.stemDescription,
+        label: "Description"
+      }
+    ];
+    return renderSection("Stem", arr);
   }
 
   renderLeaf(plant) {
-    return (
-      <React.Fragment>
-        <tr>
-          <th className="title">Leaves</th>
-        </tr>
-        <tr>
-          <td className="sub-title">Shape:</td>
-          <td>{capitalise(plant.leafShape)}</td>
-        </tr>
-        <tr>
-          <td className="sub-title">Margin:</td>
-          <td>{capitalise(plant.leafMargin)}</td>
-        </tr>
-        {renderOptional(plant.leafVenation, "Venation")}
-        <tr>
-          <td className="sub-title">Length:</td>
-          <td>{plant.leafLength} cm</td>
-        </tr>
-        <tr>
-          <td className="sub-title">Description:</td>
-          <td>{capitalise(plant.leafDescription)}</td>
-        </tr>
-      </React.Fragment>
-    );
+    let arr = [
+      {
+        property: plant.leafShape,
+        label: "Shape"
+      },
+      {
+        property: plant.leafMargin,
+        label: "Margin"
+      },
+      {
+        property: plant.leafVenation,
+        label: "Venation"
+      },
+      {
+        property: plant.leafLength,
+        label: "Length",
+        alt: plant.leafLength + " cm"
+      },
+      {
+        property: plant.leafDescription,
+        label: "Description"
+      }
+    ];
+    return renderSection("Leaves", arr);
   }
 
   renderFlowers(plant) {
     if (!plant.flowerColour) return;
-    return (
-      <React.Fragment>
-        <tr>
-          <th className="title">Flowers</th>
-        </tr>
-        {renderOptional(plant.flowerColour, "Colour")}
-        {renderOptional(
-          this.bloomMonth,
-          "Blooming Months",
-          plant.bloomMonth.join(", ")
-        )}
-        {renderOptional(plant.flowerDescription, "Description")}
-      </React.Fragment>
-    );
+
+    let arr = [
+      {
+        property: plant.flowerColour,
+        label: "Colour"
+      },
+      {
+        property: plant.bloomMonth,
+        label: "Blooming Months",
+        alt: plant.bloomMonth.join(", ")
+      },
+      {
+        property: plant.flowerDescription,
+        label: "Description"
+      }
+    ];
+    return renderSection("Flowers", arr);
   }
 
   renderFruits(plant) {
     if (!plant.fruitColour) return;
-    return (
-      <React.Fragment>
-        <tr>
-          <th className="title">Fruit</th>
-        </tr>
-        {renderOptional(plant.fruitColour, "Colour")}
-        {renderOptional(
-          this.harvestMonth,
-          "Harvest Months",
-          plant.harvestMonth.join(", ")
-        )}
-        {renderOptional(plant.fruitDescription, "Description")}
-        {renderOptional(plant.fruitSize, "Size", this.fruitSize + " cm")}
-      </React.Fragment>
-    );
+    let arr = [
+      {
+        property: plant.fruitColour,
+        label: "Colour"
+      },
+      {
+        property: plant.harvestMonth,
+        label: "Colour",
+        alt: plant.harvestMonth.join(", ")
+      },
+      {
+        property: plant.fruitDescription,
+        label: "Description"
+      },
+      {
+        property: plant.fruitSize,
+        label: "Size",
+        alt: plant.fruitSize + " cm"
+      }
+    ];
+    return renderSection("Fruits", arr);
   }
 
   render() {
@@ -144,7 +147,7 @@ class Identification extends Component {
       <div className="secondary-container">
         <div className="latinName">{capitaliseString(plant.latinName)}</div>
         <div className="commonName">{capitaliseString(plant.commonName)}</div>
-        <table>
+        <table className="table">
           <tbody>
             {this.renderGeneral(plant)}
             {this.renderStem(plant)}
