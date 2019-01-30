@@ -1,30 +1,26 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getPlant } from "../../redux/actions";
 
 import MediaUses from "./MediaUses";
 import Identification from "./Identification";
 import Search from "../Search";
 
 class PlantDetail extends Component {
-  state = {};
-
-  constructor(props) {
-    super(props);
-    this.setPlant = this.setPlant.bind(this);
-  }
-
-  async setPlant(plant) {
-    this.setState({ plant: plant });
-  }
-
   render() {
-    if (!this.state.plant) return <Search setPlant={this.setPlant} />;
+    let plant = this.props.plant;
+    if (!plant) return <Search />;
     return (
       <div className="main-container background">
-        <MediaUses plant={this.state.plant} />
-        <Identification plant={this.state.plant} />
+        <MediaUses plant={plant} />
+        <Identification plant={plant} />
       </div>
     );
   }
 }
 
-export default PlantDetail;
+const mapStateToProps = state => ({
+  plant: getPlant(state)
+});
+
+export default connect(mapStateToProps)(PlantDetail);

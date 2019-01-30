@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { updatePlantAction, getPlant } from "../redux/actions";
 
 class Search extends Component {
   state = {};
@@ -7,25 +9,25 @@ class Search extends Component {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.getPlant = this.getPlant.bind(this);
+    this.fetchPlant = this.fetchPlant.bind(this);
     this.getRandom = this.getRandom.bind(this);
   }
 
-  async getPlant(url) {
-    console.log(url);
+  async fetchPlant(url) {
+    // console.log(url);
     let res = await fetch(url);
     let plant = await res.json();
-    this.props.setPlant(plant);
+    this.props.updatePlant(plant);
   }
 
   async getRandom(e) {
     e.preventDefault();
-    this.getPlant("/api/random");
+    this.fetchPlant("/api/random");
   }
 
   onSubmit(e) {
     e.preventDefault();
-    this.getPlant("/api/plant/" + this.state.plant);
+    this.fetchPlant("/api/plant/" + this.state.plant);
   }
 
   handleChange(e) {
@@ -44,7 +46,7 @@ class Search extends Component {
             type="text"
             name="plant"
             onChange={this.handleChange}
-            autocomplete="off"
+            autoComplete="off"
           />
           <input type="submit" value="Submit" />
           <input type="submit" value="Random" onClick={this.getRandom} />
@@ -54,4 +56,11 @@ class Search extends Component {
   }
 }
 
-export default Search;
+const mapDispatchToProps = dispatch => ({
+  updatePlant: plant => dispatch(updatePlantAction(plant))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Search);
