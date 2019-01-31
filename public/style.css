@@ -62,27 +62,21 @@ body {
 
 .title {
   padding-top: 20px;
+  padding-bottom: 5px;
+  color: #ac9949;
+  /* padding-left: 20px; */
   font-weight: bold;
+  /* text-align: center; */
 }
 
 .super-title {
   font-weight: bold;
   font-size: 24pt;
+  text-align: center;
 }
 
 .sub-title {
   font-size: 15pt;
-}
-
-td {
-  padding: 0 50px 0 0;
-  min-width: 250px;
-  text-align: justify;
-}
-
-td.sub-title {
-  min-width: 100px;
-  width: 100px;
 }
 
 .forms {

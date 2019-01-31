@@ -7,8 +7,31 @@
   margin-bottom: 50px;
   font-weight: bold;
   color: brown;
+  /* color: #007d99; */
 }
 
 .uses {
   margin-top: 50px;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-table {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: top;
+}
+
+.label-table {
+  width: 150px;
+  padding-right: 30px;
+  font-size: 15pt;
+}
+
+.content-table {
+  width: 300px;
 }

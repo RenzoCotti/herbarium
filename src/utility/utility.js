@@ -21,10 +21,12 @@ export function capitaliseString(str) {
 export function renderOptional(obj, str, opt) {
   if (obj) {
     return (
-      <tr key={obj}>
-        <td className="sub-title">{str}:</td>
-        <td>{opt ? capitalise(opt) : capitalise(obj)}</td>
-      </tr>
+      <div className="row-table" key={obj}>
+        <div className="label-table">{str}:</div>
+        <div className="content-table">
+          {opt ? capitalise(opt) : capitalise(obj)}
+        </div>
+      </div>
     );
   }
   return;
@@ -33,9 +35,7 @@ export function renderOptional(obj, str, opt) {
 export function renderSection(title, arr) {
   return (
     <React.Fragment>
-      <tr>
-        <th className="title">{title}</th>
-      </tr>
+      <div className="title">{title}</div>
       {arr.map(obj => renderOptional(obj.property, obj.label, obj.alt))}
     </React.Fragment>
   );

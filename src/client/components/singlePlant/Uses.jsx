@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { renderOptional } from "../../../utility/utility";
+import { renderOptional, capitalise } from "../../../utility/utility";
 
 class Uses extends Component {
   state = {};
@@ -8,17 +8,17 @@ class Uses extends Component {
     return this.props.plant.uses.map(use => {
       return (
         <React.Fragment key={use.part}>
-          <tr>
-            <td className="title">{use.part}</td>
-          </tr>
+          <div className="row-table">
+            <div className="title">{capitalise(use.part)}</div>
+          </div>
           {renderOptional(use.edible, "Edible", "Yes")}
           {renderOptional(use.foodPreparation, "Preparation")}
           {renderOptional(
             use.medicinalProperties,
-            "Medicinal Properties",
+            "Medicinal",
             use.medicinalProperties.join(", ")
           )}
-          {renderOptional(use.medicinalPreparation, "Medicinal Preparation")}
+          {renderOptional(use.medicinalPreparation, "Preparation")}
           {renderOptional(use.material, "Material")}
         </React.Fragment>
       );
@@ -28,10 +28,8 @@ class Uses extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="super-title">Uses</div>
-        <table>
-          <tbody>{this.getList()}</tbody>
-        </table>
+        <div className="super-title">Properties</div>
+        <div className="table-container">{this.getList()}</div>
       </React.Fragment>
     );
   }

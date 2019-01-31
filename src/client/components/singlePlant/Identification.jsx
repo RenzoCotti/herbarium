@@ -147,15 +147,13 @@ class Identification extends Component {
       <div className="secondary-container">
         <div className="latinName">{capitaliseString(plant.latinName)}</div>
         <div className="commonName">{capitaliseString(plant.commonName)}</div>
-        <table className="table">
-          <tbody>
-            {this.renderGeneral(plant)}
-            {this.renderStem(plant)}
-            {this.renderLeaf(plant)}
-            {this.renderFlowers(plant)}
-            {this.renderFruits(plant)}
-          </tbody>
-        </table>
+        <div className="table-container">
+          {this.renderGeneral(plant)}
+          {this.renderStem(plant)}
+          {this.renderLeaf(plant)}
+          {this.renderFlowers(plant)}
+          {this.renderFruits(plant)}
+        </div>
       </div>
     );
   }
