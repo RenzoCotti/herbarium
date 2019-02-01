@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Media from "./Media";
-import Uses from "./Uses";
+import Uses from "./Properties";
 
-class MediaUses extends Component {
+class MediaAndProperties extends Component {
   state = {};
   render() {
     return (
@@ -14,4 +14,4 @@ class MediaUses extends Component {
   }
 }
 
-export default MediaUses;
+export default MediaAndProperties;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { renderOptional, capitalise } from "../../../utility/utility";
 
-class Uses extends Component {
+class Properties extends Component {
   state = {};
 
   getList() {
@@ -35,4 +35,4 @@ class Uses extends Component {
   }
 }
 
-export default Uses;
+export default Properties;

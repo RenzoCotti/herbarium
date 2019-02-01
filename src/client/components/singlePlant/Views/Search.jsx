@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updatePlantAction, getPlant } from "../redux/actions";
+import { updatePlantAction, getPlant } from "../../../redux/actions";
 
 class Search extends Component {
   query = "";
@@ -16,10 +16,11 @@ class Search extends Component {
     let res = await fetch(url);
     let plant = await res.json();
     console.log(plant);
-    if (plant.length !== 0) {
-      this.props.updatePlant(plant[0]);
-    } else {
+    if (plant.length === 0) {
+      //no plants found
       this.props.updatePlant(-1);
+    } else {
+      this.props.updatePlant(plant);
     }
   }
 

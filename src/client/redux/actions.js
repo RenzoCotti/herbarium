@@ -11,7 +11,7 @@ export const updatePlantAction = plant => ({
 
 export const updateListAction = list => ({
   type: SET_LIST,
-  plants: list
+  list: list
 });
 
 export const updatePlantFromIndexAction = index => ({
@@ -24,5 +24,5 @@ export function getPlant(state) {
 }
 
 export function getList(state) {
-  return state.plants;
+  return state.list;
 }

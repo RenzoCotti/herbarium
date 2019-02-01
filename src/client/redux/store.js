@@ -10,18 +10,19 @@ const INITIAL_STATE = {
 function reducer(state = INITIAL_STATE, action) {
   let newState = { ...state };
 
-  console.log(state);
+  // console.log(action);
+  // console.log(state);
   switch (action.type) {
     case SET_PLANT:
       newState.plant = action.plant;
       return newState;
 
     case SET_LIST:
-      newState.plants = action.plants;
+      newState.list = action.list;
       return newState;
 
     case SET_PLANT_FROM_INDEX:
-      newState.plant = state.plants[action.index];
+      newState.plant = [state.list[action.index]];
       return newState;
 
     default:

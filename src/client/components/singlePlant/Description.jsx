@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "../style/Identification.css";
+import "../style/Description.css";
 import { capitaliseString, renderSection } from "../../../utility/utility";
 
 //where, overall appearance, details, season
 
-class Identification extends Component {
+class Description extends Component {
   state = {};
 
   constructor(props) {
@@ -159,4 +159,4 @@ class Identification extends Component {
   }
 }
 
-export default Identification;
+export default Description;

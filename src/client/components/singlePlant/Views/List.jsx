@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
-import { capitalise } from "../../utility/utility";
+import { capitalise } from "../../../../utility/utility";
 import {
+  updatePlantAction,
   updatePlantFromIndexAction,
   updateListAction,
   getList,
   getPlant
-} from "../redux/actions";
+} from "../../../redux/actions";
 
-import "./style/Browse.css";
-import "./style/Media.css";
+import "../../style/Browse.css";
+import "../../style/Media.css";
 
 class Browse extends Component {
   state = {
@@ -54,8 +55,7 @@ class Browse extends Component {
   }
 
   render() {
-    if (this.state.redirect)
-      return <Redirect push to={"/plant/" + this.props.plant.commonName} />;
+    if (this.state.redirect) return <Redirect push to="/search" />;
 
     if (!this.props.plants) return <div />;
 
