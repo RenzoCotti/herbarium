@@ -6,8 +6,7 @@
   font-size: 25pt;
   margin-bottom: 50px;
   font-weight: bold;
-  color: brown;
-  /* color: #007d99; */
+  color: var(--yellow);
 }
 
 .uses {

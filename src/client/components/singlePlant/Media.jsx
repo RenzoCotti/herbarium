@@ -38,7 +38,7 @@ class Media extends Component {
         <img
           src={img.url}
           className={
-            img.type === this.state.showing ? classSelected : classSecondary
+            index === this.state.showing ? classSelected : classSecondary
           }
           key={img.url}
           alt=""
@@ -57,7 +57,10 @@ class Media extends Component {
       <div className="media-container">
         <div className="image-container">
           <img className="main-image" src={this.getSrc()} alt="" />
-          <div className="side-images">{this.getSide()}</div>
+          <div className="side-images">
+            {this.getSide()}
+            {/* {this.getSide()} */}
+          </div>
         </div>
         <div className="main-image-subtitle">
           {capitalise(this.getCaption())}

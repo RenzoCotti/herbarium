@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Select from "react-select";
 import { capitalise } from "../../utility/utility";
+import "./style/create.css";
 
 const definitions = require("../../utility/definitions");
 
@@ -102,7 +103,7 @@ class Create extends Component {
 
   render() {
     return (
-      <div className="secondary-container background">
+      <div className="secondary-container">
         <form onSubmit={this.onSubmit}>
           <table>
             <tbody>

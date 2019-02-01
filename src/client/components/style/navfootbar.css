@@ -2,17 +2,17 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-  color: wheat;
+  margin-top: 20px;
 }
 
 .nav-element {
-  padding: 20px 20px 5px 20px;
+  padding: 7px 10px 7px 50px;
   text-decoration: none;
 }
 
 .nav-element:hover {
   cursor: pointer;
-  background-color: #90ca40;
+  background-color: var(--background-hover);
   color: inherit;
 }
 
@@ -25,6 +25,6 @@
   bottom: 0;
   right: 0;
   padding: 10px;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text);
   font-size: 15pt;
 }

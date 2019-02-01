@@ -28,7 +28,7 @@ class Uses extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="super-title">Properties</div>
+        {/* <div className="super-title">Properties</div> */}
         <div className="table-container">{this.getList()}</div>
       </React.Fragment>
     );

@@ -43,11 +43,11 @@ class Browse extends Component {
       return (
         <div
           key={plant.latinName}
-          className="entry"
+          className="entry-browse"
           onClick={e => this.goToPlant(e, index)}
         >
           <img src={plant.images[0].url} className="secondary-image" alt="" />
-          <span className="link">{capitalise(plant.commonName)}</span>
+          <span className="label-browse">{capitalise(plant.commonName)}</span>
         </div>
       );
     });
@@ -55,14 +55,12 @@ class Browse extends Component {
 
   render() {
     if (this.state.redirect)
-      //do somethign on update
       return <Redirect push to={"/plant/" + this.props.plant.commonName} />;
 
-    console.log("RENDERING");
-    if (!this.props.plants) return <div>DERP</div>;
+    if (!this.props.plants) return <div />;
 
     return (
-      <div className="secondary-container background">
+      <div className="secondary-container">
         List of plants:
         {this.renderList(this.props.plants)}
       </div>

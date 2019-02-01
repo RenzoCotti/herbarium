@@ -39,7 +39,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="secondary-container background">
+      <div className="secondary-container">
         Search Plant:
         <form onSubmit={this.onSubmit}>
           <input

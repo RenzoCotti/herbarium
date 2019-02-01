@@ -1,14 +1,15 @@
-.link {
+.label-browse {
   padding-left: 20px;
 }
 
-.entry {
+.entry-browse {
   display: flex;
   align-items: center;
   padding: 10px;
+  color: var(--yellow);
 }
 
-.entry:hover {
-  background-color: #8db15c;
+.entry-browse:hover {
+  background-color: var(--highlight);
   cursor: pointer;
 }

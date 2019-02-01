@@ -11,10 +11,10 @@ class PlantDetail extends Component {
     let plant = this.props.plant;
     if (!plant || plant === -1) return <Search />;
     return (
-      <div className="main-container background">
+      <React.Fragment>
         <MediaUses plant={plant} />
         <Identification plant={plant} />
-      </div>
+      </React.Fragment>
     );
   }
 }
