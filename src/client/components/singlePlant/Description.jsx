@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../style/Description.css";
+import "../style/description.css";
 import { capitaliseString, renderSection } from "../../../utility/utility";
 
 //where, overall appearance, details, season

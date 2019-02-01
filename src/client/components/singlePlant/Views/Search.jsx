@@ -15,7 +15,6 @@ class Search extends Component {
   async fetchPlant(url) {
     let res = await fetch(url);
     let plant = await res.json();
-    console.log(plant);
     if (plant.length === 0) {
       //no plants found
       this.props.updatePlant(-1);

@@ -3,17 +3,16 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import { capitalise } from "../../../../utility/utility";
 import {
-  updatePlantAction,
   updatePlantFromIndexAction,
   updateListAction,
   getList,
   getPlant
 } from "../../../redux/actions";
 
-import "../../style/Browse.css";
-import "../../style/Media.css";
+import "../../style/list.css";
+import "../../style/media.css";
 
-class Browse extends Component {
+class List extends Component {
   state = {
     redirect: false
   };
@@ -44,11 +43,11 @@ class Browse extends Component {
       return (
         <div
           key={plant.latinName}
-          className="entry-browse"
+          className="entry-list"
           onClick={e => this.goToPlant(e, index)}
         >
           <img src={plant.images[0].url} className="secondary-image" alt="" />
-          <span className="label-browse">{capitalise(plant.commonName)}</span>
+          <span className="label-list">{capitalise(plant.commonName)}</span>
         </div>
       );
     });
@@ -81,4 +80,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Browse);
+)(List);

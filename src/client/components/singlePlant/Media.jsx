@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { capitalise } from "../../../utility/utility";
 
-import "../style/Media.css";
+import "../style/media.css";
 
 class Media extends Component {
   state = {

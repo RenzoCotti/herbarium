@@ -1,15 +1,15 @@
-.label-browse {
+.label-list {
   padding-left: 20px;
 }
 
-.entry-browse {
+.entry-list {
   display: flex;
   align-items: center;
   padding: 10px;
   color: var(--yellow);
 }
 
-.entry-browse:hover {
+.entry-list:hover {
   background-color: var(--highlight);
   cursor: pointer;
 }

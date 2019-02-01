@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { getPlant, updatePlantAction } from "../../../redux/actions";
 
 import MediaAndProperties from "../MediaAndProperties";
-import Identification from "../Description";
+import Description from "../Description";
 import Search from "./Search";
 import List from "./List";
 
@@ -22,7 +22,7 @@ class PlantDetail extends Component {
       return (
         <React.Fragment>
           <MediaAndProperties plant={plant[0]} />
-          <Identification plant={plant[0]} />
+          <Description plant={plant[0]} />
         </React.Fragment>
       );
     } else {
