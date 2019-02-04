@@ -1,4 +1,4 @@
-module.exports = {
+let temp = {
   medicinalProperties: {
     general: [
       "anti-dontalgic",
@@ -143,3 +143,12 @@ module.exports = {
     "caribbean"
   ]
 };
+
+temp.fullMedicinalProperties = [].concat.apply(
+  [],
+  Object.keys(temp.medicinalProperties).map(k => {
+    return temp.medicinalProperties[k];
+  })
+);
+
+module.exports = temp;

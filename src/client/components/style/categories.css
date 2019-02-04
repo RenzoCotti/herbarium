@@ -1,0 +1,19 @@
+.category-container {
+}
+
+.category-label:hover {
+  cursor: pointer;
+}
+.category-label::after {
+  content: "+";
+}
+.category-list {
+  display: block;
+}
+.category-link {
+  padding-left: 20px;
+}
+
+.category-list-hidden {
+  display: none;
+}

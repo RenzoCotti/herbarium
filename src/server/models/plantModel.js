@@ -1,12 +1,6 @@
 const mongoose = require("mongoose");
 const definitions = require("../../utility/definitions");
-//takes all the arrays within the object and returns a single array
-const medicinalProp = [].concat.apply(
-  [],
-  Object.keys(definitions.medicinalProperties).map(k => {
-    return definitions.medicinalProperties[k];
-  })
-);
+const medicinalProperties = definitions.fullMedicinalProperties;
 
 const Plant = new mongoose.Schema({
   /********* GENERAL INFO *********/
@@ -153,7 +147,7 @@ const Plant = new mongoose.Schema({
         {
           type: String,
           lowercase: true,
-          enum: medicinalProp
+          enum: medicinalProperties
         }
       ],
       medicinalPreparation: {
