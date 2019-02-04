@@ -10,7 +10,7 @@ let obj = {
   /********* GENERAL INFO *********/
   latinName: "Salvia Officinalis",
   commonName: "Sage",
-  typeOfPlant: "bush",
+  plantType: "bush",
   evergreen: true,
   description: "",
   height: 0.6,
@@ -69,7 +69,7 @@ var mint = new Plant({
   /********* GENERAL INFO *********/
   latinName: "Mentha Piperita",
   commonName: "Peppermint",
-  typeOfPlant: "herb",
+  plantType: "herb",
   evergreen: false,
   description: "",
   height: 0.6,
@@ -151,7 +151,7 @@ var plantPlaceholder = new Plant({
   /********* GENERAL INFO *********/
   latinName: "",
   commonName: "",
-  typeOfPlant: "",
+  plantType: "",
   evergreen: false,
   description: "",
   height: 0,

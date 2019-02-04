@@ -14,7 +14,7 @@ const Plant = new mongoose.Schema({
     lowercase: true,
     required: true
   },
-  typeOfPlant: {
+  plantType: {
     type: String,
     lowercase: true,
     required: true,

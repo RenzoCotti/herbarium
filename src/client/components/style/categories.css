@@ -16,6 +16,9 @@
 .category-link {
   padding-left: 20px;
 }
+.category-link:hover {
+  cursor: pointer;
+}
 
 .category-list-hidden {
   display: none;

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import Category from "./Category";
 import "./style/categories.css";
 
@@ -6,11 +7,6 @@ const definitions = require("../../utility/definitions");
 
 class Categories extends Component {
   state = {};
-
-  showCategory(e) {
-    console.log(e.target.parentNode.lastChild);
-    this.setState({});
-  }
 
   render() {
     //get state of plant/plants, render list or single detail
