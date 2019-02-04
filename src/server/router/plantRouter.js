@@ -13,6 +13,15 @@ router.get("/plant/:name", (req, res) => {
   );
 });
 
+router.get("/category/:category/:name", (req, res) => {
+  Plant.find(
+    { [req.params.category]: new RegExp("^" + req.params.name + "$", "i") },
+    (err, plant) => {
+      res.json(plant);
+    }
+  );
+});
+
 router.get("/list", (req, res) => {
   Plant.find({}, (err, plants) => {
     res.json(plants);
@@ -21,8 +30,7 @@ router.get("/list", (req, res) => {
 
 router.get("/random", (req, res) => {
   Plant.find({}, (err, plants) => {
-    let rand = Math.round(Math.random());
-    res.json([plants[rand]]);
+    res.json([plants[Math.floor(Math.random() * plants.length)]]);
   });
 });
 

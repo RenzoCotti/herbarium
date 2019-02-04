@@ -5,7 +5,7 @@ import { getPlant, updatePlantAction } from "../../../redux/actions";
 import MediaAndProperties from "../MediaAndProperties";
 import Description from "../Description";
 import Search from "./Search";
-import List from "./List";
+import List from "../../List";
 
 class PlantDetail extends Component {
   componentWillUnmount() {

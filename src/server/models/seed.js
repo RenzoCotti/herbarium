@@ -2,14 +2,11 @@ const mongoose = require("mongoose");
 const config = require("../config/config");
 const Plant = require("./plantModel");
 
-mongoose.connect(
-  config.dbURL,
-  { useNewUrlParser: true }
-);
+mongoose.connect(config.dbURL, { useNewUrlParser: true });
 
 Plant.collection.drop();
 
-var sage = new Plant({
+let obj = {
   /********* GENERAL INFO *********/
   latinName: "Salvia Officinalis",
   commonName: "Sage",
@@ -64,7 +61,9 @@ var sage = new Plant({
       caption: "A picture of the sage flowers"
     }
   ]
-});
+};
+
+var sage = new Plant(obj);
 
 var mint = new Plant({
   /********* GENERAL INFO *********/
@@ -129,7 +128,15 @@ var mint = new Plant({
   ]
 });
 
-Plant.create([sage, mint])
+let ssage = Object.assign({}, obj);
+ssage.latinName = "Test";
+ssage.commonName = "Sagus";
+
+// console.log(ssage);
+
+let sssage = new Plant(ssage);
+
+Plant.create([sage, mint, sssage])
   .then(plant => {
     console.log(`plant created`);
   })

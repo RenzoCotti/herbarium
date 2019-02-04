@@ -13,15 +13,48 @@ class Categories extends Component {
   }
 
   render() {
+    //get state of plant/plants, render list or single detail
     return (
       <div>
         <div>Categories:</div>
-        <Category name="Leaf Venation" list={definitions.leafVenation} />
-        {/* Leaf Venation
-        
-        
-         Leaf Shape Region Leaf Arrangement Leaf Margin Plant Type
-        Medicinal Properties */}
+        <div className="title">Leaf</div>
+        <div className="categories-container">
+          <Category
+            name="Leaf Shape"
+            list={definitions.leafShape}
+            cat="leafShape"
+          />
+          <Category
+            name="Leaf Margin"
+            list={definitions.leafMargin}
+            cat="leafMargin"
+          />
+          <Category
+            name="Leaf Venation"
+            list={definitions.leafVenation}
+            cat="leafVenation"
+          />
+          <Category
+            name="Leaf Arrangement"
+            list={definitions.leafArrangement}
+            cat="leafArrangement"
+          />
+        </div>
+
+        <div className="title">Various</div>
+        <div className="categories-container">
+          <Category
+            name="Plant Type"
+            list={definitions.plantTypes}
+            cat="plantType"
+          />
+          <Category
+            name="Medicinal Properties"
+            list={definitions.fullMedicinalProperties}
+            cat="medicinalProperties"
+          />
+          <Category name="Regions" list={definitions.regions} cat="regions" />
+        </div>
       </div>
     );
   }

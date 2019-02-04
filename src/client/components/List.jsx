@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
-import { capitalise } from "../../../../utility/utility";
+import { capitalise } from "../../utility/utility";
 import {
   updatePlantFromIndexAction,
   updateListAction,
   getList,
   getPlant
-} from "../../../redux/actions";
+} from "../redux/actions";
 
-import "../../style/list.css";
-import "../../style/media.css";
+import "./style/list.css";
+import "./style/media.css";
 
 class List extends Component {
   state = {

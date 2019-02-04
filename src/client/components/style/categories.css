@@ -1,11 +1,14 @@
-.category-container {
+.category-label {
+  /* width: 200px; */
+  padding: 20px;
 }
 
 .category-label:hover {
   cursor: pointer;
 }
-.category-label::after {
+.category-label::before {
   content: "+";
+  margin-right: 20px;
 }
 .category-list {
   display: block;
@@ -16,4 +19,10 @@
 
 .category-list-hidden {
   display: none;
+}
+
+.categories-container {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
 }

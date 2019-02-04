@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./style/categories.css";
 
+import { capitalise } from "../../utility/utility";
+
 class Category extends Component {
   state = { show: false };
 
@@ -35,7 +37,7 @@ class Category extends Component {
           {this.props.list.map(k => {
             return (
               <div className="category-link" key={k}>
-                {k}
+                {capitalise(k)}
               </div>
             );
           })}
