@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 
+html {
+  background-color: black;
+}
+
 body {
   /*remove basic padding from document*/
   padding: 0;
@@ -25,6 +29,7 @@ body {
 
 .main-container {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
   padding: 0 50px;
@@ -41,9 +46,11 @@ body {
   margin: 0 auto;
 }
 
+.sub-title {
+  font-size: 14pt;
+}
+
 .title {
-  padding-top: 20px;
-  padding-bottom: 5px;
   color: var(--highlight);
   font-weight: bold;
 }
@@ -52,4 +59,20 @@ body {
   font-weight: bold;
   font-size: 24pt;
   text-align: center;
+}
+
+.padded-top {
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+
+.plant-detail {
+  display: flex;
+  flex-direction: row;
+}
+
+.link:hover {
+  text-decoration-line: underline;
+  color: var(--yellow);
+  cursor: pointer;
 }

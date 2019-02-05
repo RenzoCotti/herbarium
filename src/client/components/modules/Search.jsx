@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updatePlantAction, getPlant } from "../../../redux/actions";
+import { updatePlantAction, getPlant } from "../../redux/actions";
 
 class Search extends Component {
   query = "";

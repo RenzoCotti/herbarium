@@ -1,39 +1,31 @@
 import React, { Component } from "react";
-import "./style/categories.css";
+import "../style/categories.css";
 
 import { connect } from "react-redux";
-import { getPlant, updatePlantAction } from "../redux/actions";
+import { getPlant, updatePlantAction } from "../../redux/actions";
 
-import Categories from "./Categories";
-import MediaAndProperties from "./singlePlant/MediaAndProperties";
-import Description from "./singlePlant/Description";
-import List from "./List";
+import Categories from "../modules/Categories";
+import List from "../modules/List";
+import PlantDetail from "../modules/PlantDetail";
 
 class CategoriesPage extends Component {
   state = {};
 
   componentWillUnmount() {
-    this.props.updatePlant(-1);
+    this.props.updatePlant(undefined);
   }
 
   render() {
     //get state of plant/plants, render list or single detail
     let plant = this.props.plant;
 
-    console.log(plant);
     if (!plant || plant === -1) {
       //no plants, search
       return <Categories />;
     } else if (plant.length === 1) {
       //one plant selected
-      return (
-        <React.Fragment>
-          <MediaAndProperties plant={plant[0]} />
-          <Description plant={plant[0]} />
-        </React.Fragment>
-      );
+      return <PlantDetail plant={plant[0]} />;
     } else {
-      console.log("here");
       //list of plants
       return <List />;
     }

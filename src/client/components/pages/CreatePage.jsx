@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Select from "react-select";
-import { capitalise } from "../../utility/utility";
-import "./style/create.css";
+import { capitalise } from "../../../utility/utility";
+import "../style/create.css";
 
-const definitions = require("../../utility/definitions");
+const definitions = require("../../../utility/definitions");
 
-class Create extends Component {
+class CreatePage extends Component {
   state = {};
 
   constructor(props) {
@@ -109,7 +109,7 @@ class Create extends Component {
             <tbody>
               {this.createRow("Latin Name:", "latin")}
               {this.createRow("Common Name:", "common")}
-              {this.createOptions("Type:", "type", definitions.plantTypes)}
+              {this.createOptions("Type:", "type", definitions.plantType)}
               {this.createOptions("Evergreen:", "evergreen", ["Yes", "No"])}
               {this.createRow("Description:", "description")}
               {this.createOptions(
@@ -128,4 +128,4 @@ class Create extends Component {
   }
 }
 
-export default Create;
+export default CreatePage;

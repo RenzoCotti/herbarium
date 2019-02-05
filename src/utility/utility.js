@@ -19,10 +19,10 @@ export function capitaliseString(str) {
 
 //if obj isnt null, render opt if is not null, otherwise render obj
 export function renderOptional(obj, str, opt) {
-  if (obj) {
+  if (obj !== undefined) {
     return (
       <div className="row-table" key={obj}>
-        <div className="label-table">{str}:</div>
+        <div className="label-table sub-title">{str}:</div>
         <div className="content-table">
           {opt ? capitalise(opt) : capitalise(obj)}
         </div>
@@ -35,7 +35,7 @@ export function renderOptional(obj, str, opt) {
 export function renderSection(title, arr) {
   return (
     <React.Fragment>
-      <div className="title">{title}</div>
+      <div className="title padded-top">{title}</div>
       {arr.map(obj => renderOptional(obj.property, obj.label, obj.alt))}
     </React.Fragment>
   );

@@ -1,11 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Footbar extends Component {
-  state = {};
-  render() {
-    let today = new Date().getFullYear();
-    return <div className="foot">&copy; {today} Renzo Cotti</div>;
-  }
-}
+const Footbar = props => {
+  let today = new Date().getFullYear();
+  return <div className="foot">&copy; {today} Renzo Cotti</div>;
+};
 
 export default Footbar;

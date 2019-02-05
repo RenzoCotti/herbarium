@@ -10,12 +10,6 @@
   text-decoration: none;
 }
 
-.nav-element:hover {
-  cursor: pointer;
-  background-color: var(--background-hover);
-  color: inherit;
-}
-
 .nav-element:visited {
   color: inherit;
 }

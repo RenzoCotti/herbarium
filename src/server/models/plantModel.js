@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const definitions = require("../../utility/definitions");
-const medicinalProperties = definitions.fullMedicinalProperties;
+const medicinalProperties = definitions.medicinalProperties;
 
 const Plant = new mongoose.Schema({
   /********* GENERAL INFO *********/

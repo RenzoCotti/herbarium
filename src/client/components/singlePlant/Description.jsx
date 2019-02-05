@@ -19,7 +19,7 @@ class Description extends Component {
   renderGeneral(plant) {
     let arr = [
       {
-        property: plant.typeOfPlant,
+        property: plant.plantType,
         label: "Type"
       },
       {

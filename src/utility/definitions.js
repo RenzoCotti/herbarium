@@ -1,5 +1,5 @@
 let temp = {
-  medicinalProperties: {
+  medicinalPropertiesObj: {
     general: [
       "anti-dontalgic",
       "anti-scorbutic",
@@ -105,7 +105,7 @@ let temp = {
     "pinnate",
     "pinnipalmate"
   ],
-  plantTypes: [
+  plantType: [
     "herb",
     "tree",
     "succulent",
@@ -144,10 +144,10 @@ let temp = {
   ]
 };
 
-temp.fullMedicinalProperties = [].concat.apply(
+temp.medicinalProperties = [].concat.apply(
   [],
-  Object.keys(temp.medicinalProperties).map(k => {
-    return temp.medicinalProperties[k];
+  Object.keys(temp.medicinalPropertiesObj).map(k => {
+    return temp.medicinalPropertiesObj[k];
   })
 );
 

@@ -19,7 +19,7 @@ class Navbar extends Component {
           let link = op.toLowerCase();
           if (op === "Home") link = "";
           return (
-            <NavLink className="nav-element" key={op} to={"/" + link}>
+            <NavLink className="nav-element link" key={op} to={"/" + link}>
               {op}
             </NavLink>
           );

@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getPlant, updatePlantAction } from "../../../redux/actions";
+import { getPlant, updatePlantAction } from "../../redux/actions";
 
-import MediaAndProperties from "../MediaAndProperties";
-import Description from "../Description";
-import Search from "./Search";
-import List from "../../List";
+import Search from "../modules/Search";
+import List from "../modules/List";
+import PlantDetail from "../modules/PlantDetail";
 
-class PlantDetail extends Component {
+class SearchPage extends Component {
   componentWillUnmount() {
-    this.props.updatePlant(-1);
+    this.props.updatePlant(undefined);
   }
 
   render() {
@@ -19,12 +18,7 @@ class PlantDetail extends Component {
       return <Search />;
     } else if (plant.length === 1) {
       //one plant selected
-      return (
-        <React.Fragment>
-          <MediaAndProperties plant={plant[0]} />
-          <Description plant={plant[0]} />
-        </React.Fragment>
-      );
+      return <PlantDetail plant={plant[0]} />;
     } else {
       //list of plants
       return <List />;
@@ -43,4 +37,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PlantDetail);
+)(SearchPage);
