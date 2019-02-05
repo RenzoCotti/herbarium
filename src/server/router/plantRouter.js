@@ -8,6 +8,7 @@ router.get("/plant/:name", (req, res) => {
   Plant.find(
     { commonName: new RegExp("^" + req.params.name + "$", "i") },
     (err, plant) => {
+      console.log(plant);
       res.json(plant);
     }
   );

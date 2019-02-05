@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const stopword = require("stopword");
 const definitions = require("../../utility/definitions");
 const medicinalProperties = definitions.medicinalProperties;
 
@@ -176,14 +177,6 @@ const Plant = new mongoose.Schema({
       }
     }
   ],
-  //cumulated properties in a single array, for queries. NECESSARY?
-  medicinalProperties: [
-    {
-      type: String,
-      lowercase: true
-      //enum
-    }
-  ],
   //container for future keywords useful in queries. Probably necessary.
   keywords: [
     {
@@ -192,5 +185,60 @@ const Plant = new mongoose.Schema({
     }
   ]
 });
+
+Plant.pre("save", function(next) {
+  let tempArr = [];
+
+  //iterate over all keys of the document
+  for (let key of Object.keys(this.toObject())) {
+    tempArr = tempArr.concat(extractKeywords(key, this));
+  }
+
+  this.keywords = tempArr;
+
+  next();
+});
+
+//this function extracts all non-stopwords from the current key of object
+//in case of an array, it recurses on its length
+function extractKeywords(key, obj) {
+  //skips mongoose id and urls
+  if (key === "_id" || key === "url") return [];
+
+  let type = typeof obj[key];
+  if (type === "string") {
+    //removes all punctuation
+    let str = obj[key].replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").split(" ");
+
+    //removes stopwords and symbols
+    str = stopword.removeStopwords(str);
+
+    return str;
+  } else if (type === "boolean") {
+    //ex. "edible" will be added if true
+    if (obj[key]) return [key];
+    return [];
+  } else if (type === "number") {
+    //not adding numbers
+    return [];
+  } else {
+    //if it's an array and it has at least one element, recurse
+    if (
+      Array.isArray(obj[key]) &&
+      obj[key].length > 0 &&
+      typeof obj[key][0] === "object"
+    ) {
+      let temp = [];
+
+      for (let a of Object.keys(obj[key][0].toObject())) {
+        temp = temp.concat(extractKeywords(a, obj[key][0]));
+      }
+
+      return temp;
+    } else {
+      return obj[key];
+    }
+  }
+}
 
 module.exports = mongoose.model("Plant", Plant);
