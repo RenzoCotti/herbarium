@@ -183,7 +183,12 @@ const Plant = new mongoose.Schema({
       type: String,
       lowercase: true
     }
-  ]
+  ],
+  //stores frequency of words
+  frequency: {
+    type: Map,
+    of: Number
+  }
 });
 
 Plant.pre("save", function(next) {
@@ -195,6 +200,17 @@ Plant.pre("save", function(next) {
   }
 
   this.keywords = tempArr;
+
+  this.frequency = {};
+
+  for (let str of tempArr) {
+    let res = this.frequency.get(str);
+    if (res) {
+      this.frequency.set(str, res + 1);
+    } else {
+      this.frequency.set(str, 1);
+    }
+  }
 
   next();
 });

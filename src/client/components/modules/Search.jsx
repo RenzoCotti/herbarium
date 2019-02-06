@@ -30,7 +30,7 @@ class Search extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    this.fetchPlant("/api/plant/" + this.query);
+    this.fetchPlant("/api/search/" + this.query);
   }
 
   handleChange(e) {

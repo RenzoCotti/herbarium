@@ -18,7 +18,7 @@ class Categories extends Component {
 
   async queryCategory(e, category) {
     let query = "api/category/" + this.state.displaying + "/" + category;
-    console.log(query);
+    // console.log(query);
 
     let res = await fetch(query);
     let plant = await res.json();
@@ -29,8 +29,8 @@ class Categories extends Component {
       this.props.updatePlant(plant);
     }
 
-    console.log(this.props.plant);
-    console.log("updated");
+    // console.log(this.props.plant);
+    // console.log("updated");
   }
 
   changeList(e, name) {
@@ -73,7 +73,6 @@ class Categories extends Component {
   }
 
   render() {
-    console.log("here");
     return (
       <React.Fragment>
         <div className="category-title">Categories</div>

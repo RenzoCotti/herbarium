@@ -9,11 +9,6 @@ export const updatePlantAction = plant => ({
   plant: plant
 });
 
-export const updateListAction = list => ({
-  type: SET_LIST,
-  list: list
-});
-
 export const updatePlantFromIndexAction = index => ({
   type: SET_PLANT_FROM_INDEX,
   index: index
@@ -21,8 +16,4 @@ export const updatePlantFromIndexAction = index => ({
 
 export function getPlant(state) {
   return state.plant;
-}
-
-export function getList(state) {
-  return state.list;
 }

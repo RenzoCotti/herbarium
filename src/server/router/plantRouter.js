@@ -8,10 +8,23 @@ router.get("/plant/:name", (req, res) => {
   Plant.find(
     { commonName: new RegExp("^" + req.params.name + "$", "i") },
     (err, plant) => {
-      console.log(plant);
+      // console.log(plant);
       res.json(plant);
     }
   );
+});
+
+router.get("/search/:string", (req, res) => {
+  let arr = req.params.string.toLowerCase().split(" ");
+  let query = [];
+
+  for (let str of arr) {
+    query.push({ keywords: str });
+  }
+
+  Plant.find({ $or: query }, (err, list) => {
+    res.json(list);
+  });
 });
 
 router.get("/category/:category/:name", (req, res) => {

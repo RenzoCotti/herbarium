@@ -19,17 +19,7 @@ class List extends Component {
 
   constructor(props) {
     super(props);
-    this.getPlants = this.getPlants.bind(this);
-  }
-
-  componentDidMount() {
-    this.getPlants();
-  }
-
-  async getPlants() {
-    let res = await fetch("/api/list");
-    let plants = await res.json();
-    this.props.updateList(plants);
+    this.goToPlant = this.goToPlant.bind(this);
   }
 
   async goToPlant(e, i) {
@@ -56,25 +46,21 @@ class List extends Component {
   render() {
     if (this.state.redirect) return <Redirect push to="/search" />;
 
-    if (!this.props.plants) return <div />;
-
     return (
       <div className="secondary-container">
         List of plants:
-        {this.renderList(this.props.plants)}
+        {this.renderList(this.props.plant)}
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  plants: getList(state),
   plant: getPlant(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-  updatePlantFromIndex: id => dispatch(updatePlantFromIndexAction(id)),
-  updateList: list => dispatch(updateListAction(list))
+  updatePlantFromIndex: id => dispatch(updatePlantFromIndexAction(id))
 });
 
 export default connect(
