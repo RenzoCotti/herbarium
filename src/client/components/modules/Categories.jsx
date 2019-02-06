@@ -17,20 +17,26 @@ class Categories extends Component {
   }
 
   async queryCategory(e, category) {
-    let query = "api/category/" + this.state.displaying + "/" + category;
-    // console.log(query);
+    let query;
+    if (this.state.displaying === "medicinalProperties") {
+      query = "api/search/" + category;
+    } else {
+      query = "api/category/" + this.state.displaying + "/" + category;
+    }
 
     let res = await fetch(query);
     let plant = await res.json();
+
+    if (this.state.displaying === "medicinalProperties") {
+      plant = plant.list;
+    }
+
     if (plant.length === 0) {
       //no plants found
       this.props.updatePlant(-1);
     } else {
       this.props.updatePlant(plant);
     }
-
-    // console.log(this.props.plant);
-    // console.log("updated");
   }
 
   changeList(e, name) {

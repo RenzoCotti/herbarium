@@ -39,7 +39,8 @@ class List extends Component {
           <img src={plant.images[0].url} className="secondary-image" alt="" />
           <span className="label-list">
             {/*for debug purposes added plant.count*/}
-            {capitalise(plant.commonName) + " - " + plant.count}
+            {capitalise(plant.commonName) +
+              (plant.count ? " - " + plant.count : "")}
           </span>
         </div>
       );
