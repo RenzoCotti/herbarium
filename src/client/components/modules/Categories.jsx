@@ -45,6 +45,7 @@ class Categories extends Component {
         <div
           className="category-content-entry"
           onClick={e => this.queryCategory(e, k)}
+          key={k}
         >
           <span className="link"> {capitalise(k)}</span>
         </div>
@@ -62,6 +63,7 @@ class Categories extends Component {
               <div
                 className="category-entry link sub-title"
                 onClick={e => this.changeList(e, k.apiName)}
+                key={k.apiName}
               >
                 {k.name}
               </div>

@@ -23,7 +23,7 @@ router.get("/search/:string", (req, res) => {
   }
 
   Plant.find({ $or: query }, (err, list) => {
-    res.json(list);
+    res.json({ list: list, tokens: arr });
   });
 });
 

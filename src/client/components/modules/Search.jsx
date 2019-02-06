@@ -13,13 +13,30 @@ class Search extends Component {
   }
 
   async fetchPlant(url) {
-    let res = await fetch(url);
-    let plant = await res.json();
-    if (plant.length === 0) {
+    let req = await fetch(url);
+    let res = await req.json();
+
+    if (res.list.length === 0) {
       //no plants found
       this.props.updatePlant(-1);
     } else {
-      this.props.updatePlant(plant);
+      //counts total match of keywords
+      for (let plant of res.list) {
+        let count = 0;
+        for (let tk of res.tokens) {
+          console.log(tk);
+          let kw = plant.frequency[tk];
+          if (kw) count += kw;
+        }
+        plant.count = count;
+      }
+
+      //sorts list
+      res.list.sort((a, b) => {
+        return a.count == b.count ? 0 : a.count > b.count ? -1 : 1;
+      });
+
+      this.props.updatePlant(res.list);
     }
   }
 

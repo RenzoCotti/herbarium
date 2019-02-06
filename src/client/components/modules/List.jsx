@@ -37,7 +37,10 @@ class List extends Component {
           onClick={e => this.goToPlant(e, index)}
         >
           <img src={plant.images[0].url} className="secondary-image" alt="" />
-          <span className="label-list">{capitalise(plant.commonName)}</span>
+          <span className="label-list">
+            {/*for debug purposes added plant.count*/}
+            {capitalise(plant.commonName) + " - " + plant.count}
+          </span>
         </div>
       );
     });
