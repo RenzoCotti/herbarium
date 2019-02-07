@@ -29,13 +29,13 @@ body {
 .main-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   margin: 0 200px;
   min-height: 100vh;
 
-  background-color: rgba(var(--background), 0.9);
+  background-color: rgba(var(--background), 0.85);
   /* box-shadow: 0px 0px 5px rgba(var(--background), 0.8); */
 }
 
@@ -71,7 +71,8 @@ body {
 .plant-detail {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
 }
 
 .link:hover {

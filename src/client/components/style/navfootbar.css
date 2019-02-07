@@ -30,7 +30,7 @@
 }
 
 .nav-element:hover {
-  background-color: rgba(var(--background), 0.9);
+  background-color: rgba(var(--background), 0.85);
 }
 
 /* .nav-element:after {
