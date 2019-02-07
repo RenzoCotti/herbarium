@@ -2,13 +2,6 @@
   font-style: italic;
 }
 
-.commonName {
-  font-size: 25pt;
-  margin-bottom: 50px;
-  font-weight: bold;
-  color: var(--yellow);
-}
-
 .uses {
   margin-top: 50px;
 }

@@ -57,6 +57,7 @@ class Search extends Component {
   render() {
     return (
       <div className="secondary-container">
+        <div className="super-title padded-bottom">Search</div>
         Search Plant:
         <form onSubmit={this.onSubmit}>
           <input

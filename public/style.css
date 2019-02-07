@@ -28,19 +28,19 @@ body {
 
 .main-container {
   display: flex;
-  flex-direction: column;
-  align-items: space-around;
-  justify-content: center;
-  margin: 0 209px;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 200px;
   min-height: 100vh;
 
-  background-color: rgba(var(--background), 0.8);
+  background-color: rgba(var(--background), 0.9);
   /* box-shadow: 0px 0px 5px rgba(var(--background), 0.8); */
 }
 
 .secondary-container {
-  padding: 50px 0;
-  margin: 0 auto;
+  padding: 50px;
 }
 
 .sub-title {
@@ -55,12 +55,17 @@ body {
 .super-title {
   font-weight: bold;
   font-size: 24pt;
-  text-align: center;
+  color: var(--yellow);
 }
 
 .padded-top {
   padding-top: 20px;
   padding-bottom: 5px;
+}
+
+.padded-bottom {
+  padding-top: 5px;
+  padding-bottom: 100px;
 }
 
 .plant-detail {
@@ -69,7 +74,6 @@ body {
 }
 
 .link:hover {
-  text-decoration-line: underline;
   color: var(--yellow);
   cursor: pointer;
 }

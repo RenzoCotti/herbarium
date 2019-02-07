@@ -104,6 +104,8 @@ class CreatePage extends Component {
   render() {
     return (
       <div className="secondary-container">
+        <div className="super-title padded-bottom">Create new Plant</div>
+
         <form onSubmit={this.onSubmit}>
           <table>
             <tbody>

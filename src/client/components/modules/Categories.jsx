@@ -46,23 +46,27 @@ class Categories extends Component {
   displayList() {
     let current = this.state.displaying;
     if (!current) return;
-    return definitions[current].map(k => {
-      return (
-        <div
-          className="category-content-entry"
-          onClick={e => this.queryCategory(e, k)}
-          key={k}
-        >
-          <span className="link"> {capitalise(k)}</span>
-        </div>
-      );
-    });
+    return (
+      <div className="category-content">
+        {definitions[current].map(k => {
+          return (
+            <div
+              className="category-content-entry"
+              onClick={e => this.queryCategory(e, k)}
+              key={k}
+            >
+              <span className="link">{capitalise(k)}</span>
+            </div>
+          );
+        })}
+      </div>
+    );
   }
 
   renderSection(label, list) {
     return (
       <div className="category-section">
-        <div className="title category-label">{label}</div>
+        <div className="category-label">{label}</div>
         <div className="category-list">
           {list.map(k => {
             return (
@@ -83,25 +87,24 @@ class Categories extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="category-title">Categories</div>
-        {this.props.plant === -1 ? <div>No such plant found.</div> : ""}
+        <div className="secondary-container">
+          <div className="super-title padded-bottom">Categories</div>
 
-        <div className="category-page">
-          <div className="categories">
-            {this.renderSection("Leaf", [
-              { name: "Shape", apiName: "leafShape" },
-              { name: "Margin", apiName: "leafMargin" },
-              { name: "Venation", apiName: "leafVenation" },
-              { name: "Arrangement", apiName: "leafArrangement" }
-            ])}
-            {this.renderSection("Various", [
-              { name: "Regions", apiName: "regions" },
-              { name: "Plant Type", apiName: "plantType" },
-              { name: "Medicinal Properties", apiName: "medicinalProperties" }
-            ])}
-          </div>
-          <div className="category-content">{this.displayList()}</div>
+          {this.renderSection("Leaf", [
+            { name: "Shape", apiName: "leafShape" },
+            { name: "Margin", apiName: "leafMargin" },
+            { name: "Venation", apiName: "leafVenation" },
+            { name: "Arrangement", apiName: "leafArrangement" }
+          ])}
+          {this.renderSection("Various", [
+            { name: "Regions", apiName: "regions" },
+            { name: "Plant Type", apiName: "plantType" },
+            { name: "Medicinal Properties", apiName: "medicinalProperties" }
+          ])}
+
+          {this.props.plant === -1 ? <div>No such plant found.</div> : ""}
         </div>
+        {this.displayList()}
       </React.Fragment>
     );
   }

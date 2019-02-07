@@ -146,7 +146,7 @@ class Description extends Component {
     return (
       <div className="secondary-container">
         <div className="latinName">{capitaliseString(plant.latinName)}</div>
-        <div className="commonName">{capitaliseString(plant.commonName)}</div>
+        <div className="super-title">{capitaliseString(plant.commonName)}</div>
         <div className="table-container">
           {this.renderGeneral(plant)}
           {this.renderStem(plant)}
