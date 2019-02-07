@@ -16,24 +16,20 @@ const creds = {
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 //setting up mongoose
-mongoose.connect(
-  config.dbURL,
-  { useNewUrlParser: true }
-);
+mongoose.connect(config.dbURL, { useNewUrlParser: true });
 //Using default promises
 mongoose.Promise = global.Promise;
 
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, "client/build")));
+//cache? to look into in the future, for images
+// app.use(express.static(path.join(__dirname, 'public'), {
+//   maxAge: cacheTime
+//  }))
 
 const plantRouter = require("./router/plantRouter");
 
 app.use("/api", plantRouter);
-
-// app.use("/", (req, res) => {
-//   console.log(req);
-//   console.log("hersdafe");
-// });
 
 var httpServer = http.createServer(app);
 

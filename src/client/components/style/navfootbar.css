@@ -2,12 +2,15 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
 }
 
 .nav-element {
-  padding: 7px 10px 7px 50px;
+  padding: 10px 40px;
   text-decoration: none;
+}
+
+.nav-element.active {
+  background-color: rgba(var(--background), 0.8);
 }
 
 .nav-element:visited {
