@@ -18,7 +18,7 @@ class Categories extends Component {
 
   async queryCategory(e, category) {
     let query;
-    if (this.state.displaying === "medicinalProperties") {
+    if (this.state.displaying.includes("medicinal")) {
       query = "api/search/" + category;
     } else {
       query = "api/category/" + this.state.displaying + "/" + category;
@@ -27,7 +27,7 @@ class Categories extends Component {
     let res = await fetch(query);
     let plant = await res.json();
 
-    if (this.state.displaying === "medicinalProperties") {
+    if (this.state.displaying.includes("medicinal")) {
       plant = plant.list;
     }
 
@@ -46,21 +46,17 @@ class Categories extends Component {
   displayList() {
     let current = this.state.displaying;
     if (!current) return;
-    return (
-      <div className="category-content">
-        {definitions[current].map(k => {
-          return (
-            <div
-              className="category-content-entry"
-              onClick={e => this.queryCategory(e, k)}
-              key={k}
-            >
-              <span className="link">{capitalise(k)}</span>
-            </div>
-          );
-        })}
-      </div>
-    );
+    return definitions[current].map(k => {
+      return (
+        <div
+          className="category-content-entry"
+          onClick={e => this.queryCategory(e, k)}
+          key={k}
+        >
+          <span className="link">{capitalise(k)}</span>
+        </div>
+      );
+    });
   }
 
   renderSection(label, list) {
@@ -96,15 +92,26 @@ class Categories extends Component {
             { name: "Venation", apiName: "leafVenation" },
             { name: "Arrangement", apiName: "leafArrangement" }
           ])}
-          {this.renderSection("Various", [
-            { name: "Regions", apiName: "regions" },
-            { name: "Plant Type", apiName: "plantType" },
-            { name: "Medicinal Properties", apiName: "medicinalProperties" }
+
+          {this.renderSection("Medicinal", [
+            { name: "General", apiName: "medicinalGeneral" },
+            { name: "Respiratory", apiName: "medicinalRespiratory" },
+            { name: "Circulatory", apiName: "medicinalCirculatory" },
+            { name: "Digestive", apiName: "medicinalDigestive" },
+            { name: "Nervous", apiName: "medicinalNervous" },
+            { name: "Anti-pathogens", apiName: "medicinalPathogens" }
           ])}
 
-          {this.props.plant === -1 ? <div>No such plant found.</div> : ""}
+          {this.renderSection("Various", [
+            { name: "Regions", apiName: "regions" },
+            { name: "Plant Type", apiName: "plantType" }
+          ])}
+
+          {this.props.plant === -1 ? <div>No such plant found.</div> : <br />}
         </div>
-        {this.displayList()}
+        <div className="category-content secondary-container">
+          {this.displayList()}
+        </div>
       </React.Fragment>
     );
   }

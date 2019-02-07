@@ -1,70 +1,67 @@
 let temp = {
-  medicinalPropertiesObj: {
-    general: [
-      "anti-dontalgic",
-      "anti-scorbutic",
-      "anti-inflammatory",
-      "anti-depressant",
-      "anti-rheumatic",
-      "emollient",
-      "antioxidant",
-      "aromatic",
-      "febrifuge",
-      "depurative",
-      "emmenagogue",
-      "cholagogue",
-      "tonic",
-      "aphrodisiac",
-      "deodorant",
-      "calefacient",
-      "refreshing"
-    ],
+  medicinalGeneral: [
+    "anti-dontalgic",
+    "anti-scorbutic",
+    "anti-inflammatory",
+    "anti-rheumatic",
+    "emollient",
+    "antioxidant",
+    "aromatic",
+    "febrifuge",
+    "depurative",
+    "emmenagogue",
+    "cholagogue",
+    "tonic",
+    "deodorant",
+    "calefacient",
+    "refreshing"
+  ],
 
-    pathogens: [
-      "antiseptic",
-      "antibiotic",
-      "fungicide",
-      "anti-viral",
-      "insectifuge",
-      "anti-allergen",
-      "anti-venomous",
-      "insecticidal"
-    ],
+  medicinalPathogens: [
+    "antiseptic",
+    "antibiotic",
+    "fungicide",
+    "anti-viral",
+    "insectifuge",
+    "anti-allergen",
+    "anti-venomous",
+    "insecticidal"
+  ],
 
-    digestive: [
-      "stomachic",
-      "excretory",
-      "laxative",
-      "anti-parasitic",
-      "digestive",
-      "diuretic",
-      "carminative"
-    ],
+  medicinalDigestive: [
+    "stomachic",
+    "excretory",
+    "laxative",
+    "anti-parasitic",
+    "digestive",
+    "diuretic",
+    "carminative"
+  ],
 
-    respiratory: [
-      "antispasmodic",
-      "decongestant",
-      "anti-tussive",
-      "anti-asthmatic",
-      "expectorant"
-    ],
+  medicinalRespiratory: [
+    "antispasmodic",
+    "decongestant",
+    "anti-tussive",
+    "anti-asthmatic",
+    "expectorant"
+  ],
 
-    circulatory: [
-      "astringent",
-      "haemostatic",
-      "anti-coagulant",
-      "cardiotonic",
-      "styptic"
-    ],
+  medicinalCirculatory: [
+    "astringent",
+    "haemostatic",
+    "anti-coagulant",
+    "cardiotonic",
+    "styptic"
+  ],
 
-    nervous: [
-      "relaxant",
-      "sedative",
-      "anti-neuralgic",
-      "analgesic",
-      "anaesthetic"
-    ]
-  },
+  medicinalNervous: [
+    "relaxant",
+    "sedative",
+    "anti-neuralgic",
+    "analgesic",
+    "anaesthetic",
+    "anti-depressant"
+  ],
 
   leafShape: [
     "acicular",
@@ -144,15 +141,18 @@ let temp = {
   ]
 };
 
-temp.medicinalProperties = [].concat.apply(
-  [],
-  Object.keys(temp.medicinalPropertiesObj).map(k => {
-    return temp.medicinalPropertiesObj[k];
-  })
-);
-
-temp.medicinalProperties.sort(function(a, b) {
-  return a == b ? 0 : a < b ? -1 : 1;
-});
+temp.medicinalProperties = () =>
+  []
+    .concat(
+      medicinalCirculatory,
+      medicinalDigestive,
+      medicinalGeneral,
+      medicinalNervous,
+      medicinalPathogens,
+      medicinalRespiratory
+    )
+    .sort(function(a, b) {
+      return a == b ? 0 : a < b ? -1 : 1;
+    });
 
 module.exports = temp;

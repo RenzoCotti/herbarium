@@ -30,7 +30,6 @@ router.get("/category/:category/:name", (req, res) => {
   Plant.find(
     { [req.params.category]: new RegExp("^" + req.params.name + "$", "i") },
     (err, plant) => {
-      console.log(err);
       res.json(plant);
     }
   );

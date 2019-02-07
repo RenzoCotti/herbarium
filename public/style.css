@@ -65,12 +65,13 @@ body {
 
 .padded-bottom {
   padding-top: 5px;
-  padding-bottom: 100px;
+  padding-bottom: 20px;
 }
 
 .plant-detail {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .link:hover {

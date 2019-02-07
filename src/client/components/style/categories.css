@@ -17,13 +17,7 @@
   width: 200px;
   border-left: 1px solid var(--text);
   padding-left: 20px;
-}
-
-.categories {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 400px;
+  margin-left: 20px;
 }
 
 .category-content {
@@ -31,9 +25,8 @@
   flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
-  min-width: 600px;
-  height: 500px;
-  padding-left: 20px;
+  width: 300px;
+  max-height: 400px;
 }
 
 .category-content-entry {
