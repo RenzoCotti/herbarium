@@ -3,13 +3,13 @@
 html {
   /*palette*/
   --text: wheat;
-  /* --background: 36, 58, 24; */
-  /* --background: 35, 33, 27; */
-  --background: 110, 80, 50;
+  --backgroundRGB: 36, 58, 24;
+  /* --backgroundRGB: 35, 33, 27; */
+  --background: rgba(var(--backgroundRGB), 0.75);
   --yellow: #d3ba4e;
   --highlight: #6d9930;
 
-  background-color: rgb(var(--background));
+  background-color: var(--background);
 }
 
 body {
@@ -22,7 +22,7 @@ body {
   font-size: 18pt;
   font-weight: 100;
 
-  background-image: url("./wood2.jpg");
+  background-image: url("./forest2.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -38,7 +38,7 @@ body {
   margin: 0 200px;
   min-height: 100vh;
 
-  background-color: rgba(var(--background), 0.7);
+  background-color: var(--background);
   /* box-shadow: 0px 0px 5px rgba(var(--background), 0.8); */
 }
 
