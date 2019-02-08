@@ -57,7 +57,7 @@ const Plant = new mongoose.Schema({
     type: String,
     lowercase: true,
     required: true,
-    enum: ["smooth", "hairy", "woody", "bark"]
+    enum: ["smooth", "hairy", "woody", "smooth bark", "rough bark"]
   },
   stemDescription: {
     type: String,

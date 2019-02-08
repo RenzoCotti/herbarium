@@ -37,3 +37,7 @@
   content: " - ";
   margin-right: 10px;
 } */
+
+.category-selected {
+  color: var(--yellow);
+}

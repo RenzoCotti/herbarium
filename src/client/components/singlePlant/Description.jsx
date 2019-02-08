@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import "../style/description.css";
-import { capitaliseString, renderSection } from "../../../utility/utility";
+import {
+  capitaliseString,
+  renderSection,
+  convertMonth
+} from "../../../utility/utility";
 
 //where, overall appearance, details, season
 
@@ -105,7 +109,7 @@ class Description extends Component {
       {
         property: plant.bloomMonth,
         label: "Blooming Months",
-        alt: plant.bloomMonth.join(", ")
+        alt: plant.bloomMonth.map(convertMonth).join(", ")
       },
       {
         property: plant.flowerDescription,
@@ -125,7 +129,7 @@ class Description extends Component {
       {
         property: plant.harvestMonth,
         label: "Colour",
-        alt: plant.harvestMonth.join(", ")
+        alt: plant.harvestMonth.map(convertMonth).join(", ")
       },
       {
         property: plant.fruitDescription,
@@ -145,8 +149,15 @@ class Description extends Component {
 
     return (
       <div className="secondary-container">
-        <div className="latinName">{capitaliseString(plant.latinName)}</div>
-        <div className="super-title">{capitaliseString(plant.commonName)}</div>
+        <div>
+          <span className="super-title">
+            {capitaliseString(plant.commonName)}
+          </span>
+          <span className="latinName sub-title">
+            {" (" + capitaliseString(plant.latinName) + ")"}
+          </span>
+        </div>
+
         <div className="table-container">
           {this.renderGeneral(plant)}
           {this.renderStem(plant)}

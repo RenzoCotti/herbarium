@@ -1,7 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 html {
-  background-color: black;
+  /*palette*/
+  --text: wheat;
+  /* --background: 36, 58, 24; */
+  /* --background: 35, 33, 27; */
+  --background: 110, 80, 50;
+  --yellow: #d3ba4e;
+  --highlight: #6d9930;
+
+  background-color: rgb(var(--background));
 }
 
 body {
@@ -9,21 +17,16 @@ body {
   padding: 0;
   margin: 0;
 
-  /*palette*/
-  --text: wheat;
-  --background: 36, 58, 24;
-  --yellow: #d3ba4e;
-  --highlight: #6d9930;
-
   font-family: "Montserrat", arial;
   color: var(--text);
   font-size: 18pt;
   font-weight: 100;
 
-  background-image: url("./bg.jpg");
+  background-image: url("./wood2.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 100%;
+  background-size: cover;
+  /* background-position: left top; */
 }
 
 .main-container {
@@ -35,7 +38,7 @@ body {
   margin: 0 200px;
   min-height: 100vh;
 
-  background-color: rgba(var(--background), 0.85);
+  background-color: rgba(var(--background), 0.7);
   /* box-shadow: 0px 0px 5px rgba(var(--background), 0.8); */
 }
 
@@ -48,8 +51,9 @@ body {
 }
 
 .title {
-  color: var(--highlight);
+  /* color: var(--yellow); */
   font-weight: bold;
+  font-style: italic;
 }
 
 .super-title {
