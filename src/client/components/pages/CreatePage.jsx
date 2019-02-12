@@ -12,7 +12,7 @@ class CreatePage extends Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.createRow = this.createRow.bind(this);
+    this.createInput = this.createInput.bind(this);
     this.createOptions = this.createOptions.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
   }
@@ -41,19 +41,14 @@ class CreatePage extends Component {
   handleSelect(e, name, multi) {
     if (!multi) {
       this.setState({
-        [name]: e.value
+        [name]: e.target.value
       });
       return;
     }
 
     let temp = [];
-
-    if (Array.isArray(e)) {
-      for (let a of e) {
-        temp.push(a.value);
-      }
-    } else {
-      temp.push(e.value);
+    for (let a of e.target.selectedOptions) {
+      temp.push(a.value);
     }
 
     this.setState({
@@ -61,11 +56,11 @@ class CreatePage extends Component {
     });
   }
 
-  createRow(label, name) {
+  createInput(label, name) {
     return (
-      <tr className="rowCreate">
-        <td className="sub-title">{label}</td>
-        <td>
+      <div className="row-table">
+        <div className="label-table sub-title">{label}</div>
+        <div className="content-table">
           <input
             className="form-control forms"
             type="text"
@@ -73,31 +68,42 @@ class CreatePage extends Component {
             onChange={this.handleChange}
             autoComplete="off"
           />
-        </td>
-      </tr>
+        </div>
+      </div>
     );
   }
 
   createOptions(label, name, arr, multiple) {
-    let temp = [];
-    for (let s of arr) {
-      let a = capitalise(s);
-      temp.push({ value: a, label: a });
-    }
+    let content = arr.map(o => (
+      <option value={o} key={o}>
+        {capitalise(o)}
+      </option>
+    ));
+
+    let select = multiple ? (
+      <select
+        value={this.state[label]}
+        onChange={val => this.handleSelect(val, name, multiple)}
+        multiple
+        className="formcontrol"
+      >
+        {content}
+      </select>
+    ) : (
+      <select
+        value={this.state[label]}
+        onChange={val => this.handleSelect(val, name)}
+        className="formcontrol"
+      >
+        {content}
+      </select>
+    );
 
     return (
-      <tr className="rowCreate">
-        <td className="sub-title">{label}</td>
-        <td>
-          <Select
-            value={this.state[label]}
-            onChange={val => this.handleSelect(val, name, multiple)}
-            options={temp}
-            isMulti={multiple ? true : false}
-            className="forms"
-          />
-        </td>
-      </tr>
+      <div className="row-table">
+        <div className="label-table sub-title">{label}</div>
+        <div className="content-table">{select}</div>
+      </div>
     );
   }
 
@@ -107,21 +113,40 @@ class CreatePage extends Component {
         <div className="super-title padded-bottom">Create new Plant</div>
 
         <form onSubmit={this.onSubmit}>
-          <table>
-            <tbody>
-              {this.createRow("Latin Name:", "latin")}
-              {this.createRow("Common Name:", "common")}
-              {this.createOptions("Type:", "type", definitions.plantType)}
-              {this.createOptions("Evergreen:", "evergreen", ["Yes", "No"])}
-              {this.createRow("Description:", "description")}
-              {this.createOptions(
-                "Regions:",
-                "regions",
-                definitions.regions,
-                true
-              )}
-            </tbody>
-          </table>
+          <div className="table-container">
+            <div className="title">General</div>
+            {this.createInput("Latin Name:", "latin")}
+            {this.createInput("Common Name:", "common")}
+            {this.createOptions("Type:", "type", definitions.plantType)}
+            {this.createOptions("Evergreen:", "evergreen", ["Yes", "No"])}
+            {this.createInput("Description:", "description")}
+            {this.createOptions(
+              "Regions:",
+              "regions",
+              definitions.regions,
+              true
+            )}
+
+            <div className="title">Stem</div>
+            {this.createInput("Colour:", "stemColour")}
+            {this.createInput("Texture:", "stemTexture")}
+            {this.createInput("Description:", "stemDescription")}
+
+            <div className="title">Leaves</div>
+            {this.createOptions("Shape:", "leafShape", definitions.leafShape)}
+            {this.createOptions(
+              "Margin:",
+              "leafMargin",
+              definitions.leafMargin
+            )}
+            {this.createOptions(
+              "Venation:",
+              "leafVenation",
+              definitions.leafVenation
+            )}
+            {this.createInput("Lenght:", "leafLength")}
+            {this.createInput("Description:", "leafDescription")}
+          </div>
 
           <input type="submit" value="Submit" />
         </form>

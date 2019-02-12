@@ -38,8 +38,17 @@ body {
   margin: 0 200px;
   min-height: 100vh;
 
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+
   background-color: var(--background);
   /* box-shadow: 0px 0px 5px rgba(var(--background), 0.8); */
+}
+
+.main-container::-webkit-scrollbar {
+  /* WebKit */
+  width: 0px;
 }
 
 .secondary-container {
