@@ -29,8 +29,8 @@ let obj = {
   leafLength: 6.5,
 
   /********* FLOWERS, optional *********/
-  flowerColour: "lavender",
-  bloomMonth: ["jun"],
+  flowerColour: "dark violet",
+  bloomMonth: ["june"],
 
   /********* USES *********/
   uses: [
@@ -87,8 +87,8 @@ var mint = new Plant({
   leafLength: 6,
 
   /********* FLOWERS, optional *********/
-  flowerColour: "purple",
-  bloomMonth: ["jul", "aug"],
+  flowerColour: "violet",
+  bloomMonth: ["july", "august"],
 
   /********* USES *********/
   uses: [

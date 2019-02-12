@@ -114,18 +114,18 @@ let temp = {
     //add more?
   ],
   months: [
-    "jan",
-    "feb",
-    "mar",
-    "apr",
+    "january",
+    "february",
+    "march",
+    "april",
     "may",
-    "jun",
-    "jul",
-    "aug",
-    "sep",
-    "oct",
-    "nov",
-    "dec"
+    "june",
+    "july",
+    "august",
+    "sepember",
+    "october",
+    "november",
+    "december"
   ],
   regions: [
     "africa",
@@ -138,21 +138,47 @@ let temp = {
     "asia",
     "south-america",
     "caribbean"
-  ]
+  ],
+  colours: [
+    "light blue",
+    "blue",
+    "dark blue",
+    "light green",
+    "green",
+    "dark green",
+    "light yellow",
+    "yellow",
+    "dark yellow",
+    "light orange",
+    "orange",
+    "dark orange",
+    "light red",
+    "red",
+    "dark red",
+    "light brown",
+    "brown",
+    "dark brown",
+    "light violet",
+    "violet",
+    "dark violet",
+    "white",
+    "gray",
+    "black"
+  ],
+  stemTexture: ["smooth", "hairy", "woody", "smooth bark", "rough bark"]
 };
 
-temp.medicinalProperties = () =>
-  []
-    .concat(
-      medicinalCirculatory,
-      medicinalDigestive,
-      medicinalGeneral,
-      medicinalNervous,
-      medicinalPathogens,
-      medicinalRespiratory
-    )
-    .sort(function(a, b) {
-      return a == b ? 0 : a < b ? -1 : 1;
-    });
+temp.medicinalProperties = []
+  .concat(
+    temp.medicinalCirculatory,
+    temp.medicinalDigestive,
+    temp.medicinalGeneral,
+    temp.medicinalNervous,
+    temp.medicinalPathogens,
+    temp.medicinalRespiratory
+  )
+  .sort(function(a, b) {
+    return a == b ? 0 : a < b ? -1 : 1;
+  });
 
 module.exports = temp;

@@ -51,13 +51,14 @@ const Plant = new mongoose.Schema({
   stemColour: {
     type: String,
     lowercase: true,
-    required: true
+    required: true,
+    enum: definitions.colours
   },
   stemTexture: {
     type: String,
     lowercase: true,
     required: true,
-    enum: ["smooth", "hairy", "woody", "smooth bark", "rough bark"]
+    enum: definitions.stemTexture
   },
   stemDescription: {
     type: String,
@@ -95,7 +96,8 @@ const Plant = new mongoose.Schema({
   /********* FLOWERS, optional *********/
   flowerColour: {
     type: String,
-    lowercase: true
+    lowercase: true,
+    enum: definitions.colours
   },
   flowerDescription: {
     type: String,
@@ -111,7 +113,8 @@ const Plant = new mongoose.Schema({
   /********* FRUIT, optional *********/
   fruitColour: {
     type: String,
-    lowercase: true
+    lowercase: true,
+    enum: definitions.colours
   },
   fruitDescription: {
     type: String,

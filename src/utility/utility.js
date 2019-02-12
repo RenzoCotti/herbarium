@@ -46,29 +46,55 @@ export function renderSection(title, arr) {
   );
 }
 
-export function convertMonth(s) {
-  switch (s) {
-    case "jan":
-      return "january";
-    case "feb":
-      return "february";
-    case "mar":
-      return "march";
-    case "apr":
-      return "april";
-    case "may":
-      return "may";
-    case "jun":
-      return "june";
-    case "jul":
-      return "july";
-    case "sep":
-      return "september";
-    case "oct":
-      return "october";
-    case "nov":
-      return "november";
-    case "dec":
-      return "december";
+export function convertToColour(colour) {
+  switch (colour) {
+    case "light blue":
+      return "#add8e6";
+    case "blue":
+      return "#4169e1";
+    case "dark blue":
+      return "#00008b";
+    case "light green":
+      return "#90ee90";
+    case "green":
+      return "#228b22";
+    case "dark green":
+      return "#008000";
+    case "light yellow":
+      return "khaki";
+    case "yellow":
+      return "gold";
+    case "dark yellow":
+      return "goldenrod";
+    case "light orange":
+      return "tomato";
+    case "orange":
+      return "orange";
+    case "dark orange":
+      return "orangered";
+    case "light red":
+      return "darksalmon";
+    case "red":
+      return "crimson";
+    case "dark red":
+      return "darkred";
+    case "light brown":
+      return "peru";
+    case "brown":
+      return "chocolate";
+    case "dark brown":
+      return "maroon";
+    case "light violet":
+      return "plum";
+    case "violet":
+      return "darkorchid";
+    case "dark violet":
+      return "rebeccapurple";
+    case "white":
+      return "white";
+    case "gray":
+      return "gray";
+    case "black":
+      return "black";
   }
 }

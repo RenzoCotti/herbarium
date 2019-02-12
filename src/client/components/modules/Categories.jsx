@@ -62,7 +62,7 @@ class Categories extends Component {
   renderSection(label, list) {
     return (
       <div className="category-section">
-        <div className="category-label">{label}</div>
+        <div className="category-label title">{label}</div>
         <div className="category-list">
           {list.map(k => {
             return (

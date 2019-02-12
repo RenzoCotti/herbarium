@@ -16,10 +16,11 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: top;
+  padding-bottom: 5px;
 }
 
 .label-table {
-  width: 150px;
+  width: 160px;
   padding-right: 30px;
 }
 

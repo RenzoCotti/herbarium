@@ -12,6 +12,10 @@ html {
   background-color: var(--background);
 }
 
+::selection {
+  background: var(--highlight); /* WebKit/Blink Browsers */
+}
+
 body {
   /*remove basic padding from document*/
   padding: 0;

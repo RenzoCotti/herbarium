@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Select from "react-select";
-import { capitalise } from "../../../utility/utility";
+import { capitalise, convertToColour } from "../../../utility/utility";
 import "../style/create.css";
 
 const definitions = require("../../../utility/definitions");
@@ -74,7 +73,7 @@ class CreatePage extends Component {
   }
 
   createOptions(label, name, arr, multiple) {
-    let content = arr.map(o => (
+    let content = arr.sort().map(o => (
       <option value={o} key={o}>
         {capitalise(o)}
       </option>
@@ -115,8 +114,8 @@ class CreatePage extends Component {
         <form onSubmit={this.onSubmit}>
           <div className="table-container">
             <div className="title">General</div>
-            {this.createInput("Latin Name:", "latin")}
             {this.createInput("Common Name:", "common")}
+            {this.createInput("Latin Name:", "latin")}
             {this.createOptions("Type:", "type", definitions.plantType)}
             {this.createOptions("Evergreen:", "evergreen", ["Yes", "No"])}
             {this.createInput("Description:", "description")}
@@ -146,6 +145,29 @@ class CreatePage extends Component {
             )}
             {this.createInput("Lenght:", "leafLength")}
             {this.createInput("Description:", "leafDescription")}
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              width: "60px",
+              flexWrap: "wrap",
+              flexDirection: "row"
+            }}
+          >
+            //TODO, INSPECT PRIMARY, SECONDARY AND TERTIARY COLOURS
+            {definitions.colours.map((c, index) => (
+              <React.Fragment>
+                <div
+                  style={{
+                    backgroundColor: convertToColour(c),
+                    width: "20px",
+                    height: "20px"
+                  }}
+                  key={c}
+                />
+              </React.Fragment>
+            ))}
           </div>
 
           <input type="submit" value="Submit" />

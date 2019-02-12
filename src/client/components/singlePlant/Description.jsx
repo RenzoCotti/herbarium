@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import "../style/description.css";
-import {
-  capitaliseString,
-  renderSection,
-  convertMonth
-} from "../../../utility/utility";
+import { capitaliseString, renderSection } from "../../../utility/utility";
 
 //where, overall appearance, details, season
 
@@ -109,7 +105,7 @@ class Description extends Component {
       {
         property: plant.bloomMonth,
         label: "Blooming Months",
-        alt: plant.bloomMonth.map(convertMonth).join(", ")
+        alt: plant.bloomMonth.join(", ")
       },
       {
         property: plant.flowerDescription,
@@ -129,7 +125,7 @@ class Description extends Component {
       {
         property: plant.harvestMonth,
         label: "Colour",
-        alt: plant.harvestMonth.map(convertMonth).join(", ")
+        alt: plant.harvestMonth.join(", ")
       },
       {
         property: plant.fruitDescription,
