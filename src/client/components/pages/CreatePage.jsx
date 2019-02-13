@@ -143,7 +143,7 @@ class CreatePage extends Component {
               "leafVenation",
               definitions.leafVenation
             )}
-            {this.createInput("Lenght:", "leafLength")}
+            {this.createInput("Length:", "leafLength")}
             {this.createInput("Description:", "leafDescription")}
           </div>
 

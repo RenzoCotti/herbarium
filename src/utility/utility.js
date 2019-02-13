@@ -48,53 +48,72 @@ export function renderSection(title, arr) {
 
 export function convertToColour(colour) {
   switch (colour) {
-    case "light blue":
-      return "#add8e6";
-    case "blue":
-      return "#4169e1";
-    case "dark blue":
-      return "#00008b";
-    case "light green":
-      return "#90ee90";
-    case "green":
-      return "#228b22";
-    case "dark green":
-      return "#008000";
-    case "light yellow":
-      return "khaki";
-    case "yellow":
-      return "gold";
-    case "dark yellow":
-      return "goldenrod";
-    case "light orange":
-      return "tomato";
-    case "orange":
-      return "orange";
-    case "dark orange":
-      return "orangered";
     case "light red":
-      return "darksalmon";
+      return "#8177FE";
     case "red":
-      return "crimson";
+      return "#0E05FE";
     case "dark red":
-      return "darkred";
-    case "light brown":
-      return "peru";
-    case "brown":
-      return "chocolate";
-    case "dark brown":
-      return "maroon";
-    case "light violet":
-      return "plum";
-    case "violet":
-      return "darkorchid";
-    case "dark violet":
-      return "rebeccapurple";
-    case "white":
-      return "white";
+      return "#000186";
+
+    case "light orange":
+      return "#7EBBFE";
+    case "orange":
+      return "#117FFD";
+    case "dark orange":
+      return "#063E80";
+
+    case "light yellow":
+      return "#84FDFD";
+    case "yellow":
+      return "#23FDFD";
+    case "dark yellow":
+      return "#137D80";
+
+    case "light green":
+      return "#19DA00";
+    case "green":
+      return "#0B8000";
+    case "dark green":
+      return "#023D00";
+
+    case "light blue":
+      return "#FDAA4D";
+    case "blue":
+      return "#E26D0D";
+    case "dark blue":
+      return "#840506";
+
+    case "light purple":
+      return "#FD7CBB";
+    case "purple":
+      return "#F9127F";
+    case "dark purple":
+      return "#830544";
+
+    case "light pink":
+      return "#FC7CFF";
+    case "pink":
+      return "#FD15FC";
+    case "dark pink":
+      return "#830583";
+
+    case "light gray":
+      return "#C7C7C7";
     case "gray":
-      return "gray";
+      return "#787878";
+    case "dark gray":
+      return "#3F3E42";
+
+    case "light brown":
+      return "#547196";
+    case "brown":
+      return "#103D66";
+    case "dark brown":
+      return "#0B1C3E";
+
+    case "white":
+      return "#FFFFFF";
     case "black":
-      return "black";
+      return "#000000";
   }
 }
