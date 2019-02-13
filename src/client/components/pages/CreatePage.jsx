@@ -107,6 +107,38 @@ class CreatePage extends Component {
   }
 
   render() {
+    let temp = [];
+    //red
+    temp.push("hsl(0,70%,50%)");
+    //brown
+    temp.push("hsl(30,70%,30%)");
+    //orange
+    temp.push("hsl(30,90%,50%)");
+    //yellow
+    temp.push("hsl(60,80%,50%)");
+    //green
+    temp.push("hsl(90,70%,30%)");
+    //blue
+    temp.push("hsl(200,80%,40%)");
+    //purple
+    temp.push("hsl(280,70%,40%)");
+    //pink
+    temp.push("hsl(320,80%,50%)");
+    //pink
+    temp.push("hsl(60,80%,50%)");
+    //pink
+    temp.push("hsl(60,80%,50%)");
+    //pink
+    temp.push("hsl(60,80%,50%)");
+
+    // for (let H = 0; H < 360; H += 30) {
+    //   for (let V = 20; V < 90; V += 25) {
+    //     temp.push("hsl(" + H + ",70%," + V + "%)");
+    //   }
+    // }
+
+    console.log(temp);
+
     return (
       <div className="secondary-container">
         <div className="super-title padded-bottom">Create new Plant</div>
@@ -155,18 +187,15 @@ class CreatePage extends Component {
               flexDirection: "row"
             }}
           >
-            //TODO, INSPECT PRIMARY, SECONDARY AND TERTIARY COLOURS
-            {definitions.colours.map((c, index) => (
-              <React.Fragment>
-                <div
-                  style={{
-                    backgroundColor: convertToColour(c),
-                    width: "20px",
-                    height: "20px"
-                  }}
-                  key={c}
-                />
-              </React.Fragment>
+            {temp.map(c => (
+              <div
+                style={{
+                  backgroundColor: c,
+                  width: "20px",
+                  height: "20px"
+                }}
+                key={c}
+              />
             ))}
           </div>
 
