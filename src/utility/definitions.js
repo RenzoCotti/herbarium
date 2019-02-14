@@ -140,44 +140,18 @@ let temp = {
     "caribbean"
   ],
   colours: [
-    "light red",
-    "red",
-    "dark red",
-
-    "light orange",
-    "orange",
-    "dark orange",
-
-    "light yellow",
     "yellow",
-    "dark yellow",
-
-    "light green",
-    "green",
-    "dark green",
-
-    "light blue",
-    "blue",
-    "dark blue",
-
-    "light purple",
+    "orange",
+    "red",
     "purple",
-    "dark purple",
-
-    "light pink",
-    "pink",
-    "dark pink",
-
-    "light gray",
+    "blue",
+    "cyan",
+    "greenyellow",
+    "green",
+    "saddlebrown",
+    "black",
     "gray",
-    "dark gray",
-
-    "light brown",
-    "brown",
-    "dark brown",
-
-    "white",
-    "black"
+    "white"
   ],
   stemTexture: ["smooth", "hairy", "woody", "smooth bark", "rough bark"]
 };

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { capitalise, convertToColour } from "../../../utility/utility";
+import { capitalise, toColour } from "../../../utility/utility";
 import "../style/create.css";
 
 const definitions = require("../../../utility/definitions");
@@ -55,25 +55,36 @@ class CreatePage extends Component {
     });
   }
 
-  createInput(label, name) {
+  createInput(label, name, area, size) {
     return (
       <div className="row-table">
         <div className="label-table sub-title">{label}</div>
         <div className="content-table">
-          <input
-            className="form-control forms"
-            type="text"
-            name={name}
-            onChange={this.handleChange}
-            autoComplete="off"
-          />
+          {area ? (
+            <textarea
+              className="forms"
+              type="text"
+              name={name}
+              onChange={this.handleChange}
+              autoComplete="off"
+            />
+          ) : (
+            <input
+              className={size ? "forms shortForm" : "forms"}
+              type="text"
+              name={name}
+              onChange={this.handleChange}
+              autoComplete="off"
+            />
+          )}
+          {size ? size : ""}
         </div>
       </div>
     );
   }
 
   createOptions(label, name, arr, multiple) {
-    let content = arr.sort().map(o => (
+    let content = arr.map(o => (
       <option value={o} key={o}>
         {capitalise(o)}
       </option>
@@ -84,7 +95,6 @@ class CreatePage extends Component {
         value={this.state[label]}
         onChange={val => this.handleSelect(val, name, multiple)}
         multiple
-        className="formcontrol"
       >
         {content}
       </select>
@@ -92,8 +102,11 @@ class CreatePage extends Component {
       <select
         value={this.state[label]}
         onChange={val => this.handleSelect(val, name)}
-        className="formcontrol"
+        defaultValue="select an option"
       >
+        <option disabled value="select an option">
+          select an option
+        </option>
         {content}
       </select>
     );
@@ -106,97 +119,123 @@ class CreatePage extends Component {
     );
   }
 
-  render() {
-    let temp = [];
-    //red
-    temp.push("hsl(0,70%,50%)");
-    //brown
-    temp.push("hsl(30,70%,30%)");
-    //orange
-    temp.push("hsl(30,90%,50%)");
-    //yellow
-    temp.push("hsl(60,80%,50%)");
-    //green
-    temp.push("hsl(90,70%,30%)");
-    //blue
-    temp.push("hsl(200,80%,40%)");
-    //purple
-    temp.push("hsl(280,70%,40%)");
-    //pink
-    temp.push("hsl(320,80%,50%)");
-    //pink
-    temp.push("hsl(60,80%,50%)");
-    //pink
-    temp.push("hsl(60,80%,50%)");
-    //pink
-    temp.push("hsl(60,80%,50%)");
-
-    // for (let H = 0; H < 360; H += 30) {
-    //   for (let V = 20; V < 90; V += 25) {
-    //     temp.push("hsl(" + H + ",70%," + V + "%)");
-    //   }
-    // }
-
-    console.log(temp);
-
+  createColours(label, name) {
     return (
-      <div className="secondary-container">
+      <div className="row-table">
+        <div className="label-table sub-title">{label}</div>
+        <div className="content-table">
+          <select
+            value={this.state[label]}
+            onChange={val => this.handleSelect(val, name)}
+            className="colourSelect"
+            defaultValue="select an option"
+          >
+            <option disabled value="select an option">
+              select an option
+            </option>
+            {definitions.colours.map(c => (
+              <option
+                key={c}
+                style={{
+                  backgroundColor: c,
+                  color: "transparent"
+                }}
+                value={c}
+              >
+                {toColour(c)}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <div style={{ width: "100%", padding: "50px" }}>
         <div className="super-title padded-bottom">Create new Plant</div>
 
         <form onSubmit={this.onSubmit}>
-          <div className="table-container">
-            <div className="title">General</div>
-            {this.createInput("Common Name:", "common")}
-            {this.createInput("Latin Name:", "latin")}
-            {this.createOptions("Type:", "type", definitions.plantType)}
-            {this.createOptions("Evergreen:", "evergreen", ["Yes", "No"])}
-            {this.createInput("Description:", "description")}
-            {this.createOptions(
-              "Regions:",
-              "regions",
-              definitions.regions,
-              true
-            )}
+          <div className="createForm">
+            <div className="table-container">
+              <div className="title padded-bottom padded-top">General</div>
+              {this.createInput("Common name: *", "common")}
+              {this.createInput("Latin name: *", "latin")}
+              {this.createOptions(
+                "Type: *",
+                "type",
+                definitions.plantType.sort()
+              )}
+              {this.createInput("Height:", "height", false, "m")}
+              {this.createOptions("Evergreen: *", "evergreen", ["Yes", "No"])}
+              {this.createOptions(
+                "Regions: *",
+                "regions",
+                definitions.regions.sort(),
+                true
+              )}
+              {this.createInput("Habitat: *", "habitat")}
+              {this.createInput("Description:", "description", true)}
 
-            <div className="title">Stem</div>
-            {this.createInput("Colour:", "stemColour")}
-            {this.createInput("Texture:", "stemTexture")}
-            {this.createInput("Description:", "stemDescription")}
+              <div className="title padded-bottom padded-top">Stem/Trunk</div>
+              {this.createColours("Colour: *", "stemColour")}
+              {this.createOptions(
+                "Texture: *",
+                "stemTexture",
+                definitions.stemTexture.sort()
+              )}
+              {this.createInput("Description:", "stemDescription", true)}
+            </div>
 
-            <div className="title">Leaves</div>
-            {this.createOptions("Shape:", "leafShape", definitions.leafShape)}
-            {this.createOptions(
-              "Margin:",
-              "leafMargin",
-              definitions.leafMargin
-            )}
-            {this.createOptions(
-              "Venation:",
-              "leafVenation",
-              definitions.leafVenation
-            )}
-            {this.createInput("Length:", "leafLength")}
-            {this.createInput("Description:", "leafDescription")}
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              width: "60px",
-              flexWrap: "wrap",
-              flexDirection: "row"
-            }}
-          >
-            {temp.map(c => (
-              <div
-                style={{
-                  backgroundColor: c,
-                  width: "20px",
-                  height: "20px"
-                }}
-                key={c}
-              />
-            ))}
+            <div className="table-container">
+              <div className="title padded-bottom padded-top">Leaves</div>
+              {this.createOptions(
+                "Shape: *",
+                "leafShape",
+                definitions.leafShape.sort()
+              )}
+              {this.createOptions(
+                "Margin: *",
+                "leafMargin",
+                definitions.leafMargin.sort()
+              )}
+              {this.createOptions(
+                "Venation: *",
+                "leafVenation",
+                definitions.leafVenation.sort()
+              )}
+              {this.createInput("Length: *", "leafLength", false, "cm")}
+              {this.createInput("Description:", "leafDescription", true)}
+              <div className="title padded-bottom padded-top">Flowers</div>
+              {this.createColours(
+                "Colour:",
+                "flowerColour",
+                definitions.colours
+              )}
+              {this.createOptions(
+                "Bloom month:",
+                "bloomMonth",
+                definitions.months,
+                true
+              )}
+              {this.createInput("Description:", "flowerDescription", true)}
+              <div className="title padded-bottom padded-top">Fruit</div>
+              {this.createColours(
+                "Colour:",
+                "fruitColour",
+                definitions.colours
+              )}
+              {this.createOptions(
+                "Harvest month:",
+                "harvestMonth",
+                definitions.months,
+                true
+              )}
+              //TODO images
+              <br />
+              //TODO uses
+            </div>
           </div>
 
           <input type="submit" value="Submit" />
