@@ -40,6 +40,7 @@ body {
   flex-direction: row;
   margin: auto;
   justify-content: center;
+  /* align-items: center; */
   flex-wrap: wrap;
   margin: 0 200px;
   height: 100vh;
@@ -54,7 +55,6 @@ body {
 }
 
 .main-container::-webkit-scrollbar {
-  /* WebKit */
   width: 0px;
 }
 

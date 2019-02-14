@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-var Plant = require("../models/plantModel");
+const Plant = require("../models/plantModel");
 
 //placeholder for database
 
@@ -35,6 +35,14 @@ router.get("/category/:category/:name", (req, res) => {
   );
 });
 
+router.post("/new", (req, res) => {
+  let plant = new Plant(req.body);
+
+  plant.save((err, saved) => {
+    console.log(err);
+    return res.send(saved);
+  });
+});
 // router.get("/list", (req, res) => {
 //   Plant.find({}, (err, plants) => {
 //     res.json(plants);

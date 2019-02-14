@@ -153,7 +153,7 @@ var plantPlaceholder = new Plant({
   evergreen: false,
   description: "",
   height: 0,
-  zone: [""],
+  regions: [""],
   habitat: "",
 
   /********* STEM *********/

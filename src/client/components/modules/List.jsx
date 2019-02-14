@@ -32,11 +32,19 @@ class List extends Component {
       // console.log(plant);
       return (
         <div
-          key={plant.latinName}
+          key={index}
           className="entry-list"
           onClick={e => this.goToPlant(e, index)}
         >
-          <img src={plant.images[0].url} className="secondary-image" alt="" />
+          <img
+            src={
+              plant.images[0]
+                ? plant.images[0].url
+                : "../../../../public/leaf_placeholder.jpg"
+            }
+            className="secondary-image"
+            alt=""
+          />
           <span className="label-list">
             {/*for debug purposes added plant.count*/}
             {capitalise(plant.commonName) +

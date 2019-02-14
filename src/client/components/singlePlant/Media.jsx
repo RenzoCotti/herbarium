@@ -18,12 +18,16 @@ class Media extends Component {
 
   getCaption() {
     let show = this.state.showing;
-    return this.props.plant.images[show].caption;
+    let current = this.props.plant.images;
+    if (current.length > 0) return current[show].caption;
+    return "";
   }
 
   getSrc() {
     let show = this.state.showing;
-    return this.props.plant.images[show].url;
+    let current = this.props.plant.images;
+    if (current.length > 0) return current[show].url;
+    else return "../../../../public/leaf_placeholder.jpg";
   }
 
   getSide() {
@@ -57,10 +61,7 @@ class Media extends Component {
       <div className="media-container">
         <div className="image-container">
           <img className="main-image" src={this.getSrc()} alt="" />
-          <div className="side-images">
-            {this.getSide()}
-            {/* {this.getSide()} */}
-          </div>
+          <div className="side-images">{this.getSide()}</div>
         </div>
         <div className="main-image-subtitle">
           {capitalise(this.getCaption())}

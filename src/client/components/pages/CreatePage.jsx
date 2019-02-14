@@ -18,16 +18,23 @@ class CreatePage extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
-    let obj = {
-      latinName: this.state.latin,
-      commonName: this.state.common,
-      typeOfPlant: this.state.type,
-      evergreen: this.state.evergreen,
-      description: this.state.description,
-      regions: this.state.regions
-    };
     console.log(this.state);
+
+    switch (this.state.evergreen) {
+      case "Yes":
+        this.state.evergreen = true;
+      case "No":
+        this.state.evergreen = false;
+    }
+
+    fetch("/api/new", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(this.state)
+    });
   }
 
   handleChange(e) {
@@ -160,11 +167,11 @@ class CreatePage extends Component {
           <div className="createForm">
             <div className="table-container">
               <div className="title padded-bottom padded-top">General</div>
-              {this.createInput("Common name: *", "common")}
-              {this.createInput("Latin name: *", "latin")}
+              {this.createInput("Common name: *", "commonName")}
+              {this.createInput("Latin name: *", "latinName")}
               {this.createOptions(
                 "Type: *",
-                "type",
+                "plantType",
                 definitions.plantType.sort()
               )}
               {this.createInput("Height:", "height", false, "m")}

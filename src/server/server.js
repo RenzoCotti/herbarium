@@ -4,6 +4,7 @@ const path = require("path");
 const http = require("http");
 const fs = require("fs");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
 //constants for server
 const app = express();
@@ -26,6 +27,8 @@ app.use(express.static(path.join(__dirname, "client/build")));
 // app.use(express.static(path.join(__dirname, 'public'), {
 //   maxAge: cacheTime
 //  }))
+
+app.use(bodyParser.json());
 
 const plantRouter = require("./router/plantRouter");
 
