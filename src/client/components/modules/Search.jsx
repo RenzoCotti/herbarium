@@ -10,13 +10,16 @@ class Search extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.fetchPlant = this.fetchPlant.bind(this);
     this.getRandom = this.getRandom.bind(this);
+    this.getAll = this.getAll.bind(this);
   }
 
   async fetchPlant(url) {
     let req = await fetch(url);
     let res = await req.json();
 
-    if (res.list.length === 0) {
+    if (res.length) {
+      this.props.updatePlant(res);
+    } else if (res.list.length === 0) {
       //no plants found
       this.props.updatePlant(-1);
     } else {
@@ -45,6 +48,11 @@ class Search extends Component {
     this.fetchPlant("/api/random");
   }
 
+  async getAll(e) {
+    e.preventDefault();
+    this.fetchPlant("/api/all");
+  }
+
   onSubmit(e) {
     e.preventDefault();
     this.fetchPlant("/api/search/" + this.query);
@@ -68,6 +76,7 @@ class Search extends Component {
           />
           <input type="submit" value="Submit" />
           <input type="submit" value="Random" onClick={this.getRandom} />
+          <input type="submit" value="All" onClick={this.getAll} />
         </form>
         {this.props.plant === -1 ? <div>No such plant found.</div> : <div />}
       </div>

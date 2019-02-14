@@ -43,11 +43,11 @@ router.post("/new", (req, res) => {
     return res.send(saved);
   });
 });
-// router.get("/list", (req, res) => {
-//   Plant.find({}, (err, plants) => {
-//     res.json(plants);
-//   });
-// });
+router.get("/all", (req, res) => {
+  Plant.find({}, (err, plants) => {
+    res.json(plants);
+  });
+});
 
 router.get("/random", (req, res) => {
   Plant.find({}, (err, plants) => {
