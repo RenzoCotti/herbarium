@@ -21,9 +21,15 @@ const CreateLeaves = props => (
       fn={props.select}
     />
     <Select
-      name="Venation: *"
-      label="leafVenation"
+      label="Venation: *"
+      name="leafVenation"
       arr={definitions.leafVenation.sort()}
+      fn={props.select}
+    />
+    <Select
+      label="Arrangement: *"
+      name="leafArrangement"
+      arr={definitions.leafArrangement.sort()}
       fn={props.select}
     />
     <Input label="Length: *" name="leafLength" text="cm" fn={props.change} />
