@@ -26,6 +26,7 @@ let obj = {
   leafDescription: "rugose, hairy and green on top, gray on the bottom",
   leafMargin: "crenate",
   leafVenation: "pinnate",
+  leafArrangement: "opposite",
   leafLength: 6.5,
 
   /********* FLOWERS, optional *********/
@@ -84,6 +85,7 @@ var mint = new Plant({
   leafDescription: "green, with reddish veins",
   leafMargin: "serrate",
   leafVenation: "pinnate",
+  leafArrangement: "opposite",
   leafLength: 6,
 
   /********* FLOWERS, optional *********/
@@ -166,6 +168,7 @@ var plantPlaceholder = new Plant({
   leafDescription: "",
   leafMargin: "",
   leafVenation: "",
+  leafArrangement: "",
   leafLength: 0,
 
   /********* FLOWERS, optional *********/

@@ -7,6 +7,7 @@ import CategoriesPage from "./pages/CategoriesPage";
 import Footbar from "./general/Footbar";
 import Home from "./general/Home";
 import CreatePage from "./pages/CreatePage";
+import LoginPage from "./pages/LoginPage";
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
             <Route path="/categories" component={CategoriesPage} />
             <Route path="/search" component={SearchPage} />
             <Route path="/create" component={CreatePage} />
+            <Route path="/login" component={LoginPage} />
           </div>
 
           <Footbar />

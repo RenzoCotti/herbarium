@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { renderOptional, capitalise } from "../../../utility/utility";
+import Row from "../modules/Row";
+import { capitalise } from "../../../utility/utility";
 
 class Properties extends Component {
   state = {};
@@ -11,15 +12,15 @@ class Properties extends Component {
           <div className="row-table">
             <div className="title">{capitalise(use.part)}</div>
           </div>
-          {renderOptional(use.edible, "Edible", "Yes")}
-          {renderOptional(use.foodPreparation, "Preparation")}
-          {renderOptional(
-            use.medicinalProperties,
-            "Medicinal",
-            use.medicinalProperties.join(", ")
-          )}
-          {renderOptional(use.medicinalPreparation, "Preparation")}
-          {renderOptional(use.material, "Material")}
+          <Row toRender={use.edible} label={"Edible"} alt="Yes" />
+          <Row toRender={use.foodPreparation} label="Preparation" />
+          <Row
+            toRender={use.medicinalProperties}
+            label="Medicinal"
+            alt={use.medicinalProperties.join(", ")}
+          />
+          <Row toRender={use.medicinalPreparation} label="Preparation" />
+          <Row toRender={use.material} label="Material" />
         </React.Fragment>
       );
     });
@@ -28,7 +29,6 @@ class Properties extends Component {
   render() {
     return (
       <React.Fragment>
-        {/* <div className="super-title">Properties</div> */}
         <div className="table-container">{this.getList()}</div>
       </React.Fragment>
     );

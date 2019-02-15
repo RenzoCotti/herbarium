@@ -83,6 +83,12 @@ const Plant = new mongoose.Schema({
     required: true,
     enum: definitions.leafMargin
   },
+  leafArrangement: {
+    type: String,
+    lowercase: true,
+    required: true,
+    enum: definitions.leafArrangement
+  },
   leafVenation: {
     type: String,
     lowercase: true,

@@ -1,5 +1,9 @@
 import React, { Component } from "react";
-import { capitalise, toColour } from "../../../utility/utility";
+import {
+  createInput,
+  createOptions,
+  createColours
+} from "../../../utility/utility";
 import "../style/create.css";
 
 const definitions = require("../../../utility/definitions");
@@ -9,10 +13,7 @@ class CreatePage extends Component {
 
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.createInput = this.createInput.bind(this);
-    this.createOptions = this.createOptions.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
   }
 
@@ -62,100 +63,12 @@ class CreatePage extends Component {
     });
   }
 
-  createInput(label, name, area, size) {
-    return (
-      <div className="row-table">
-        <div className="label-table sub-title">{label}</div>
-        <div className="content-table">
-          {area ? (
-            <textarea
-              className="forms"
-              type="text"
-              name={name}
-              onChange={this.handleChange}
-              autoComplete="off"
-            />
-          ) : (
-            <input
-              className={size ? "forms shortForm" : "forms"}
-              type="text"
-              name={name}
-              onChange={this.handleChange}
-              autoComplete="off"
-            />
-          )}
-          {size ? size : ""}
-        </div>
-      </div>
-    );
+  inputForm(label, name, area, size) {
+    return createInput(label, name, this.handleChange, area, size);
   }
 
-  createOptions(label, name, arr, multiple) {
-    let content = arr.map(o => (
-      <option value={o} key={o}>
-        {capitalise(o)}
-      </option>
-    ));
-
-    let select = multiple ? (
-      <select
-        value={this.state[label]}
-        onChange={val => this.handleSelect(val, name, multiple)}
-        multiple
-      >
-        {content}
-      </select>
-    ) : (
-      <select
-        value={this.state[label]}
-        onChange={val => this.handleSelect(val, name)}
-        defaultValue="select an option"
-      >
-        <option disabled value="select an option">
-          select an option
-        </option>
-        {content}
-      </select>
-    );
-
-    return (
-      <div className="row-table">
-        <div className="label-table sub-title">{label}</div>
-        <div className="content-table">{select}</div>
-      </div>
-    );
-  }
-
-  createColours(label, name) {
-    return (
-      <div className="row-table">
-        <div className="label-table sub-title">{label}</div>
-        <div className="content-table">
-          <select
-            value={this.state[label]}
-            onChange={val => this.handleSelect(val, name)}
-            className="colourSelect"
-            defaultValue="select an option"
-          >
-            <option disabled value="select an option">
-              select an option
-            </option>
-            {definitions.colours.map(c => (
-              <option
-                key={c}
-                style={{
-                  backgroundColor: c,
-                  color: "transparent"
-                }}
-                value={c}
-              >
-                {toColour(c)}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-    );
+  selectForm(label, name, arr, multi) {
+    return createOptions(label, name, this.handleSelect, arr, multi);
   }
 
   render() {
@@ -167,73 +80,70 @@ class CreatePage extends Component {
           <div className="createForm">
             <div className="table-container">
               <div className="title padded-bottom padded-top">General</div>
-              {this.createInput("Common name: *", "commonName")}
-              {this.createInput("Latin name: *", "latinName")}
-              {this.createOptions(
+              {this.inputForm("Common name: *", "commonName")}
+              {this.inputForm("Latin name: *", "latinName")}
+              {this.selectForm(
                 "Type: *",
                 "plantType",
                 definitions.plantType.sort()
               )}
-              {this.createInput("Height:", "height", false, "m")}
-              {this.createOptions("Evergreen: *", "evergreen", ["Yes", "No"])}
-              {this.createOptions(
+              {this.inputForm("Height:", "height", false, "m")}
+              {this.selectForm("Evergreen: *", "evergreen", ["Yes", "No"])}
+              {this.selectForm(
                 "Regions: *",
                 "regions",
                 definitions.regions.sort(),
                 true
               )}
-              {this.createInput("Habitat: *", "habitat")}
-              {this.createInput("Description:", "description", true)}
+              {this.inputForm("Habitat: *", "habitat", this.handleChange)}
+              {this.inputForm(
+                "Description:",
+                "description",
+                this.handleChange,
+                true
+              )}
 
               <div className="title padded-bottom padded-top">Stem/Trunk</div>
-              {this.createColours("Colour: *", "stemColour")}
-              {this.createOptions(
+              {createColours("Colour: *", "stemColour", this.handleSelect)}
+              {this.selectForm(
                 "Texture: *",
                 "stemTexture",
                 definitions.stemTexture.sort()
               )}
-              {this.createInput("Description:", "stemDescription", true)}
+              {this.inputForm("Description:", "stemDescription", true)}
             </div>
 
             <div className="table-container">
               <div className="title padded-bottom padded-top">Leaves</div>
-              {this.createOptions(
+              {this.selectForm(
                 "Shape: *",
                 "leafShape",
                 definitions.leafShape.sort()
               )}
-              {this.createOptions(
+              {this.selectForm(
                 "Margin: *",
                 "leafMargin",
                 definitions.leafMargin.sort()
               )}
-              {this.createOptions(
+              {this.selectForm(
                 "Venation: *",
                 "leafVenation",
                 definitions.leafVenation.sort()
               )}
-              {this.createInput("Length: *", "leafLength", false, "cm")}
-              {this.createInput("Description:", "leafDescription", true)}
+              {this.inputForm("Length: *", "leafLength", false, "cm")}
+              {this.inputForm("Description:", "leafDescription", true)}
               <div className="title padded-bottom padded-top">Flowers</div>
-              {this.createColours(
-                "Colour:",
-                "flowerColour",
-                definitions.colours
-              )}
-              {this.createOptions(
+              {createColours("Colour:", "flowerColour", this.handleSelect)}
+              {this.selectForm(
                 "Bloom month:",
                 "bloomMonth",
                 definitions.months,
                 true
               )}
-              {this.createInput("Description:", "flowerDescription", true)}
+              {this.inputForm("Description:", "flowerDescription", true)}
               <div className="title padded-bottom padded-top">Fruit</div>
-              {this.createColours(
-                "Colour:",
-                "fruitColour",
-                definitions.colours
-              )}
-              {this.createOptions(
+              {createColours("Colour:", "fruitColour", this.handleSelect)}
+              {this.selectForm(
                 "Harvest month:",
                 "harvestMonth",
                 definitions.months,

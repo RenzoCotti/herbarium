@@ -9,7 +9,7 @@ class Navbar extends Component {
   }
 
   state = {
-    options: ["Home", "Search", "Categories", "Create", "About"]
+    options: ["Home", "Search", "Categories", "Create", "Login", "About"]
   };
 
   getOptions() {

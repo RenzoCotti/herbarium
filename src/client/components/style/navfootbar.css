@@ -17,7 +17,8 @@
   color: var(--yellow);
 }
 
-.nav-element:visited {
+.nav-element:visited,
+.nav-element {
   color: inherit;
 }
 

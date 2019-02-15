@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+
+import Row from "../modules/Row";
 import "../style/description.css";
-import { capitaliseString, renderSection } from "../../../utility/utility";
+import { capitaliseString } from "../../../utility/utility";
 
 //where, overall appearance, details, season
 
@@ -9,11 +11,29 @@ class Description extends Component {
 
   constructor(props) {
     super(props);
+    this.renderSection = this.renderSection.bind(this);
+
     this.renderGeneral = this.renderGeneral.bind(this);
     this.renderStem = this.renderStem.bind(this);
     this.renderLeaf = this.renderLeaf.bind(this);
     this.renderFlowers = this.renderFlowers.bind(this);
     this.renderFruits = this.renderFruits.bind(this);
+  }
+
+  renderSection(title, arr) {
+    return (
+      <React.Fragment>
+        <div className="title padded-top">{title}</div>
+        {arr.map((row, index) => (
+          <Row
+            key={index}
+            toRender={row.property}
+            label={row.label}
+            alt={row.alt}
+          />
+        ))}
+      </React.Fragment>
+    );
   }
 
   renderGeneral(plant) {
@@ -46,7 +66,7 @@ class Description extends Component {
         label: "Description"
       }
     ];
-    return renderSection("General", arr);
+    return this.renderSection("General", arr);
   }
 
   renderStem(plant) {
@@ -64,7 +84,7 @@ class Description extends Component {
         label: "Description"
       }
     ];
-    return renderSection("Stem", arr);
+    return this.renderSection("Stem", arr);
   }
 
   renderLeaf(plant) {
@@ -91,7 +111,7 @@ class Description extends Component {
         label: "Description"
       }
     ];
-    return renderSection("Leaves", arr);
+    return this.renderSection("Leaves", arr);
   }
 
   renderFlowers(plant) {
@@ -112,7 +132,7 @@ class Description extends Component {
         label: "Description"
       }
     ];
-    return renderSection("Flowers", arr);
+    return this.renderSection("Flowers", arr);
   }
 
   renderFruits(plant) {
@@ -137,7 +157,7 @@ class Description extends Component {
         alt: plant.fruitSize + " cm"
       }
     ];
-    return renderSection("Fruits", arr);
+    return this.renderSection("Fruits", arr);
   }
 
   render() {
