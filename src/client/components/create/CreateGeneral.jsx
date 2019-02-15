@@ -17,7 +17,7 @@ const CreateGeneral = props => (
       arr={definitions.plantType.sort()}
       fn={props.select}
     />
-    <Input label="Height:" name="height" text="m" fn={props.change} />
+    <Input label="Height: *" name="height" text="m" fn={props.change} />
     <Select
       label="Evergreen: *"
       name="evergreen"

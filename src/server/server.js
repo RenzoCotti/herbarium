@@ -17,7 +17,13 @@ const creds = {
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 //setting up mongoose
-mongoose.connect(config.dbURL, { useNewUrlParser: true });
+mongoose.connect(config.dbURL, {
+  auth: {
+    user: config.uname,
+    password: config.pword
+  },
+  useNewUrlParser: true
+});
 //Using default promises
 mongoose.Promise = global.Promise;
 
