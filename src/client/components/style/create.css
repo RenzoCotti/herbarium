@@ -65,3 +65,7 @@ textarea:focus {
   border-bottom: 1px solid transparent;
   background-color: var(--highlight);
 }
+
+textarea:focus {
+  border: 1px solid transparent;
+}

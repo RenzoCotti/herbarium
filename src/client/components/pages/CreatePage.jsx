@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import {
-  createInput,
-  createOptions,
-  createColours
-} from "../../../utility/utility";
+
 import "../style/create.css";
+import CreateGeneral from "../create/CreateGeneral";
+import CreateStem from "../create/CreateStem";
+import CreateLeaves from "../create/CreateLeaves";
+import CreateFlowersFruit from "../create/CreateFlowersFruit";
 
 const definitions = require("../../../utility/definitions");
 
@@ -14,7 +14,6 @@ class CreatePage extends Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
-    this.handleSelect = this.handleSelect.bind(this);
   }
 
   onSubmit(e) {
@@ -63,15 +62,10 @@ class CreatePage extends Component {
     });
   }
 
-  inputForm(label, name, area, size) {
-    return createInput(label, name, this.handleChange, area, size);
-  }
-
-  selectForm(label, name, arr, multi) {
-    return createOptions(label, name, this.handleSelect, arr, multi);
-  }
-
   render() {
+    let change = this.handleChange.bind(this);
+    let select = this.handleSelect.bind(this);
+
     return (
       <div style={{ width: "100%", padding: "50px" }}>
         <div className="super-title padded-bottom">Create new Plant</div>
@@ -79,76 +73,13 @@ class CreatePage extends Component {
         <form onSubmit={this.onSubmit}>
           <div className="createForm">
             <div className="table-container">
-              <div className="title padded-bottom padded-top">General</div>
-              {this.inputForm("Common name: *", "commonName")}
-              {this.inputForm("Latin name: *", "latinName")}
-              {this.selectForm(
-                "Type: *",
-                "plantType",
-                definitions.plantType.sort()
-              )}
-              {this.inputForm("Height:", "height", false, "m")}
-              {this.selectForm("Evergreen: *", "evergreen", ["Yes", "No"])}
-              {this.selectForm(
-                "Regions: *",
-                "regions",
-                definitions.regions.sort(),
-                true
-              )}
-              {this.inputForm("Habitat: *", "habitat", this.handleChange)}
-              {this.inputForm(
-                "Description:",
-                "description",
-                this.handleChange,
-                true
-              )}
-
-              <div className="title padded-bottom padded-top">Stem/Trunk</div>
-              {createColours("Colour: *", "stemColour", this.handleSelect)}
-              {this.selectForm(
-                "Texture: *",
-                "stemTexture",
-                definitions.stemTexture.sort()
-              )}
-              {this.inputForm("Description:", "stemDescription", true)}
+              <CreateGeneral change={change} select={select} />
+              <CreateStem change={change} select={select} />
             </div>
 
             <div className="table-container">
-              <div className="title padded-bottom padded-top">Leaves</div>
-              {this.selectForm(
-                "Shape: *",
-                "leafShape",
-                definitions.leafShape.sort()
-              )}
-              {this.selectForm(
-                "Margin: *",
-                "leafMargin",
-                definitions.leafMargin.sort()
-              )}
-              {this.selectForm(
-                "Venation: *",
-                "leafVenation",
-                definitions.leafVenation.sort()
-              )}
-              {this.inputForm("Length: *", "leafLength", false, "cm")}
-              {this.inputForm("Description:", "leafDescription", true)}
-              <div className="title padded-bottom padded-top">Flowers</div>
-              {createColours("Colour:", "flowerColour", this.handleSelect)}
-              {this.selectForm(
-                "Bloom month:",
-                "bloomMonth",
-                definitions.months,
-                true
-              )}
-              {this.inputForm("Description:", "flowerDescription", true)}
-              <div className="title padded-bottom padded-top">Fruit</div>
-              {createColours("Colour:", "fruitColour", this.handleSelect)}
-              {this.selectForm(
-                "Harvest month:",
-                "harvestMonth",
-                definitions.months,
-                true
-              )}
+              <CreateLeaves change={change} select={select} />
+              <CreateFlowersFruit change={change} select={select} />
               //TODO images
               <br />
               //TODO uses

@@ -35,34 +35,6 @@ export function toColour(c) {
   return c;
 }
 
-export function createInput(label, name, fn, area, size) {
-  return (
-    <div className="row-table">
-      <div className="label-table sub-title">{label}</div>
-      <div className="content-table">
-        {area ? (
-          <textarea
-            className="forms"
-            type="text"
-            name={name}
-            onChange={fn}
-            autoComplete="off"
-          />
-        ) : (
-          <input
-            className={size ? "forms shortForm" : "forms"}
-            type="text"
-            name={name}
-            onChange={fn}
-            autoComplete="off"
-          />
-        )}
-        {size ? size : ""}
-      </div>
-    </div>
-  );
-}
-
 export function createOptions(label, name, fn, arr, multiple) {
   let content = arr.map(o => (
     <option value={o} key={o}>
@@ -95,38 +67,6 @@ export function createOptions(label, name, fn, arr, multiple) {
     <div className="row-table">
       <div className="label-table sub-title">{label}</div>
       <div className="content-table">{select}</div>
-    </div>
-  );
-}
-
-export function createColours(label, name, fn) {
-  return (
-    <div className="row-table">
-      <div className="label-table sub-title">{label}</div>
-      <div className="content-table">
-        <select
-          // value={this.state[label]}
-          onChange={val => fn(val, name)}
-          className="colourSelect"
-          defaultValue="select an option"
-        >
-          <option disabled value="select an option">
-            select an option
-          </option>
-          {definitions.colours.map(c => (
-            <option
-              key={c}
-              style={{
-                backgroundColor: c,
-                color: "transparent"
-              }}
-              value={c}
-            >
-              {toColour(c)}
-            </option>
-          ))}
-        </select>
-      </div>
     </div>
   );
 }
