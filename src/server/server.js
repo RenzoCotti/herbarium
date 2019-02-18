@@ -37,8 +37,10 @@ app.use(express.static(path.join(__dirname, "client/build")));
 app.use(bodyParser.json());
 
 const plantRouter = require("./router/plantRouter");
+const adminRouter = require("./router/adminRouter");
 
-app.use("/api", plantRouter);
+app.use("/api/plant", plantRouter);
+app.use("/api/admin", adminRouter);
 
 var httpServer = http.createServer(app);
 

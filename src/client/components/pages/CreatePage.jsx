@@ -6,8 +6,6 @@ import CreateStem from "../create/CreateStem";
 import CreateLeaves from "../create/CreateLeaves";
 import CreateFlowersFruit from "../create/CreateFlowersFruit";
 
-const definitions = require("../../../utility/definitions");
-
 class CreatePage extends Component {
   state = {};
 
@@ -16,7 +14,7 @@ class CreatePage extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onSubmit(e) {
+  async onSubmit(e) {
     e.preventDefault();
     console.log(this.state);
 
@@ -27,7 +25,7 @@ class CreatePage extends Component {
         this.state.evergreen = false;
     }
 
-    fetch("/api/new", {
+    let asd = await fetch("/api/new", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -35,6 +33,7 @@ class CreatePage extends Component {
       },
       body: JSON.stringify(this.state)
     });
+    console.log(await asd.text());
   }
 
   handleChange(e) {
