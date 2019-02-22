@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getLogin, updateLogin } from "../../redux/actions";
 
 class LoginPage extends Component {
   state = {};
@@ -31,15 +33,20 @@ class LoginPage extends Component {
     });
     let res = await req.text();
     console.log(res);
+
+    if (res.toLowerCase() === "ok") {
+      this.props.updateLogin(true);
+    }
+    return res;
   }
   async loginAdmin(ev) {
     ev.preventDefault();
-    this.postRequest("/api/admin/login");
+    await this.postRequest("/api/admin/login");
   }
 
   async newAdmin(ev) {
     ev.preventDefault();
-    this.postRequest("/api/admin/new");
+    await this.postRequest("/api/admin/new");
   }
 
   async deleteAdmin(ev) {
@@ -63,8 +70,11 @@ class LoginPage extends Component {
   }
 
   render() {
+    if (this.props.login) return <div>You're already logged in</div>;
+    console.log(this.props.login);
+
     return (
-      <div>
+      <div className="secondary-container">
         <form>
           <div>username</div>
           <input
@@ -92,4 +102,15 @@ class LoginPage extends Component {
   }
 }
 
-export default LoginPage;
+const mapStateToProps = state => ({
+  login: getLogin(state)
+});
+
+const mapDispatchToProps = dispatch => ({
+  updateLogin: value => dispatch(updateLogin(value))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginPage);

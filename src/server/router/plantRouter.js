@@ -14,6 +14,7 @@ const Plant = require("../models/plantModel");
 // });
 
 router.get("/search/:string", (req, res) => {
+  console.log("here");
   let arr = req.params.string.toLowerCase().split(" ");
   let query = [];
 
@@ -36,6 +37,12 @@ router.get("/category/:category/:name", (req, res) => {
 });
 
 router.post("/new", (req, res) => {
+  if (!req.session.login) {
+    //already logged in
+    res.status(403);
+    return;
+  }
+
   let plant = new Plant(req.body);
 
   plant.save((err, saved) => {

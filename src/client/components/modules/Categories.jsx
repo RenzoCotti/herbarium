@@ -19,9 +19,9 @@ class Categories extends Component {
   async queryCategory(e, category) {
     let query;
     if (this.state.displaying.includes("medicinal")) {
-      query = "api/search/" + category;
+      query = "api/plant/search/" + category;
     } else {
-      query = "api/category/" + this.state.displaying + "/" + category;
+      query = "api/plant/category/" + this.state.displaying + "/" + category;
     }
 
     let res = await fetch(query);

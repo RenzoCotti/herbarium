@@ -1,0 +1,55 @@
+.navbar {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.nav-element {
+  padding: 10px 40px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.nav-element.link.active {
+  /* background-color: rgba(var(--background), 0.8); */
+
+  color: var(--yellow);
+}
+
+.nav-element:visited,
+.nav-element {
+  color: inherit;
+}
+
+.foot {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  opacity: 0.6;
+}
+
+.nav-element:hover {
+  background-color: var(--background);
+}
+
+/* .nav-element:after {
+  content: "";
+  width: 0px;
+  height: 1px;
+  display: block;
+  background: var(--yellow);
+  transition: 300ms;
+} */
+
+.home {
+  font-size: 72pt;
+  margin-top: 400px;
+  /* color: rgb(var(--backgroundRGB)); */
+  /* color: var(--yellow); */
+}
+
+/* .main-container:has(.home) {
+  background-color: transparent;
+} */

@@ -45,17 +45,17 @@ class Search extends Component {
 
   async getRandom(e) {
     e.preventDefault();
-    this.fetchPlant("/api/random");
+    this.fetchPlant("/api/plant/random");
   }
 
   async getAll(e) {
     e.preventDefault();
-    this.fetchPlant("/api/all");
+    this.fetchPlant("/api/plant/all");
   }
 
   onSubmit(e) {
     e.preventDefault();
-    this.fetchPlant("/api/search/" + this.query);
+    this.fetchPlant("/api/plant/search/" + this.query);
   }
 
   handleChange(e) {

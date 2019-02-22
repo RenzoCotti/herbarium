@@ -15,9 +15,11 @@
   "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
     "bootstrap-select": "^1.13.5",
     "express": "^4.16.4",
+    "express-session": "^1.15.6",
     "jquery": "^3.3.1",
     "mongoose": "^5.4.6",
     "react": "^16.5.2",

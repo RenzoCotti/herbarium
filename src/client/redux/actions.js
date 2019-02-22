@@ -1,8 +1,6 @@
 export const SET_PLANT = "SET_PLANT";
-export const SET_LIST = "SET_LIST";
+export const SET_LOGIN = "SET_LOGIN";
 export const SET_PLANT_FROM_INDEX = "SET_PLANT_FROM_INDEX";
-export const GET_PLANT = "GET_PLANT";
-export const GET_LIST = "GET_LIST";
 
 export const updatePlantAction = plant => ({
   type: SET_PLANT,
@@ -14,6 +12,15 @@ export const updatePlantFromIndexAction = index => ({
   index: index
 });
 
+export const updateLogin = login => ({
+  type: SET_LOGIN,
+  login: login
+});
+
 export function getPlant(state) {
   return state.plant;
+}
+
+export function getLogin(state) {
+  return state.login;
 }

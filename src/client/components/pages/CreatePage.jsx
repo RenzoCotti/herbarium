@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getLogin } from "../../redux/actions";
 
 import "../style/create.css";
 import CreateGeneral from "../create/CreateGeneral";
@@ -7,7 +9,7 @@ import CreateLeaves from "../create/CreateLeaves";
 import CreateFlowersFruit from "../create/CreateFlowersFruit";
 
 class CreatePage extends Component {
-  state = {};
+  state = { login: false };
 
   constructor(props) {
     super(props);
@@ -25,7 +27,7 @@ class CreatePage extends Component {
         this.state.evergreen = false;
     }
 
-    let asd = await fetch("/api/new", {
+    let req = await fetch("/api/plant/new", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -33,7 +35,7 @@ class CreatePage extends Component {
       },
       body: JSON.stringify(this.state)
     });
-    console.log(await asd.text());
+    console.log(await req.text());
   }
 
   handleChange(e) {
@@ -61,9 +63,19 @@ class CreatePage extends Component {
     });
   }
 
+  async checkIfLogged() {
+    let req = await fetch("/api/admin/status");
+    let res = await req.json();
+    this.setState({ login: res.login });
+  }
+
   render() {
     let change = this.handleChange.bind(this);
     let select = this.handleSelect.bind(this);
+
+    this.checkIfLogged();
+    if (!this.props.login)
+      return <div>You need to be an admin to view this page.</div>;
 
     return (
       <div style={{ width: "100%", padding: "50px" }}>
@@ -92,4 +104,11 @@ class CreatePage extends Component {
   }
 }
 
-export default CreatePage;
+const mapStateToProps = state => ({
+  login: getLogin(state)
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(CreatePage);

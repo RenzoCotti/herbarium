@@ -5,6 +5,7 @@ const http = require("http");
 const fs = require("fs");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const session = require("express-session");
 
 //constants for server
 const app = express();
@@ -26,6 +27,15 @@ mongoose.connect(config.dbURL, {
 });
 //Using default promises
 mongoose.Promise = global.Promise;
+
+app.use(
+  session({
+    secret: config.sessionSecret,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false, maxAge: 40000 }
+  })
+);
 
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, "client/build")));
