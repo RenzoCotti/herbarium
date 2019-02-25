@@ -33,7 +33,7 @@ app.use(
     secret: config.sessionSecret,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false, maxAge: 40000 }
+    cookie: { secure: true, maxAge: 1000 * 60 * 5 }
   })
 );
 

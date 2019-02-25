@@ -1,4 +1,5 @@
 import React from "react";
+import { stringOrNull } from "../../../utility/utility";
 
 const Input = props => (
   <div className="row-table">
@@ -9,6 +10,7 @@ const Input = props => (
         type="text"
         name={props.name}
         onChange={props.fn}
+        value={stringOrNull(props.plant, props.name)}
         autoComplete="off"
       />
       {props.text ? props.text : ""}

@@ -70,3 +70,7 @@ export function createOptions(label, name, fn, arr, multiple) {
     </div>
   );
 }
+
+export function stringOrNull(obj, prop) {
+  return obj ? obj[prop] : undefined;
+}

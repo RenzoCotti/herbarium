@@ -1,11 +1,15 @@
-import React, { Component } from "react";
-import { capitalise } from "../../../utility/utility";
+import React from "react";
+import { capitalise, stringOrNull } from "../../../utility/utility";
 
 const MultiSelect = props => (
   <div className="row-table">
     <div className="label-table sub-title">{props.label}</div>
     <div className="content-table">
-      <select onChange={val => props.fn(val, props.name, true)} multiple>
+      <select
+        onChange={val => props.fn(val, props.name, true)}
+        multiple
+        value={stringOrNull(props.plant, props.name)}
+      >
         <option disabled value="select an option">
           select an option
         </option>

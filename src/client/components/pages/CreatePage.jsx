@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getLogin } from "../../redux/actions";
+import { getLogin, getPlant } from "../../redux/actions";
 
 import "../style/create.css";
 import CreateGeneral from "../create/CreateGeneral";
@@ -88,13 +88,29 @@ class CreatePage extends Component {
         <form onSubmit={this.onSubmit}>
           <div className="createForm">
             <div className="table-container">
-              <CreateGeneral change={change} select={select} />
-              <CreateStem change={change} select={select} />
+              <CreateGeneral
+                change={change}
+                select={select}
+                plant={this.props.plant}
+              />
+              <CreateStem
+                change={change}
+                select={select}
+                plant={this.props.plant}
+              />
             </div>
 
             <div className="table-container">
-              <CreateLeaves change={change} select={select} />
-              <CreateFlowersFruit change={change} select={select} />
+              <CreateLeaves
+                change={change}
+                select={select}
+                plant={this.props.plant}
+              />
+              <CreateFlowersFruit
+                change={change}
+                select={select}
+                plant={this.props.plant}
+              />
               //TODO images
               <br />
               //TODO uses
@@ -109,7 +125,8 @@ class CreatePage extends Component {
 }
 
 const mapStateToProps = state => ({
-  login: getLogin(state)
+  login: getLogin(state),
+  plant: getPlant(state)
 });
 
 export default connect(
