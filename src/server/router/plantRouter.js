@@ -14,7 +14,6 @@ const Plant = require("../models/plantModel");
 // });
 
 router.get("/search/:string", (req, res) => {
-  console.log("here");
   let arr = req.params.string.toLowerCase().split(" ");
   let query = [];
 
@@ -38,7 +37,7 @@ router.get("/category/:category/:name", (req, res) => {
 
 router.post("/new", (req, res) => {
   if (!req.session.login) {
-    //already logged in
+    //not logged in, can't create
     res.status(403);
     return;
   }
@@ -50,6 +49,27 @@ router.post("/new", (req, res) => {
     return res.send(saved);
   });
 });
+router.get("/all", (req, res) => {
+  Plant.find({}, (err, plants) => {
+    res.json(plants);
+  });
+});
+
+router.delete("/delete/:id", (req, res) => {
+  if (!req.session.login) {
+    //already logged in
+    console.log("here");
+    res.status(403);
+    return;
+  }
+
+  Plant.findByIdAndRemove(req.params.id, (err, deleted) => {
+    console.log(err);
+    console.log(deleted);
+    res.json(deleted);
+  });
+});
+
 router.get("/all", (req, res) => {
   Plant.find({}, (err, plants) => {
     res.json(plants);

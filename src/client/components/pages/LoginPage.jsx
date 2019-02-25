@@ -70,8 +70,8 @@ class LoginPage extends Component {
   }
 
   render() {
-    if (this.props.login) return <div>You're already logged in</div>;
-    console.log(this.props.login);
+    if (this.props.login)
+      return <div className="secondary-container">Logged in.</div>;
 
     return (
       <div className="secondary-container">

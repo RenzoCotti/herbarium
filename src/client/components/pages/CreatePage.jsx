@@ -75,7 +75,11 @@ class CreatePage extends Component {
 
     this.checkIfLogged();
     if (!this.props.login)
-      return <div>You need to be an admin to view this page.</div>;
+      return (
+        <div className="secondary-container">
+          You need to be an admin to view this page.
+        </div>
+      );
 
     return (
       <div style={{ width: "100%", padding: "50px" }}>

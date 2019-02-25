@@ -11,6 +11,7 @@ class Description extends Component {
 
   constructor(props) {
     super(props);
+    this.deletePlant = this.deletePlant.bind(this);
     this.renderSection = this.renderSection.bind(this);
 
     this.renderGeneral = this.renderGeneral.bind(this);
@@ -160,6 +161,21 @@ class Description extends Component {
     return this.renderSection("Fruits", arr);
   }
 
+  async deletePlant() {
+    console.log("deleting");
+    let req = await fetch("/api/plant/delete/" + this.props.plant._id, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+    console.log("sent");
+
+    let res = await req.text();
+    console.log(res);
+  }
+
   render() {
     let plant = this.props.plant;
 
@@ -172,6 +188,7 @@ class Description extends Component {
           <span className="latinName sub-title">
             {" (" + capitaliseString(plant.latinName) + ")"}
           </span>
+          <span onClick={this.deletePlant}>X</span>
         </div>
 
         <div className="table-container">
