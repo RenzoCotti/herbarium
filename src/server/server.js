@@ -1,7 +1,7 @@
 //modules import
 const express = require("express");
 const path = require("path");
-const http = require("http");
+const https = require("https");
 const fs = require("fs");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -52,6 +52,6 @@ const adminRouter = require("./router/adminRouter");
 app.use("/api/plant", plantRouter);
 app.use("/api/admin", adminRouter);
 
-var httpServer = http.createServer(app);
+var httpsServer = https.createServer(creds, app);
 
-httpServer.listen(8080);
+httpsServer.listen(443);
