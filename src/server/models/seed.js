@@ -2,8 +2,13 @@ const mongoose = require("mongoose");
 const config = require("../config/config");
 const Plant = require("./plantModel");
 
-mongoose.connect(config.dbURL, { useNewUrlParser: true });
-
+mongoose.connect(config.dbURL, {
+  auth: {
+    user: config.uname,
+    password: config.pword
+  },
+  useNewUrlParser: true
+});
 Plant.collection.drop();
 
 let obj = {
@@ -138,7 +143,7 @@ let sssage = new Plant(ssage);
 
 Plant.create([sage, mint, sssage])
   .then(plant => {
-    console.log(`plant created`);
+    console.log(`${plant.length} plants created`);
   })
   .catch(err => {
     console.log(err);

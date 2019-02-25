@@ -18,10 +18,11 @@ class Search extends Component {
     let res = await req.json();
 
     if (res.length) {
+      //list of plants, no keyword provided
       this.props.updatePlant(res);
     } else if (res.list.length === 0) {
       //no plants found
-      this.props.updatePlant(-1);
+      this.props.updatePlant("not found");
     } else {
       //counts total match of keywords
       for (let plant of res.list) {
@@ -39,6 +40,7 @@ class Search extends Component {
         return a.count == b.count ? 0 : a.count > b.count ? -1 : 1;
       });
 
+      //list of plants, keyword provided
       this.props.updatePlant(res.list);
     }
   }
@@ -78,7 +80,11 @@ class Search extends Component {
           <input type="submit" value="Random" onClick={this.getRandom} />
           <input type="submit" value="All" onClick={this.getAll} />
         </form>
-        {this.props.plant === -1 ? <div>No such plant found.</div> : <div />}
+        {this.props.plant === "not found" ? (
+          <div>No such plant found.</div>
+        ) : (
+          <div />
+        )}
       </div>
     );
   }

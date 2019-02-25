@@ -27,3 +27,15 @@
 .content-table {
   width: 300px;
 }
+
+.desc-header {
+  display: flex;
+  align-items: flex-end;
+}
+
+input[type="submit"].delete-plant {
+  display: inline;
+  float: right;
+  margin: 0;
+  margin-left: 100px;
+}

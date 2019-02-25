@@ -19,7 +19,7 @@ class CategoriesPage extends Component {
     //get state of plant/plants, render list or single detail
     let plant = this.props.plant;
 
-    if (!plant || plant === -1) {
+    if (!plant || plant === "not found" || plant === "deleted") {
       //no plants, search
       return <Categories />;
     } else if (plant.length === 1) {

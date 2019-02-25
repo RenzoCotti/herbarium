@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { updatePlantAction, getPlant } from "../../redux/actions";
 
 import Row from "../modules/Row";
 import "../style/description.css";
@@ -12,6 +14,7 @@ class Description extends Component {
   constructor(props) {
     super(props);
     this.deletePlant = this.deletePlant.bind(this);
+    this.checkIfLogged = this.checkIfLogged.bind(this);
     this.renderSection = this.renderSection.bind(this);
 
     this.renderGeneral = this.renderGeneral.bind(this);
@@ -170,25 +173,41 @@ class Description extends Component {
         "Content-Type": "application/json"
       }
     });
-    console.log("sent");
 
     let res = await req.text();
+    this.props.updatePlant("deleted");
     console.log(res);
+  }
+
+  async checkIfLogged() {
+    let req = await fetch("/api/admin/status");
+    let res = await req.json();
+    this.setState({ login: res.login });
   }
 
   render() {
     let plant = this.props.plant;
+    this.checkIfLogged();
 
     return (
       <div className="secondary-container">
-        <div>
+        <div className="desc-header">
           <span className="super-title">
             {capitaliseString(plant.commonName)}
           </span>
           <span className="latinName sub-title">
             {" (" + capitaliseString(plant.latinName) + ")"}
           </span>
-          <span onClick={this.deletePlant}>X</span>
+          {this.state.login ? (
+            <input
+              type="submit"
+              value="Delete"
+              onClick={this.deletePlant}
+              className="delete-plant"
+            />
+          ) : (
+            ""
+          )}
         </div>
 
         <div className="table-container">
@@ -203,4 +222,11 @@ class Description extends Component {
   }
 }
 
-export default Description;
+const mapDispatchToProps = dispatch => ({
+  updatePlant: plant => dispatch(updatePlantAction(plant))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Description);

@@ -2,12 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import { capitalise } from "../../../utility/utility";
-import {
-  updatePlantFromIndexAction,
-  updateListAction,
-  getList,
-  getPlant
-} from "../../redux/actions";
+import { updatePlantFromIndexAction, getPlant } from "../../redux/actions";
 
 import "../style/list.css";
 import "../style/media.css";

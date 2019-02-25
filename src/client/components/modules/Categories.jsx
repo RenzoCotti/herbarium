@@ -33,7 +33,7 @@ class Categories extends Component {
 
     if (plant.length === 0) {
       //no plants found
-      this.props.updatePlant(-1);
+      this.props.updatePlant("not found");
     } else {
       this.props.updatePlant(plant);
     }
@@ -107,7 +107,11 @@ class Categories extends Component {
             { name: "Plant Type", apiName: "plantType" }
           ])}
 
-          {this.props.plant === -1 ? <div>No such plant found.</div> : <br />}
+          {this.props.plant === "not found" ? (
+            <div>No such plant found.</div>
+          ) : (
+            <br />
+          )}
         </div>
         <div className="category-content secondary-container">
           {this.displayList()}

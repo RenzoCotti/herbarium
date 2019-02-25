@@ -13,9 +13,12 @@ class SearchPage extends Component {
 
   render() {
     let plant = this.props.plant;
-    if (!plant || plant === -1) {
+    if (!plant || plant === "not found") {
       //no plants, search
       return <Search />;
+    } else if (plant === "deleted") {
+      //one plant selected
+      return <div className="secondary-container">Plant deleted.</div>;
     } else if (plant.length === 1) {
       //one plant selected
       return <PlantDetail plant={plant[0]} />;
