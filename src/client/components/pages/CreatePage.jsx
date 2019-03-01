@@ -9,7 +9,7 @@ import CreateLeaves from "../create/CreateLeaves";
 import CreateFlowersFruit from "../create/CreateFlowersFruit";
 
 class CreatePage extends Component {
-  state = { login: false };
+  state = { login: undefined };
 
   constructor(props) {
     super(props);
@@ -66,13 +66,14 @@ class CreatePage extends Component {
   async checkIfLogged() {
     let req = await fetch("/api/admin/status");
     let res = await req.json();
-    this.setState({ login: res.login });
+    if (res.login !== this.state.login) this.setState({ login: res.login });
   }
 
   render() {
     let change = this.handleChange.bind(this);
     let select = this.handleSelect.bind(this);
 
+    console.log("here");
     this.checkIfLogged();
     if (!this.props.login)
       return (

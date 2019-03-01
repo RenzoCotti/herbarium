@@ -51,7 +51,8 @@ class List extends Component {
   }
 
   render() {
-    if (this.state.redirect) return <Redirect push to="/search" />;
+    if (this.state.redirect || this.props.plant.length === 1)
+      return <Redirect push to="/plant/" />;
 
     return (
       <div className="secondary-container">

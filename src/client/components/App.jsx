@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import { Route, HashRouter } from "react-router-dom";
 
 import Navbar from "./general/Navbar";
-import SearchPage from "./pages/SearchPage";
-import CategoriesPage from "./pages/CategoriesPage";
+import Search from "./modules/Search";
+import PlantDetail from "./modules/PlantDetail";
+import List from "./modules/List";
+import Categories from "./modules/Categories";
 import Footbar from "./general/Footbar";
 import Home from "./general/Home";
 import About from "./general/About";
@@ -19,8 +21,10 @@ class App extends Component {
 
           <div className="main-container">
             <Route exact path="/" component={Home} />
-            <Route path="/categories" component={CategoriesPage} />
-            <Route path="/search" component={SearchPage} />
+            <Route path="/categories" component={Categories} />
+            <Route path="/search" component={Search} />
+            <Route path="/plant" component={PlantDetail} />
+            <Route path="/list" component={List} />
             <Route path="/create" component={CreatePage} />
             <Route path="/login" component={LoginPage} />
             <Route path="/about" component={About} />

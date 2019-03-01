@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getPlant, updatePlantAction } from "../../redux/actions";
 import "../style/categories.css";
 import { capitalise } from "../../../utility/utility";
+import { Redirect } from "react-router";
 
 const definitions = require("../../../utility/definitions");
 
@@ -36,16 +37,19 @@ class Categories extends Component {
       this.props.updatePlant("not found");
     } else {
       this.props.updatePlant(plant);
+      this.setState({ redirect: true });
     }
   }
 
-  changeList(e, name) {
-    this.setState({ displaying: name });
+  changeList(e, apiName, name) {
+    this.setState({ selected: name, displaying: apiName });
   }
 
   displayList() {
     let current = this.state.displaying;
     if (!current) return;
+
+    console.log(current);
     return definitions[current].map(k => {
       return (
         <div
@@ -59,6 +63,13 @@ class Categories extends Component {
     });
   }
 
+  getClass(name) {
+    console.log(name === this.state.selected);
+    return name === this.state.selected
+      ? "category-entry link sub-title category-selected"
+      : "category-entry link sub-title";
+  }
+
   renderSection(label, list) {
     return (
       <div className="category-section">
@@ -67,8 +78,8 @@ class Categories extends Component {
           {list.map(k => {
             return (
               <div
-                className="category-entry link sub-title"
-                onClick={e => this.changeList(e, k.apiName)}
+                className={this.getClass(k.name)}
+                onClick={e => this.changeList(e, k.apiName, k.name)}
                 key={k.apiName}
               >
                 {k.name}
@@ -81,6 +92,8 @@ class Categories extends Component {
   }
 
   render() {
+    if (this.state.redirect === true) return <Redirect push to="/list" />;
+
     return (
       <React.Fragment>
         <div className="secondary-container">

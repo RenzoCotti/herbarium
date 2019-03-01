@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updatePlantAction, getPlant } from "../../redux/actions";
+import { updatePlantAction } from "../../redux/actions";
 
 import Row from "../modules/Row";
 import "../style/description.css";
@@ -9,7 +9,7 @@ import { capitaliseString } from "../../../utility/utility";
 //where, overall appearance, details, season
 
 class Description extends Component {
-  state = {};
+  state = { login: undefined };
 
   constructor(props) {
     super(props);
@@ -182,7 +182,7 @@ class Description extends Component {
   async checkIfLogged() {
     let req = await fetch("/api/admin/status");
     let res = await req.json();
-    this.setState({ login: res.login });
+    if (res.login !== this.state.login) this.setState({ login: res.login });
   }
 
   render() {
@@ -195,9 +195,7 @@ class Description extends Component {
           <span className="super-title">
             {capitaliseString(plant.commonName)}
           </span>
-          <span className="latinName sub-title">
-            {" (" + capitaliseString(plant.latinName) + ")"}
-          </span>
+
           {this.state.login ? (
             <input
               type="submit"
@@ -209,6 +207,9 @@ class Description extends Component {
             ""
           )}
         </div>
+        <span className="latinName sub-title">
+          {" (" + capitaliseString(plant.latinName) + ")"}
+        </span>
 
         <div className="table-container">
           {this.renderGeneral(plant)}

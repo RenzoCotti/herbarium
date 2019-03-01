@@ -26,7 +26,15 @@ router.get("/category/:category/:name", (req, res) => {
     { [req.params.category]: new RegExp("^" + req.params.name + "$", "i") },
     (err, plant) => {
       if (err) return console.log(err);
-      console.log("Retrieved " + req.params.category + " - " + req.params.name);
+      console.log(
+        "Retrieved " +
+          req.params.category +
+          " - " +
+          req.params.name +
+          ". " +
+          plant.length +
+          " result(s)."
+      );
       return res.json(plant);
     }
   );

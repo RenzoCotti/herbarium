@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router";
 import { updatePlantAction, getPlant } from "../../redux/actions";
 
 class Search extends Component {
+  state = {};
   query = "";
   constructor(props) {
     super(props);
@@ -20,6 +22,7 @@ class Search extends Component {
     if (res.length) {
       //list of plants, no keyword provided
       this.props.updatePlant(res);
+      this.setState({ redirect: true });
     } else if (res.list.length === 0) {
       //no plants found
       this.props.updatePlant("not found");
@@ -42,6 +45,7 @@ class Search extends Component {
 
       //list of plants, keyword provided
       this.props.updatePlant(res.list);
+      this.setState({ redirect: true });
     }
   }
 
@@ -65,6 +69,8 @@ class Search extends Component {
   }
 
   render() {
+    if (this.state.redirect) return <Redirect push to="/list" />;
+
     return (
       <div className="secondary-container">
         <div className="super-title padded-bottom">Search</div>
