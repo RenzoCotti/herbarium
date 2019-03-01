@@ -73,11 +73,11 @@ class CreatePage extends Component {
     let change = this.handleChange.bind(this);
     let select = this.handleSelect.bind(this);
 
-    console.log("here");
     this.checkIfLogged();
     if (!this.props.login)
       return (
         <div className="secondary-container">
+          <div className="super-title padded-bottom">Create new Plant</div>
           You need to be an admin to view this page.
         </div>
       );

@@ -15,6 +15,10 @@ class Search extends Component {
     this.getAll = this.getAll.bind(this);
   }
 
+  componentWillUnmount() {
+    if (this.props.plant === "not found") this.props.updatePlant(undefined);
+  }
+
   async fetchPlant(url) {
     let req = await fetch(url);
     let res = await req.json();

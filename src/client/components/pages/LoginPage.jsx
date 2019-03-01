@@ -36,6 +36,8 @@ class LoginPage extends Component {
 
     if (res.toLowerCase() === "ok") {
       this.props.updateLogin(true);
+    } else if (res.toLowerCase() === "nope") {
+      this.setState({ invalid: true });
     }
     return res;
   }
@@ -75,6 +77,8 @@ class LoginPage extends Component {
 
     return (
       <div className="secondary-container">
+        <div className="super-title padded-bottom">Login</div>
+
         <form>
           <div>username</div>
           <input
@@ -96,6 +100,7 @@ class LoginPage extends Component {
           <input type="submit" value="List" onClick={this.listAdmin} />
           <input type="submit" value="New" onClick={this.newAdmin} />
           <input type="submit" value="Delete" onClick={this.deleteAdmin} />
+          <div>{this.state.invalid ? "Invalid credentials." : ""}</div>
         </form>
       </div>
     );

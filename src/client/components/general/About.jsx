@@ -2,7 +2,8 @@ import React from "react";
 
 const About = props => (
   <div className="secondary-container">
-    <div className="title">About</div>
+    <div className="super-title padded-bottom">About</div>
+
     <div>
       Herbarium is a dynamic database of plants and herbs, whose intent is to
       make identification easier.

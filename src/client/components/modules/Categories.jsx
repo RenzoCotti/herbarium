@@ -17,6 +17,10 @@ class Categories extends Component {
     this.displayList = this.displayList.bind(this);
   }
 
+  componentWillUnmount() {
+    if (this.props.plant === "not found") this.props.updatePlant(undefined);
+  }
+
   async queryCategory(e, category) {
     let query;
     if (this.state.displaying.includes("medicinal")) {

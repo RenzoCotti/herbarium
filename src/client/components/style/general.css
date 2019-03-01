@@ -47,7 +47,7 @@
   font-size: 72pt;
   margin-top: 400px;
   /* color: rgb(var(--backgroundRGB)); */
-  /* color: var(--yellow); */
+  color: var(--yellow);
 }
 
 /* .main-container:has(.home) {
