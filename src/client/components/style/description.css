@@ -33,7 +33,7 @@
   align-items: flex-end;
 }
 
-input[type="submit"].delete-plant {
+input[type="submit"].modify-plant {
   display: inline;
   float: right;
   margin: 0;

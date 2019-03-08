@@ -36,7 +36,8 @@ input[type="submit"]:hover {
   background-color: var(--highlight);
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
   font-style: italic;
   border-bottom: 1px solid var(--text);
 }

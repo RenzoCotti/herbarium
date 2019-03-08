@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updatePlantAction } from "../../redux/actions";
+import { Redirect } from "react-router";
 
 import Row from "../modules/Row";
 import "../style/description.css";
@@ -15,6 +16,7 @@ class Description extends Component {
     super(props);
     this.deletePlant = this.deletePlant.bind(this);
     this.checkIfLogged = this.checkIfLogged.bind(this);
+    this.editPlant = this.editPlant.bind(this);
     this.renderSection = this.renderSection.bind(this);
 
     this.renderGeneral = this.renderGeneral.bind(this);
@@ -179,6 +181,10 @@ class Description extends Component {
     console.log(res);
   }
 
+  editPlant() {
+    this.setState({ edit: true });
+  }
+
   async checkIfLogged() {
     let req = await fetch("/api/admin/status");
     let res = await req.json();
@@ -189,6 +195,8 @@ class Description extends Component {
     let plant = this.props.plant;
     this.checkIfLogged();
 
+    if (this.state.edit) return <Redirect push to="/edit" />;
+
     return (
       <div className="secondary-container">
         <div className="desc-header">
@@ -197,12 +205,20 @@ class Description extends Component {
           </span>
 
           {this.state.login ? (
-            <input
-              type="submit"
-              value="Delete"
-              onClick={this.deletePlant}
-              className="delete-plant"
-            />
+            <React.Fragment>
+              <input
+                type="submit"
+                value="Delete"
+                onClick={this.deletePlant}
+                className="modify-plant"
+              />
+              <input
+                type="submit"
+                value="Edit"
+                onClick={this.editPlant}
+                className="modify-plant"
+              />
+            </React.Fragment>
           ) : (
             ""
           )}

@@ -7,7 +7,7 @@ const Input = props => (
     <div className="content-table">
       <input
         className={props.text ? "forms shortForm" : "forms"}
-        type="text"
+        type={props.password ? "password" : "text"}
         name={props.name}
         onChange={props.fn}
         value={stringOrNull(props.plant, props.name)}

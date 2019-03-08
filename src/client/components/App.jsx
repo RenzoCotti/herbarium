@@ -9,7 +9,7 @@ import Categories from "./modules/Categories";
 import Footbar from "./general/Footbar";
 import Home from "./general/Home";
 import About from "./general/About";
-import CreatePage from "./pages/CreatePage";
+import CreatePage from "./modules/ModifyPlant";
 import LoginPage from "./pages/LoginPage";
 
 class App extends Component {
@@ -26,6 +26,7 @@ class App extends Component {
             <Route path="/plant" component={PlantDetail} />
             <Route path="/list" component={List} />
             <Route path="/create" component={CreatePage} />
+            <Route path="/edit" component={CreatePage} />
             <Route path="/login" component={LoginPage} />
             <Route path="/about" component={About} />
           </div>

@@ -91,7 +91,7 @@ class LoginPage extends Component {
           <div>password</div>
           <input
             className="forms"
-            type="text"
+            type="password"
             name="password"
             onChange={this.handleChange}
             autoComplete="off"

@@ -9,29 +9,58 @@ import MultiSelect from "../modules/MultiSelect";
 const CreateGeneral = props => (
   <React.Fragment>
     <div className="title padded-bottom padded-top">General</div>
-    <Input label="Common name: *" name="commonName" fn={props.change} />
-    <Input label="Latin name: *" name="latinName" fn={props.change} />
+    <Input
+      label="Common name: *"
+      name="commonName"
+      fn={props.change}
+      plant={props.plant}
+    />
+    <Input
+      label="Latin name: *"
+      name="latinName"
+      fn={props.change}
+      plant={props.plant}
+    />
     <Select
       label="Type: *"
       name="plantType"
       arr={definitions.plantType.sort()}
       fn={props.select}
+      plant={props.plant}
     />
-    <Input label="Height: *" name="height" text="m" fn={props.change} />
+    <Input
+      label="Height: *"
+      name="height"
+      text="m"
+      fn={props.change}
+      plant={props.plant}
+    />
     <Select
       label="Evergreen: *"
       name="evergreen"
       arr={["Yes", "No"]}
       fn={props.select}
+      plant={props.plant}
     />
     <MultiSelect
       label="Regions: *"
       name="regions"
       arr={definitions.regions.sort()}
       fn={props.select}
+      plant={props.plant}
     />
-    <Input label="Habitat: *" name="habitat" fn={props.change} />
-    <TextArea label="Description:" name="description" fn={props.change} />
+    <Input
+      label="Habitat: *"
+      name="habitat"
+      fn={props.change}
+      plant={props.plant}
+    />
+    <TextArea
+      label="Description:"
+      name="description"
+      fn={props.change}
+      plant={props.plant}
+    />
   </React.Fragment>
 );
 
