@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updatePlantAction } from "../../redux/actions";
+import { updatePlantAction, getLogin } from "../../redux/actions";
 import { Redirect } from "react-router";
 
 import Row from "../modules/Row";
@@ -15,7 +15,7 @@ class Description extends Component {
   constructor(props) {
     super(props);
     this.deletePlant = this.deletePlant.bind(this);
-    this.checkIfLogged = this.checkIfLogged.bind(this);
+    // this.checkIfLogged = this.checkIfLogged.bind(this);
     this.editPlant = this.editPlant.bind(this);
     this.renderSection = this.renderSection.bind(this);
 
@@ -185,17 +185,19 @@ class Description extends Component {
     this.setState({ edit: true });
   }
 
-  async checkIfLogged() {
-    let req = await fetch("/api/admin/status");
-    let res = await req.json();
-    if (res.login !== this.state.login) this.setState({ login: res.login });
-  }
+  // async checkIfLogged() {
+  //   let req = await fetch("/api/admin/status");
+  //   let res = await req.json();
+  //   if (res.login !== this.state.login) this.setState({ login: res.login });
+  // }
 
   render() {
     let plant = this.props.plant;
-    this.checkIfLogged();
+    // this.checkIfLogged();
 
     if (this.state.edit) return <Redirect push to="/edit" />;
+
+    console.log(this.props.login);
 
     return (
       <div className="secondary-container">
@@ -204,7 +206,7 @@ class Description extends Component {
             {capitaliseString(plant.commonName)}
           </span>
 
-          {this.state.login ? (
+          {this.props.login ? (
             <React.Fragment>
               <input
                 type="submit"
@@ -239,11 +241,15 @@ class Description extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  login: getLogin(state)
+});
+
 const mapDispatchToProps = dispatch => ({
   updatePlant: plant => dispatch(updatePlantAction(plant))
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Description);

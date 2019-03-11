@@ -42,6 +42,7 @@ class LoginPage extends Component {
     return res;
   }
   async loginAdmin(ev) {
+    console.log("here");
     ev.preventDefault();
     await this.postRequest("/api/admin/login");
   }

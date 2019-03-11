@@ -13,30 +13,8 @@ class ModifyPlant extends Component {
 
   constructor(props) {
     super(props);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  //to move outside of this
-  async onSubmit(e) {
-    e.preventDefault();
-    console.log(this.state);
-
-    switch (this.state.evergreen) {
-      case "Yes":
-        this.state.evergreen = true;
-      case "No":
-        this.state.evergreen = false;
-    }
-
-    let req = await fetch("/api/plant/new", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(this.state)
-    });
-    console.log(await req.text());
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   handleChange(e) {
@@ -64,34 +42,38 @@ class ModifyPlant extends Component {
     });
   }
 
-  async checkIfLogged() {
-    let req = await fetch("/api/admin/status");
-    let res = await req.json();
-    if (res.login !== this.state.login) this.setState({ login: res.login });
-  }
+  // async checkIfLogged() {
+  //   let req = await fetch("/api/admin/status");
+  //   let res = await req.json();
+  //   if (res.login !== this.state.login) this.setState({ login: res.login });
+  // }
 
   render() {
-    let change = this.handleChange.bind(this);
-    let select = this.handleSelect.bind(this);
+    let change = this.handleChange;
+    let select = this.handleSelect;
 
-    this.checkIfLogged();
+    // this.checkIfLogged();
     if (!this.props.login)
       return (
         <div className="secondary-container">
-          <div className="super-title padded-bottom">Create new Plant</div>
+          <div className="super-title padded-bottom">
+            {this.props.edit ? "Edit Plant" : "Create New Plant"}
+          </div>
           You need to be an admin to view this page.
         </div>
       );
 
     let plant = this.props.plant;
     if (plant) plant = plant[0];
-    console.log(plant);
+    // console.log(plant);
 
     return (
       <div style={{ width: "100%", padding: "50px" }}>
-        <div className="super-title padded-bottom">Create new Plant</div>
+        <div className="super-title padded-bottom">
+          {this.props.edit ? "Edit Plant" : "Create New Plant"}
+        </div>
 
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.props.fn}>
           <div className="createForm">
             <div className="table-container">
               <CreateGeneral change={change} select={select} plant={plant} />

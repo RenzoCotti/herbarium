@@ -68,7 +68,7 @@ class Categories extends Component {
   }
 
   getClass(name) {
-    console.log(name === this.state.selected);
+    // console.log(name === this.state.selected);
     return name === this.state.selected
       ? "category-entry link sub-title category-selected"
       : "category-entry link sub-title";

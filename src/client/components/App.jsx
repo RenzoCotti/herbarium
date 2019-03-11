@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Route, HashRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { updateLogin } from "../redux/actions";
 
 import Navbar from "./general/Navbar";
 import Search from "./modules/Search";
@@ -13,6 +15,21 @@ import CreatePage from "./modules/ModifyPlant";
 import LoginPage from "./pages/LoginPage";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.checkIfLogged();
+  }
+
+  async checkIfLogged() {
+    fetch("/api/admin/status")
+      .then(req => {
+        return req.json();
+      })
+      .then(res => {
+        this.props.updateLogin(res.login);
+      });
+  }
+
   render() {
     return (
       <HashRouter>
@@ -38,4 +55,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  updateLogin: value => dispatch(updateLogin(value))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(App);

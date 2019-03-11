@@ -44,7 +44,7 @@ router.post("/login", (req, res) => {
   if (req.session.login) {
     console.log("User tried logging in as they were already logged in.");
     //already logged in
-    res.status(205).send("Already logged in, dummy");
+    res.status(200).send("ok");
     return;
   }
 
