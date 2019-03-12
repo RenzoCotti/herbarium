@@ -9,26 +9,26 @@ class EditPage extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  async onSubmit(e) {
+  async onSubmit(e, toSend) {
     e.preventDefault();
-    console.log(this.state);
+    console.log(toSend);
 
-    switch (this.state.evergreen) {
+    switch (toSend.evergreen) {
       case "Yes":
-        this.state.evergreen = true;
+        toSend.evergreen = true;
       case "No":
-        this.state.evergreen = false;
+        toSend.evergreen = false;
     }
 
-    let req = await fetch("/api/plant/new", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(this.state)
-    });
-    console.log(await req.text());
+    // let req = await fetch("/api/plant/new", {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify(this.state)
+    // });
+    // console.log(await req.text());
   }
 
   render() {

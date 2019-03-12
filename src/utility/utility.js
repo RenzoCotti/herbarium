@@ -26,13 +26,13 @@ export function capitaliseString(str) {
 export function toColour(c) {
   switch (c) {
     case "cyan":
-      return "light blue";
+      return "Light Blue";
     case "saddlebrown":
-      return "brown";
+      return "Brown";
     case "greenyellow":
-      return "light green";
+      return "Light Green";
   }
-  return c;
+  return c.charAt(0).toUpperCase() + c.slice(1);
 }
 
 export function createOptions(label, name, fn, arr, multiple) {

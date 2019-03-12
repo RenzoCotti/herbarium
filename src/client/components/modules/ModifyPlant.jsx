@@ -9,7 +9,7 @@ import CreateLeaves from "../create/CreateLeaves";
 import CreateFlowersFruit from "../create/CreateFlowersFruit";
 
 class ModifyPlant extends Component {
-  state = { login: undefined };
+  state = {};
 
   constructor(props) {
     super(props);
@@ -73,7 +73,7 @@ class ModifyPlant extends Component {
           {this.props.edit ? "Edit Plant" : "Create New Plant"}
         </div>
 
-        <form onSubmit={this.props.fn}>
+        <form onSubmit={e => this.props.fn(e, this.state)}>
           <div className="createForm">
             <div className="table-container">
               <CreateGeneral change={change} select={select} plant={plant} />

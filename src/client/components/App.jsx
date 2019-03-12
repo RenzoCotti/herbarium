@@ -13,6 +13,7 @@ import Home from "./general/Home";
 import About from "./general/About";
 import CreatePage from "./modules/ModifyPlant";
 import LoginPage from "./pages/LoginPage";
+import EditPage from "./pages/EditPage";
 
 class App extends Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class App extends Component {
             <Route path="/plant" component={PlantDetail} />
             <Route path="/list" component={List} />
             <Route path="/create" component={CreatePage} />
-            <Route path="/edit" component={CreatePage} />
+            <Route path="/edit" component={EditPage} />
             <Route path="/login" component={LoginPage} />
             <Route path="/about" component={About} />
           </div>
