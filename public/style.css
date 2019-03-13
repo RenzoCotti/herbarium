@@ -25,7 +25,7 @@ body {
 
   font-family: "Montserrat", arial;
   color: var(--text);
-  font-size: 18pt;
+  font-size: 16pt;
   font-weight: 100;
 
   background-image: url("./bg.jpg");
@@ -65,12 +65,14 @@ body {
 
 .sub-title {
   font-size: 14pt;
+  font-style: italic;
 }
 
 .title {
   /* color: var(--yellow); */
+  font-size: 18pt;
   font-weight: bold;
-  font-style: italic;
+  /* font-style: italic; */
 }
 
 .super-title {
@@ -81,11 +83,11 @@ body {
 
 .padded-top {
   padding-top: 20px;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 
 .padded-bottom {
-  padding-top: 5px;
+  padding-top: 10px;
   padding-bottom: 20px;
 }
 

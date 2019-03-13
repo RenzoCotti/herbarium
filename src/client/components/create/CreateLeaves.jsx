@@ -13,41 +13,41 @@ const CreateLeaves = props => (
       name="leafShape"
       arr={definitions.leafShape.sort()}
       fn={props.select}
-      obj={props.plant}
+      obj={props.obj}
     />
     <Select
       label="Margin: *"
       name="leafMargin"
       arr={definitions.leafMargin.sort()}
       fn={props.select}
-      obj={props.plant}
+      obj={props.obj}
     />
     <Select
       label="Venation: *"
       name="leafVenation"
       arr={definitions.leafVenation.sort()}
       fn={props.select}
-      obj={props.plant}
+      obj={props.obj}
     />
     <Select
       label="Arrangement: *"
       name="leafArrangement"
       arr={definitions.leafArrangement.sort()}
       fn={props.select}
-      obj={props.plant}
+      obj={props.obj}
     />
     <Input
       label="Length: *"
       name="leafLength"
       text="cm"
       fn={props.change}
-      obj={props.plant}
+      obj={props.obj}
     />
     <TextArea
       label="Description:"
       name="leafDescription"
       fn={props.change}
-      obj={props.plant}
+      obj={props.obj}
     />
   </React.Fragment>
 );

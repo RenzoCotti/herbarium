@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import { updatePlantAction, getPlant } from "../../redux/actions";
+import Button from "./Button";
+import Input from "./Input";
 
 class Search extends Component {
-  state = {};
-  query = "";
+  state = { query: "" };
+
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
@@ -65,11 +67,11 @@ class Search extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    this.fetchPlant("/api/plant/search/" + this.query);
+    this.fetchPlant("/api/plant/search/" + this.state.query);
   }
 
   handleChange(e) {
-    this.query = e.target.value;
+    this.setState({ query: e.target.value });
   }
 
   render() {
@@ -78,18 +80,22 @@ class Search extends Component {
     return (
       <div className="secondary-container">
         <div className="super-title padded-bottom">Search</div>
-        Enter your search:
-        <form onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            name="plant"
-            onChange={this.handleChange}
-            autoComplete="off"
-          />
-          <input type="submit" value="Submit" />
-          <input type="submit" value="Random" onClick={this.getRandom} />
-          <input type="submit" value="All" onClick={this.getAll} />
-        </form>
+        <div className="table-container">
+          Enter your search:
+          <form>
+            <Input
+              type="text"
+              name="query"
+              fn={this.handleChange}
+              obj={this.state}
+              autoComplete="off"
+            />
+            <Button submit={true} value="Search" fn={this.onSubmit} />
+            <Button submit={true} value="Random" fn={this.getRandom} />
+            <Button submit={true} value="All" fn={this.getAll} />
+          </form>
+        </div>
+
         {this.props.plant === "not found" ? (
           <div>No such plant found.</div>
         ) : (

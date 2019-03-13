@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getPlant, updatePlantAction } from "../../redux/actions";
-import "../style/categories.css";
 import { capitalise } from "../../../utility/utility";
 import { Redirect } from "react-router";
 

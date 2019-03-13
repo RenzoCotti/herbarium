@@ -4,9 +4,6 @@ import { Redirect } from "react-router";
 import { capitalise } from "../../../utility/utility";
 import { updatePlantFromIndexAction, getPlant } from "../../redux/actions";
 
-import "../style/list.css";
-import "../style/media.css";
-
 class List extends Component {
   state = {
     redirect: false

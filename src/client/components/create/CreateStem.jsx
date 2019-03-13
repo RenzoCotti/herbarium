@@ -12,20 +12,20 @@ const CreateStem = props => (
       label="Colour: *"
       name="stemColour"
       fn={props.select}
-      obj={props.plant}
+      obj={props.obj}
     />
     <Select
       label="Texture: *"
       name="stemTexture"
       arr={definitions.stemTexture.sort()}
       fn={props.select}
-      obj={props.plant}
+      obj={props.obj}
     />
     <TextArea
       label="Description:"
       name="stemDescription"
       fn={props.change}
-      obj={props.plant}
+      obj={props.obj}
     />
   </React.Fragment>
 );

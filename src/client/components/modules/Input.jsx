@@ -13,7 +13,11 @@ import { stringOrEmpty } from "../../../utility/utility";
 
 const Input = props => (
   <div className="row-table">
-    <div className="label-table sub-title">{props.label}</div>
+    {props.label ? (
+      <div className="label-table sub-title">{props.label}</div>
+    ) : (
+      ""
+    )}
     <div className="content-table">
       <input
         className={props.text ? "forms shortForm" : "forms"}

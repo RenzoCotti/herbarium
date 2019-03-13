@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import { getLogin, getPlant, updatePlantAction } from "../../redux/actions";
 import { Redirect } from "react-router";
 
-import "../style/create.css";
 import CreateGeneral from "../create/CreateGeneral";
 import CreateStem from "../create/CreateStem";
 import CreateLeaves from "../create/CreateLeaves";
 import CreateFlowersFruit from "../create/CreateFlowersFruit";
+import Button from "./Button";
 
 class ModifyPlant extends Component {
   state = {};
@@ -83,27 +83,19 @@ class ModifyPlant extends Component {
           {this.props.edit ? "Edit Plant" : "Create New Plant"}
         </div>
 
-        <form onSubmit={e => this.props.fn(e, this.state)}>
+        <form>
           <div className="createForm">
             <div className="table-container">
-              <CreateGeneral
-                change={change}
-                select={select}
-                plant={this.state}
-              />
-              <CreateStem change={change} select={select} plant={this.state} />
+              <CreateGeneral change={change} select={select} obj={this.state} />
+              <CreateStem change={change} select={select} obj={this.state} />
             </div>
 
             <div className="table-container">
-              <CreateLeaves
-                change={change}
-                select={select}
-                plant={this.state}
-              />
+              <CreateLeaves change={change} select={select} obj={this.state} />
               <CreateFlowersFruit
                 change={change}
                 select={select}
-                plant={this.state}
+                obj={this.state}
               />
               //TODO images
               <br />
@@ -111,7 +103,7 @@ class ModifyPlant extends Component {
             </div>
           </div>
 
-          <input type="submit" value="Submit" />
+          <Button value="Confirm" fn={e => this.props.fn(e, this.state)} />
         </form>
       </div>
     );

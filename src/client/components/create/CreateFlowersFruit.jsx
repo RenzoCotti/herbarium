@@ -12,19 +12,20 @@ const CreateFlowersFruit = props => (
       label="Colour:"
       name="flowerColour"
       fn={props.select}
-      plant={props.plant}
+      obj={props.obj}
     />
     <MultiSelect
       label="Bloom month:"
       name="bloomMonth"
       arr={definitions.months}
       fn={props.select}
-      plant={props.plant}
+      obj={props.obj}
     />
     <TextArea
       label="Description:"
       name="flowerDescription"
-      plant={props.plant}
+      obj={props.obj}
+      fn={props.change}
     />
 
     <div className="title padded-bottom padded-top">Fruit</div>
@@ -32,14 +33,14 @@ const CreateFlowersFruit = props => (
       label="Colour:"
       name="fruitColour"
       fn={props.select}
-      plant={props.plant}
+      obj={props.obj}
     />
     <MultiSelect
       label="Harvest month:"
       name="harvestMonth"
       arr={definitions.months}
       fn={props.select}
-      plant={props.plant}
+      obj={props.obj}
     />
   </React.Fragment>
 );

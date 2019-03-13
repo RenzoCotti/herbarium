@@ -1,9 +1,4 @@
-.secondary-image {
-  width: 80px;
-  height: 80px;
-  border: 2px solid var(--text);
-}
-
+/*currently selected image*/
 .main-image {
   width: 400px;
   height: 400px;
@@ -14,6 +9,7 @@
   border: 2px solid var(--yellow);
 }
 
+/*images on the side of the big image, contains several secondary-image*/
 .side-images {
   display: flex;
   flex-direction: column;
@@ -25,6 +21,13 @@
   width: 150px;
 }
 
+.secondary-image {
+  width: 80px;
+  height: 80px;
+  border: 2px solid var(--text);
+}
+
+/*all img inside of side images*/
 .side-images img {
   margin-bottom: 10px;
   margin-left: 10px;

@@ -1,0 +1,21 @@
+.table-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-table {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: top;
+  padding-bottom: 5px;
+}
+
+.label-table {
+  width: 170px;
+  padding-right: 30px;
+}
+
+.content-table {
+  width: 300px;
+}

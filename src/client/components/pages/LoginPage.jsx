@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getLogin, updateLogin } from "../../redux/actions";
 import Input from "../modules/Input";
+import Button from "../modules/Button";
 
 class LoginPage extends Component {
   state = { username: "", password: "" };
@@ -31,7 +32,7 @@ class LoginPage extends Component {
   }
 
   async postRequest(url) {
-    console.log(this.state);
+    // console.log(this.state);
     let req = await fetch(url, {
       method: "POST",
       headers: {
@@ -88,16 +89,11 @@ class LoginPage extends Component {
       return (
         <div className="secondary-container">
           Logged in.
-          <input
-            className="forms"
-            type="submit"
-            value="Logout"
-            onClick={this.logout}
-          />
+          <Button value="Logout" fn={this.logout} />
         </div>
       );
 
-    console.log(this.state);
+    // console.log(this.state);
 
     return (
       <div className="secondary-container">
@@ -119,10 +115,10 @@ class LoginPage extends Component {
               obj={this.state}
             />
 
-            <input type="submit" value="Login" onClick={this.loginAdmin} />
-            {/* <input type="submit" value="List" onClick={this.listAdmin} /> */}
-            <input type="submit" value="New" onClick={this.newAdmin} />
-            <input type="submit" value="Delete" onClick={this.deleteAdmin} />
+            <Button value="Login" fn={this.loginAdmin} />
+            <Button value="New" fn={this.newAdmin} />
+            <Button value="Delete" fn={this.deleteAdmin} />
+            {/* <dd type="submit" value="List" onClick={this.listAdmin} /> */}
           </form>
         </div>
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { capitalise, strin, stringOrEmpty } from "../../../utility/utility";
+import { capitalise, stringOrEmpty } from "../../../utility/utility";
 
 //label, name, arr, fn
 const Select = props => {

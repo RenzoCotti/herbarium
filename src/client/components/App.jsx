@@ -3,6 +3,16 @@ import { Route, HashRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateLogin } from "../redux/actions";
 
+//styles
+import "./style/categories.css";
+import "./style/create.css";
+import "./style/description.css";
+import "./style/general.css";
+import "./style/list.css";
+import "./style/media.css";
+import "./style/table.css";
+
+//component pages
 import Navbar from "./general/Navbar";
 import Search from "./modules/Search";
 import PlantDetail from "./modules/PlantDetail";
@@ -18,10 +28,8 @@ import EditPage from "./pages/EditPage";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.checkIfLogged();
-  }
 
-  async checkIfLogged() {
+    //sync backend and frontend for login status
     fetch("/api/admin/status")
       .then(req => {
         return req.json();
@@ -41,12 +49,14 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route path="/categories" component={Categories} />
             <Route path="/search" component={Search} />
-            <Route path="/plant" component={PlantDetail} />
+            <Route path="/login" component={LoginPage} />
+            <Route path="/about" component={About} />
+
+            {/* invisible routes */}
             <Route path="/list" component={List} />
             <Route path="/create" component={CreatePage} />
             <Route path="/edit" component={EditPage} />
-            <Route path="/login" component={LoginPage} />
-            <Route path="/about" component={About} />
+            <Route path="/plant" component={PlantDetail} />
           </div>
 
           <Footbar />

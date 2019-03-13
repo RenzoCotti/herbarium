@@ -12,8 +12,6 @@
 }
 
 .nav-element.link.active {
-  /* background-color: rgba(var(--background), 0.8); */
-
   color: var(--yellow);
 }
 
@@ -34,7 +32,10 @@
   background-color: var(--background);
 }
 
-/* .nav-element:after {
+/* 
+line expanding from left
+
+.nav-element:after {
   content: "";
   width: 0px;
   height: 1px;
@@ -49,10 +50,6 @@
   /* color: rgb(var(--backgroundRGB)); */
   color: var(--yellow);
 }
-
-/* .main-container:has(.home) {
-  background-color: transparent;
-} */
 
 .about {
   max-width: 800px;

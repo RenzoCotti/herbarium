@@ -4,7 +4,7 @@ import { updatePlantAction, getLogin } from "../../redux/actions";
 import { Redirect } from "react-router";
 
 import Row from "../modules/Row";
-import "../style/description.css";
+import Button from "../modules/Button";
 import { capitaliseString } from "../../../utility/utility";
 
 //where, overall appearance, details, season
@@ -192,14 +192,9 @@ class Description extends Component {
 
   render() {
     let plant = this.props.plant;
-    // this.checkIfLogged();
 
-    // console.log(this.props.plant);
-    // console.log(this.state);
-
+    //the edit button has been pressed, go to edit page
     if (this.state.edit) return <Redirect push to="/edit" />;
-
-    // console.log(this.props.login);
 
     return (
       <div className="secondary-container">
@@ -208,26 +203,17 @@ class Description extends Component {
             {capitaliseString(plant.commonName)}
           </span>
 
+          {/* if the user is logged, show the edit and delete buttons */}
           {this.props.login ? (
-            <React.Fragment>
-              <input
-                type="submit"
-                value="Delete"
-                onClick={this.deletePlant}
-                className="modify-plant"
-              />
-              <input
-                type="submit"
-                value="Edit"
-                onClick={this.editPlant}
-                className="modify-plant"
-              />
-            </React.Fragment>
+            <div className="modify-plant">
+              <Button button="true" value="Delete" fn={this.deletePlant} />
+              <Button button="true" value="Edit" fn={this.editPlant} />
+            </div>
           ) : (
             ""
           )}
         </div>
-        <span className="latinName sub-title">
+        <span className="sub-title">
           {" (" + capitaliseString(plant.latinName) + ")"}
         </span>
 

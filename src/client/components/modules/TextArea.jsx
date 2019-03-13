@@ -10,7 +10,7 @@ const TextArea = props => (
         type="text"
         name={props.name}
         onChange={props.fn}
-        value={stringOrEmpty(props.plant, props.name)}
+        value={stringOrEmpty(props.obj, props.name)}
         autoComplete="off"
       />
     </div>
