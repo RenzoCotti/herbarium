@@ -199,9 +199,14 @@ class Description extends Component {
     return (
       <div className="secondary-container">
         <div className="desc-header">
-          <span className="super-title">
-            {capitaliseString(plant.commonName)}
-          </span>
+          <div className="plant-names">
+            <span className="super-title">
+              {capitaliseString(plant.commonName)}
+            </span>
+            <span className="sub-title">
+              {" (" + capitaliseString(plant.latinName) + ")"}
+            </span>
+          </div>
 
           {/* if the user is logged, show the edit and delete buttons */}
           {this.props.login ? (
@@ -213,9 +218,6 @@ class Description extends Component {
             ""
           )}
         </div>
-        <span className="sub-title">
-          {" (" + capitaliseString(plant.latinName) + ")"}
-        </span>
 
         <div className="table-container">
           {this.renderGeneral(plant)}

@@ -5,12 +5,13 @@ import { updateLogin } from "../redux/actions";
 
 //styles
 import "./style/categories.css";
-import "./style/create.css";
 import "./style/description.css";
 import "./style/general.css";
-import "./style/list.css";
+import "./style/input.css";
+import "./style/layout.css";
 import "./style/media.css";
 import "./style/table.css";
+import "./style/text.css";
 
 //component pages
 import Navbar from "./general/Navbar";

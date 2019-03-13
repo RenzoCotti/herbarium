@@ -25,7 +25,7 @@ class List extends Component {
       return (
         <div
           key={index}
-          className="entry-list"
+          className="entry-list uniform-padding"
           onClick={e => this.goToPlant(e, index)}
         >
           <img
@@ -37,7 +37,7 @@ class List extends Component {
             className="secondary-image"
             alt=""
           />
-          <span className="label-list">
+          <span className="label-list padded-left">
             {/*for debug purposes added plant.count*/}
             {capitalise(plant.commonName) +
               (plant.count ? " - " + plant.count : "")}
@@ -48,12 +48,14 @@ class List extends Component {
   }
 
   render() {
+    if (!this.props.plant) return <Redirect push to="/" />;
+
     if (this.state.redirect || this.props.plant.length === 1)
       return <Redirect push to="/plant/" />;
 
     return (
       <div className="secondary-container">
-        List of plants:
+        <div className="title margin-bottom">List of plants:</div>
         {this.renderList(this.props.plant)}
       </div>
     );

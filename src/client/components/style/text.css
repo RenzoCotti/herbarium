@@ -1,0 +1,15 @@
+.sub-title {
+  font-size: 14pt;
+  font-style: italic;
+}
+
+.title {
+  font-size: 18pt;
+  font-weight: bold;
+}
+
+.super-title {
+  font-weight: bold;
+  font-size: 24pt;
+  color: var(--yellow);
+}

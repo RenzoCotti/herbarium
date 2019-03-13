@@ -21,6 +21,7 @@
   width: 150px;
 }
 
+/*small images one can select*/
 .secondary-image {
   width: 80px;
   height: 80px;
@@ -33,13 +34,14 @@
   margin-left: 10px;
 }
 
+/*contains both image and subimages*/
 .image-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* margin-bottom: 10px; */
 }
 
+/*image subtitle*/
 .main-image-subtitle {
   margin-top: 20px;
   margin-bottom: 50px;

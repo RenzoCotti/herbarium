@@ -5,24 +5,18 @@ import Input from "../modules/Input";
 import Button from "../modules/Button";
 
 class LoginPage extends Component {
+  //initialise the state for controlled component
   state = { username: "", password: "" };
 
   constructor(props) {
     super(props);
     this.postRequest = this.postRequest.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.loginAdmin = this.loginAdmin.bind(this);
-    this.deleteAdmin = this.deleteAdmin.bind(this);
-    this.newAdmin = this.newAdmin.bind(this);
-    // this.listAdmin = this.listAdmin.bind(this);
+    this.login = this.login.bind(this);
+    this.deleteAccount = this.deleteAccount.bind(this);
+    this.createNewAccount = this.createNewAccount.bind(this);
     this.logout = this.logout.bind(this);
   }
-  // async listAdmin(ev) {
-  //   ev.preventDefault();
-  //   let req = await fetch("/api/admin/list");
-  //   let res = await req.json();
-  //   console.log(res);
-  // }
 
   handleChange(e) {
     let name = e.target.name;
@@ -32,7 +26,6 @@ class LoginPage extends Component {
   }
 
   async postRequest(url) {
-    // console.log(this.state);
     let req = await fetch(url, {
       method: "POST",
       headers: {
@@ -42,7 +35,6 @@ class LoginPage extends Component {
       body: JSON.stringify(this.state)
     });
     let res = await req.text();
-    // console.log(res);
 
     if (res.toLowerCase() === "ok") {
       this.setState({ username: null, password: null });
@@ -52,17 +44,18 @@ class LoginPage extends Component {
     }
     return res;
   }
-  async loginAdmin(ev) {
+
+  async login(ev) {
     ev.preventDefault();
     await this.postRequest("/api/admin/login");
   }
 
-  async newAdmin(ev) {
+  async createNewAccount(ev) {
     ev.preventDefault();
     await this.postRequest("/api/admin/new");
   }
 
-  async deleteAdmin(ev) {
+  async deleteAccount(ev) {
     ev.preventDefault();
     let req = await fetch("/api/admin/delete", {
       method: "DELETE",
@@ -71,29 +64,27 @@ class LoginPage extends Component {
         "Content-Type": "application/json"
       }
     });
-    let res = await req.text();
-    console.log(res);
+    await req.text();
   }
 
   async logout(ev) {
     ev.preventDefault();
     let req = await fetch("/api/admin/logout");
     let res = await req.text();
-
-    console.log(res);
     if (res === "logout") this.props.updateLogin(false);
   }
 
   render() {
-    if (this.props.login)
+    //the user is logged in
+    if (this.props.login) {
       return (
         <div className="secondary-container">
-          Logged in.
+          Logged in. <br />
+          <br />
           <Button value="Logout" fn={this.logout} />
         </div>
       );
-
-    // console.log(this.state);
+    }
 
     return (
       <div className="secondary-container">
@@ -115,10 +106,9 @@ class LoginPage extends Component {
               obj={this.state}
             />
 
-            <Button value="Login" fn={this.loginAdmin} />
-            <Button value="New" fn={this.newAdmin} />
-            <Button value="Delete" fn={this.deleteAdmin} />
-            {/* <dd type="submit" value="List" onClick={this.listAdmin} /> */}
+            <Button value="Login" fn={this.login} />
+            <Button value="New" fn={this.createNewAccount} />
+            <Button value="Delete" fn={this.deleteAccount} />
           </form>
         </div>
 

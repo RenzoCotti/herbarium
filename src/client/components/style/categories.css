@@ -37,11 +37,6 @@
   padding-right: 20px;
 }
 
-/* .category-content-entry:before {
-  content: " - ";
-  margin-right: 10px;
-} */
-
 .category-selected {
   color: var(--yellow);
 }

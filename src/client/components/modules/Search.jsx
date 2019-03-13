@@ -80,21 +80,18 @@ class Search extends Component {
     return (
       <div className="secondary-container">
         <div className="super-title padded-bottom">Search</div>
-        <div className="table-container">
-          Enter your search:
-          <form>
-            <Input
-              type="text"
-              name="query"
-              fn={this.handleChange}
-              obj={this.state}
-              autoComplete="off"
-            />
-            <Button submit={true} value="Search" fn={this.onSubmit} />
-            <Button submit={true} value="Random" fn={this.getRandom} />
-            <Button submit={true} value="All" fn={this.getAll} />
-          </form>
-        </div>
+        <div className="sub-title">Enter your search:</div>
+        <form>
+          <input
+            type="text"
+            name="query"
+            onChange={this.handleChange}
+            autoComplete="off"
+          />
+          <Button value="Search" fn={this.onSubmit} />
+          <Button value="Random" fn={this.getRandom} />
+          <Button value="All" fn={this.getAll} />
+        </form>
 
         {this.props.plant === "not found" ? (
           <div>No such plant found.</div>

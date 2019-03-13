@@ -20,7 +20,7 @@ const Input = props => (
     )}
     <div className="content-table">
       <input
-        className={props.text ? "forms shortForm" : "forms"}
+        className={props.text ? "input shortForm" : "input"}
         type={props.password ? "password" : "text"}
         name={props.name}
         onChange={props.fn}
