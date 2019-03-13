@@ -79,6 +79,18 @@ router.post("/login", (req, res) => {
   });
 });
 
+router.get("/logout", (req, res) => {
+  if (!req.session.login) {
+    console.log("User tried logging out as they weren't logged in.");
+    //already logged in
+    res.sendStatus(403);
+    return;
+  }
+
+  req.session.destroy();
+  res.send("logout");
+});
+
 router.get("/status", (req, res) => {
   console.log(
     "User is currently " + req.session.login ? " logged in." : "logged off."

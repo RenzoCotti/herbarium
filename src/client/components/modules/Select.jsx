@@ -3,7 +3,7 @@ import { capitalise, strin, stringOrEmpty } from "../../../utility/utility";
 
 //label, name, arr, fn
 const Select = props => {
-  let val = stringOrEmpty(props.plant, props.name);
+  let val = stringOrEmpty(props.obj, props.name);
 
   return (
     <div className="row-table">

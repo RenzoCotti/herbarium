@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getLogin, updateLogin } from "../../redux/actions";
+import Input from "../modules/Input";
 
 class LoginPage extends Component {
-  state = {};
+  state = { username: "", password: "" };
 
   constructor(props) {
     super(props);
@@ -12,8 +13,15 @@ class LoginPage extends Component {
     this.loginAdmin = this.loginAdmin.bind(this);
     this.deleteAdmin = this.deleteAdmin.bind(this);
     this.newAdmin = this.newAdmin.bind(this);
-    this.listAdmin = this.listAdmin.bind(this);
+    // this.listAdmin = this.listAdmin.bind(this);
+    this.logout = this.logout.bind(this);
   }
+  // async listAdmin(ev) {
+  //   ev.preventDefault();
+  //   let req = await fetch("/api/admin/list");
+  //   let res = await req.json();
+  //   console.log(res);
+  // }
 
   handleChange(e) {
     let name = e.target.name;
@@ -23,6 +31,7 @@ class LoginPage extends Component {
   }
 
   async postRequest(url) {
+    console.log(this.state);
     let req = await fetch(url, {
       method: "POST",
       headers: {
@@ -35,6 +44,7 @@ class LoginPage extends Component {
     // console.log(res);
 
     if (res.toLowerCase() === "ok") {
+      this.setState({ username: null, password: null });
       this.props.updateLogin(true);
     } else if (res.toLowerCase() === "nope") {
       this.setState({ invalid: true });
@@ -64,44 +74,59 @@ class LoginPage extends Component {
     console.log(res);
   }
 
-  async listAdmin(ev) {
+  async logout(ev) {
     ev.preventDefault();
-    let req = await fetch("/api/admin/list");
-    let res = await req.json();
+    let req = await fetch("/api/admin/logout");
+    let res = await req.text();
+
     console.log(res);
+    if (res === "logout") this.props.updateLogin(false);
   }
 
   render() {
     if (this.props.login)
-      return <div className="secondary-container">Logged in.</div>;
+      return (
+        <div className="secondary-container">
+          Logged in.
+          <input
+            className="forms"
+            type="submit"
+            value="Logout"
+            onClick={this.logout}
+          />
+        </div>
+      );
+
+    console.log(this.state);
 
     return (
       <div className="secondary-container">
         <div className="super-title padded-bottom">Login</div>
 
-        <form>
-          <div>username</div>
-          <input
-            className="forms"
-            type="text"
-            name="username"
-            onChange={this.handleChange}
-            autoComplete="off"
-          />
-          <div>password</div>
-          <input
-            className="forms"
-            type="password"
-            name="password"
-            onChange={this.handleChange}
-            autoComplete="off"
-          />
-          <input type="submit" value="Login" onClick={this.loginAdmin} />
-          <input type="submit" value="List" onClick={this.listAdmin} />
-          <input type="submit" value="New" onClick={this.newAdmin} />
-          <input type="submit" value="Delete" onClick={this.deleteAdmin} />
-          <div>{this.state.invalid ? "Invalid credentials." : ""}</div>
-        </form>
+        <div className="table-container">
+          <form>
+            <Input
+              label="Username"
+              name="username"
+              fn={this.handleChange}
+              obj={this.state}
+            />
+            <Input
+              label="Password"
+              password={true}
+              name="password"
+              fn={this.handleChange}
+              obj={this.state}
+            />
+
+            <input type="submit" value="Login" onClick={this.loginAdmin} />
+            {/* <input type="submit" value="List" onClick={this.listAdmin} /> */}
+            <input type="submit" value="New" onClick={this.newAdmin} />
+            <input type="submit" value="Delete" onClick={this.deleteAdmin} />
+          </form>
+        </div>
+
+        <div>{this.state.invalid ? "Invalid credentials." : ""}</div>
       </div>
     );
   }

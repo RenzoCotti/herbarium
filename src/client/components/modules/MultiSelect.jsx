@@ -8,7 +8,7 @@ const MultiSelect = props => (
       <select
         onChange={val => props.fn(val, props.name, true)}
         multiple
-        value={arrOrEmpty(props.plant, props.name)}
+        value={arrOrEmpty(props.obj, props.name)}
       >
         <option disabled value="select an option">
           select an option

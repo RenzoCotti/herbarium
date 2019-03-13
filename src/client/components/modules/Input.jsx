@@ -8,6 +8,7 @@ import { stringOrEmpty } from "../../../utility/utility";
  * text is the aftertext for short fields
  * name is the API name of the plant field we're editing
  * fn is the change function
+ * obj is the optional obj to prefill the value (if obj, we do obj[name], else "")
  * */
 
 const Input = props => (
@@ -19,7 +20,7 @@ const Input = props => (
         type={props.password ? "password" : "text"}
         name={props.name}
         onChange={props.fn}
-        value={stringOrEmpty(props.plant, props.name)}
+        value={stringOrEmpty(props.obj, props.name)}
         autoComplete="off"
       />
       {props.text ? props.text : ""}

@@ -3,7 +3,7 @@ import definitions from "../../../utility/definitions";
 import { toColour, stringOrEmpty } from "../../../utility/utility";
 
 const SelectColours = props => {
-  let val = stringOrEmpty(props.plant, props.name);
+  let val = stringOrEmpty(props.obj, props.name);
 
   return (
     <div className="row-table">

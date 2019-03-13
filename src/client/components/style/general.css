@@ -45,7 +45,7 @@
 
 .home {
   font-size: 72pt;
-  margin-top: 400px;
+  /* margin-top: 200px; */
   /* color: rgb(var(--backgroundRGB)); */
   color: var(--yellow);
 }
@@ -53,3 +53,7 @@
 /* .main-container:has(.home) {
   background-color: transparent;
 } */
+
+.about {
+  max-width: 800px;
+}

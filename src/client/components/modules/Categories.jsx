@@ -51,10 +51,10 @@ class Categories extends Component {
 
   displayList() {
     let current = this.state.displaying;
-    if (!current) return;
+    if (!current)
+      return <div className="category-content secondary-container " />;
 
-    console.log(current);
-    return definitions[current].map(k => {
+    let list = definitions[current].map(k => {
       return (
         <div
           className="category-content-entry"
@@ -65,6 +65,13 @@ class Categories extends Component {
         </div>
       );
     });
+
+    // console.log(current);
+    return (
+      <div className="category-content secondary-container category-full">
+        {list}
+      </div>
+    );
   }
 
   getClass(name) {
@@ -130,9 +137,7 @@ class Categories extends Component {
             <br />
           )}
         </div>
-        <div className="category-content secondary-container">
-          {this.displayList()}
-        </div>
+        {this.displayList()}
       </React.Fragment>
     );
   }
