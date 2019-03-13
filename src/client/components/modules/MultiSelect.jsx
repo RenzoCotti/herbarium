@@ -1,5 +1,5 @@
 import React from "react";
-import { capitalise, stringOrNull } from "../../../utility/utility";
+import { capitalise, arrOrEmpty } from "../../../utility/utility";
 
 const MultiSelect = props => (
   <div className="row-table">
@@ -8,7 +8,7 @@ const MultiSelect = props => (
       <select
         onChange={val => props.fn(val, props.name, true)}
         multiple
-        value={stringOrNull(props.plant, props.name)}
+        value={arrOrEmpty(props.plant, props.name)}
       >
         <option disabled value="select an option">
           select an option

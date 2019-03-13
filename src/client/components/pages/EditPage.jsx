@@ -13,22 +13,16 @@ class EditPage extends Component {
     e.preventDefault();
     console.log(toSend);
 
-    switch (toSend.evergreen) {
-      case "Yes":
-        toSend.evergreen = true;
-      case "No":
-        toSend.evergreen = false;
-    }
-
-    // let req = await fetch("/api/plant/new", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: JSON.stringify(this.state)
-    // });
-    // console.log(await req.text());
+    let req = await fetch("/api/plant/edit", {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(toSend)
+    });
+    console.log("updated");
+    console.log(await req.json());
   }
 
   render() {

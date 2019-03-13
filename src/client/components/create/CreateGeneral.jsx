@@ -38,7 +38,7 @@ const CreateGeneral = props => (
     <Select
       label="Evergreen: *"
       name="evergreen"
-      arr={["Yes", "No"]}
+      arr={["yes", "no"]}
       fn={props.select}
       plant={props.plant}
     />

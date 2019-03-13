@@ -12,7 +12,7 @@ const SelectColours = props => {
         <select
           onChange={val => props.fn(val, props.name)}
           className="colourSelect"
-          defaultValue={val ? val : "select an option"}
+          value={val ? val : "select an option"}
         >
           <option disabled value="select an option">
             select an option

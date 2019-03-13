@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getLogin, getPlant } from "../../redux/actions";
+import { getLogin, getPlant, updatePlantAction } from "../../redux/actions";
 
 import "../style/create.css";
 import CreateGeneral from "../create/CreateGeneral";
@@ -15,6 +15,27 @@ class ModifyPlant extends Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+  }
+
+  componentDidMount() {
+    let plant = this.props.plant;
+    console.log("current plant is");
+    console.log(plant);
+    if (this.props.edit) {
+      if (!this.props.plant) this.setState({ toHome: true });
+      else {
+        let obj = Object.assign({}, this.props.plant[0]);
+        //we're editing, set the id for the backend
+        this.setState(obj);
+      }
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.state.updated) {
+    } else {
+      this.props.updatePlant(null);
+    }
   }
 
   handleChange(e) {
@@ -63,8 +84,12 @@ class ModifyPlant extends Component {
         </div>
       );
 
-    let plant = this.props.plant;
-    if (plant) plant = plant[0];
+    if (this.state.toHome) {
+      return <Redirect push to="/" />;
+    }
+
+    // let plant = this.state;
+    // if (this.props.edit) plant = plant[0];
     // console.log(plant);
 
     return (
@@ -76,16 +101,24 @@ class ModifyPlant extends Component {
         <form onSubmit={e => this.props.fn(e, this.state)}>
           <div className="createForm">
             <div className="table-container">
-              <CreateGeneral change={change} select={select} plant={plant} />
-              <CreateStem change={change} select={select} plant={plant} />
+              <CreateGeneral
+                change={change}
+                select={select}
+                plant={this.state}
+              />
+              <CreateStem change={change} select={select} plant={this.state} />
             </div>
 
             <div className="table-container">
-              <CreateLeaves change={change} select={select} plant={plant} />
+              <CreateLeaves
+                change={change}
+                select={select}
+                plant={this.state}
+              />
               <CreateFlowersFruit
                 change={change}
                 select={select}
-                plant={plant}
+                plant={this.state}
               />
               //TODO images
               <br />
@@ -104,8 +137,11 @@ const mapStateToProps = state => ({
   login: getLogin(state),
   plant: getPlant(state)
 });
+const mapDispatchToProps = dispatch => ({
+  updatePlant: plant => dispatch(updatePlantAction(plant))
+});
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(ModifyPlant);

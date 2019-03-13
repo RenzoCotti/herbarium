@@ -72,5 +72,9 @@ export function createOptions(label, name, fn, arr, multiple) {
 }
 
 export function stringOrNull(obj, prop) {
-  return obj ? obj[prop] : undefined;
+  return obj ? obj[prop] : "";
+}
+
+export function arrOrEmpty(obj, prop) {
+  return obj ? obj[prop] : [];
 }

@@ -22,7 +22,7 @@ const Plant = new mongoose.Schema({
     enum: definitions.plantTypes
   },
   evergreen: {
-    type: Boolean,
+    type: String,
     required: true
   },
   description: {
@@ -201,23 +201,27 @@ const Plant = new mongoose.Schema({
 });
 
 Plant.pre("save", function(next) {
-  let tempArr = [];
+  if (!this.keywords) {
+    let tempArr = [];
 
-  //iterate over all keys of the document
-  for (let key of Object.keys(this.toObject())) {
-    tempArr = tempArr.concat(extractKeywords(key, this));
+    //iterate over all keys of the document
+    for (let key of Object.keys(this.toObject())) {
+      tempArr = tempArr.concat(extractKeywords(key, this));
+    }
+
+    this.keywords = tempArr;
   }
 
-  this.keywords = tempArr;
+  if (!this.frequency) {
+    this.frequency = {};
 
-  this.frequency = {};
-
-  for (let str of tempArr) {
-    let res = this.frequency.get(str);
-    if (res) {
-      this.frequency.set(str, res + 1);
-    } else {
-      this.frequency.set(str, 1);
+    for (let str of tempArr) {
+      let res = this.frequency.get(str);
+      if (res) {
+        this.frequency.set(str, res + 1);
+      } else {
+        this.frequency.set(str, 1);
+      }
     }
   }
 

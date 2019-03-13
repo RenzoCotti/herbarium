@@ -12,13 +12,6 @@ class CreatePage extends Component {
     e.preventDefault();
     console.log(toSend);
 
-    switch (toSend.evergreen) {
-      case "Yes":
-        toSend.evergreen = true;
-      case "No":
-        toSend.evergreen = false;
-    }
-
     let req = await fetch("/api/plant/new", {
       method: "POST",
       headers: {

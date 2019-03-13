@@ -57,6 +57,31 @@ router.post("/new", (req, res) => {
   });
 });
 
+//edits an existing plant
+router.put("/edit", (req, res) => {
+  if (!req.session.login) {
+    //not logged in, can't edit
+    res.status(403);
+    return;
+  }
+
+  let plant = req.body;
+  // console.log(plant);
+  let id = plant._id;
+
+  delete plant._v;
+  delete plant._id;
+  delete plant.count;
+
+  Plant.findOneAndUpdate({ _id: id }, plant, { upsert: true }, function(
+    err,
+    doc
+  ) {
+    if (err) return res.send(500, { error: err });
+    return res.send(doc);
+  });
+});
+
 //deletes a specific plant
 router.delete("/delete/:id", (req, res) => {
   if (!req.session.login) {

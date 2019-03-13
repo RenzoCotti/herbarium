@@ -50,8 +50,7 @@ class Description extends Component {
       },
       {
         property: plant.evergreen,
-        label: "Evergreen",
-        alt: plant.evergreen ? "Yes" : "No"
+        label: "Evergreen"
       },
       {
         property: plant.regions,
@@ -197,7 +196,7 @@ class Description extends Component {
 
     if (this.state.edit) return <Redirect push to="/edit" />;
 
-    console.log(this.props.login);
+    // console.log(this.props.login);
 
     return (
       <div className="secondary-container">

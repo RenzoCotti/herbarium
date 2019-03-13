@@ -43,8 +43,14 @@ class App extends Component {
             <Route path="/search" component={Search} />
             <Route path="/plant" component={PlantDetail} />
             <Route path="/list" component={List} />
-            <Route path="/create" component={CreatePage} />
-            <Route path="/edit" component={EditPage} />
+            <Route
+              path="/create"
+              render={props => <CreatePage key={Date.now()} {...props} />}
+            />
+            <Route
+              path="/edit"
+              render={props => <EditPage key={Date.now()} {...props} />}
+            />
             <Route path="/login" component={LoginPage} />
             <Route path="/about" component={About} />
           </div>
