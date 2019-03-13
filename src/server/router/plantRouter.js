@@ -43,6 +43,7 @@ router.get("/category/:category/:name", (req, res) => {
 //creates a new plant
 router.post("/new", (req, res) => {
   if (!req.session.login) {
+    console.log("user tried to create, isn't logged in");
     //not logged in, can't create
     res.status(403);
     return;
@@ -61,6 +62,7 @@ router.post("/new", (req, res) => {
 router.put("/edit", (req, res) => {
   if (!req.session.login) {
     //not logged in, can't edit
+    console.log("user tried to edit, isn't logged in");
     res.status(403);
     return;
   }
@@ -75,10 +77,14 @@ router.put("/edit", (req, res) => {
 
   Plant.findOneAndUpdate({ _id: id }, plant, { upsert: true }, function(
     err,
-    doc
+    plant
   ) {
-    if (err) return res.send(500, { error: err });
-    return res.send(doc);
+    if (err) {
+      console.log(err);
+      return res.send("error");
+    }
+    console.log("Edited " + plant.commonName);
+    return res.send("ok");
   });
 });
 

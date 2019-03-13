@@ -1,9 +1,9 @@
 import React from "react";
-import { capitalise, stringOrNull } from "../../../utility/utility";
+import { capitalise, strin, stringOrEmpty } from "../../../utility/utility";
 
 //label, name, arr, fn
 const Select = props => {
-  let val = stringOrNull(props.plant, props.name);
+  let val = stringOrEmpty(props.plant, props.name);
 
   return (
     <div className="row-table">

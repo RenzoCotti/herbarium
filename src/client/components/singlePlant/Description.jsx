@@ -194,6 +194,9 @@ class Description extends Component {
     let plant = this.props.plant;
     // this.checkIfLogged();
 
+    // console.log(this.props.plant);
+    // console.log(this.state);
+
     if (this.state.edit) return <Redirect push to="/edit" />;
 
     // console.log(this.props.login);

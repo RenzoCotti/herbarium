@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import ModifyPlant from "../modules/ModifyPlant";
+import { connect } from "react-redux";
+import { updatePlantAction } from "../../redux/actions";
+import { Redirect } from "react-router";
 
 class EditPage extends Component {
   state = {};
@@ -11,8 +14,8 @@ class EditPage extends Component {
 
   async onSubmit(e, toSend) {
     e.preventDefault();
-    console.log(toSend);
 
+    //sends the update to backend
     let req = await fetch("/api/plant/edit", {
       method: "PUT",
       headers: {
@@ -21,13 +24,38 @@ class EditPage extends Component {
       },
       body: JSON.stringify(toSend)
     });
-    console.log("updated");
-    console.log(await req.json());
+
+    //see how the update went
+    let res = await req.text();
+
+    if (res === "ok") {
+      //updated successfully, redirect to plant view
+      this.props.updatePlant([toSend]);
+      this.setState({ updated: "ok" });
+    } else if (res === "error") {
+      //there was an error, stay on the page
+      this.setState({ updated: "error" });
+    }
   }
 
   render() {
-    return <ModifyPlant fn={this.onSubmit} edit={true} />;
+    if (this.state.updated === "ok") {
+      return <Redirect push to="/plant" />;
+    }
+    return (
+      <React.Fragment>
+        {this.state.updated === "error" ? <div>Error updating.</div> : ""}
+        <ModifyPlant fn={this.onSubmit} edit={true} />
+      </React.Fragment>
+    );
   }
 }
 
-export default EditPage;
+const mapDispatchToProps = dispatch => ({
+  updatePlant: plant => dispatch(updatePlantAction(plant))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(EditPage);

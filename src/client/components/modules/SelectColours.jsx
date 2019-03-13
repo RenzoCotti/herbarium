@@ -1,9 +1,9 @@
 import React from "react";
 import definitions from "../../../utility/definitions";
-import { toColour, stringOrNull } from "../../../utility/utility";
+import { toColour, stringOrEmpty } from "../../../utility/utility";
 
 const SelectColours = props => {
-  let val = stringOrNull(props.plant, props.name);
+  let val = stringOrEmpty(props.plant, props.name);
 
   return (
     <div className="row-table">

@@ -1,5 +1,5 @@
 import React from "react";
-import { stringOrNull } from "../../../utility/utility";
+import { stringOrEmpty } from "../../../utility/utility";
 
 const TextArea = props => (
   <div className="row-table">
@@ -10,7 +10,7 @@ const TextArea = props => (
         type="text"
         name={props.name}
         onChange={props.fn}
-        value={stringOrNull(props.plant, props.name)}
+        value={stringOrEmpty(props.plant, props.name)}
         autoComplete="off"
       />
     </div>

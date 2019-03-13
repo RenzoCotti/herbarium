@@ -71,7 +71,7 @@ export function createOptions(label, name, fn, arr, multiple) {
   );
 }
 
-export function stringOrNull(obj, prop) {
+export function stringOrEmpty(obj, prop) {
   return obj ? obj[prop] : "";
 }
 

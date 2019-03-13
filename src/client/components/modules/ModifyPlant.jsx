@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getLogin, getPlant, updatePlantAction } from "../../redux/actions";
+import { Redirect } from "react-router";
 
 import "../style/create.css";
 import CreateGeneral from "../create/CreateGeneral";
@@ -15,26 +16,19 @@ class ModifyPlant extends Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
-  }
 
-  componentDidMount() {
-    let plant = this.props.plant;
-    console.log("current plant is");
-    console.log(plant);
-    if (this.props.edit) {
-      if (!this.props.plant) this.setState({ toHome: true });
-      else {
-        let obj = Object.assign({}, this.props.plant[0]);
-        //we're editing, set the id for the backend
-        this.setState(obj);
-      }
+    //we're initialising the state for the controlled component
+    if (this.props.edit && this.props.plant) {
+      let obj = Object.assign({}, this.props.plant[0]);
+      this.state = obj;
     }
   }
 
-  componentWillUnmount() {
-    if (this.state.updated) {
-    } else {
-      this.props.updatePlant(null);
+  componentDidMount() {
+    //if, after mounting, the component doesn't have a plant,
+    //we're redirecting to home
+    if (this.props.edit && !this.props.plant) {
+      this.setState({ toHome: true });
     }
   }
 
@@ -63,17 +57,11 @@ class ModifyPlant extends Component {
     });
   }
 
-  // async checkIfLogged() {
-  //   let req = await fetch("/api/admin/status");
-  //   let res = await req.json();
-  //   if (res.login !== this.state.login) this.setState({ login: res.login });
-  // }
-
   render() {
     let change = this.handleChange;
     let select = this.handleSelect;
 
-    // this.checkIfLogged();
+    //doesn't display the page if the user isnt logged
     if (!this.props.login)
       return (
         <div className="secondary-container">
@@ -84,13 +72,10 @@ class ModifyPlant extends Component {
         </div>
       );
 
+    //redirects home if necessary
     if (this.state.toHome) {
       return <Redirect push to="/" />;
     }
-
-    // let plant = this.state;
-    // if (this.props.edit) plant = plant[0];
-    // console.log(plant);
 
     return (
       <div style={{ width: "100%", padding: "50px" }}>
