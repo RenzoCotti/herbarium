@@ -80,7 +80,7 @@ class Search extends Component {
     return (
       <div className="secondary-container">
         <div className="super-title padded-bottom">Search</div>
-        <div className="sub-title">Enter your search:</div>
+        <div className="sub-title padded-top">Enter your search:</div>
         <form>
           <input
             type="text"

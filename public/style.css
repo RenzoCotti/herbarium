@@ -3,11 +3,11 @@
 html {
   /*palette*/
   --text: wheat;
-  --backgroundRGB: 36, 58, 24;
-  /* --backgroundRGB: 35, 33, 27; */
-  --background: rgba(var(--backgroundRGB), 0.75);
+  /* --backgroundRGB: 36, 58, 24; */
+  --backgroundRGB: 35, 33, 27;
+  --background: rgba(var(--backgroundRGB), 0.7);
   --yellow: #d3ba4e;
-  --highlight: #6d9930;
+  --highlight: #415a10;
 
   background-color: var(--background);
 }
@@ -28,7 +28,7 @@ body {
   font-size: 16pt;
   font-weight: 100;
 
-  background-image: url("./bg.jpg");
+  background-image: url("./bg2.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;

@@ -92,9 +92,8 @@ router.get("/logout", (req, res) => {
 });
 
 router.get("/status", (req, res) => {
-  console.log(
-    "User is currently " + req.session.login ? " logged in." : "logged off."
-  );
+  let str = req.session.login ? " logged in." : "logged off.";
+  console.log("User is currently " + str);
   return res.send({ login: req.session.login });
 });
 

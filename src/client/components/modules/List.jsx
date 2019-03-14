@@ -55,8 +55,10 @@ class List extends Component {
 
     return (
       <div className="secondary-container">
-        <div className="title margin-bottom">List of plants:</div>
-        {this.renderList(this.props.plant)}
+        <div className="title margin-bottom">List of plants</div>
+        <div className="list-container">
+          {this.renderList(this.props.plant)}
+        </div>
       </div>
     );
   }
