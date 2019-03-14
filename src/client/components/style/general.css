@@ -47,8 +47,8 @@ line expanding from left
 .home {
   font-size: 72pt;
   padding: 150px;
-  border-top: 1px solid var(--yellow);
-  border-bottom: 1px solid var(--yellow);
+  /* border-top: 1px solid var(--yellow);
+  border-bottom: 1px solid var(--yellow); */
 
   /* margin-top: 200px; */
   /* color: rgb(var(--backgroundRGB)); */

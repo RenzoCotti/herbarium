@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getLogin, updateLogin } from "../../redux/actions";
-import Input from "../modules/Input";
-import Button from "../modules/Button";
+import Input from "../modules/input/Input";
+import Button from "../modules/input/Button";
 
 class LoginPage extends Component {
   //initialise the state for controlled component
@@ -37,7 +37,7 @@ class LoginPage extends Component {
     let res = await req.text();
 
     if (res.toLowerCase() === "ok") {
-      this.setState({ username: null, password: null });
+      this.setState({ username: "", password: "" });
       this.props.updateLogin(true);
     } else if (res.toLowerCase() === "nope") {
       this.setState({ invalid: true });

@@ -1,6 +1,6 @@
 import React from "react";
 
-const About = props => (
+const AboutPage = props => (
   <div className="secondary-container">
     <div className="super-title padded-bottom">About</div>
 
@@ -13,4 +13,4 @@ const About = props => (
     </div>
   </div>
 );
-export default About;
+export default AboutPage;

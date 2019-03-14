@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import { getLogin, getPlant, updatePlantAction } from "../../redux/actions";
 import { Redirect } from "react-router";
 
-import CreateGeneral from "../create/CreateGeneral";
-import CreateStem from "../create/CreateStem";
-import CreateLeaves from "../create/CreateLeaves";
-import CreateFlowersFruit from "../create/CreateFlowersFruit";
-import Button from "./Button";
+import CreateGeneral from "../createView/CreateGeneral";
+import CreateStem from "../createView/CreateStem";
+import CreateLeaves from "../createView/CreateLeaves";
+import CreateFlowersFruit from "../createView/CreateFlowersFruit";
+import Button from "./input/Button";
 
 class ModifyPlant extends Component {
   state = {};

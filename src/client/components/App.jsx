@@ -20,9 +20,10 @@ import PlantDetail from "./modules/PlantDetail";
 import List from "./modules/List";
 import Categories from "./modules/Categories";
 import Footbar from "./general/Footbar";
-import Home from "./general/Home";
-import About from "./general/About";
-import CreatePage from "./modules/ModifyPlant";
+
+import Home from "./pages/HomePage";
+import About from "./pages/AboutPage";
+import CreatePage from "./pages/CreatePage";
 import LoginPage from "./pages/LoginPage";
 import EditPage from "./pages/EditPage";
 

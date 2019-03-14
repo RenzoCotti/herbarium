@@ -1,6 +1,6 @@
 import React from "react";
-import MediaAndProperties from "../singlePlant/MediaAndProperties";
-import Description from "../singlePlant/Description";
+import MediaAndProperties from "../plantView/MediaAndProperties";
+import Description from "../plantView/Description";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import { getPlant } from "../../redux/actions";

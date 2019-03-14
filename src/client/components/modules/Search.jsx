@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import { updatePlantAction, getPlant } from "../../redux/actions";
-import Button from "./Button";
-import Input from "./Input";
+import Button from "./input/Button";
 
 class Search extends Component {
   state = { query: "" };
