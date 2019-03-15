@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import ModifyPlant from "../modules/ModifyPlant";
+import { connect } from "react-redux";
+import { updatePlantAction } from "../../redux/actions";
+import { Redirect } from "react-router";
 
 class CreatePage extends Component {
   state = {};
@@ -10,7 +13,7 @@ class CreatePage extends Component {
 
   async onSubmit(e, toSend) {
     e.preventDefault();
-    console.log(toSend);
+    // console.log(toSend);
 
     let req = await fetch("/api/plant/new", {
       method: "POST",
@@ -20,12 +23,24 @@ class CreatePage extends Component {
       },
       body: JSON.stringify(toSend)
     });
-    console.log(await req.text());
+    let code = req.status;
+    if (code === 201) {
+      let res = await req.json();
+      this.props.updatePlant(res);
+    }
   }
 
   render() {
+    if (this.props.plant) return <Redirect push to="/plant" />;
     return <ModifyPlant fn={this.onSubmit} edit={false} />;
   }
 }
 
-export default CreatePage;
+const mapDispatchToProps = dispatch => ({
+  updatePlant: plant => dispatch(updatePlantAction(plant))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(CreatePage);

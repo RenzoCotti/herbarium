@@ -95,15 +95,15 @@ class LoginPage extends Component {
             <Input
               label="Username"
               name="username"
-              fn={this.handleChange}
               obj={this.state}
+              fn={this.handleChange}
             />
             <Input
               label="Password"
-              password={true}
               name="password"
-              fn={this.handleChange}
+              password={true}
               obj={this.state}
+              fn={this.handleChange}
             />
 
             <Button value="Login" fn={this.login} />

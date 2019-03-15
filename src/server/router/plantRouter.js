@@ -54,7 +54,7 @@ router.post("/new", (req, res) => {
   plant.save((err, saved) => {
     if (err) return console.log(err);
     console.log("Saved " + saved.commonName);
-    return res.send(saved);
+    return res.status(201).send(saved);
   });
 });
 

@@ -7,13 +7,13 @@ html {
   --backgroundRGB: 35, 33, 27;
   --background: rgba(var(--backgroundRGB), 0.7);
   --yellow: #d3ba4e;
-  --highlight: #415a10;
+  --green: #415a10;
 
   background-color: var(--background);
 }
 
 ::selection {
-  background: var(--highlight); /* WebKit/Blink Browsers */
+  background: var(--green); /* WebKit/Blink Browsers */
 }
 
 body {

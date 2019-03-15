@@ -210,9 +210,7 @@ Plant.pre("save", function(next) {
     }
 
     this.keywords = tempArr;
-  }
 
-  if (!this.frequency) {
     this.frequency = {};
 
     for (let str of tempArr) {

@@ -7,6 +7,7 @@ import { getPlant } from "../../redux/actions";
 
 const PlantDetail = props => {
   if (!props.plant) return <Redirect push to="/" />;
+  if (props.plant === "deleted") return <div>Plant deleted.</div>;
 
   return (
     <div className="plant-detail">

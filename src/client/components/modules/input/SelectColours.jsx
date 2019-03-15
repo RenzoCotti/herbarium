@@ -3,16 +3,18 @@ import definitions from "../../../../utility/definitions";
 import { toColour, stringOrEmpty } from "../../../../utility/utility";
 
 const SelectColours = props => {
-  let val = stringOrEmpty(props.obj, props.name);
+  let val = props.obj
+    ? stringOrEmpty(props.obj, props.name)
+    : "select an option";
 
   return (
     <div className="row-table">
       <div className="label-table sub-title">{props.label}</div>
       <div className="content-table">
         <select
-          onChange={val => props.fn(val, props.name)}
+          onChange={v => props.fn(v, props.name)}
           className="colourSelect"
-          value={val ? val : "select an option"}
+          value={val}
         >
           <option disabled value="select an option">
             select an option

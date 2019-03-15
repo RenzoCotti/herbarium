@@ -21,6 +21,7 @@ class Categories extends Component {
   }
 
   async queryCategory(e, category) {
+    this.setState({ selectedEntry: category });
     let query;
     if (this.state.displaying.includes("medicinal")) {
       query = "api/plant/search/" + category;
@@ -48,6 +49,7 @@ class Categories extends Component {
     this.setState({ selected: name, displaying: apiName });
   }
 
+  //displays a new list, from the current selected category
   displayList() {
     let current = this.state.displaying;
     if (!current)
@@ -56,7 +58,7 @@ class Categories extends Component {
     let list = definitions[current].map(k => {
       return (
         <div
-          className="category-content-entry"
+          className={this.getSelectedEntryClass(k)}
           onClick={e => this.queryCategory(e, k)}
           key={k}
         >
@@ -78,6 +80,12 @@ class Categories extends Component {
     return name === this.state.selected
       ? "category-entry link sub-title category-selected"
       : "category-entry link sub-title";
+  }
+
+  getSelectedEntryClass(name) {
+    return name === this.state.selectedEntry
+      ? "category-content-entry category-selected"
+      : "category-content-entry";
   }
 
   renderSection(label, list) {

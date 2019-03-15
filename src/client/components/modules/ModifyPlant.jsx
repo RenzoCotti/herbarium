@@ -7,6 +7,7 @@ import CreateGeneral from "../createView/CreateGeneral";
 import CreateStem from "../createView/CreateStem";
 import CreateLeaves from "../createView/CreateLeaves";
 import CreateFlowersFruit from "../createView/CreateFlowersFruit";
+import AddImage from "./AddImage";
 import Button from "./input/Button";
 
 class ModifyPlant extends Component {
@@ -97,7 +98,7 @@ class ModifyPlant extends Component {
                 select={select}
                 obj={this.state}
               />
-              //TODO images
+              <AddImage />
               <br />
               //TODO uses
             </div>

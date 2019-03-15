@@ -34,7 +34,12 @@ select:hover,
 input[type="submit"]:hover,
 input[type="button"]:hover {
   cursor: pointer;
-  background-color: var(--highlight);
+  background-color: var(--green);
+}
+
+input[type="text"]:hover,
+textarea:hover {
+  background-color: var(--green);
 }
 
 input[type="text"],
@@ -66,7 +71,7 @@ textarea:focus {
   border: 0;
   outline: none;
   border-bottom: 1px solid transparent;
-  background-color: var(--highlight);
+  background-color: var(--green);
 }
 
 textarea:focus {

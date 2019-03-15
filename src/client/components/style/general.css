@@ -13,6 +13,7 @@
 
 .nav-element.link.active {
   color: var(--yellow);
+  background-color: var(--background);
 }
 
 .nav-element:visited,
@@ -29,6 +30,7 @@
 }
 
 .nav-element:hover {
+  /* color: var(--yellow); */
   background-color: var(--background);
 }
 
@@ -50,8 +52,6 @@ line expanding from left
   /* border-top: 1px solid var(--yellow);
   border-bottom: 1px solid var(--yellow); */
 
-  /* margin-top: 200px; */
-  /* color: rgb(var(--backgroundRGB)); */
   color: var(--yellow);
   z-index: 1;
 }

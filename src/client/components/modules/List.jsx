@@ -25,7 +25,7 @@ class List extends Component {
       return (
         <div
           key={index}
-          className="entry-list uniform-padding"
+          className="entry-list padded"
           onClick={e => this.goToPlant(e, index)}
         >
           <img
@@ -55,7 +55,7 @@ class List extends Component {
 
     return (
       <div className="secondary-container">
-        <div className="title margin-bottom">List of plants</div>
+        <div className="super-title margin-bottom">Results</div>
         <div className="list-container">
           {this.renderList(this.props.plant)}
         </div>

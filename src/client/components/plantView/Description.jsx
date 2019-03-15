@@ -177,7 +177,7 @@ class Description extends Component {
 
     let res = await req.text();
     this.props.updatePlant("deleted");
-    console.log(res);
+    // console.log(res);
   }
 
   editPlant() {

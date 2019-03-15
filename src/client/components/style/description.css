@@ -37,7 +37,7 @@
 }
 
 .entry-list:hover {
-  background-color: var(--highlight);
+  background-color: var(--green);
   cursor: pointer;
 }
 
@@ -48,7 +48,15 @@
   flex-direction: row;
   align-items: center;
 }
+
 .link:hover {
   color: var(--yellow);
   cursor: pointer;
+}
+
+.image-list-entry {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--background);
 }
