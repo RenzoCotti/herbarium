@@ -28,12 +28,13 @@ mongoose.connect(config.dbURL, {
 //Using default promises
 mongoose.Promise = global.Promise;
 
+//cookie of 5 min
 app.use(
   session({
     secret: config.sessionSecret,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true, maxAge: 1000 * 60 * 5 }
+    cookie: { secure: true, maxAge: 1000 * 60 * 30 }
   })
 );
 

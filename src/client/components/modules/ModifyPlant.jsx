@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getLogin, getPlant, updatePlantAction } from "../../redux/actions";
+import {
+  getLogin,
+  getPlant,
+  updatePlant,
+  getImages
+} from "../../redux/actions";
 import { Redirect } from "react-router";
 
 import CreateGeneral from "../createView/CreateGeneral";
@@ -104,7 +109,10 @@ class ModifyPlant extends Component {
             </div>
           </div>
 
-          <Button value="Confirm" fn={e => this.props.fn(e, this.state)} />
+          <Button
+            value="Confirm"
+            fn={e => this.props.fn(e, this.state, this.props.images)}
+          />
         </form>
       </div>
     );
@@ -113,10 +121,11 @@ class ModifyPlant extends Component {
 
 const mapStateToProps = state => ({
   login: getLogin(state),
-  plant: getPlant(state)
+  plant: getPlant(state),
+  images: getImages(state)
 });
 const mapDispatchToProps = dispatch => ({
-  updatePlant: plant => dispatch(updatePlantAction(plant))
+  updatePlant: plant => dispatch(updatePlant(plant))
 });
 
 export default connect(

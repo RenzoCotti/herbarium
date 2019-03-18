@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ModifyPlant from "../modules/ModifyPlant";
 import { connect } from "react-redux";
-import { updatePlantAction } from "../../redux/actions";
+import { updatePlant } from "../../redux/actions";
 import { Redirect } from "react-router";
 
 class CreatePage extends Component {
@@ -11,9 +11,11 @@ class CreatePage extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  async onSubmit(e, toSend) {
+  async onSubmit(e, toSend, images) {
     e.preventDefault();
-    // console.log(toSend);
+    console.log(toSend);
+
+    toSend.images = images;
 
     let req = await fetch("/api/plant/new", {
       method: "POST",
@@ -37,7 +39,7 @@ class CreatePage extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  updatePlant: plant => dispatch(updatePlantAction(plant))
+  updatePlant: plant => dispatch(updatePlant(plant))
 });
 
 export default connect(

@@ -1,5 +1,10 @@
 import { createStore } from "redux";
-import { SET_PLANT, SET_PLANT_FROM_INDEX, SET_LOGIN } from "./actions";
+import {
+  SET_PLANT,
+  SET_PLANT_FROM_INDEX,
+  SET_LOGIN,
+  SET_IMAGES
+} from "./actions";
 
 const INITIAL_STATE = {
   plant: null,
@@ -17,10 +22,15 @@ function reducer(state = INITIAL_STATE, action) {
 
     case SET_PLANT_FROM_INDEX:
       newState.plant = [state.plant[action.index]];
-      console.log(newState);
+      // console.log(newState);
       return newState;
+
     case SET_LOGIN:
       newState.login = action.login;
+      return newState;
+
+    case SET_IMAGES:
+      newState.images = action.images;
       return newState;
 
     default:

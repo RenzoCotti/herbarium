@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ModifyPlant from "../modules/ModifyPlant";
 import { connect } from "react-redux";
-import { updatePlantAction } from "../../redux/actions";
+import { updatePlant } from "../../redux/actions";
 import { Redirect } from "react-router";
 
 class EditPage extends Component {
@@ -12,8 +12,10 @@ class EditPage extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  async onSubmit(e, toSend) {
+  async onSubmit(e, toSend, images) {
     e.preventDefault();
+
+    toSend.images = images;
 
     //sends the update to backend
     let req = await fetch("/api/plant/edit", {
@@ -52,7 +54,7 @@ class EditPage extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  updatePlant: plant => dispatch(updatePlantAction(plant))
+  updatePlant: plant => dispatch(updatePlant(plant))
 });
 
 export default connect(

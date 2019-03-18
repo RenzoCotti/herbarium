@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
-import { updatePlantAction, getPlant } from "../../redux/actions";
+import { updatePlant, getPlant } from "../../redux/actions";
 import Button from "./input/Button";
 
 class Search extends Component {
@@ -102,7 +102,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updatePlant: plant => dispatch(updatePlantAction(plant))
+  updatePlant: plant => dispatch(updatePlant(plant))
 });
 
 export default connect(

@@ -3,9 +3,8 @@ import definitions from "../../../../utility/definitions";
 import { toColour, stringOrEmpty } from "../../../../utility/utility";
 
 const SelectColours = props => {
-  let val = props.obj
-    ? stringOrEmpty(props.obj, props.name)
-    : "select an option";
+  let temp = stringOrEmpty(props.obj, props.name);
+  let val = temp ? temp : "select an option";
 
   return (
     <div className="row-table">

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import { capitalise } from "../../../utility/utility";
-import { updatePlantFromIndexAction, getPlant } from "../../redux/actions";
+import { updatePlantFromIndex, getPlant } from "../../redux/actions";
 
 class List extends Component {
   state = {
@@ -39,7 +39,7 @@ class List extends Component {
           />
           <span className="label-list padded-left">
             {/*for debug purposes added plant.count*/}
-            {capitalise(plant.commonName) +
+            {capitalise(plant.latinName) +
               (plant.count ? " - " + plant.count : "")}
           </span>
         </div>
@@ -69,7 +69,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updatePlantFromIndex: id => dispatch(updatePlantFromIndexAction(id))
+  updatePlantFromIndex: id => dispatch(updatePlantFromIndex(id))
 });
 
 export default connect(

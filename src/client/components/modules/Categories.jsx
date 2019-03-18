@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getPlant, updatePlantAction } from "../../redux/actions";
+import { getPlant, updatePlant } from "../../redux/actions";
 import { capitalise } from "../../../utility/utility";
 import { Redirect } from "react-router";
 
@@ -155,7 +155,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updatePlant: plant => dispatch(updatePlantAction(plant))
+  updatePlant: plant => dispatch(updatePlant(plant))
 });
 
 export default connect(

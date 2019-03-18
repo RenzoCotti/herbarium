@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import Button from "./input/Button";
 import Input from "./input/Input";
 import TextArea from "./input/TextArea";
+import { connect } from "react-redux";
+import { updateImages, getImages, getPlant } from "../../redux/actions";
 
 class AddImage extends Component {
-  state = { imageName: "", url: "", caption: "", list: [] };
+  state = { url: "", caption: "", index: -1, edit: false };
 
   constructor(props) {
     super(props);
@@ -15,6 +17,13 @@ class AddImage extends Component {
     this.setEntry = this.setEntry.bind(this);
     this.removeEntry = this.removeEntry.bind(this);
     this.clear = this.clear.bind(this);
+    this.editEntry = this.editEntry.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.plant && this.props.plant.length === 1)
+      this.props.updateImages(this.props.plant[0].images);
+    else this.props.updateImages([]);
   }
 
   handleChange(e) {
@@ -25,45 +34,58 @@ class AddImage extends Component {
   }
 
   renderList() {
-    let list = this.state.list;
+    let list = this.props.images;
+    if (!list) return;
 
     return list.map((el, index) => {
       return (
-        <div className="image-list-entry padded" key={el.imageName}>
-          <div onClick={e => this.setEntry(el.imageName, el.url, el.caption)}>
-            {el.imageName}
+        <div className="image-list-entry padded" key={index}>
+          <div onClick={e => this.setEntry(el.url, el.caption, index)}>
+            Image {index + 1}
           </div>
-          <div onClick={e => this.removeEntry(e, index)}>X</div>
+          <Button onClick={e => this.removeEntry(e, index)} value="Delete" />
         </div>
       );
     });
   }
 
   removeEntry(e, index) {
-    let list = this.state.list;
+    let list = this.props.images;
     list.splice(index, 1);
-    this.setState({ list: list });
+
+    this.props.updateImages(list);
+    this.clear();
   }
 
-  setEntry(a, b, c) {
-    this.setState({ imageName: a, url: b, caption: c });
+  setEntry(b, c, i) {
+    this.setState({ url: b, caption: c, edit: true, index: i });
   }
 
   createEntry() {
     let entry = {
-      imageName: this.state.imageName,
       url: this.state.url,
       caption: this.state.caption
     };
 
-    let list = this.state.list;
+    let list = this.props.images;
     list.push(entry);
-    this.setState({ list: list });
+    this.props.updateImages(list);
+    this.clear();
+  }
+
+  editEntry() {
+    let currentIndex = this.state.index;
+    let newImages = this.props.images;
+    newImages[currentIndex] = {
+      url: this.state.url,
+      caption: this.state.caption
+    };
+    this.props.updateImages(newImages);
     this.clear();
   }
 
   clear() {
-    this.setState({ imageName: "", url: "", caption: "" });
+    this.setState({ url: "", caption: "", index: -1, edit: false });
   }
 
   render() {
@@ -72,12 +94,6 @@ class AddImage extends Component {
         <div className="title padded-bottom padded-top">Images</div>
         <div className="image-list margin-bottom">{this.renderList()}</div>
         <div>
-          <Input
-            label="Name: *"
-            name="imageName"
-            fn={this.handleChange}
-            obj={this.state}
-          />
           <Input
             label="URL: *"
             name="url"
@@ -97,11 +113,28 @@ class AddImage extends Component {
             className="secondary-image"
           />
         </div>
-        <Button value="Add" button={true} fn={this.createEntry} />
+        {this.state.edit ? (
+          <Button value="Edit" button={true} fn={this.editEntry} />
+        ) : (
+          <Button value="Add" button={true} fn={this.createEntry} />
+        )}
+
         <Button value="Clear" button={true} fn={this.clear} />
       </div>
     );
   }
 }
 
-export default AddImage;
+const mapStateToProps = state => ({
+  images: getImages(state),
+  plant: getPlant(state)
+});
+
+const mapDispatchToProps = dispatch => ({
+  updateImages: arr => dispatch(updateImages(arr))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddImage);
