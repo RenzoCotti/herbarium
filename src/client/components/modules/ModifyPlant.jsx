@@ -35,7 +35,7 @@ class ModifyPlant extends Component {
     //we're redirecting to home
     if (this.props.edit && !this.props.plant) {
       this.setState({ toHome: true });
-    }
+    } else if (!this.props.edit) this.setState({ images: [] });
   }
 
   handleChange(e) {
@@ -103,16 +103,16 @@ class ModifyPlant extends Component {
                 select={select}
                 obj={this.state}
               />
-              <AddImage />
+              <AddImage
+                images={this.state.images}
+                fn={lst => this.setState({ images: lst })}
+              />
               <br />
               //TODO uses
             </div>
           </div>
 
-          <Button
-            value="Confirm"
-            fn={e => this.props.fn(e, this.state, this.props.images)}
-          />
+          <Button value="Confirm" fn={e => this.props.fn(e, this.state)} />
         </form>
       </div>
     );

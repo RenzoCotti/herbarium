@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import Button from "./input/Button";
 import Input from "./input/Input";
 import TextArea from "./input/TextArea";
-import { connect } from "react-redux";
-import { updateImages, getImages, getPlant } from "../../redux/actions";
+import ItemList from "./ItemList";
 
 class AddImage extends Component {
   state = { url: "", caption: "", index: -1, edit: false };
@@ -12,18 +11,11 @@ class AddImage extends Component {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
-    this.renderList = this.renderList.bind(this);
     this.createEntry = this.createEntry.bind(this);
     this.setEntry = this.setEntry.bind(this);
     this.removeEntry = this.removeEntry.bind(this);
     this.clear = this.clear.bind(this);
     this.editEntry = this.editEntry.bind(this);
-  }
-
-  componentDidMount() {
-    if (this.props.plant && this.props.plant.length === 1)
-      this.props.updateImages(this.props.plant[0].images);
-    else this.props.updateImages([]);
   }
 
   handleChange(e) {
@@ -33,32 +25,24 @@ class AddImage extends Component {
     });
   }
 
-  renderList() {
-    let list = this.props.images;
-    if (!list) return;
-
-    return list.map((el, index) => {
-      return (
-        <div className="image-list-entry padded" key={index}>
-          <div onClick={e => this.setEntry(el.url, el.caption, index)}>
-            Image {index + 1}
-          </div>
-          <Button onClick={e => this.removeEntry(e, index)} value="Delete" />
-        </div>
-      );
-    });
-  }
-
-  removeEntry(e, index) {
+  removeEntry(e) {
+    let index = e.target.getAttribute("index");
     let list = this.props.images;
     list.splice(index, 1);
 
-    this.props.updateImages(list);
+    this.props.fn(list);
     this.clear();
   }
 
-  setEntry(b, c, i) {
-    this.setState({ url: b, caption: c, edit: true, index: i });
+  setEntry(e) {
+    let index = e.target.getAttribute("index");
+    let image = this.props.images[index];
+    this.setState({
+      url: image.url,
+      caption: image.caption,
+      edit: true,
+      index: index
+    });
   }
 
   createEntry() {
@@ -69,18 +53,18 @@ class AddImage extends Component {
 
     let list = this.props.images;
     list.push(entry);
-    this.props.updateImages(list);
+    this.props.fn(list);
     this.clear();
   }
 
   editEntry() {
     let currentIndex = this.state.index;
-    let newImages = this.props.images;
+    let newImages = this.props.st.images;
     newImages[currentIndex] = {
       url: this.state.url,
       caption: this.state.caption
     };
-    this.props.updateImages(newImages);
+    this.props.fn(newImages);
     this.clear();
   }
 
@@ -92,7 +76,12 @@ class AddImage extends Component {
     return (
       <div>
         <div className="title padded-bottom padded-top">Images</div>
-        <div className="image-list margin-bottom">{this.renderList()}</div>
+        <ItemList
+          list={this.props.images}
+          set={this.setEntry}
+          remove={this.removeEntry}
+          name="Image"
+        />
         <div>
           <Input
             label="URL: *"
@@ -125,16 +114,4 @@ class AddImage extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  images: getImages(state),
-  plant: getPlant(state)
-});
-
-const mapDispatchToProps = dispatch => ({
-  updateImages: arr => dispatch(updateImages(arr))
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AddImage);
+export default AddImage;

@@ -52,7 +52,7 @@ input[type="submit"],
 input[type="button"] {
   width: 150px;
   padding: 7px 0;
-  margin: 0 10px 0 0;
+  margin: 0;
   border: 0;
   background-color: var(--background);
 }
@@ -76,4 +76,13 @@ textarea:focus {
 
 textarea:focus {
   border: 1px solid transparent;
+}
+
+.errormsg {
+  color: #bb0000;
+  font-size: 12pt;
+}
+
+.error {
+  color: #bb0000;
 }

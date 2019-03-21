@@ -54,9 +54,24 @@
   cursor: pointer;
 }
 
+.image-list {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
 .image-list-entry {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: stretch;
   background-color: var(--background);
+}
+
+.image-list-label {
+  flex: 1;
+}
+
+.image-list-label:hover {
+  cursor: pointer;
+  background-color: var(--green);
 }

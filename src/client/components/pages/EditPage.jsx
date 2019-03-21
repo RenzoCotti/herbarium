@@ -12,10 +12,8 @@ class EditPage extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  async onSubmit(e, toSend, images) {
+  async onSubmit(e, toSend) {
     e.preventDefault();
-
-    toSend.images = images;
 
     //sends the update to backend
     let req = await fetch("/api/plant/edit", {

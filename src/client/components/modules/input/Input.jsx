@@ -26,6 +26,7 @@ const Input = props => (
         onChange={props.fn}
         value={stringOrEmpty(props.obj, props.name)}
         autoComplete="off"
+        required={props.required}
       />
       {props.text ? props.text : ""}
     </div>
