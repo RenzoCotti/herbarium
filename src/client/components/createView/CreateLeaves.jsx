@@ -2,34 +2,34 @@ import React from "react";
 import definitions from "../../../utility/definitions";
 
 import Input from "../modules/input/Input";
-import Select from "../modules/input/Select";
+import SelectDropdown from "../modules/input/Select";
 import TextArea from "../modules/input/TextArea";
 
 const CreateLeaves = props => (
   <React.Fragment>
     <div className="title padded-bottom padded-top">Leaves</div>
-    <Select
+    <SelectDropdown
       label="Shape: *"
       name="leafShape"
       arr={definitions.leafShape.sort()}
       fn={props.select}
       obj={props.obj}
     />
-    <Select
+    <SelectDropdown
       label="Margin: *"
       name="leafMargin"
       arr={definitions.leafMargin.sort()}
       fn={props.select}
       obj={props.obj}
     />
-    <Select
+    <SelectDropdown
       label="Venation: *"
       name="leafVenation"
       arr={definitions.leafVenation.sort()}
       fn={props.select}
       obj={props.obj}
     />
-    <Select
+    <SelectDropdown
       label="Arrangement: *"
       name="leafArrangement"
       arr={definitions.leafArrangement.sort()}

@@ -1,6 +1,7 @@
 import React from "react";
 import definitions from "../../../../utility/definitions";
 import { toColour, stringOrEmpty } from "../../../../utility/utility";
+import { Select } from "react-materialize";
 
 const SelectColours = props => {
   let temp = stringOrEmpty(props.obj, props.name);
@@ -10,7 +11,7 @@ const SelectColours = props => {
     <div className="row-table">
       <div className="label-table sub-title">{props.label}</div>
       <div className="content-table">
-        <select
+        <Select
           onChange={v => props.fn(v, props.name)}
           className="colourSelect"
           value={val}
@@ -30,7 +31,7 @@ const SelectColours = props => {
               {toColour(c)}
             </option>
           ))}
-        </select>
+        </Select>
       </div>
     </div>
   );

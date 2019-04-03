@@ -1,11 +1,12 @@
 import React from "react";
 import { capitalise, arrOrEmpty } from "../../../../utility/utility";
+import { Select } from "react-materialize";
 
 const MultiSelect = props => (
   <div className="row-table">
     <div className="label-table sub-title">{props.label}</div>
     <div className="content-table">
-      <select
+      <Select
         onChange={val => props.fn(val, props.name, true)}
         multiple
         value={arrOrEmpty(props.obj, props.name)}
@@ -15,7 +16,7 @@ const MultiSelect = props => (
             {capitalise(o)}
           </option>
         ))}
-      </select>
+      </Select>
     </div>
   </div>
 );

@@ -1,8 +1,9 @@
 import React from "react";
 import { capitalise, stringOrEmpty } from "../../../../utility/utility";
+import { Select } from "react-materialize";
 
 //label, name, arr, fn
-const Select = props => {
+const SelectDropdown = props => {
   let temp = stringOrEmpty(props.obj, props.name);
   let val = temp ? temp : "select an option";
 
@@ -10,7 +11,7 @@ const Select = props => {
     <div className="row-table">
       <div className="label-table sub-title">{props.label}</div>
       <div className="content-table">
-        <select onChange={v => props.fn(v, props.name)} defaultValue={val}>
+        <Select onChange={v => props.fn(v, props.name)} defaultValue={val}>
           <option disabled value="select an option">
             select an option
           </option>
@@ -19,10 +20,10 @@ const Select = props => {
               {capitalise(o)}
             </option>
           ))}
-        </select>
+        </Select>
       </div>
     </div>
   );
 };
 
-export default Select;
+export default SelectDropdown;
