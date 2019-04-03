@@ -23,9 +23,9 @@ body {
 
   height: 100vh;
 
-  font-family: "Montserrat", arial;
+  font-family: "Montserrat", arial !important;
   color: var(--text);
-  font-size: 16pt;
+  font-size: 16pt !important;
   font-weight: 100;
 
   background-image: url("./bg2.jpg");

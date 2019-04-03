@@ -10,7 +10,7 @@ const SelectColours = props => {
   return (
     <div className="row-table">
       <div className="label-table sub-title">{props.label}</div>
-      <div className="content-table">
+      <div className="content-table colour-select">
         <Select
           onChange={v => props.fn(v, props.name)}
           className="colourSelect"
@@ -20,14 +20,7 @@ const SelectColours = props => {
             select an option
           </option>
           {definitions.colours.map(c => (
-            <option
-              key={c}
-              style={{
-                backgroundColor: c,
-                color: "transparent"
-              }}
-              value={c}
-            >
+            <option key={c} className={c + "Background"} value={c}>
               {toColour(c)}
             </option>
           ))}

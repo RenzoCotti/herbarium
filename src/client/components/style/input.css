@@ -11,10 +11,14 @@ textarea {
   border-bottom: 1px solid transparent;
   transition: all 0.2s ease;
   margin-bottom: 20px;
+  font-size: 16pt !important;
+  font-style: normal !important;
+  font-family: "Montserrat", arial !important;
+  padding: 0 7px !important;
 }
 
 .shortForm {
-  width: 40%;
+  width: 40% !important;
 }
 
 .createForm {
@@ -26,7 +30,7 @@ textarea {
 
 textarea {
   resize: none;
-  height: 100px;
+  height: 6.5em !important;
   border: 1px solid var(--text);
 }
 
@@ -35,17 +39,20 @@ input[type="submit"]:hover,
 input[type="button"]:hover {
   cursor: pointer;
   background-color: var(--green);
+  border-bottom: 1px solid transparent !important;
 }
 
 input[type="text"]:hover,
 textarea:hover {
-  background-color: var(--green);
+  background-color: var(--green) !important;
+  border-bottom: 1px solid transparent !important;
 }
 
 input[type="text"],
 input[type="password"] {
   font-style: italic;
-  border-bottom: 1px solid var(--text);
+  border-bottom: 1px solid var(--text) !important;
+  height: 1.5em;
 }
 
 input[type="submit"],
@@ -70,8 +77,9 @@ input:focus,
 textarea:focus {
   border: 0;
   outline: none;
-  border-bottom: 1px solid transparent;
-  background-color: var(--green);
+  border-bottom: 1px solid transparent !important;
+  box-shadow: 0 0 0 0 transparent !important;
+  background-color: var(--green) !important;
 }
 
 textarea:focus {
@@ -85,4 +93,58 @@ textarea:focus {
 
 .error {
   color: #bb0000;
+}
+
+.caret {
+  fill: var(--text) !important;
+}
+
+.select-wrapper ul {
+  background-color: var(--green) !important;
+}
+
+.colour-select option {
+  background-color: pink !important;
+}
+
+.dropdown-content,
+.dropdown-content span {
+  color: var(--text) !important;
+}
+
+.yellowBackground {
+  background: yellow;
+}
+.orangeBackground {
+  background: orange;
+}
+.redBackground {
+  background: red;
+}
+.purpleBackground {
+  background: purple;
+}
+.blueBackground {
+  background: blue;
+}
+.cyanBackground {
+  background: cyan;
+}
+.greenyellowBackground {
+  background: greenyellow;
+}
+.greenBackground {
+  background: green;
+}
+.saddlebrownBackground {
+  background: saddlebrown;
+}
+.blackBackground {
+  background: black;
+}
+.grayBackground {
+  background: gray;
+}
+.whiteBackground {
+  background: white;
 }
