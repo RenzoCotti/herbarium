@@ -81,7 +81,12 @@ class Search extends Component {
         <div className="super-title padded-bottom">Search</div>
         <div className="sub-title padded-top">Enter your search:</div>
         <form>
-          <input type="text" onChange={this.handleChange} autoComplete="off" />
+          <input
+            className="search"
+            type="text"
+            onChange={this.handleChange}
+            autoComplete="off"
+          />
           <Button value="Search" fn={this.onSubmit} />
           <Button value="Random" fn={this.getRandom} />
           <Button value="All" fn={this.getAll} />

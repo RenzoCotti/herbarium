@@ -6,11 +6,11 @@ textarea {
   font-weight: inherit;
   color: var(--text);
   background-color: transparent;
-  width: 90%;
+  width: 95% !important;
   border: 0;
   border-bottom: 1px solid transparent;
   transition: all 0.2s ease;
-  margin-bottom: 20px;
+  margin: 0px !important;
   font-size: 16pt !important;
   font-style: normal !important;
   font-family: "Montserrat", arial !important;
@@ -32,36 +32,22 @@ textarea {
   resize: none;
   height: 6.5em !important;
   border: 1px solid var(--text);
-}
-
-select:hover,
-input[type="submit"]:hover,
-input[type="button"]:hover {
-  cursor: pointer;
-  background-color: var(--green);
-  border-bottom: 1px solid transparent !important;
-}
-
-input[type="text"]:hover,
-textarea:hover {
-  background-color: var(--green) !important;
-  border-bottom: 1px solid transparent !important;
+  width: 100% !important;
 }
 
 input[type="text"],
 input[type="password"] {
   font-style: italic;
   border-bottom: 1px solid var(--text) !important;
-  height: 1.5em;
+  height: 1.5em !important;
 }
 
 input[type="submit"],
 input[type="button"] {
-  width: 150px;
-  padding: 7px 0;
+  width: 150px !important;
   margin: 0;
-  border: 0;
   background-color: var(--background);
+  height: 2em !important;
 }
 
 select {
@@ -70,6 +56,19 @@ select {
 
 select option {
   background-color: var(--background);
+}
+
+input[type="text"]:hover,
+textarea:hover {
+  background-color: var(--green) !important;
+  border-bottom: 1px solid transparent !important;
+}
+
+select:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  cursor: pointer;
+  background-color: var(--green);
 }
 
 select:focus,
@@ -97,6 +96,8 @@ textarea:focus {
 
 .caret {
   fill: var(--text) !important;
+  position: relative;
+  right: 10px !important;
 }
 
 .select-wrapper ul {
@@ -110,6 +111,10 @@ textarea:focus {
 .dropdown-content,
 .dropdown-content span {
   color: var(--text) !important;
+}
+
+.search {
+  margin-bottom: 20px !important;
 }
 
 .yellowBackground {

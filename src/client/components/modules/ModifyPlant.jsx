@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  getLogin,
-  getPlant,
-  updatePlant,
-  getImages
-} from "../../redux/actions";
+import { getLogin, getPlant, updatePlant } from "../../redux/actions";
 import { Redirect } from "react-router";
 
 import CreateGeneral from "../createView/CreateGeneral";
@@ -13,6 +8,7 @@ import CreateStem from "../createView/CreateStem";
 import CreateLeaves from "../createView/CreateLeaves";
 import CreateFlowersFruit from "../createView/CreateFlowersFruit";
 import AddImage from "./AddImage";
+import AddUses from "./AddUses";
 import Button from "./input/Button";
 
 class ModifyPlant extends Component {
@@ -94,10 +90,10 @@ class ModifyPlant extends Component {
             <div className="table-container">
               <CreateGeneral change={change} select={select} obj={this.state} />
               <CreateStem change={change} select={select} obj={this.state} />
+              <CreateLeaves change={change} select={select} obj={this.state} />
             </div>
 
             <div className="table-container">
-              <CreateLeaves change={change} select={select} obj={this.state} />
               <CreateFlowersFruit
                 change={change}
                 select={select}
@@ -106,6 +102,10 @@ class ModifyPlant extends Component {
               <AddImage
                 images={this.state.images}
                 fn={lst => this.setState({ images: lst })}
+              />
+              <AddUses
+                uses={this.state.uses}
+                fn={lst => this.setState({ uses: lst })}
               />
               <br />
               //TODO uses
@@ -121,8 +121,7 @@ class ModifyPlant extends Component {
 
 const mapStateToProps = state => ({
   login: getLogin(state),
-  plant: getPlant(state),
-  images: getImages(state)
+  plant: getPlant(state)
 });
 const mapDispatchToProps = dispatch => ({
   updatePlant: plant => dispatch(updatePlant(plant))

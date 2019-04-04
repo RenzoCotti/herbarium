@@ -5,7 +5,7 @@ import { Select } from "react-materialize";
 
 const SelectColours = props => {
   let temp = stringOrEmpty(props.obj, props.name);
-  let val = temp ? temp : "select an option";
+  let val = temp ? temp : " ";
 
   return (
     <div className="row-table">
@@ -14,11 +14,9 @@ const SelectColours = props => {
         <Select
           onChange={v => props.fn(v, props.name)}
           className="colourSelect"
-          value={val}
+          defaultValue={val}
         >
-          <option disabled value="select an option">
-            select an option
-          </option>
+          <option value=" " />
           {definitions.colours.map(c => (
             <option key={c} className={c + "Background"} value={c}>
               {toColour(c)}
