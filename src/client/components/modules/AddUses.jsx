@@ -4,6 +4,7 @@ import Input from "./input/Input";
 import Select from "./input/Select";
 import TextArea from "./input/TextArea";
 import ItemList from "./ItemList";
+import definitions from "../../../utility/definitions";
 
 class AddUses extends Component {
   state = { url: "", caption: "", index: -1, edit: false };
@@ -91,6 +92,29 @@ class AddUses extends Component {
   }
 
   render() {
+    let temp = this.state.medcat;
+    let medToDisplay;
+
+    switch (temp) {
+      case "General":
+        medToDisplay = definitions.medicinalGeneral;
+        break;
+      case "Anti-Pathogens":
+        medToDisplay = definitions.medicinalPathogens;
+        break;
+      case "Digestive":
+        medToDisplay = definitions.medicinalDigestive;
+        break;
+      case "Respiratory":
+        medToDisplay = definitions.medicinalRespiratory;
+        break;
+      case "Circulatory":
+        medToDisplay = definitions.medicinalCirculatory;
+        break;
+      case "Nervous System":
+        medToDisplay = definitions.medicinalNervous;
+        break;
+    }
     return (
       <div>
         <div className="title padded-bottom padded-top">Uses</div>
@@ -134,7 +158,38 @@ class AddUses extends Component {
           ) : (
             ""
           )}
-          {this.state.type === "Medicinal" ? <div>TEST1</div> : ""}
+          {this.state.type === "Medicinal" ? (
+            <React.Fragment>
+              <Select
+                label="Medical Category: *"
+                name="medcat"
+                fn={this.handleSelect}
+                obj={this.state}
+                arr={[
+                  "General",
+                  "Anti-Pathogens",
+                  "Digestive",
+                  "Respiratory",
+                  "Circulatory",
+                  "Nervous System"
+                ]}
+              />
+
+              {medToDisplay ? (
+                <Select
+                  label="Medical Property: *"
+                  name="medProperty"
+                  fn={this.handleSelect}
+                  obj={this.state}
+                  arr={medToDisplay}
+                />
+              ) : (
+                ""
+              )}
+            </React.Fragment>
+          ) : (
+            ""
+          )}
           {this.state.type === "Other" ? (
             <React.Fragment>
               <Input
