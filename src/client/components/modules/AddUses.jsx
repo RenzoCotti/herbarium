@@ -10,7 +10,7 @@ class AddUses extends Component {
 
   constructor(props) {
     super(props);
-
+    this.handleSelect = this.handleSelect.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.createEntry = this.createEntry.bind(this);
     this.setEntry = this.setEntry.bind(this);
@@ -24,53 +24,70 @@ class AddUses extends Component {
     this.setState({
       [name]: e.target.value
     });
+    console.log(this.state);
   }
 
-  removeEntry(e) {
-    let index = e.target.getAttribute("index");
-    let list = this.props.images;
-    list.splice(index, 1);
+  handleSelect(e, name, multi) {
+    if (!multi) {
+      this.setState({
+        [name]: e.target.value
+      });
+      return;
+    }
 
-    this.props.fn(list);
-    this.clear();
-  }
+    let temp = [];
+    for (let a of e.target.selectedOptions) {
+      temp.push(a.value);
+    }
 
-  setEntry(e) {
-    let index = e.target.getAttribute("index");
-    let image = this.props.images[index];
     this.setState({
-      url: image.url,
-      caption: image.caption,
-      edit: true,
-      index: index
+      [name]: temp
     });
   }
 
-  createEntry() {
-    let entry = {
-      url: this.state.url,
-      caption: this.state.caption
-    };
+  removeEntry(e) {
+    // let index = e.target.getAttribute("index");
+    // let list = this.props.images;
+    // list.splice(index, 1);
+    // this.props.fn(list);
+    // this.clear();
+  }
 
-    let list = this.props.images;
-    list.push(entry);
-    this.props.fn(list);
-    this.clear();
+  setEntry(e) {
+    // let index = e.target.getAttribute("index");
+    // let image = this.props.images[index];
+    // this.setState({
+    //   url: image.url,
+    //   caption: image.caption,
+    //   edit: true,
+    //   index: index
+    // });
+  }
+
+  createEntry() {
+    // let entry = {
+    //   url: this.state.url,
+    //   caption: this.state.caption
+    // };
+    // let list = this.props.images;
+    // list.push(entry);
+    // this.props.fn(list);
+    // this.clear();
   }
 
   editEntry() {
-    let currentIndex = this.state.index;
-    let newImages = this.props.st.images;
-    newImages[currentIndex] = {
-      url: this.state.url,
-      caption: this.state.caption
-    };
-    this.props.fn(newImages);
-    this.clear();
+    // let currentIndex = this.state.index;
+    // let newImages = this.props.st.images;
+    // newImages[currentIndex] = {
+    //   url: this.state.url,
+    //   caption: this.state.caption
+    // };
+    // this.props.fn(newImages);
+    // this.clear();
   }
 
   clear() {
-    this.setState({ url: "", caption: "", index: -1, edit: false });
+    // this.setState({ url: "", caption: "", index: -1, edit: false });
   }
 
   render() {
@@ -90,20 +107,52 @@ class AddUses extends Component {
             fn={this.handleChange}
             obj={this.state}
           />
-          <TextArea
-            label="Caption: *"
-            name="caption"
-            fn={this.handleChange}
-            obj={this.state}
-          />
-
           <Select
             label="Type: *"
             name="type"
-            fn={this.handleChange}
+            fn={this.handleSelect}
             obj={this.state}
             arr={["Edibility", "Medicinal", "Other"]}
           />
+
+          {this.state.type === "Edibility" ? (
+            <React.Fragment>
+              <Select
+                label="Edibile: *"
+                name="edibility"
+                fn={this.handleSelect}
+                obj={this.state}
+                arr={["Yes", "No", "Toxic"]}
+              />
+              <TextArea
+                label="Comment: *"
+                name="edibilityComment"
+                fn={this.handleChange}
+                obj={this.state}
+              />
+            </React.Fragment>
+          ) : (
+            ""
+          )}
+          {this.state.type === "Medicinal" ? <div>TEST1</div> : ""}
+          {this.state.type === "Other" ? (
+            <React.Fragment>
+              <Input
+                label="Title: *"
+                name="title"
+                fn={this.handleChange}
+                obj={this.state}
+              />
+              <TextArea
+                label="Comment: *"
+                name="otherComment"
+                fn={this.handleChange}
+                obj={this.state}
+              />
+            </React.Fragment>
+          ) : (
+            ""
+          )}
         </div>
         {this.state.edit ? (
           <Button value="Edit" button={true} fn={this.editEntry} />

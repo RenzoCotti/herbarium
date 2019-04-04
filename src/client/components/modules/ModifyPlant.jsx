@@ -108,7 +108,6 @@ class ModifyPlant extends Component {
                 fn={lst => this.setState({ uses: lst })}
               />
               <br />
-              //TODO uses
             </div>
           </div>
 

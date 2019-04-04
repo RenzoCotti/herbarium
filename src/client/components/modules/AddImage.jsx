@@ -95,20 +95,39 @@ class AddImage extends Component {
             fn={this.handleChange}
             obj={this.state}
           />
+        </div>
 
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "horizontal",
+            alignItems: "center"
+          }}
+        >
           <img
             src={this.state.url}
             alt="No preview available"
-            className="secondary-image"
+            className={
+              this.state.url ? "secondary-image" : "secondary-image padded"
+            }
+            style={{ minWidth: "200px", minHeight: "200px" }}
           />
-        </div>
-        {this.state.edit ? (
-          <Button value="Edit" button={true} fn={this.editEntry} />
-        ) : (
-          <Button value="Add" button={true} fn={this.createEntry} />
-        )}
 
-        <Button value="Clear" button={true} fn={this.clear} />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              padding: "20px"
+            }}
+          >
+            {this.state.edit ? (
+              <Button value="Edit" button={true} fn={this.editEntry} />
+            ) : (
+              <Button value="Add" button={true} fn={this.createEntry} />
+            )}
+            <Button value="Clear" button={true} fn={this.clear} />
+          </div>
+        </div>
       </div>
     );
   }
