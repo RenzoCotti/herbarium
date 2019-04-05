@@ -10,19 +10,24 @@ const SelectColours = props => {
   return (
     <div className="row-table">
       <div className="label-table sub-title">{props.label}</div>
-      <div className="content-table colour-select">
+      <div className="content-table">
         <select
           onChange={v => props.fn(v, props.name)}
-          className="colourSelect"
+          className="select selectColour"
           defaultValue={val}
         >
           <option value=" " />
           {definitions.colours.map(c => (
-            <option key={c} className={c + "Background"} value={c}>
+            <option
+              key={c}
+              style={{ backgroundColor: c, colour: "transparent !important" }}
+              value={c}
+            >
               {toColour(c)}
             </option>
           ))}
         </select>
+        <span className="custom-caret">&#54;</span>
       </div>
     </div>
   );

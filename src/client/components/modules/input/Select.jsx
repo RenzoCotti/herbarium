@@ -23,7 +23,7 @@ const SelectDropdown = props => {
             </option>
           ))}
         </select>
-        <span class="custom-caret">&#54;</span>
+        <span className="custom-caret">&#54;</span>
       </div>
     </div>
   );

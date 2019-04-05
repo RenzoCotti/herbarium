@@ -12,17 +12,28 @@
   font-size: 16pt !important;
   height: 1.5em !important;
   width: 90% !important;
+  font-family: "Montserrat", arial !important;
+}
+
+.createForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 0 0;
 }
 
 .input,
 .select,
-.selectMulti,
 .select-wrapper input {
   border-bottom: 1px solid var(--text) !important;
 }
 
 .select-wrapper input {
-  width: 100% !important;
+  width: 90% !important;
+}
+
+.selectColour option {
+  color: transparent;
 }
 
 .input {
@@ -35,11 +46,28 @@
   appearance: none;
 }
 
+.textArea {
+  height: 5em !important;
+  resize: none;
+  padding: 5px 7px !important;
+}
+
+.button {
+  padding: 5px !important;
+  width: 250px !important;
+}
+
+.select:hover,
+.button:hover,
+.select-wrapper input:hover {
+  cursor: pointer;
+}
+
 .select:hover,
 .input:hover,
 .button:hover,
 .textArea:hover,
-.selectMulti:hover {
+.select-wrapper input:hover {
   background-color: var(--green) !important;
 }
 
@@ -64,6 +92,7 @@
 .caret {
   fill: var(--text) !important;
   position: relative;
+  right: 30px !important;
 }
 
 .custom-caret {
@@ -83,15 +112,9 @@ textarea {
   border-bottom: 1px solid transparent;
   margin: 0px !important;
   font-style: normal !important;
-  font-family: "Montserrat", arial !important;
 }
 
-.createForm {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex: 0 0;
-}
+
 
 textarea {
   resize: none;
@@ -168,14 +191,6 @@ textarea:focus {
   margin: 0 !important;
 }
 
-.errormsg {
-  color: #bb0000;
-  font-size: 12pt;
-}
-
-.error {
-  color: #bb0000;
-}
 
 .shortForm {
   width: 40% !important;
@@ -183,6 +198,13 @@ textarea:focus {
 
 
 
+
+
+
+ */
+.search {
+  margin-bottom: 20px !important;
+}
 
 .dropdown-content {
   max-width: 300px;
@@ -194,6 +216,15 @@ textarea:focus {
   color: var(--text) !important;
 }
 
-.search {
-  margin-bottom: 20px !important;
-} */
+.errormsg {
+  color: #bb0000;
+  font-size: 12pt;
+}
+
+.error {
+  color: #bb0000;
+}
+
+.dropdown-content {
+  background-color: rgb(var(--backgroundRGB)) !important;
+}
