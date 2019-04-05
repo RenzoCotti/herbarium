@@ -11,14 +11,19 @@ const SelectDropdown = props => {
     <div className="row-table">
       <div className="label-table sub-title">{props.label}</div>
       <div className="content-table">
-        <Select onChange={v => props.fn(v, props.name)} defaultValue={val}>
+        <select
+          onChange={v => props.fn(v, props.name)}
+          defaultValue={val}
+          className="select"
+        >
           <option value=" " />
           {props.arr.map(o => (
             <option value={o} key={o}>
               {capitalise(o)}
             </option>
           ))}
-        </Select>
+        </select>
+        <span class="custom-caret">&#54;</span>
       </div>
     </div>
   );

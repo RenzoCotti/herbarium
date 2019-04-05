@@ -6,6 +6,7 @@ const Button = props => {
       type={props.button ? "button" : "submit"}
       value={props.value}
       onClick={props.fn}
+      className="button"
     />
   );
 };

@@ -11,7 +11,7 @@ const SelectColours = props => {
     <div className="row-table">
       <div className="label-table sub-title">{props.label}</div>
       <div className="content-table colour-select">
-        <Select
+        <select
           onChange={v => props.fn(v, props.name)}
           className="colourSelect"
           defaultValue={val}
@@ -22,7 +22,7 @@ const SelectColours = props => {
               {toColour(c)}
             </option>
           ))}
-        </Select>
+        </select>
       </div>
     </div>
   );

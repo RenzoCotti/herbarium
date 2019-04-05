@@ -29,10 +29,19 @@ class AddUses extends Component {
   }
 
   handleSelect(e, name, multi) {
+    console.log(this.state);
     if (!multi) {
-      this.setState({
-        [name]: e.target.value
-      });
+      if (name === "medcat") {
+        this.setState({
+          medProperty: null,
+          [name]: e.target.value
+        });
+      } else {
+        this.setState({
+          [name]: e.target.value
+        });
+      }
+
       return;
     }
 
@@ -115,6 +124,8 @@ class AddUses extends Component {
         medToDisplay = definitions.medicinalNervous;
         break;
     }
+
+    console.log(medToDisplay);
     return (
       <div>
         <div className="title padded-bottom padded-top">Uses</div>
@@ -175,7 +186,7 @@ class AddUses extends Component {
                 ]}
               />
 
-              {medToDisplay ? (
+              {this.state.medcat ? (
                 <Select
                   label="Medical Property: *"
                   name="medProperty"

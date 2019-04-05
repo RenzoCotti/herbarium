@@ -6,7 +6,7 @@ const TextArea = props => (
     <div className="label-table sub-title">{props.label}</div>
     <div className="content-table">
       <textarea
-        className="forms"
+        className="textArea"
         type="text"
         name={props.name}
         onChange={props.fn}

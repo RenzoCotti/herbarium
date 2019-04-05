@@ -1,24 +1,89 @@
-select,
+.select,
+.input,
+.button,
+.textArea,
+.select-wrapper input {
+  display: block !important;
+  background-color: transparent !important;
+  border: 0;
+  transition: all 0.2s ease;
+  padding: 0 7px !important;
+  color: var(--text);
+  font-size: 16pt !important;
+  height: 1.5em !important;
+  width: 90% !important;
+}
+
+.input,
+.select,
+.selectMulti,
+.select-wrapper input {
+  border-bottom: 1px solid var(--text) !important;
+}
+
+.select-wrapper input {
+  width: 100% !important;
+}
+
+.input {
+  width: 85% !important;
+}
+
+.select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.select:hover,
+.input:hover,
+.button:hover,
+.textArea:hover,
+.selectMulti:hover {
+  background-color: var(--green) !important;
+}
+
+.select:focus,
+.input:focus,
+.button:focus,
+.textArea:focus,
+.selectMulti:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 0 transparent !important;
+}
+
+.textArea,
+.button {
+  background-color: rgba(var(--backgroundRGB), 0.6) !important;
+}
+
+.shortForm {
+  width: 40% !important;
+}
+
+.caret {
+  fill: var(--text) !important;
+  position: relative;
+}
+
+.custom-caret {
+  display: inline;
+  font-family: "Webdings";
+  font-size: 11pt !important;
+  position: relative;
+  right: 35px;
+}
+/* select,
 input,
 textarea {
   font-size: inherit;
   font-family: inherit;
   font-weight: inherit;
-  color: var(--text);
-  background-color: transparent;
-  width: 95% !important;
   border: 0;
   border-bottom: 1px solid transparent;
-  transition: all 0.2s ease;
   margin: 0px !important;
-  font-size: 16pt !important;
   font-style: normal !important;
   font-family: "Montserrat", arial !important;
-  padding: 0 7px !important;
-}
-
-.shortForm {
-  width: 40% !important;
 }
 
 .createForm {
@@ -31,8 +96,9 @@ textarea {
 textarea {
   resize: none;
   height: 6.5em !important;
-  border: 1px solid var(--text);
-  width: 100% !important;
+  background-color: rgba(var(--backgroundRGB), 0.6) !important;
+  padding: 7px !important;
+  width: 95% !important;
 }
 
 input[type="text"],
@@ -40,6 +106,7 @@ input[type="password"] {
   font-style: italic;
   border-bottom: 1px solid var(--text) !important;
   height: 1.5em !important;
+  width: 95%;
 }
 
 input[type="submit"],
@@ -51,17 +118,29 @@ input[type="button"] {
 }
 
 select {
-  background-color: var(--background);
+  border: 0 !important;
+  border-bottom: 1px solid var(--text) !important;
+  border-radius: 0 !important;
+  height: 1.5em !important;
+
+
+}
+
+.selectVanilla {
+  display: block;
 }
 
 select option {
   background-color: var(--background);
 }
 
-input[type="text"]:hover,
-textarea:hover {
+input[type="text"]:hover {
   background-color: var(--green) !important;
   border-bottom: 1px solid transparent !important;
+}
+
+textarea:hover {
+  background-color: var(--green) !important;
 }
 
 select:hover,
@@ -75,14 +154,18 @@ select:focus,
 input:focus,
 textarea:focus {
   border: 0;
-  outline: none;
+  outline: none !important;
   border-bottom: 1px solid transparent !important;
   box-shadow: 0 0 0 0 transparent !important;
   background-color: var(--green) !important;
 }
 
 textarea:focus {
-  border: 1px solid transparent;
+  border: 1px solid transparent !important;
+}
+
+.input-field {
+  margin: 0 !important;
 }
 
 .errormsg {
@@ -94,18 +177,16 @@ textarea:focus {
   color: #bb0000;
 }
 
-.caret {
-  fill: var(--text) !important;
-  position: relative;
-  right: 10px !important;
+.shortForm {
+  width: 40% !important;
 }
 
-.select-wrapper ul {
-  background-color: var(--green) !important;
-}
 
-.colour-select option {
-  background-color: pink !important;
+
+
+.dropdown-content {
+  max-width: 300px;
+  overflow-x: hidden;
 }
 
 .dropdown-content,
@@ -115,41 +196,4 @@ textarea:focus {
 
 .search {
   margin-bottom: 20px !important;
-}
-
-.yellowBackground {
-  background: yellow;
-}
-.orangeBackground {
-  background: orange;
-}
-.redBackground {
-  background: red;
-}
-.purpleBackground {
-  background: purple;
-}
-.blueBackground {
-  background: blue;
-}
-.cyanBackground {
-  background: cyan;
-}
-.greenyellowBackground {
-  background: greenyellow;
-}
-.greenBackground {
-  background: green;
-}
-.saddlebrownBackground {
-  background: saddlebrown;
-}
-.blackBackground {
-  background: black;
-}
-.grayBackground {
-  background: gray;
-}
-.whiteBackground {
-  background: white;
-}
+} */
