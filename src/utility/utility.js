@@ -1,5 +1,10 @@
 export function capitalise(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  try {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  catch (e) {
+    return string
+  }
 }
 
 export function capitaliseString(str) {

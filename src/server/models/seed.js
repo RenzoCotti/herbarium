@@ -42,9 +42,20 @@ let obj = {
   uses: [
     {
       part: "leaves",
-      edible: true,
-      medicinalProperties: ["antiseptic", "digestive", "relaxant", "aromatic"],
-      medicinalPreparation: "brew or apply locally."
+      title: "edibility",
+      edible: "yes"
+    },
+    {
+      part: "leaves",
+      title: "medical",
+      medicalProperties: [
+        "refreshing",
+        "tonic",
+        "digestive",
+        "analgesic",
+        "aromatic"
+      ],
+      comment: "brew, ingest or apply locally."
     }
   ],
 
@@ -101,15 +112,20 @@ var mint = new Plant({
   uses: [
     {
       part: "leaves",
-      edible: true,
-      medicinalProperties: [
+      title: "edibility",
+      edible: "yes"
+    },
+    {
+      part: "leaves",
+      title: "medical",
+      medicalProperties: [
         "refreshing",
         "tonic",
         "digestive",
         "analgesic",
         "aromatic"
       ],
-      medicinalPreparation: "brew, ingest or apply locally."
+      comment: "brew, ingest or apply locally."
     }
   ],
 
@@ -143,6 +159,7 @@ let sssage = new Plant(ssage);
 
 Plant.create([sage, mint, sssage])
   .then(plant => {
+    console.log(plant[0].uses)
     console.log(`${plant.length} plants created`);
   })
   .catch(err => {
@@ -189,11 +206,10 @@ var plantPlaceholder = new Plant({
   /********* USES *********/
   uses: [
     {
-      part: "",
+      partOfPlant: "",
       title: "",
       edible: "",
-      medicalCategory: "",
-      medicinalProperties: [],
+      medicalProperties: [],
       comment: ""
     }
   ],

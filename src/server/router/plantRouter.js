@@ -28,12 +28,12 @@ router.get("/category/:category/:name", (req, res) => {
       if (err) return console.log(err);
       console.log(
         "Retrieved " +
-          req.params.category +
-          " - " +
-          req.params.name +
-          ". " +
-          plant.length +
-          " result(s)."
+        req.params.category +
+        " - " +
+        req.params.name +
+        ". " +
+        plant.length +
+        " result(s)."
       );
       return res.json(plant);
     }
@@ -53,6 +53,7 @@ router.post("/new", (req, res) => {
 
   plant.save((err, saved) => {
     if (err) return console.log(err);
+    console.log(saved)
     console.log("Saved " + saved.commonName);
     return res.status(201).send(saved);
   });
@@ -75,7 +76,7 @@ router.put("/edit", (req, res) => {
   delete plant._id;
   delete plant.count;
 
-  Plant.findOneAndUpdate({ _id: id }, plant, { upsert: true }, function(
+  Plant.findOneAndUpdate({ _id: id }, plant, { upsert: true }, function (
     err,
     plant
   ) {

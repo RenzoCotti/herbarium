@@ -13,6 +13,7 @@ class CreatePage extends Component {
 
   async onSubmit(e, toSend) {
     e.preventDefault();
+    console.log("SAVING")
     console.log(toSend);
 
     let req = await fetch("/api/plant/new", {

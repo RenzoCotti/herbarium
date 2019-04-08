@@ -5,7 +5,8 @@ import { capitalise } from "../../../utility/utility";
 //otherwise, don't render anything
 
 const Row = props => {
-  if (props.toRender !== undefined) {
+  if (props.toRender) {
+    if (Array.isArray(props.toRender) && props.toRender.length === 0) return null;
     return (
       <div className="row-table" key={props.toRender}>
         <div className="label-table sub-title">{props.label}:</div>

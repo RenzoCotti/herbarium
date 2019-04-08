@@ -20,6 +20,9 @@ class List extends Component {
   }
 
   renderList(list) {
+
+    console.log("LIST")
+    console.log(list)
     return list.map((plant, index) => {
       // console.log(plant);
       return (

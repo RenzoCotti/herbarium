@@ -17,7 +17,7 @@ const SelectColours = props => {
           {capitalise(toColour(o))}
         </option>
       ))}
-      fn={props.select}
+      fn={props.fn}
       obj={props.obj}
     />
   );

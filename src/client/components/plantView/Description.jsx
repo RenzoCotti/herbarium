@@ -215,8 +215,8 @@ class Description extends Component {
               <Button button="true" value="Edit" fn={this.editPlant} />
             </div>
           ) : (
-            ""
-          )}
+              ""
+            )}
         </div>
 
         <div className="table-container">

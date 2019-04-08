@@ -153,7 +153,7 @@ let temp = {
   stemTexture: ["smooth", "hairy", "woody", "smooth bark", "rough bark"]
 };
 
-temp.medicinalProperties = []
+temp.medicalProperties = []
   .concat(
     temp.medicinalCirculatory,
     temp.medicinalDigestive,

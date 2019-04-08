@@ -6,21 +6,52 @@ class Properties extends Component {
   state = {};
 
   getList() {
-    return this.props.plant.uses.map(use => {
+    let temp = {};
+    for (let a of this.props.plant.uses) {
+      let current = temp[a.part];
+      if (!current) {
+        current = { part: a.part };
+
+      }
+
+      console.log(a)
+
+      if (a.title === "medical") {
+        current.medicalPreparation = a.comment;
+        current.medicalProperties = a.medicalProperties;
+      } else if (a.title === "edibility") {
+        current.edibility = a.edibility;
+        current.foodPreparation = a.comment;
+      } else {
+        current.otherTitle = a.title;
+        current.otherComment = a.comment;
+      }
+
+      temp[a.part] = current;
+    }
+
+    let arr = [];
+    for (let k of Object.keys(temp)) {
+      arr.push(temp[k]);
+    }
+
+    console.log(arr)
+
+    return arr.map(use => {
       return (
         <React.Fragment key={use.part}>
           <div className="row-table">
             <div className="title">{capitalise(use.part)}</div>
           </div>
-          <Row toRender={use.edible} label={"Edible"} alt="Yes" />
-          <Row toRender={use.foodPreparation} label="Preparation" />
+          <Row toRender={use.edibility} label="Edible" />
+          <Row toRender={use.foodPreparation} label="Edibility comment" />
           <Row
-            toRender={use.medicinalProperties}
-            label="Medicinal"
-            alt={use.medicinalProperties.join(", ")}
+            toRender={use.medicalProperties}
+            label="Medical"
+            alt={use.medicalProperties ? use.medicalProperties.join(", ") : ""}
           />
-          <Row toRender={use.medicinalPreparation} label="Preparation" />
-          <Row toRender={use.material} label="Material" />
+          <Row toRender={use.medicalPreparation} label="Medical Use" />
+          <Row toRender={use.otherComment} label={capitalise(use.otherTitle)} />
         </React.Fragment>
       );
     });

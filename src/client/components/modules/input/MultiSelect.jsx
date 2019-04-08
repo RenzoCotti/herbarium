@@ -4,7 +4,7 @@ import { Select as MaterializeSelect } from "react-materialize";
 
 const MultiSelect = props => {
   let temp = arrOrEmpty(props.obj, props.name);
-  let data = temp ? temp : [];
+  let data = temp ? temp.map(x => capitalise(x)) : [];
   return (
     <div className="row-table">
       <div className="label-table sub-title">{props.label}</div>
@@ -12,9 +12,9 @@ const MultiSelect = props => {
         <MaterializeSelect
           onChange={val => props.fn(val, props.name, true)}
           multiple
-          value={data}
+          value={temp}
         >
-          <option value="" disabled selected />
+          <option value="" disabled />
 
           {props.arr.map(o => (
             <option value={o} key={o}>

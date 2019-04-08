@@ -90,7 +90,7 @@
 .caret {
   fill: var(--text) !important;
   position: relative;
-  right: 30px !important;
+  right: 20px !important;
 }
 
 .search {

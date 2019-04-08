@@ -1,5 +1,5 @@
 import React from "react";
-import { stringOrEmpty } from "../../../../utility/utility";
+import { stringOrEmpty, capitalise } from "../../../../utility/utility";
 
 /**
  * input text field
@@ -11,26 +11,31 @@ import { stringOrEmpty } from "../../../../utility/utility";
  * obj is the optional obj to prefill the value (if obj, we do obj[name], else "")
  * */
 
-const Input = props => (
-  <div className="row-table">
-    {props.label ? (
-      <div className="label-table sub-title">{props.label}</div>
-    ) : (
-      ""
-    )}
-    <div className="content-table">
-      <input
-        className={props.text ? "input shortForm" : "input"}
-        type={props.password ? "password" : "text"}
-        name={props.name}
-        onChange={props.fn}
-        value={stringOrEmpty(props.obj, props.name)}
-        autoComplete="off"
-        required={props.required}
-      />
-      {props.text ? props.text : ""}
+const Input = props => {
+  let temp = stringOrEmpty(props.obj, props.name);
+  // let val = temp && isNaN(temp) ? capitalise(temp) : temp;
+
+  return (
+    <div className="row-table">
+      {props.label ? (
+        <div className="label-table sub-title">{props.label}</div>
+      ) : (
+        ""
+      )}
+      <div className="content-table">
+        <input
+          className={props.text ? "input shortForm" : "input"}
+          type={props.password ? "password" : "text"}
+          name={props.name}
+          onChange={props.fn}
+          value={temp}
+          autoComplete="off"
+          required={props.required}
+        />
+        {props.text ? props.text : ""}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Input;

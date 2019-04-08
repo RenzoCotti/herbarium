@@ -59,7 +59,7 @@ class AddImage extends Component {
 
   editEntry() {
     let currentIndex = this.state.index;
-    let newImages = this.props.st.images;
+    let newImages = this.props.images;
     newImages[currentIndex] = {
       url: this.state.url,
       caption: this.state.caption
@@ -123,8 +123,8 @@ class AddImage extends Component {
             {this.state.edit ? (
               <Button value="Edit" button={true} fn={this.editEntry} />
             ) : (
-              <Button value="Add" button={true} fn={this.createEntry} />
-            )}
+                <Button value="Add" button={true} fn={this.createEntry} />
+              )}
             <Button value="Clear" button={true} fn={this.clear} />
           </div>
         </div>

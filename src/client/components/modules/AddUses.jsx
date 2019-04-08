@@ -13,8 +13,8 @@ class AddUses extends Component {
     edit: false,
     edibility: "",
     comment: "",
-    medProperties: [],
-    otherTitle: "",
+    medicalProperties: [],
+    title: "",
     part: ""
   };
 
@@ -44,8 +44,8 @@ class AddUses extends Component {
           type: e.target.value,
           edibility: "",
           comment: "",
-          medProperties: "",
-          otherTitle: ""
+          medicalProperties: "",
+          title: ""
         });
       } else {
         this.setState({
@@ -67,70 +67,107 @@ class AddUses extends Component {
   }
 
   removeEntry(e) {
-    // let index = e.target.getAttribute("index");
-    // let list = this.props.images;
-    // list.splice(index, 1);
-    // this.props.fn(list);
-    // this.clear();
+    let index = e.target.getAttribute("index");
+    let list = this.props.uses;
+    list.splice(index, 1);
+    this.props.fn(list);
+    this.clear();
   }
 
   setEntry(e) {
-    // let index = e.target.getAttribute("index");
-    // let image = this.props.images[index];
-    // this.setState({
-    //   url: image.url,
-    //   caption: image.caption,
-    //   edit: true,
-    //   index: index
-    // });
+    let index = e.target.getAttribute("index");
+    let use = this.props.uses[index];
+
+    let temp = {
+      part: use.part,
+      comment: use.comment,
+      type: use.title,
+      medicalProperties: use.medicalProperties,
+      edibility: use.edibility,
+      edit: true,
+      index: index
+    };
+
+
+    if (use.title === "Other") {
+      temp.type = "Other"
+      temp.title = use.title;
+    } else {
+      temp.type = use.title
+    }
+
+    this.setState(temp);
   }
 
   createEntry() {
     let entry = {
-      partOfPlant: this.state.part,
-      comment: this.state.comment
+      part: this.state.part,
+      comment: this.state.comment,
+      title: this.state.type
     };
     switch (this.state.type) {
       case "Edibility":
         entry.edibility = this.state.edibility;
         break;
-      case "Medicinal":
-        entry.medProperties = this.state.medProperties;
+      case "Medical":
+        entry.medicalProperties = this.state.medicalProperties;
         break;
       case "Other":
-        entry.otherTitle = this.state.otherTitle;
+        entry.title = this.state.title;
         break;
       default:
         return;
     }
 
-    console.log(entry);
-    // let entry = {
-    //   url: this.state.url,
-    //   caption: this.state.caption
-    // };
-    // let list = this.props.images;
-    // list.push(entry);
-    // this.props.fn(list);
-    // this.clear();
+    let list = this.props.uses;
+    list.push(entry);
+    this.props.fn(list);
+    this.clear();
   }
 
   editEntry() {
-    // let currentIndex = this.state.index;
-    // let newImages = this.props.st.images;
-    // newImages[currentIndex] = {
-    //   url: this.state.url,
-    //   caption: this.state.caption
-    // };
-    // this.props.fn(newImages);
-    // this.clear();
+    let currentIndex = this.state.index;
+    let newUses = this.props.uses;
+
+    let entry = {
+      part: this.state.part,
+      comment: this.state.comment,
+      title: this.state.type
+    };
+    switch (this.state.type) {
+      case "Edibility":
+        entry.edibility = this.state.edibility;
+        break;
+      case "Medical":
+        entry.medicalProperties = this.state.medicalProperties;
+        break;
+      case "Other":
+        entry.title = this.state.title;
+        break;
+      default:
+        return;
+    }
+
+    newUses[currentIndex] = entry;
+    this.props.fn(newUses);
+    this.clear();
   }
 
   clear() {
-    // this.setState({ url: "", caption: "", index: -1, edit: false });
+    this.setState({
+      part: "",
+      type: "",
+      edibility: "",
+      comment: "",
+      medicalProperties: "",
+      title: "",
+      index: -1,
+      edit: false
+    });
   }
 
   render() {
+
     return (
       <div>
         <div className="title padded-bottom padded-top">Uses</div>
@@ -146,13 +183,17 @@ class AddUses extends Component {
             fn={this.handleChange}
             obj={this.state}
           />
-          <Select
-            label="Type: *"
-            name="type"
-            fn={this.handleSelect}
-            obj={this.state}
-            arr={["Edibility", "Medicinal", "Other"]}
-          />
+          {this.state.part ? (
+            <Select
+              label="Type: *"
+              name="type"
+              fn={this.handleSelect}
+              obj={this.state}
+              arr={["Edibility", "Medical", "Other"]}
+            />
+          ) : (
+              ""
+            )}
 
           {this.state.type === "Edibility" ? (
             <Select
@@ -163,29 +204,29 @@ class AddUses extends Component {
               arr={["Yes", "No", "Toxic"]}
             />
           ) : (
-            ""
-          )}
-          {this.state.type === "Medicinal" ? (
+              ""
+            )}
+          {this.state.type === "Medical" ? (
             <MultiSelect
               label="Medical Properties: *"
-              name="medProperties"
+              name="medicalProperties"
               fn={this.handleSelect}
               obj={this.state}
-              arr={definitions.medicinalProperties}
+              arr={definitions.medicalProperties}
             />
           ) : (
-            ""
-          )}
+              ""
+            )}
           {this.state.type === "Other" ? (
             <Input
               label="Title: *"
-              name="otherTitle"
+              name="title"
               fn={this.handleChange}
               obj={this.state}
             />
           ) : (
-            ""
-          )}
+              ""
+            )}
 
           {this.state.type ? (
             <TextArea
@@ -195,14 +236,14 @@ class AddUses extends Component {
               obj={this.state}
             />
           ) : (
-            ""
-          )}
+              ""
+            )}
         </div>
         {this.state.edit ? (
           <Button value="Edit" button={true} fn={this.editEntry} />
         ) : (
-          <Button value="Add" button={true} fn={this.createEntry} />
-        )}
+            <Button value="Add" button={true} fn={this.createEntry} />
+          )}
 
         <Button value="Clear" button={true} fn={this.clear} />
       </div>

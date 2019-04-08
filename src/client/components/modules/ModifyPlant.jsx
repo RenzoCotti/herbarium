@@ -31,7 +31,7 @@ class ModifyPlant extends Component {
     //we're redirecting to home
     if (this.props.edit && !this.props.plant) {
       this.setState({ toHome: true });
-    } else if (!this.props.edit) this.setState({ images: [] });
+    } else if (!this.props.edit) this.setState({ images: [], uses: [] });
   }
 
   handleChange(e) {

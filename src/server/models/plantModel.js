@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const stopword = require("stopword");
 const definitions = require("../../utility/definitions");
-const medicinalProperties = definitions.medicinalProperties;
+const { medicalProperties } = definitions;
 
 const Plant = new mongoose.Schema({
   /********* GENERAL INFO *********/
@@ -138,7 +138,7 @@ const Plant = new mongoose.Schema({
   /********* USES *********/
   uses: [
     {
-      partOfPlant: {
+      part: {
         type: String,
         lowercase: true,
         required: true
@@ -149,35 +149,22 @@ const Plant = new mongoose.Schema({
         required: true
       },
       //can be null
-      edible: {
+      edibility: {
         type: String,
         lowercase: true,
         enum: ["yes", "no", "toxic"]
       },
-      medicalCategory: {
-        type: String,
-        lowercase: true,
-        enum: [
-          "general",
-          "anti-pathogen",
-          "digestive",
-          "respiratory",
-          "circulatory",
-          "nervous"
-        ]
-      },
       //can be null
-      medicinalProperties: [
+      medicalProperties: [
         {
           type: String,
           lowercase: true,
-          enum: medicinalProperties
+          enum: medicalProperties,
         }
       ],
       comment: {
         type: String,
-        lowercase: true,
-        required: true
+        lowercase: true
       }
     }
   ],
@@ -210,7 +197,7 @@ const Plant = new mongoose.Schema({
   }
 });
 
-Plant.pre("save", function(next) {
+Plant.pre("save", function (next) {
   if (!this.keywords) {
     let tempArr = [];
 
