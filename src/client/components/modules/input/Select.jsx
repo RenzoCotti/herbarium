@@ -14,7 +14,6 @@ const Select = props => {
         <MaterializeSelect
           onChange={v => props.fn(v, props.name)}
           defaultValue={val}
-          className="select"
         >
           <option value="" disabled selected />
           {props.customArr

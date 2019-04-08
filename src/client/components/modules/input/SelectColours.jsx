@@ -1,6 +1,6 @@
 import React from "react";
 import definitions from "../../../../utility/definitions";
-import { toColour, stringOrEmpty } from "../../../../utility/utility";
+import { toColour, capitalise } from "../../../../utility/utility";
 import Select from "./Select";
 
 const SelectColours = props => {
@@ -9,8 +9,12 @@ const SelectColours = props => {
       label={props.label}
       name={props.name}
       customArr={definitions.colours.map(o => (
-        <option value={o} key={o}>
-          {capitalise(o)}
+        <option
+          value={o}
+          key={o}
+          data-icon={"./public/images/colours/" + o + ".png"}
+        >
+          {capitalise(toColour(o))}
         </option>
       ))}
       fn={props.select}
