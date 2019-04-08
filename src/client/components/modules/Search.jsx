@@ -87,9 +87,11 @@ class Search extends Component {
             onChange={this.handleChange}
             autoComplete="off"
           />
-          <Button value="Search" fn={this.onSubmit} />
-          <Button value="Random" fn={this.getRandom} />
-          <Button value="All" fn={this.getAll} />
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <Button value="Search" fn={this.onSubmit} />
+            <Button value="Random" fn={this.getRandom} />
+            <Button value="All" fn={this.getAll} />
+          </div>
         </form>
 
         {this.props.plant === "not found" ? (

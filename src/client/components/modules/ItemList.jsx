@@ -11,7 +11,7 @@ const ItemList = props => {
         className="image-list-label padded"
         index={index}
       >
-        {props.name} {index + 1}
+        {props.name ? props.name + (index + 1) : el.name}
       </div>
       <Button fn={props.remove} button={true} value="Delete" index={index} />
     </div>

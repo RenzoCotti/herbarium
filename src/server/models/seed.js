@@ -190,10 +190,11 @@ var plantPlaceholder = new Plant({
   uses: [
     {
       part: "",
+      title: "",
       edible: "",
-      medicinalProperties: [""],
-      medicinalPreparation: "",
-      material: ""
+      medicalCategory: "",
+      medicinalProperties: [],
+      comment: ""
     }
   ],
 

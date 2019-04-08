@@ -3,18 +3,17 @@ let temp = {
     "anti-dontalgic",
     "anti-scorbutic",
     "anti-inflammatory",
-    "anti-rheumatic",
     "emollient",
     "antioxidant",
     "aromatic",
     "febrifuge",
     "depurative",
     "emmenagogue",
-    "cholagogue",
     "tonic",
     "deodorant",
     "calefacient",
-    "refreshing"
+    "refreshing",
+    "excretory"
   ],
 
   medicinalPathogens: [
@@ -30,7 +29,6 @@ let temp = {
 
   medicinalDigestive: [
     "stomachic",
-    "excretory",
     "laxative",
     "anti-parasitic",
     "digestive",
@@ -39,7 +37,6 @@ let temp = {
   ],
 
   medicinalRespiratory: [
-    "antispasmodic",
     "decongestant",
     "anti-tussive",
     "anti-asthmatic",
@@ -55,9 +52,9 @@ let temp = {
   ],
 
   medicinalNervous: [
+    "antispasmodic",
     "relaxant",
     "sedative",
-    "anti-neuralgic",
     "analgesic",
     "anaesthetic",
     "anti-depressant"

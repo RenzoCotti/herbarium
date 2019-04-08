@@ -138,19 +138,33 @@ const Plant = new mongoose.Schema({
   /********* USES *********/
   uses: [
     {
-      part: {
+      partOfPlant: {
+        type: String,
+        lowercase: true,
+        required: true
+      },
+      title: {
         type: String,
         lowercase: true,
         required: true
       },
       //can be null
       edible: {
-        type: Boolean
-      },
-      //can be null
-      foodPreparation: {
         type: String,
-        lowercase: true
+        lowercase: true,
+        enum: ["yes", "no", "toxic"]
+      },
+      medicalCategory: {
+        type: String,
+        lowercase: true,
+        enum: [
+          "general",
+          "anti-pathogen",
+          "digestive",
+          "respiratory",
+          "circulatory",
+          "nervous"
+        ]
       },
       //can be null
       medicinalProperties: [
@@ -160,14 +174,10 @@ const Plant = new mongoose.Schema({
           enum: medicinalProperties
         }
       ],
-      medicinalPreparation: {
+      comment: {
         type: String,
-        lowercase: true
-      },
-      //can be null
-      material: {
-        type: String,
-        lowercase: true
+        lowercase: true,
+        required: true
       }
     }
   ],

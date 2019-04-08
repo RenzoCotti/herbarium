@@ -1,7 +1,7 @@
 import React from "react";
 import definitions from "../../../utility/definitions";
 
-import SelectDropdown from "../modules/input/Select";
+import Select from "../modules/input/Select";
 import TextArea from "../modules/input/TextArea";
 import SelectColours from "../modules/input/SelectColours";
 
@@ -14,7 +14,7 @@ const CreateStem = props => (
       fn={props.select}
       obj={props.obj}
     />
-    <SelectDropdown
+    <Select
       label="Texture: *"
       name="stemTexture"
       arr={definitions.stemTexture.sort()}

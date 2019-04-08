@@ -2,9 +2,9 @@ import React from "react";
 import definitions from "../../../utility/definitions";
 
 import Input from "../modules/input/Input";
-import SelectDropdown from "../modules/input/Select";
+import Select from "../modules/input/Select";
 import TextArea from "../modules/input/TextArea";
-import MultiSelectDropdown from "../modules/input/MultiSelect";
+import MultiSelect from "../modules/input/MultiSelect";
 
 const CreateGeneral = props => (
   <React.Fragment>
@@ -21,7 +21,7 @@ const CreateGeneral = props => (
       fn={props.change}
       obj={props.obj}
     />
-    <SelectDropdown
+    <Select
       label="Type: *"
       name="plantType"
       arr={definitions.plantType.sort()}
@@ -35,14 +35,14 @@ const CreateGeneral = props => (
       fn={props.change}
       obj={props.obj}
     />
-    <SelectDropdown
+    <Select
       label="Evergreen: *"
       name="evergreen"
       arr={["yes", "no"]}
       fn={props.select}
       obj={props.obj}
     />
-    <MultiSelectDropdown
+    <MultiSelect
       label="Regions: *"
       name="regions"
       arr={definitions.regions.sort()}

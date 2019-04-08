@@ -46,6 +46,14 @@
   appearance: none;
 }
 
+option {
+  background: var(--background);
+}
+
+.select option:checked {
+  background-color: var(--green);
+}
+
 .textArea {
   height: 5em !important;
   resize: none;
@@ -54,7 +62,8 @@
 
 .button {
   padding: 5px !important;
-  width: 250px !important;
+  width: 200px !important;
+  margin: 5px 10px;
 }
 
 .select:hover,

@@ -2,12 +2,21 @@ import React, { Component } from "react";
 import Button from "./input/Button";
 import Input from "./input/Input";
 import Select from "./input/Select";
+import MultiSelect from "./input/MultiSelect";
 import TextArea from "./input/TextArea";
 import ItemList from "./ItemList";
 import definitions from "../../../utility/definitions";
 
 class AddUses extends Component {
-  state = { url: "", caption: "", index: -1, edit: false };
+  state = {
+    index: -1,
+    edit: false,
+    edibility: "",
+    comment: "",
+    medProperties: [],
+    otherTitle: "",
+    part: ""
+  };
 
   constructor(props) {
     super(props);
@@ -25,16 +34,18 @@ class AddUses extends Component {
     this.setState({
       [name]: e.target.value
     });
-    console.log(this.state);
   }
 
   handleSelect(e, name, multi) {
-    console.log(this.state);
     if (!multi) {
-      if (name === "medcat") {
+      if (name === "type") {
+        //wipe previous results
         this.setState({
-          medProperty: null,
-          [name]: e.target.value
+          type: e.target.value,
+          edibility: "",
+          comment: "",
+          medProperties: "",
+          otherTitle: ""
         });
       } else {
         this.setState({
@@ -75,6 +86,25 @@ class AddUses extends Component {
   }
 
   createEntry() {
+    let entry = {
+      partOfPlant: this.state.part,
+      comment: this.state.comment
+    };
+    switch (this.state.type) {
+      case "Edibility":
+        entry.edibility = this.state.edibility;
+        break;
+      case "Medicinal":
+        entry.medProperties = this.state.medProperties;
+        break;
+      case "Other":
+        entry.otherTitle = this.state.otherTitle;
+        break;
+      default:
+        return;
+    }
+
+    console.log(entry);
     // let entry = {
     //   url: this.state.url,
     //   caption: this.state.caption
@@ -101,31 +131,6 @@ class AddUses extends Component {
   }
 
   render() {
-    let temp = this.state.medcat;
-    let medToDisplay;
-
-    switch (temp) {
-      case "General":
-        medToDisplay = definitions.medicinalGeneral;
-        break;
-      case "Anti-Pathogens":
-        medToDisplay = definitions.medicinalPathogens;
-        break;
-      case "Digestive":
-        medToDisplay = definitions.medicinalDigestive;
-        break;
-      case "Respiratory":
-        medToDisplay = definitions.medicinalRespiratory;
-        break;
-      case "Circulatory":
-        medToDisplay = definitions.medicinalCirculatory;
-        break;
-      case "Nervous System":
-        medToDisplay = definitions.medicinalNervous;
-        break;
-    }
-
-    console.log(medToDisplay);
     return (
       <div>
         <div className="title padded-bottom padded-top">Uses</div>
@@ -133,7 +138,6 @@ class AddUses extends Component {
           list={this.props.uses}
           set={this.setEntry}
           remove={this.removeEntry}
-          name="Image"
         />
         <div>
           <Input
@@ -151,71 +155,45 @@ class AddUses extends Component {
           />
 
           {this.state.type === "Edibility" ? (
-            <React.Fragment>
-              <Select
-                label="Edibile: *"
-                name="edibility"
-                fn={this.handleSelect}
-                obj={this.state}
-                arr={["Yes", "No", "Toxic"]}
-              />
-              <TextArea
-                label="Comment: *"
-                name="edibilityComment"
-                fn={this.handleChange}
-                obj={this.state}
-              />
-            </React.Fragment>
+            <Select
+              label="Edibile: *"
+              name="edibility"
+              fn={this.handleSelect}
+              obj={this.state}
+              arr={["Yes", "No", "Toxic"]}
+            />
           ) : (
             ""
           )}
           {this.state.type === "Medicinal" ? (
-            <React.Fragment>
-              <Select
-                label="Medical Category: *"
-                name="medcat"
-                fn={this.handleSelect}
-                obj={this.state}
-                arr={[
-                  "General",
-                  "Anti-Pathogens",
-                  "Digestive",
-                  "Respiratory",
-                  "Circulatory",
-                  "Nervous System"
-                ]}
-              />
-
-              {this.state.medcat ? (
-                <Select
-                  label="Medical Property: *"
-                  name="medProperty"
-                  fn={this.handleSelect}
-                  obj={this.state}
-                  arr={medToDisplay}
-                />
-              ) : (
-                ""
-              )}
-            </React.Fragment>
+            <MultiSelect
+              label="Medical Properties: *"
+              name="medProperties"
+              fn={this.handleSelect}
+              obj={this.state}
+              arr={definitions.medicinalProperties}
+            />
           ) : (
             ""
           )}
           {this.state.type === "Other" ? (
-            <React.Fragment>
-              <Input
-                label="Title: *"
-                name="title"
-                fn={this.handleChange}
-                obj={this.state}
-              />
-              <TextArea
-                label="Comment: *"
-                name="otherComment"
-                fn={this.handleChange}
-                obj={this.state}
-              />
-            </React.Fragment>
+            <Input
+              label="Title: *"
+              name="otherTitle"
+              fn={this.handleChange}
+              obj={this.state}
+            />
+          ) : (
+            ""
+          )}
+
+          {this.state.type ? (
+            <TextArea
+              label="Comment: *"
+              name="comment"
+              fn={this.handleChange}
+              obj={this.state}
+            />
           ) : (
             ""
           )}
