@@ -106,9 +106,13 @@ class LoginPage extends Component {
               fn={this.handleChange}
             />
 
-            <Button value="Login" fn={this.login} />
-            <Button value="New" fn={this.createNewAccount} />
-            <Button value="Delete" fn={this.deleteAccount} />
+
+            <div style={{ marginTop: "50px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <Button value="Login" fn={this.login} />
+              {/* <Button value="New" fn={this.createNewAccount} />
+              <Button value="Delete" fn={this.deleteAccount} /> */}
+            </div>
+
           </form>
         </div>
 

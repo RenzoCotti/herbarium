@@ -7,8 +7,15 @@ import { getPlant, updatePlant } from "../../redux/actions";
 
 class PlantDetail extends Component {
 
+  componentWillUnmount() {
+    this.props.updatePlant(undefined);
+  }
+
   render() {
+    console.log(this.props.plant)
+    if (this.props.plant === "deleted") return <div>Plant deleted.</div>;
     if (!this.props.plant) return <Redirect push to="/" />;
+
     return (
       <div className="plant-detail">
         <MediaAndProperties plant={this.props.plant} />

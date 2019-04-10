@@ -26,17 +26,18 @@ class CreatePage extends Component {
     if (code === 201) {
       let res = await req.json();
       this.props.updatePlant(res);
+      this.setState({ created: true })
     } else {
       this.setState({ error: true })
     }
   }
 
   render() {
-    if (this.props.plant) return <Redirect push to="/plant" />;
+    if (this.state.created) return <Redirect push to="/plant" />;
 
     return (
-      < React.Fragment > <ModifyPlant fn={this.onSubmit} edit={false} />;
-    {this.state.error ? <div>Error updating.</div> : ""}
+      < React.Fragment > <ModifyPlant fn={this.onSubmit} edit={true} />
+        {this.state.error ? <div>Error updating.</div> : ""}
       </React.Fragment >)
   }
 }

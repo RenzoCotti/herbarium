@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getLogin, getPlant, updatePlant } from "../../redux/actions";
+import { getLogin, updatePlant, updateEdit } from "../../redux/actions";
 import { Redirect } from "react-router";
 
 import CreateGeneral from "../createView/CreateGeneral";
@@ -21,17 +21,15 @@ class ModifyPlant extends Component {
 
     //we're initialising the state for the controlled component
     if (this.props.edit && this.props.plant) {
-      let obj = Object.assign({}, this.props.plant[0]);
+      let obj = Object.assign({}, this.props.plant);
       this.state = obj;
+    } else {
+      this.state = { images: [], uses: [] };
     }
   }
 
-  componentDidMount() {
-    //if, after mounting, the component doesn't have a plant,
-    //we're redirecting to home
-    if (this.props.edit && !this.props.plant) {
-      this.setState({ toHome: true });
-    } else if (!this.props.edit) this.setState({ images: [], uses: [] });
+  componentWillUnmount() {
+    this.props.updateEdit(undefined);
   }
 
   handleChange(e) {
@@ -119,11 +117,12 @@ class ModifyPlant extends Component {
 }
 
 const mapStateToProps = state => ({
-  login: getLogin(state),
-  plant: getPlant(state)
+  login: getLogin(state)
 });
 const mapDispatchToProps = dispatch => ({
-  updatePlant: plant => dispatch(updatePlant(plant))
+  updatePlant: plant => dispatch(updatePlant(plant)),
+  updateEdit: plant => dispatch(updateEdit(plant))
+
 });
 
 export default connect(

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import { capitalise } from "../../../utility/utility";
-import { updatePlantFromIndex, getPlant, getList } from "../../redux/actions";
+import { updatePlantFromIndex, updatePlant, getPlant, getList } from "../../redux/actions";
 
 class List extends Component {
   state = {
@@ -15,8 +15,10 @@ class List extends Component {
   }
 
   componentDidMount() {
-    if (this.props.list.length === 1)
+    if (this.props.list.length === 1) {
       this.props.updatePlantFromIndex(0);
+      this.setState({ redirect: true });
+    }
   }
 
   async goToPlant(e, i) {
@@ -79,6 +81,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   updatePlantFromIndex: id => dispatch(updatePlantFromIndex(id)),
+  updatePlant: id => dispatch(updatePlant(id)),
 });
 
 export default connect(

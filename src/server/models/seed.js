@@ -159,7 +159,6 @@ let sssage = new Plant(ssage);
 
 Plant.create([sage, mint, sssage])
   .then(plant => {
-    console.log(plant[0].uses)
     console.log(`${plant.length} plants created`);
   })
   .catch(err => {

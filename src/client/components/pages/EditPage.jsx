@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ModifyPlant from "../modules/ModifyPlant";
 import { connect } from "react-redux";
-import { updatePlant } from "../../redux/actions";
+import { updatePlant, getEdit } from "../../redux/actions";
 import { Redirect } from "react-router";
 
 class EditPage extends Component {
@@ -30,7 +30,7 @@ class EditPage extends Component {
 
     if (res === "ok") {
       //updated successfully, redirect to plant view
-      this.props.updatePlant([toSend]);
+      this.props.updatePlant(toSend);
       this.setState({ updated: "ok" });
     } else if (res === "error") {
       //there was an error, stay on the page
@@ -44,18 +44,22 @@ class EditPage extends Component {
     }
     return (
       <React.Fragment>
-        <ModifyPlant fn={this.onSubmit} edit={true} />
+        <ModifyPlant fn={this.onSubmit} plant={this.props.edit} edit={true} />
         {this.state.updated === "error" ? <div>Error updating.</div> : ""}
       </React.Fragment>
     );
   }
 }
 
+const mapStateToProps = state => ({
+  edit: getEdit(state)
+});
+
 const mapDispatchToProps = dispatch => ({
   updatePlant: plant => dispatch(updatePlant(plant))
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(EditPage);

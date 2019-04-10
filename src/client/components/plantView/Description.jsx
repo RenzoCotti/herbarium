@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updatePlant, getLogin } from "../../redux/actions";
+import { updatePlant, getLogin, getEdit, updateEdit } from "../../redux/actions";
 import { Redirect } from "react-router";
 
 import Row from "./Row";
@@ -26,9 +26,6 @@ class Description extends Component {
     this.renderFruits = this.renderFruits.bind(this);
   }
 
-  componentWillUnmount() {
-    if (this.state.deleted) this.props.updatePlant(undefined);
-  }
 
   renderSection(title, arr) {
     return (
@@ -180,12 +177,13 @@ class Description extends Component {
     });
 
     let res = await req.text();
-    this.setState({ deleted: true });
+    this.props.updatePlant("deleted");
     // console.log(res);
   }
 
   editPlant() {
-    this.setState({ edit: true });
+    this.props.updateEdit(this.props.plant);
+    this.setState({ edit: true })
   }
 
   // async checkIfLogged() {
@@ -199,7 +197,6 @@ class Description extends Component {
 
     //the edit button has been pressed, go to edit page
     if (this.state.edit) return <Redirect push to="/edit" />;
-
 
     return (
       <div className="secondary-container">
@@ -237,11 +234,13 @@ class Description extends Component {
 }
 
 const mapStateToProps = state => ({
-  login: getLogin(state)
+  login: getLogin(state),
+  edit: getEdit(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-  updatePlant: plant => dispatch(updatePlant(plant))
+  updatePlant: plant => dispatch(updatePlant(plant)),
+  updateEdit: plant => dispatch(updateEdit(plant))
 });
 
 export default connect(
