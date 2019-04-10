@@ -14,8 +14,6 @@ class Properties extends Component {
 
       }
 
-      console.log(a)
-
       if (a.title === "medical") {
         current.medicalPreparation = a.comment;
         current.medicalProperties = a.medicalProperties;
@@ -35,8 +33,6 @@ class Properties extends Component {
       arr.push(temp[k]);
     }
 
-    console.log(arr)
-
     return arr.map(use => {
       return (
         <React.Fragment key={use.part}>
@@ -44,13 +40,13 @@ class Properties extends Component {
             <div className="title">{capitalise(use.part)}</div>
           </div>
           <Row toRender={use.edibility} label="Edible" />
-          <Row toRender={use.foodPreparation} label="Edibility comment" />
+          <Row toRender={use.foodPreparation} label="Edibility Notes" />
           <Row
             toRender={use.medicalProperties}
             label="Medical"
             alt={use.medicalProperties ? use.medicalProperties.join(", ") : ""}
           />
-          <Row toRender={use.medicalPreparation} label="Medical Use" />
+          <Row toRender={use.medicalPreparation} label="Medical Notes" />
           <Row toRender={use.otherComment} label={capitalise(use.otherTitle)} />
         </React.Fragment>
       );

@@ -35,7 +35,7 @@ router.get("/category/:category/:name", (req, res) => {
         plant.length +
         " result(s)."
       );
-      return res.json(plant);
+      return res.json({ list: list, tokens: [] });
     }
   );
 });
@@ -53,7 +53,7 @@ router.post("/new", (req, res) => {
 
   plant.save((err, saved) => {
     if (err) return console.log(err);
-    console.log(saved)
+    // console.log(saved)
     console.log("Saved " + saved.commonName);
     return res.status(201).send(saved);
   });
@@ -110,7 +110,7 @@ router.get("/all", (req, res) => {
   Plant.find({}, (err, plants) => {
     if (err) return console.log(err);
     console.log("Fetching all plants");
-    return res.json(plants);
+    return res.json({ list: plants, tokens: [] });
   });
 });
 

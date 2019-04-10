@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getPlant, updatePlant } from "../../redux/actions";
+import { getPlant, updateList } from "../../redux/actions";
 import { capitalise } from "../../../utility/utility";
 import { Redirect } from "react-router";
 
@@ -16,10 +16,6 @@ class Categories extends Component {
     this.displayList = this.displayList.bind(this);
   }
 
-  componentWillUnmount() {
-    if (this.props.plant === "not found") this.props.updatePlant(undefined);
-  }
-
   async queryCategory(e, category) {
     this.setState({ selectedEntry: category });
     let query;
@@ -30,17 +26,13 @@ class Categories extends Component {
     }
 
     let res = await fetch(query);
-    let plant = await res.json();
+    let plants = await res.json();
 
-    if (this.state.displaying.includes("medicinal")) {
-      plant = plant.list;
-    }
-
-    if (plant.length === 0) {
+    if (plants.length === 0) {
       //no plants found
-      this.props.updatePlant("not found");
+      this.setState({ notFound: true });
     } else {
-      this.props.updatePlant(plant);
+      this.props.updateList(plants);
       this.setState({ redirect: true });
     }
   }
@@ -138,11 +130,11 @@ class Categories extends Component {
             { name: "Plant Type", apiName: "plantType" }
           ])}
 
-          {this.props.plant === "not found" ? (
+          {this.state.notFound ? (
             <div>No such plant found.</div>
           ) : (
-            <br />
-          )}
+              <br />
+            )}
         </div>
         {this.displayList()}
       </React.Fragment>
@@ -155,7 +147,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updatePlant: plant => dispatch(updatePlant(plant))
+  updateList: plant => dispatch(updateList(plant))
 });
 
 export default connect(

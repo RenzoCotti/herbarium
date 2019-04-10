@@ -44,8 +44,8 @@ class EditPage extends Component {
     }
     return (
       <React.Fragment>
-        {this.state.updated === "error" ? <div>Error updating.</div> : ""}
         <ModifyPlant fn={this.onSubmit} edit={true} />
+        {this.state.updated === "error" ? <div>Error updating.</div> : ""}
       </React.Fragment>
     );
   }

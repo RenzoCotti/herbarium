@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import { capitalise } from "../../../utility/utility";
-import { updatePlantFromIndex, getPlant } from "../../redux/actions";
+import { updatePlantFromIndex, getPlant, getList } from "../../redux/actions";
 
 class List extends Component {
   state = {
@@ -14,6 +14,11 @@ class List extends Component {
     this.goToPlant = this.goToPlant.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.list.length === 1)
+      this.props.updatePlantFromIndex(0);
+  }
+
   async goToPlant(e, i) {
     this.props.updatePlantFromIndex(i);
     this.setState({ redirect: true });
@@ -21,8 +26,6 @@ class List extends Component {
 
   renderList(list) {
 
-    console.log("LIST")
-    console.log(list)
     return list.map((plant, index) => {
       // console.log(plant);
       return (
@@ -35,7 +38,7 @@ class List extends Component {
             src={
               plant.images[0]
                 ? plant.images[0].url
-                : "../../../../public/leaf_placeholder.jpg"
+                : "./public/images/leaf_placeholder.jpg"
             }
             className="secondary-image"
             alt=""
@@ -51,16 +54,18 @@ class List extends Component {
   }
 
   render() {
-    if (!this.props.plant) return <Redirect push to="/" />;
+    if (!this.props.list) return <Redirect push to="/" />;
 
-    if (this.state.redirect || this.props.plant.length === 1)
+    if (this.state.redirect)
       return <Redirect push to="/plant/" />;
 
+
     return (
-      <div className="secondary-container">
+      <div className="secondary-container" style={{ width: "100%" }}>
         <div className="super-title margin-bottom">Results</div>
         <div className="list-container">
-          {this.renderList(this.props.plant)}
+          {this.renderList(this.props.list)}
+
         </div>
       </div>
     );
@@ -68,11 +73,12 @@ class List extends Component {
 }
 
 const mapStateToProps = state => ({
-  plant: getPlant(state)
+  plant: getPlant(state),
+  list: getList(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-  updatePlantFromIndex: id => dispatch(updatePlantFromIndex(id))
+  updatePlantFromIndex: id => dispatch(updatePlantFromIndex(id)),
 });
 
 export default connect(

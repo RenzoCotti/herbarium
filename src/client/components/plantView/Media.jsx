@@ -25,7 +25,7 @@ class Media extends Component {
     let show = this.state.showing;
     let current = this.props.plant.images;
     if (current.length > 0) return current[show].url;
-    else return "../../../../public/leaf_placeholder.jpg";
+    else return "./public/images/leaf_placeholder.jpg";
   }
 
   getSide() {

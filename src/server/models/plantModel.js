@@ -198,7 +198,7 @@ const Plant = new mongoose.Schema({
 });
 
 Plant.pre("save", function (next) {
-  if (!this.keywords) {
+  if (this.keywords.length === 0) {
     let tempArr = [];
 
     //iterate over all keys of the document

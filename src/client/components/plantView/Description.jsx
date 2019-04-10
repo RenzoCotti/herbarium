@@ -26,6 +26,10 @@ class Description extends Component {
     this.renderFruits = this.renderFruits.bind(this);
   }
 
+  componentWillUnmount() {
+    if (this.state.deleted) this.props.updatePlant(undefined);
+  }
+
   renderSection(title, arr) {
     return (
       <React.Fragment>
@@ -176,7 +180,7 @@ class Description extends Component {
     });
 
     let res = await req.text();
-    this.props.updatePlant("deleted");
+    this.setState({ deleted: true });
     // console.log(res);
   }
 
@@ -196,6 +200,7 @@ class Description extends Component {
     //the edit button has been pressed, go to edit page
     if (this.state.edit) return <Redirect push to="/edit" />;
 
+
     return (
       <div className="secondary-container">
         <div className="desc-header">
@@ -211,8 +216,8 @@ class Description extends Component {
           {/* if the user is logged, show the edit and delete buttons */}
           {this.props.login ? (
             <div className="modify-plant">
-              <Button button="true" value="Delete" fn={this.deletePlant} />
-              <Button button="true" value="Edit" fn={this.editPlant} />
+              <Button value="Delete" fn={this.deletePlant} />
+              <Button value="Edit" fn={this.editPlant} />
             </div>
           ) : (
               ""

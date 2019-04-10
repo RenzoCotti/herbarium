@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
-import { updatePlant, getPlant } from "../../redux/actions";
+import { updatePlant, getPlant, updateList } from "../../redux/actions";
 import Button from "./input/Button";
 
 class Search extends Component {
@@ -16,21 +16,16 @@ class Search extends Component {
     this.getAll = this.getAll.bind(this);
   }
 
-  componentWillUnmount() {
-    if (this.props.plant === "not found") this.props.updatePlant(undefined);
-  }
-
   async fetchPlant(url) {
     let req = await fetch(url);
     let res = await req.json();
 
-    if (res.length) {
+    if (res.list.length === 0) {
+      this.setState({ notFound: true })
+    } else if (res.tokens.length === 0) {
       //list of plants, no keyword provided
-      this.props.updatePlant(res);
+      this.props.updateList(res.list);
       this.setState({ redirect: true });
-    } else if (res.list.length === 0) {
-      //no plants found
-      this.props.updatePlant("not found");
     } else {
       //counts total match of keywords
       for (let plant of res.list) {
@@ -49,7 +44,7 @@ class Search extends Component {
       });
 
       //list of plants, keyword provided
-      this.props.updatePlant(res.list);
+      this.props.updateList(res.list);
       this.setState({ redirect: true });
     }
   }
@@ -94,22 +89,24 @@ class Search extends Component {
           </div>
         </form>
 
-        {this.props.plant === "not found" ? (
+        {this.state.notFound ? (
           <div>No such plant found.</div>
         ) : (
-          <div />
-        )}
+            <div />
+          )}
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  plant: getPlant(state)
+  plant: getPlant(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  updatePlant: plant => dispatch(updatePlant(plant))
+  updatePlant: plant => dispatch(updatePlant(plant)),
+  updateList: list => dispatch(updateList(list))
+
 });
 
 export default connect(

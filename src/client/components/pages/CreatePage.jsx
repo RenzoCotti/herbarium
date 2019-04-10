@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ModifyPlant from "../modules/ModifyPlant";
 import { connect } from "react-redux";
-import { updatePlant } from "../../redux/actions";
+import { updatePlant, getPlant } from "../../redux/actions";
 import { Redirect } from "react-router";
 
 class CreatePage extends Component {
@@ -13,8 +13,6 @@ class CreatePage extends Component {
 
   async onSubmit(e, toSend) {
     e.preventDefault();
-    console.log("SAVING")
-    console.log(toSend);
 
     let req = await fetch("/api/plant/new", {
       method: "POST",
@@ -28,20 +26,30 @@ class CreatePage extends Component {
     if (code === 201) {
       let res = await req.json();
       this.props.updatePlant(res);
+    } else {
+      this.setState({ error: true })
     }
   }
 
   render() {
     if (this.props.plant) return <Redirect push to="/plant" />;
-    return <ModifyPlant fn={this.onSubmit} edit={false} />;
+
+    return (
+      < React.Fragment > <ModifyPlant fn={this.onSubmit} edit={false} />;
+    {this.state.error ? <div>Error updating.</div> : ""}
+      </React.Fragment >)
   }
 }
+
+const mapStateToProps = state => ({
+  plant: getPlant(state)
+});
 
 const mapDispatchToProps = dispatch => ({
   updatePlant: plant => dispatch(updatePlant(plant))
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(CreatePage);
