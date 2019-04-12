@@ -15,11 +15,19 @@ const Select = props => {
           <option value="" disabled />
           {props.customArr
             ? props.customArr
-            : props.arr.map(o => (
-                <option value={o} key={o}>
+            : props.arr.map(o => {
+              if (props.link) {
+                return <option value={o} key={o} data-icon={"./public/images/" + props.link + o + ".png"}
+                >
                   {capitalise(o)}
                 </option>
-              ))}
+              } else {
+                return <option value={o} key={o} >
+                  {capitalise(o)}
+                </option>
+              }
+            })
+          }
         </MaterializeSelect>
       </div>
     </div>

@@ -71,15 +71,15 @@ let temp = {
     "elliptical",
     "oval",
     "orbicular",
-    "reniform",
+    "cordate",
     "deltate",
-    "rhombic",
+    "rhombate",
     "spatulate",
     "flabellate",
-    "subdulate",
-    "scale"
+    "palmate",
+    "digitate",
   ],
-  leafArrangement: ["alternate", "opposite", "whorled", "basal"],
+  leafArrangement: ["alternate", "opposite", "whorled"],
   leafMargin: [
     "undulate",
     "sinuate",
@@ -88,9 +88,7 @@ let temp = {
     "doubly serrate",
     "dentate",
     "crenate",
-    "lobate",
     "denticulate",
-    "aculeate"
   ],
   leafVenation: [
     "dichotomous",
@@ -162,7 +160,7 @@ temp.medicalProperties = []
     temp.medicinalPathogens,
     temp.medicinalRespiratory
   )
-  .sort(function(a, b) {
+  .sort(function (a, b) {
     return a == b ? 0 : a < b ? -1 : 1;
   });
 

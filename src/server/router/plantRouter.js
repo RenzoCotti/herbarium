@@ -24,7 +24,7 @@ router.get("/search/:string", (req, res) => {
 router.get("/category/:category/:name", (req, res) => {
   Plant.find(
     { [req.params.category]: new RegExp("^" + req.params.name + "$", "i") },
-    (err, plant) => {
+    (err, list) => {
       if (err) return console.log(err);
       console.log(
         "Retrieved " +
@@ -32,7 +32,7 @@ router.get("/category/:category/:name", (req, res) => {
         " - " +
         req.params.name +
         ". " +
-        plant.length +
+        list.length +
         " result(s)."
       );
       return res.json({ list: list, tokens: [] });

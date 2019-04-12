@@ -26,15 +26,13 @@
   justify-content: center;
   flex-wrap: wrap;
   width: 300px;
-  max-height: 400px;
+  max-height: 450px;
   border-left: 1px solid transparent;
+  padding: 30px !important;
 }
 
 .category-full {
   border-left: 1px solid var(--text);
-}
-.category-content-entry {
-  padding-right: 20px;
 }
 
 .category-selected {

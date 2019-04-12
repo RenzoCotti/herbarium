@@ -14,7 +14,6 @@ const MultiSelect = props => {
           multiple
           value={temp}
         >
-          <option value="" disabled />
 
           {props.arr.map(o => (
             <option value={o} key={o}>

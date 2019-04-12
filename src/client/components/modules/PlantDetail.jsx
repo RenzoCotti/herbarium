@@ -12,7 +12,6 @@ class PlantDetail extends Component {
   }
 
   render() {
-    console.log(this.props.plant)
     if (this.props.plant === "deleted") return <div>Plant deleted.</div>;
     if (!this.props.plant) return <Redirect push to="/" />;
 

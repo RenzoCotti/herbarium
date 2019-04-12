@@ -37,6 +37,7 @@ class Description extends Component {
             toRender={row.property}
             label={row.label}
             alt={row.alt}
+            link={row.link}
           />
         ))}
       </React.Fragment>
@@ -97,20 +98,30 @@ class Description extends Component {
     let arr = [
       {
         property: plant.leafShape,
-        label: "Shape"
+        label: "Shape",
+        link: "/leaves/shape/"
       },
       {
         property: plant.leafMargin,
-        label: "Margin"
+        label: "Margin",
+        link: "/leaves/margin/"
+
       },
       {
         property: plant.leafVenation,
-        label: "Venation"
+        label: "Venation",
+        link: "/leaves/venation/"
+
       },
       {
         property: plant.leafLength,
         label: "Length",
         alt: plant.leafLength + " cm"
+      },
+      {
+        property: plant.leafArrangement,
+        label: "Arrangement",
+        link: "/leaves/arrangement/"
       },
       {
         property: plant.leafDescription,
@@ -201,7 +212,10 @@ class Description extends Component {
     return (
       <div className="secondary-container">
         <div className="desc-header">
-          <div className="plant-names">
+          <div style={{
+            display: "flex",
+            flexDirection: "column"
+          }}>
             <span className="super-title">
               {capitaliseString(plant.commonName)}
             </span>

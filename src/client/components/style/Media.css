@@ -48,3 +48,24 @@
   margin-left: 40px;
   height: 50px;
 }
+
+.hover-image {
+  transition: all 0.2 ease-in-out;
+  margin-left: 100px;
+  position: absolute;
+  top: -10px;
+  display: none;
+  max-width: 160px;
+  max-height: 100px;
+  width: auto;
+  height: auto;
+}
+
+.toggle-image {
+  text-decoration: underline;
+  position: relative;
+}
+
+.toggle-image:hover {
+  cursor: pointer;
+}

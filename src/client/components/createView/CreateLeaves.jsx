@@ -14,6 +14,7 @@ const CreateLeaves = props => (
       arr={definitions.leafShape.sort()}
       fn={props.select}
       obj={props.obj}
+      link="leaves/shape/"
     />
     <Select
       label="Margin: *"
@@ -21,6 +22,8 @@ const CreateLeaves = props => (
       arr={definitions.leafMargin.sort()}
       fn={props.select}
       obj={props.obj}
+      link="leaves/margin/"
+
     />
     <Select
       label="Venation: *"
@@ -28,6 +31,7 @@ const CreateLeaves = props => (
       arr={definitions.leafVenation.sort()}
       fn={props.select}
       obj={props.obj}
+      link="leaves/venation/"
     />
     <Select
       label="Arrangement: *"
@@ -35,6 +39,7 @@ const CreateLeaves = props => (
       arr={definitions.leafArrangement.sort()}
       fn={props.select}
       obj={props.obj}
+      link="leaves/arrangement/"
     />
     <Input
       label="Length: *"

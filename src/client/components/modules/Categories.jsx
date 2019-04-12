@@ -28,11 +28,11 @@ class Categories extends Component {
     let res = await fetch(query);
     let plants = await res.json();
 
-    if (plants.length === 0) {
+    if (plants.list.length === 0) {
       //no plants found
       this.setState({ notFound: true });
     } else {
-      this.props.updateList(plants);
+      this.props.updateList(plants.list);
       this.setState({ redirect: true });
     }
   }
@@ -76,8 +76,8 @@ class Categories extends Component {
 
   getSelectedEntryClass(name) {
     return name === this.state.selectedEntry
-      ? "category-content-entry category-selected"
-      : "category-content-entry";
+      ? "padded-right category-selected"
+      : "padded-right";
   }
 
   renderSection(label, list) {
