@@ -11,6 +11,7 @@ class AddUses extends Component {
   state = {
     index: -1,
     edit: false,
+    errors: [],
     edibility: "",
     comment: "",
     medicalProperties: [],
@@ -27,6 +28,7 @@ class AddUses extends Component {
     this.removeEntry = this.removeEntry.bind(this);
     this.clear = this.clear.bind(this);
     this.editEntry = this.editEntry.bind(this);
+    this.validate = this.validate.bind(this);
   }
 
   handleChange(e) {
@@ -100,6 +102,8 @@ class AddUses extends Component {
   }
 
   createEntry() {
+    if (!this.validate()) return;
+
     let entry = {
       part: this.state.part,
       comment: this.state.comment,
@@ -126,6 +130,8 @@ class AddUses extends Component {
   }
 
   editEntry() {
+    if (!this.validate()) return;
+
     let currentIndex = this.state.index;
     let newUses = this.props.uses;
 
@@ -162,8 +168,57 @@ class AddUses extends Component {
       medicalProperties: "",
       title: "",
       index: -1,
-      edit: false
+      edit: false,
+      errors: []
     });
+  }
+
+  validate() {
+    let arr = [];
+    if (!this.state.part) {
+      arr.push({ name: "part" })
+    } else if (this.state.part.length > 100) {
+      arr.push({ name: "part", errorMessage: "Please input a shorter plant part." })
+    } else {
+      if (!this.state.type) {
+        arr.push({ name: "type" })
+      } else {
+        switch (this.state.type) {
+          case "Edibility":
+            if (!this.state.edibility) {
+              arr.push({ name: "edibility" })
+            }
+            break;
+          case "Medical":
+            if (!this.state.medicalProperties || this.state.medicalProperties.length === 0) {
+              arr.push({ name: "medicalProperties" })
+            }
+            break;
+          case "Other":
+            if (!this.state.title) {
+              arr.push({ name: "title" })
+            } else if (this.state.title.length > 32) {
+              arr.push({ name: "title", errorMessage: "Please input a shorter title." })
+            }
+        }
+
+        if (!this.state.comment) {
+          arr.push({ name: "comment" })
+        } else if (this.state.comment.length > 150) {
+          arr.push({ name: "comment", errorMessage: "Please input a shorter comment." })
+        }
+      }
+
+
+    }
+
+
+    if (arr.length !== 0) {
+      this.setState({ errors: arr })
+      return false;
+    } else {
+      return true;
+    }
   }
 
   render() {
@@ -182,6 +237,7 @@ class AddUses extends Component {
             name="part"
             fn={this.handleChange}
             obj={this.state}
+            errors={this.state.errors}
           />
           {this.state.part ? (
             <Select
@@ -190,6 +246,7 @@ class AddUses extends Component {
               fn={this.handleSelect}
               obj={this.state}
               arr={["Edibility", "Medical", "Other"]}
+              errors={this.state.errors}
             />
           ) : (
               ""
@@ -202,6 +259,7 @@ class AddUses extends Component {
               fn={this.handleSelect}
               obj={this.state}
               arr={["Yes", "No", "Toxic"]}
+              errors={this.state.errors}
             />
           ) : (
               ""
@@ -213,6 +271,7 @@ class AddUses extends Component {
               fn={this.handleSelect}
               obj={this.state}
               arr={definitions.medicalProperties}
+              errors={this.state.errors}
             />
           ) : (
               ""
@@ -223,6 +282,7 @@ class AddUses extends Component {
               name="title"
               fn={this.handleChange}
               obj={this.state}
+              errors={this.state.errors}
             />
           ) : (
               ""
@@ -234,6 +294,7 @@ class AddUses extends Component {
               name="comment"
               fn={this.handleChange}
               obj={this.state}
+              errors={this.state.errors}
             />
           ) : (
               ""

@@ -7,7 +7,7 @@ import TextArea from "../modules/input/TextArea";
 
 const CreateLeaves = props => (
   <React.Fragment>
-    <div className="title padded-bottom padded-top">Leaves</div>
+    <div className="title padded-bottom padded-top">Leaves *</div>
     <Select
       label="Shape: *"
       name="leafShape"

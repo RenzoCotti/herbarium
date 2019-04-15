@@ -13,7 +13,7 @@ const MultiSelect = props => {
         if (el.errorMessage && el.errorMessage.length > 0) {
           error = el.errorMessage;
         } else {
-          error = "Please insert a value.";
+          error = "Please select a value.";
         }
       }
     });

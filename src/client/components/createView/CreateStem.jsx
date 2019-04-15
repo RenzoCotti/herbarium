@@ -7,7 +7,7 @@ import SelectColours from "../modules/input/SelectColours";
 
 const CreateStem = props => (
   <React.Fragment>
-    <div className="title padded-bottom padded-top">Stem/Trunk</div>
+    <div className="title padded-bottom padded-top">Stem/Trunk *</div>
     <SelectColours
       label="Colour: *"
       name="stemColour"

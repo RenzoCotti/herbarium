@@ -5,7 +5,7 @@ import TextArea from "./input/TextArea";
 import ItemList from "./ItemList";
 
 class AddImage extends Component {
-  state = { url: "", caption: "", index: -1, edit: false };
+  state = { url: "", caption: "", index: -1, edit: false, errors: [] };
 
   constructor(props) {
     super(props);
@@ -16,6 +16,7 @@ class AddImage extends Component {
     this.removeEntry = this.removeEntry.bind(this);
     this.clear = this.clear.bind(this);
     this.editEntry = this.editEntry.bind(this);
+    this.validate = this.validate.bind(this);
   }
 
   handleChange(e) {
@@ -46,6 +47,7 @@ class AddImage extends Component {
   }
 
   createEntry() {
+    if (!this.validate()) return;
     let entry = {
       url: this.state.url,
       caption: this.state.caption
@@ -58,6 +60,8 @@ class AddImage extends Component {
   }
 
   editEntry() {
+    if (!this.validate()) return;
+
     let currentIndex = this.state.index;
     let newImages = this.props.images;
     newImages[currentIndex] = {
@@ -69,8 +73,27 @@ class AddImage extends Component {
   }
 
   clear() {
-    this.setState({ url: "", caption: "", index: -1, edit: false });
+    this.setState({ url: "", caption: "", index: -1, edit: false, errors: [] });
   }
+
+  validate() {
+    let arr = [];
+    if (!this.state.url) {
+      arr.push({ name: "url" })
+    }
+
+    if (!this.state.caption) {
+      arr.push({ name: "caption" })
+    }
+
+    if (arr.length !== 0) {
+      this.setState({ errors: arr })
+      return false;
+    } else {
+      return true;
+    }
+  }
+
 
   render() {
     return (
@@ -88,12 +111,14 @@ class AddImage extends Component {
             name="url"
             fn={this.handleChange}
             obj={this.state}
+            errors={this.state.errors}
           />
           <TextArea
             label="Caption: *"
             name="caption"
             fn={this.handleChange}
             obj={this.state}
+            errors={this.state.errors}
           />
         </div>
 
@@ -121,6 +146,7 @@ class AddImage extends Component {
             }}
           >
             {this.state.edit ? (
+
               <Button value="Edit" fn={this.editEntry} />
             ) : (
                 <Button value="Add" fn={this.createEntry} />

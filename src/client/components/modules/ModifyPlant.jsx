@@ -26,7 +26,33 @@ class ModifyPlant extends Component {
       let obj = Object.assign({}, this.props.plant);
       this.state = obj;
     } else {
-      this.state = { images: [], uses: [] };
+      this.state = {
+        latinName: "",
+        commonName: "",
+        plantType: "",
+        evergreen: "",
+        description: "",
+        height: "",
+        regions: [],
+        habitat: "",
+        stemColour: "",
+        stemTexture: "",
+        stemDescription: "",
+        leafShape: "",
+        leafDescription: "",
+        leafMargin: "",
+        leafVenation: "",
+        leafArrangement: "",
+        leafLength: "",
+        flowerColour: "",
+        flowerDescription: "",
+        bloomMonth: [],
+        fruitColour: "",
+        fruitDescription: "",
+        fruitSize: "",
+        uses: [],
+        images: []
+      };
     }
   }
 
@@ -35,18 +61,16 @@ class ModifyPlant extends Component {
   }
 
   validate() {
-    console.log(this.state)
-
     let arr = [];
 
-    if (!this.state.latinName || this.state.latinName.length === 0) {
+    if (!this.state.latinName) {
       arr.push({ name: "latinName" })
     } else if (this.state.commonName.length > 64) {
       arr.push({ name: "latinName", errorMessage: "Please insert a shorter name." })
     }
-    if (!this.state.commonName || this.state.commonName.length === 0) {
+    if (!this.state.commonName) {
       arr.push({ name: "commonName" })
-    } else if (this.state.commonName.length > 32) {
+    } else if (this.state.commonName.length > 30) {
       arr.push({ name: "commonName", errorMessage: "Please insert a shorter name." })
     }
     if (!this.state.plantType) {
@@ -61,7 +85,7 @@ class ModifyPlant extends Component {
     if (!this.state.regions || this.state.regions.length === 0) {
       arr.push({ name: "regions" })
     }
-    if (!this.state.habitat || this.state.habitat.length === 0) {
+    if (!this.state.habitat) {
       arr.push({ name: "habitat" })
     } else if (this.state.habitat.length > 100) {
       arr.push({ name: "habitat", errorMessage: "Please insert a shorter habitat." })
@@ -126,23 +150,11 @@ class ModifyPlant extends Component {
       arr.push({ name: "fruitSize", errorMessage: "Please insert a value between 0-300 metres." })
     }
 
-    // for (let use of this.state.uses) {
-    //   if (!use.part || use.part.length === 0) {
-    //     arr.push({ name: "part" })
-    //   } else if (use.part.length > 32) {
-    //     arr.push({ name: "part", errorMessage: "Please insert a shorter plant part." })
-    //   }
-
-
-    // }
-
     if (arr.length === 0) {
       this.props.fn(this.state)
     } else {
-      console.log(arr)
       this.setState({ errors: arr })
     }
-
   }
 
   handleChange(e) {

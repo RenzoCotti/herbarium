@@ -8,7 +8,7 @@ import MultiSelect from "../modules/input/MultiSelect";
 
 const CreateGeneral = props => (
   <React.Fragment>
-    <div className="title padded-bottom padded-top">General</div>
+    <div className="title padded-bottom padded-top">General *</div>
     <Input
       label="Common name: *"
       name="commonName"
