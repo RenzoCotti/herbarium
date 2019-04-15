@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getLogin, updatePlant, updateEdit } from "../../redux/actions";
 import { Redirect } from "react-router";
+import definitions from "../../../utility/definitions";
 
 import CreateGeneral from "../createView/CreateGeneral";
 import CreateStem from "../createView/CreateStem";
@@ -18,6 +19,7 @@ class ModifyPlant extends Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.validate = this.validate.bind(this);
 
     //we're initialising the state for the controlled component
     if (this.props.edit && this.props.plant) {
@@ -30,6 +32,117 @@ class ModifyPlant extends Component {
 
   componentWillUnmount() {
     this.props.updateEdit(undefined);
+  }
+
+  validate() {
+    console.log(this.state)
+
+    let arr = [];
+
+    if (!this.state.latinName || this.state.latinName.length === 0) {
+      arr.push({ name: "latinName" })
+    } else if (this.state.commonName.length > 64) {
+      arr.push({ name: "latinName", errorMessage: "Please insert a shorter name." })
+    }
+    if (!this.state.commonName || this.state.commonName.length === 0) {
+      arr.push({ name: "commonName" })
+    } else if (this.state.commonName.length > 32) {
+      arr.push({ name: "commonName", errorMessage: "Please insert a shorter name." })
+    }
+    if (!this.state.plantType) {
+      arr.push({ name: "plantType" })
+    }
+    if (!this.state.evergreen) {
+      arr.push({ name: "evergreen" })
+    }
+    if (this.state.description && this.state.description.length > 300) {
+      arr.push({ name: "description", errorMessage: "Please insert a shorter description." })
+    }
+    if (!this.state.regions || this.state.regions.length === 0) {
+      arr.push({ name: "regions" })
+    }
+    if (!this.state.habitat || this.state.habitat.length === 0) {
+      arr.push({ name: "habitat" })
+    } else if (this.state.habitat.length > 100) {
+      arr.push({ name: "habitat", errorMessage: "Please insert a shorter habitat." })
+    }
+    if (!this.state.height) {
+      arr.push({ name: "height" })
+    } else if (isNaN(this.state.height)) {
+      arr.push({ name: "height", errorMessage: "Only numbers please." })
+    } else if (this.state.height > 300 || this.state.height < 0) {
+      arr.push({ name: "height", errorMessage: "Please insert a value between 0-300 metres." })
+    }
+
+
+    if (!this.state.stemColour) {
+      arr.push({ name: "stemColour" })
+    }
+    if (!this.state.stemTexture) {
+      arr.push({ name: "stemTexture" })
+    }
+    if (this.state.stemDescription && this.state.stemDescription.length > 150) {
+      arr.push({ name: "stemDescription", errorMessage: "Please insert a shorter description." })
+    }
+
+
+    if (!this.state.leafShape) {
+      arr.push({ name: "leafShape" })
+    }
+    if (!this.state.leafMargin) {
+      arr.push({ name: "leafMargin" })
+    }
+    if (!this.state.leafArrangement) {
+      arr.push({ name: "leafArrangement" })
+    }
+    if (!this.state.leafVenation) {
+      arr.push({ name: "leafVenation" })
+    }
+    if (!this.state.leafLength) {
+      arr.push({ name: "leafLength" })
+    } else if (isNaN(this.state.leafLength)) {
+      arr.push({ name: "leafLength", errorMessage: "Only numbers please." })
+    } else if (this.state.leafLength > 300 || this.state.leafLength < 0) {
+      arr.push({ name: "leafLength", errorMessage: "Please insert a value between 0-300 metres." })
+    }
+    if (this.state.leafDescription && this.state.leafDescription.length > 100) {
+      arr.push({ name: "leafDescription", errorMessage: "Please insert a shorter description." })
+    }
+
+
+    if (this.state.flowerDescription && this.state.flowerDescription.length > 150) {
+      arr.push({ name: "flowerDescription", errorMessage: "Please insert a shorter description." })
+    }
+
+
+    if (this.state.fruitDescription && this.state.fruitDescription.length > 150) {
+      arr.push({ name: "fruitDescription", errorMessage: "Please insert a shorter description." })
+    }
+    if (!this.state.fruitSize) {
+      arr.push({ name: "fruitSize" })
+    } else if (isNaN(this.state.fruitSize)) {
+      arr.push({ name: "fruitSize", errorMessage: "Only numbers please." })
+    } else if (this.state.fruitSize > 300 || this.state.fruitSize < 0) {
+      arr.push({ name: "fruitSize", errorMessage: "Please insert a value between 0-300 metres." })
+    }
+
+    // for (let use of this.state.uses) {
+    //   if (!use.part || use.part.length === 0) {
+    //     arr.push({ name: "part" })
+    //   } else if (use.part.length > 32) {
+    //     arr.push({ name: "part", errorMessage: "Please insert a shorter plant part." })
+    //   }
+
+
+    // }
+
+    if (arr.length === 0) {
+      this.props.fn(this.state)
+    } else {
+      console.log(arr)
+      this.setState({ errors: arr })
+    }
+
   }
 
   handleChange(e) {
@@ -86,9 +199,9 @@ class ModifyPlant extends Component {
         <form>
           <div className="createForm">
             <div className="table-container">
-              <CreateGeneral change={change} select={select} obj={this.state} />
-              <CreateStem change={change} select={select} obj={this.state} />
-              <CreateLeaves change={change} select={select} obj={this.state} />
+              <CreateGeneral change={change} select={select} obj={this.state} errors={this.state.errors} />
+              <CreateStem change={change} select={select} obj={this.state} errors={this.state.errors} />
+              <CreateLeaves change={change} select={select} obj={this.state} errors={this.state.errors} />
             </div>
 
             <div className="table-container">
@@ -96,6 +209,7 @@ class ModifyPlant extends Component {
                 change={change}
                 select={select}
                 obj={this.state}
+                errors={this.state.errors}
               />
               <AddImage
                 images={this.state.images}
@@ -109,7 +223,7 @@ class ModifyPlant extends Component {
             </div>
           </div>
 
-          <Button value="Confirm" fn={e => this.props.fn(e, this.state)} />
+          <Button value="Confirm" fn={this.validate} />
         </form>
       </div>
     );

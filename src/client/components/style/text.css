@@ -13,3 +13,13 @@
   font-size: 24pt;
   color: var(--yellow);
 }
+
+.errormsg {
+  color: #bb0000;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+.error {
+  color: #bb0000;
+}

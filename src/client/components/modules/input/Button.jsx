@@ -3,7 +3,7 @@ import React from "react";
 const Button = props => {
   return (
     <input
-      type={props.button ? "button" : "submit"}
+      type={"button"}
       value={props.value}
       onClick={props.fn}
       className="button"

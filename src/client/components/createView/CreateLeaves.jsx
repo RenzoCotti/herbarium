@@ -15,6 +15,7 @@ const CreateLeaves = props => (
       fn={props.select}
       obj={props.obj}
       link="leaves/shape/"
+      errors={props.errors}
     />
     <Select
       label="Margin: *"
@@ -23,7 +24,7 @@ const CreateLeaves = props => (
       fn={props.select}
       obj={props.obj}
       link="leaves/margin/"
-
+      errors={props.errors}
     />
     <Select
       label="Venation: *"
@@ -32,6 +33,7 @@ const CreateLeaves = props => (
       fn={props.select}
       obj={props.obj}
       link="leaves/venation/"
+      errors={props.errors}
     />
     <Select
       label="Arrangement: *"
@@ -40,6 +42,7 @@ const CreateLeaves = props => (
       fn={props.select}
       obj={props.obj}
       link="leaves/arrangement/"
+      errors={props.errors}
     />
     <Input
       label="Length: *"
@@ -47,12 +50,14 @@ const CreateLeaves = props => (
       text="cm"
       fn={props.change}
       obj={props.obj}
+      errors={props.errors}
     />
     <TextArea
       label="Description:"
       name="leafDescription"
       fn={props.change}
       obj={props.obj}
+      errors={props.errors}
     />
   </React.Fragment>
 );

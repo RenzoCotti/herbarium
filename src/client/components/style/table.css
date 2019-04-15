@@ -19,5 +19,10 @@
 .content-table {
   width: 300px;
   display: flex;
+  flex-direction: column;
+}
+
+.content-inner {
+  display: flex;
   flex-direction: row;
 }

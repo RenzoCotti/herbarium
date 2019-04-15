@@ -11,8 +11,7 @@ class CreatePage extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  async onSubmit(e, toSend) {
-    e.preventDefault();
+  async onSubmit(toSend) {
 
     let req = await fetch("/api/plant/new", {
       method: "POST",

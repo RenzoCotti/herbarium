@@ -16,7 +16,7 @@ const Row = props => {
     return (
       <div className="row-table" key={props.toRender}>
         <div className="label-table sub-title">{props.label}:</div>
-        <div className={props.link ? "toggle-image content-table" : "content-table"} onMouseLeave={props.link ? leave : ""} onMouseEnter={props.link ? enter : ""}>
+        <div className={props.link ? "toggle-image content-table" : "content-table"} onMouseLeave={props.link ? leave : null} onMouseEnter={props.link ? enter : null}>
           {props.alt ? capitalise(props.alt) : capitalise(props.toRender)}
           {props.link ? <img className="hover-image" id={props.toRender} src={str} /> : ""}
         </div>

@@ -112,15 +112,6 @@
   color: var(--text) !important;
 }
 
-.errormsg {
-  color: #bb0000;
-  font-size: 12pt;
-}
-
-.error {
-  color: #bb0000;
-}
-
 .dropdown-content {
   background-color: rgb(var(--backgroundRGB)) !important;
 }

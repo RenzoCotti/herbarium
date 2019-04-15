@@ -13,6 +13,7 @@ const CreateFlowersFruit = props => (
       name="flowerColour"
       fn={props.select}
       obj={props.obj}
+      errors={props.errors}
     />
     <MultiSelect
       label="Bloom month:"
@@ -20,12 +21,14 @@ const CreateFlowersFruit = props => (
       arr={definitions.months}
       fn={props.select}
       obj={props.obj}
+      errors={props.errors}
     />
     <TextArea
       label="Description:"
       name="flowerDescription"
       obj={props.obj}
       fn={props.change}
+      errors={props.errors}
     />
 
     <div className="title padded-bottom padded-top">Fruit</div>
@@ -34,6 +37,7 @@ const CreateFlowersFruit = props => (
       name="fruitColour"
       fn={props.select}
       obj={props.obj}
+      errors={props.errors}
     />
     <MultiSelect
       label="Harvest month:"
@@ -41,6 +45,7 @@ const CreateFlowersFruit = props => (
       arr={definitions.months}
       fn={props.select}
       obj={props.obj}
+      errors={props.errors}
     />
   </React.Fragment>
 );

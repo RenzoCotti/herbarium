@@ -17,7 +17,7 @@ const ItemList = props => {
             ? props.name + (index + 1)
             : capitalise(el.part) + " - " + capitalise(el.title)}
         </div>
-        <Button fn={props.remove} button={true} value="Delete" index={index} />
+        <Button fn={props.remove} value="Delete" index={index} />
       </div>
     );
   });

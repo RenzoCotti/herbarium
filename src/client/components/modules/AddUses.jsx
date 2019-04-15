@@ -240,12 +240,12 @@ class AddUses extends Component {
             )}
         </div>
         {this.state.edit ? (
-          <Button value="Edit" button={true} fn={this.editEntry} />
+          <Button value="Edit" fn={this.editEntry} />
         ) : (
-            <Button value="Add" button={true} fn={this.createEntry} />
+            <Button value="Add" fn={this.createEntry} />
           )}
 
-        <Button value="Clear" button={true} fn={this.clear} />
+        <Button value="Clear" fn={this.clear} />
       </div>
     );
   }

@@ -14,12 +14,14 @@ const CreateGeneral = props => (
       name="commonName"
       fn={props.change}
       obj={props.obj}
+      errors={props.errors}
     />
     <Input
       label="Latin name: *"
       name="latinName"
       fn={props.change}
       obj={props.obj}
+      errors={props.errors}
     />
     <Select
       label="Type: *"
@@ -27,6 +29,7 @@ const CreateGeneral = props => (
       arr={definitions.plantType.sort()}
       fn={props.select}
       obj={props.obj}
+      errors={props.errors}
     />
     <Input
       label="Height: *"
@@ -34,6 +37,7 @@ const CreateGeneral = props => (
       text="m"
       fn={props.change}
       obj={props.obj}
+      errors={props.errors}
     />
     <Select
       label="Evergreen: *"
@@ -41,6 +45,7 @@ const CreateGeneral = props => (
       arr={["yes", "no"]}
       fn={props.select}
       obj={props.obj}
+      errors={props.errors}
     />
     <MultiSelect
       label="Regions: *"
@@ -48,18 +53,21 @@ const CreateGeneral = props => (
       arr={definitions.regions.sort()}
       fn={props.select}
       obj={props.obj}
+      errors={props.errors}
     />
     <Input
       label="Habitat: *"
       name="habitat"
       fn={props.change}
       obj={props.obj}
+      errors={props.errors}
     />
     <TextArea
       label="Description:"
       name="description"
       fn={props.change}
       obj={props.obj}
+      errors={props.errors}
     />
   </React.Fragment>
 );

@@ -41,7 +41,7 @@ class LoginPage extends Component {
       this.setState({ username: "", password: "" });
       this.props.updateLogin(true);
     } else if (res.toLowerCase() === "nope") {
-      this.setState({ error: "Invalid credentials." })
+      this.setState({ errors: [{ name: "general", errorMessage: "Invalid credentials." }] })
     }
     return res;
   }
@@ -75,16 +75,25 @@ class LoginPage extends Component {
   }
 
   validate() {
-    console.log(this.state)
-    if (!this.state.username | this.state.username && this.state.username.length === 0) {
-      this.setState({ error: "Please input a username." })
-      return;
-    } else if (!this.state.password | this.state.password && this.state.password.length === 0) {
-      this.setState({ error: "Please input a password." })
-      return;
-    } else {
-      this.setState({ error: "" })
+    let arr = [];
+    if (!this.state.username || this.state.username.length === 0) {
+      arr.push({ name: "username" });
+    } else if (this.state.username.length > 64) {
+      arr.push({ name: "username", errorMessage: "Please input a shorter username." });
+    }
+
+    if (!this.state.password || this.state.password.length === 0) {
+      arr.push({ name: "password" });
+    } else if (this.state.password.length > 64) {
+      arr.push({ name: "password", errorMessage: "Please input a shorter password." });
+    }
+
+    console.log(arr)
+
+    if (arr.length === 0) {
       this.login();
+    } else {
+      this.setState({ errors: arr });
     }
   }
 
@@ -100,6 +109,15 @@ class LoginPage extends Component {
       );
     }
 
+    let general = "";
+    if (this.state.errors) {
+      this.state.errors.forEach(el => {
+        if (el.name === "general") {
+          general = el.errorMessage;
+        }
+      });
+    }
+
     return (
       <div className="secondary-container">
         <div className="super-title padded-bottom">Login</div>
@@ -111,6 +129,7 @@ class LoginPage extends Component {
               name="username"
               obj={this.state}
               fn={this.handleChange}
+              errors={this.state.errors}
             />
             <Input
               label="Password"
@@ -118,19 +137,20 @@ class LoginPage extends Component {
               password={true}
               obj={this.state}
               fn={this.handleChange}
+              errors={this.state.errors}
             />
 
 
-            <div style={this.state.error ?
-              { height: "30px", backgroundColor: "var(--green)", display: "flex", flexDirection: "row", justifyContent: "center" } :
+            <div className="errormsg" style={general ?
+              { height: "30px", display: "flex", flexDirection: "row", justifyContent: "center" } :
               { height: "30px" }}>
-              {this.state.error}
+              {general}
             </div>
 
 
 
             <div style={{ marginTop: "50px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <Button button={true} value="Login" fn={this.validate} />
+              <Button value="Login" fn={this.validate} />
               {/* <Button value="New" fn={this.createNewAccount} />
               <Button value="Delete" fn={this.deleteAccount} /> */}
             </div>

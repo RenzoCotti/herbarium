@@ -19,6 +19,7 @@ const SelectColours = props => {
       ))}
       fn={props.fn}
       obj={props.obj}
+      errors={props.errors}
     />
   );
 };

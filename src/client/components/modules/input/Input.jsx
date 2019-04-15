@@ -15,24 +15,38 @@ const Input = props => {
   let temp = stringOrEmpty(props.obj, props.name);
   // let val = temp && isNaN(temp) ? capitalise(temp) : temp;
 
+  let error = "";
+  if (props.errors) {
+    props.errors.forEach(el => {
+      if (el.name === props.name) {
+        if (el.errorMessage && el.errorMessage.length > 0) {
+          error = el.errorMessage;
+        } else {
+          error = "Please insert a value.";
+        }
+      }
+    });
+  }
+
   return (
     <div className="row-table">
-      {props.label ? (
-        <div className="label-table sub-title">{props.label}</div>
-      ) : (
-        ""
-      )}
+      <div className="label-table sub-title">{props.label}</div>
       <div className="content-table">
-        <input
-          className={props.text ? "input shortForm" : "input"}
-          type={props.password ? "password" : "text"}
-          name={props.name}
-          onChange={props.fn}
-          value={temp}
-          autoComplete="off"
-          required={props.required}
-        />
-        {props.text ? props.text : ""}
+        <div className="content-inner">
+          <input
+            className={props.text ? "input shortForm" : "input"}
+            type={props.password ? "password" : "text"}
+            name={props.name}
+            onChange={props.fn}
+            value={temp}
+            autoComplete="off"
+            required={props.required}
+          />
+          {props.text ? props.text : ""}
+        </div>
+        <div className="errormsg">
+          {error}
+        </div>
       </div>
     </div>
   );
