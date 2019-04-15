@@ -21,7 +21,7 @@ class Search extends Component {
     let res = await req.json();
 
     if (res.list.length === 0) {
-      this.setState({ notFound: true })
+      this.setState({ error: "No plants found." })
     } else if (res.tokens.length === 0) {
       //list of plants, no keyword provided
       this.props.updateList(res.list);
@@ -49,18 +49,19 @@ class Search extends Component {
     }
   }
 
-  async getRandom(e) {
-    e.preventDefault();
+  async getRandom() {
     this.fetchPlant("/api/plant/random");
   }
 
-  async getAll(e) {
-    e.preventDefault();
+  async getAll() {
     this.fetchPlant("/api/plant/all");
   }
 
-  onSubmit(e) {
-    e.preventDefault();
+  onSubmit() {
+    if (!this.state.query) {
+      this.setState({ error: "Please input a query." })
+      return;
+    }
     this.fetchPlant("/api/plant/search/" + this.state.query);
   }
 
@@ -82,18 +83,13 @@ class Search extends Component {
             onChange={this.handleChange}
             autoComplete="off"
           />
+          <div className="errormsg" style={{ height: "30px" }}> {this.state.error} </div>
           <div style={{ display: "flex", flexDirection: "row" }}>
             <Button value="Search" fn={this.onSubmit} />
             <Button value="Random" fn={this.getRandom} />
             <Button value="All" fn={this.getAll} />
           </div>
         </form>
-
-        {this.state.notFound ? (
-          <div>No such plant found.</div>
-        ) : (
-            <div />
-          )}
       </div>
     );
   }

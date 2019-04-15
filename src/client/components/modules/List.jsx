@@ -56,10 +56,12 @@ class List extends Component {
   }
 
   render() {
-    if (!this.props.list) return <Redirect push to="/" />;
+    if (!this.props.list) { return <Redirect push to="/" />; }
 
-    if (this.state.redirect)
-      return <Redirect push to="/plant/" />;
+    if (this.state.redirect) { return <Redirect push to="/plant/" />; }
+
+
+    console.log(this.props.list)
 
 
     return (
