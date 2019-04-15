@@ -14,6 +14,11 @@
   color: var(--yellow);
 }
 
+.foot-note {
+  font-size: 8pt;
+  font-style: italic;
+}
+
 .errormsg {
   color: #bb0000;
   font-size: 12pt;
