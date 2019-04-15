@@ -33,6 +33,8 @@ class Properties extends Component {
       arr.push(temp[k]);
     }
 
+    console.log(arr)
+
     return arr.map(use => {
       return (
         <React.Fragment key={use.part}>

@@ -10,8 +10,8 @@ const SelectColours = props => {
       name={props.name}
       customArr={definitions.colours.map(o => (
         <option
-          value={o}
-          key={o}
+          value={capitalise(o)}
+          key={capitalise(o)}
           data-icon={"./public/images/colours/" + o + ".png"}
         >
           {capitalise(toColour(o))}

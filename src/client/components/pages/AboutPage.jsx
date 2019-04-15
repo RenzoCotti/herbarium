@@ -9,7 +9,7 @@ const AboutPage = props => (
       make identification easier.
       <br />
       <br />
-      Powered by React/Redux and Node.js
+      <div className="sub-title">Powered by React/Redux and Node.js</div>
     </div>
   </div>
 );

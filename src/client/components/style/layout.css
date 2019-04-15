@@ -17,6 +17,12 @@
   /* box-shadow: 0px 0px 5px rgba(var(--background), 0.8); */
 }
 
+@media (max-width: 900px) {
+  .main-container {
+    margin: 0 0 0 200px;
+  }
+}
+
 .main-container::-webkit-scrollbar {
   width: 0px;
 }

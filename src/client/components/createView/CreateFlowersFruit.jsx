@@ -2,6 +2,7 @@ import React from "react";
 import definitions from "../../../utility/definitions";
 
 import TextArea from "../modules/input/TextArea";
+import Input from "../modules/input/Input";
 import MultiSelect from "../modules/input/MultiSelect";
 import SelectColours from "../modules/input/SelectColours";
 
@@ -44,6 +45,14 @@ const CreateFlowersFruit = props => (
       name="harvestMonth"
       arr={definitions.months}
       fn={props.select}
+      obj={props.obj}
+      errors={props.errors}
+    />
+    <Input
+      label="Fruit Size: "
+      name="fruitSize"
+      text="cm"
+      fn={props.change}
       obj={props.obj}
       errors={props.errors}
     />

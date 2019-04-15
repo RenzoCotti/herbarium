@@ -13,6 +13,14 @@ class CreatePage extends Component {
 
   async onSubmit(toSend) {
 
+    //clean up empty keys
+    for (let k of Object.keys(toSend)) {
+      if (!toSend[k]) {
+        toSend[k] = undefined;
+        delete toSend[k];
+      }
+    }
+
     let req = await fetch("/api/plant/new", {
       method: "POST",
       headers: {
@@ -35,7 +43,7 @@ class CreatePage extends Component {
     if (this.state.created) return <Redirect push to="/plant" />;
 
     return (
-      < React.Fragment > <ModifyPlant fn={this.onSubmit} edit={true} />
+      < React.Fragment > <ModifyPlant fn={this.onSubmit} />
         {this.state.error ? <div>Error updating.</div> : ""}
       </React.Fragment >)
   }

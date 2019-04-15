@@ -101,9 +101,12 @@ class LoginPage extends Component {
     //the user is logged in
     if (this.props.login) {
       return (
-        <div className="secondary-container">
-          Logged in. <br />
-          <br />
+        <div className="secondary-container" style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center"
+        }}>
+          <div style={{ marginBottom: "20px", textAlign: "center" }}>Logged in.</div>
           <Button value="Logout" fn={this.logout} />
         </div>
       );

@@ -20,23 +20,26 @@ const Select = props => {
     });
   }
 
+  console.log(val)
+  console.log(props.arr)
+
   return (
     <div className="row-table">
       <div className="label-table sub-title">{props.label}</div>
       <div className="content-table">
         <div className="content-inner">
           <MaterializeSelect onChange={v => props.fn(v, props.name)} value={val}>
-            <option value="" disabled />
+            <option value="" />
             {props.customArr
               ? props.customArr
               : props.arr.map(o => {
                 if (props.link) {
-                  return <option value={o} key={o} data-icon={"./public/images/" + props.link + o + ".png"}
+                  return <option value={capitalise(o)} key={capitalise(o)} data-icon={"./public/images/" + props.link + o + ".png"}
                   >
                     {capitalise(o)}
                   </option>
                 } else {
-                  return <option value={o} key={o} >
+                  return <option value={capitalise(o)} key={capitalise(o)} >
                     {capitalise(o)}
                   </option>
                 }

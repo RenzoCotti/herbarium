@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getLogin, updatePlant, updateEdit } from "../../redux/actions";
 import { Redirect } from "react-router";
-import definitions from "../../../utility/definitions";
 
 import CreateGeneral from "../createView/CreateGeneral";
 import CreateStem from "../createView/CreateStem";
@@ -142,12 +141,11 @@ class ModifyPlant extends Component {
     if (this.state.fruitDescription && this.state.fruitDescription.length > 150) {
       arr.push({ name: "fruitDescription", errorMessage: "Please insert a shorter description." })
     }
-    if (!this.state.fruitSize) {
-      arr.push({ name: "fruitSize" })
-    } else if (isNaN(this.state.fruitSize)) {
+
+    if (this.state.fruitSize && isNaN(this.state.fruitSize)) {
       arr.push({ name: "fruitSize", errorMessage: "Only numbers please." })
-    } else if (this.state.fruitSize > 300 || this.state.fruitSize < 0) {
-      arr.push({ name: "fruitSize", errorMessage: "Please insert a value between 0-300 metres." })
+    } else if (this.state.fruitSize && (this.state.fruitSize > 300 || this.state.fruitSize < 0)) {
+      arr.push({ name: "fruitSize", errorMessage: "Please insert a value between 0-300 ccentimetres." })
     }
 
     if (arr.length === 0) {
@@ -202,6 +200,8 @@ class ModifyPlant extends Component {
       return <Redirect push to="/" />;
     }
 
+
+    console.log(this.state)
     return (
       <div style={{ width: "100%", padding: "50px" }}>
         <div className="super-title padded-bottom">

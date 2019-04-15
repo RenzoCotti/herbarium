@@ -34,7 +34,7 @@ app.use(
     secret: config.sessionSecret,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true, maxAge: 1000 * 60 * 30 }
+    cookie: { secure: true, maxAge: 1000 * 60 * 60 * 24 }
   })
 );
 
