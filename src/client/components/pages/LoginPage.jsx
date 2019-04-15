@@ -6,7 +6,7 @@ import Button from "../modules/input/Button";
 
 class LoginPage extends Component {
   //initialise the state for controlled component
-  state = { username: "", password: "" };
+  state = { username: "", password: "", error: "" };
 
   constructor(props) {
     super(props);
@@ -16,6 +16,7 @@ class LoginPage extends Component {
     this.deleteAccount = this.deleteAccount.bind(this);
     this.createNewAccount = this.createNewAccount.bind(this);
     this.logout = this.logout.bind(this);
+    this.validate = this.validate.bind(this);
   }
 
   handleChange(e) {
@@ -40,13 +41,12 @@ class LoginPage extends Component {
       this.setState({ username: "", password: "" });
       this.props.updateLogin(true);
     } else if (res.toLowerCase() === "nope") {
-      this.setState({ invalid: true });
+      this.setState({ error: "Invalid credentials." })
     }
     return res;
   }
 
-  async login(ev) {
-    ev.preventDefault();
+  async login() {
     await this.postRequest("/api/admin/login");
   }
 
@@ -72,6 +72,20 @@ class LoginPage extends Component {
     let req = await fetch("/api/admin/logout");
     let res = await req.text();
     if (res === "logout") this.props.updateLogin(false);
+  }
+
+  validate() {
+    console.log(this.state)
+    if (!this.state.username | this.state.username && this.state.username.length === 0) {
+      this.setState({ error: "Please input a username." })
+      return;
+    } else if (!this.state.password | this.state.password && this.state.password.length === 0) {
+      this.setState({ error: "Please input a password." })
+      return;
+    } else {
+      this.setState({ error: "" })
+      this.login();
+    }
   }
 
   render() {
@@ -107,8 +121,16 @@ class LoginPage extends Component {
             />
 
 
+            <div style={this.state.error ?
+              { height: "30px", backgroundColor: "var(--green)", display: "flex", flexDirection: "row", justifyContent: "center" } :
+              { height: "30px" }}>
+              {this.state.error}
+            </div>
+
+
+
             <div style={{ marginTop: "50px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <Button value="Login" fn={this.login} />
+              <Button button={true} value="Login" fn={this.validate} />
               {/* <Button value="New" fn={this.createNewAccount} />
               <Button value="Delete" fn={this.deleteAccount} /> */}
             </div>
@@ -116,7 +138,6 @@ class LoginPage extends Component {
           </form>
         </div>
 
-        <div>{this.state.invalid ? "Invalid credentials." : ""}</div>
       </div>
     );
   }
