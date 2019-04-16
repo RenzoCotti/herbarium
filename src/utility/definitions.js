@@ -105,7 +105,8 @@ let temp = {
     "vines",
     "ferns",
     "algae",
-    "moss"
+    "moss",
+    "shrub"
     //add more?
   ],
   months: [

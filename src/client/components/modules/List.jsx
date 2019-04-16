@@ -28,6 +28,19 @@ class List extends Component {
 
   renderList(list) {
 
+    console.log(list)
+    if (list.length > 0 && list[0].count) {
+      list = list.sort((a, b) => {
+        if (a.commonName == b.commonName) {
+          return 0;
+        } else {
+          return a.commonName < b.commonName ? -1 : 1;
+        }
+      })
+    }
+
+    console.log(list)
+
     return list.map((plant, index) => {
       // console.log(plant);
       return (
@@ -47,7 +60,7 @@ class List extends Component {
           />
           <span className="label-list padded-left">
             {/*for debug purposes added plant.count*/}
-            {capitalise(plant.latinName) +
+            {capitalise(plant.commonName) +
               (plant.count ? " - " + plant.count : "")}
           </span>
         </div>

@@ -32,5 +32,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  position: relative;
+  z-index: -2;
   /* background-position: left top; */
 }
