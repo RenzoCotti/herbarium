@@ -1,7 +1,7 @@
 //modules import
 const express = require("express");
 const path = require("path");
-const https = require("https");
+const http = require("https");
 const fs = require("fs");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -9,13 +9,13 @@ const session = require("express-session");
 
 //constants for server
 const app = express();
-const config = require("./config/config");
-const creds = {
-  key: fs.readFileSync(__dirname + "/config/certs/server.key"),
-  cert: fs.readFileSync(__dirname + "/config/certs/server.crt")
-};
+// const config = require("./config/config");
+// const creds = {
+//   key: fs.readFileSync(__dirname + "/config/certs/server.key"),
+//   cert: fs.readFileSync(__dirname + "/config/certs/server.crt")
+// };
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 //setting up mongoose
 mongoose.connect(config.dbURL, {
@@ -53,6 +53,6 @@ const adminRouter = require("./router/adminRouter");
 app.use("/api/plant", plantRouter);
 app.use("/api/admin", adminRouter);
 
-var httpsServer = https.createServer(creds, app);
+var httpServer = http.createServer(creds, app);
 
-httpsServer.listen(process.env.PORT || 443);
+httpServer.listen(process.env.PORT || 443);
