@@ -7,7 +7,7 @@
     "build": "webpack --mode production",
     "start": "set HTTPS=true&&npm run server",
     "client": "webpack-dev-server --mode development --https --devtool inline-source-map --hot",
-    "server": "node src/server/server.js",
+    "server": "ls",
     "dev": "set HTTPS=true&&concurrently \"npm run server\" \"npm run client\"",
     "seed": "node src/server/models/seed.js"
   },
