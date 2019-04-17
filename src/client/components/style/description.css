@@ -23,25 +23,6 @@
   flex-wrap: wrap-reverse;
 }
 
-/*entry in a list of plants*/
-.entry-list {
-  display: flex;
-  align-items: center;
-  color: var(--yellow);
-}
-
-.entry-list:hover {
-  background-color: var(--green);
-  cursor: pointer;
-}
-
-.list-container {
-  max-height: 600px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
 .link:hover {
   color: var(--yellow);
   cursor: pointer;
@@ -49,12 +30,12 @@
 
 /**IMAGE LIST*/
 
-.image-list {
+.item-list {
   width: 500px;
   display: flex;
   flex-direction: column;
 }
-.image-list-entry {
+.item-list-entry {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -62,11 +43,11 @@
   background-color: var(--background);
 }
 
-.image-list-label {
+.item-list-label {
   flex: 1;
 }
 
-.image-list-label:hover {
+.item-list-label:hover {
   cursor: pointer;
   background-color: var(--green);
 }

@@ -3,14 +3,14 @@ import Button from "./input/Button";
 import { capitalise } from "../../../utility/utility";
 
 const ItemList = props => {
-  if (!props.list) return <div className="image-list margin-bottom" />;
+  if (!props.list) return <div className="item-list margin-bottom" />;
 
   let temp = props.list.map((el, index) => {
     return (
-      <div className="image-list-entry" key={index}>
+      <div className="item-list-entry" key={index}>
         <div
           onClick={props.set}
-          className="image-list-label padded"
+          className="item-list-label padded"
           index={index}
         >
           {props.name
@@ -22,7 +22,7 @@ const ItemList = props => {
     );
   });
 
-  return <div className="image-list margin-bottom">{temp}</div>;
+  return <div className="item-list margin-bottom">{temp}</div>;
 };
 
 export default ItemList;

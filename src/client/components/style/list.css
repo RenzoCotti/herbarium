@@ -1,0 +1,26 @@
+/*entry in a list of plants*/
+.entry-list {
+  display: flex;
+  align-items: center;
+  color: var(--yellow);
+}
+
+.entry-list:hover {
+  background-color: var(--green);
+  cursor: pointer;
+}
+
+.list-container {
+  height: 500px;
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.list-pages {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
