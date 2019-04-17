@@ -9,7 +9,7 @@ import "./style/description.css";
 import "./style/general.css";
 import "./style/input.css";
 import "./style/layout.css";
-import "./style/media.css";
+// import "./style/media.css";
 import "./style/table.css";
 import "./style/text.css";
 import "./style/list.css";
