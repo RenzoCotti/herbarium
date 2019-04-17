@@ -5,7 +5,7 @@
   "main": "src/server/server.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "npm run build && node src/server/server.js",
+    "start": "npm run build && node bundle.js",
     "client": "webpack-dev-server --mode development --https --devtool inline-source-map --hot",
     "server": "nodemon src/server/server.js",
     "dev": "set HTTPS=true&&concurrently \"npm run server\" \"npm run client\"",
