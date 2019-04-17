@@ -26,10 +26,7 @@ module.exports = {
           loader: "babel-loader"
         }
       },
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
-      },
+      { test: /\.css$/, loader: "style-loader!css-loader" },
       {
         test: /\.(jpg|png|woff|woff2|eot|ttf|svg)$/,
         loader: "url-loader?limit=100000"
