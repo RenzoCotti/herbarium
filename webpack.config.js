@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const ExtractTextWebpackPlugin = require("extract-text-webpack-plugin");
 
 const outputDirectory = "dist";
 
@@ -29,7 +29,9 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: ExtractTextWebpackPlugin.extract({
+          use: ["css-loader", "style-loader"],
+        }),
       },
       {
         test: /\.(jpg|png|woff|woff2|eot|ttf|svg)$/,
@@ -51,7 +53,7 @@ module.exports = {
 
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
-    new CaseSensitivePathsPlugin(),
+    new ExtractTextWebpackPlugin("styles.css"),
     new HtmlWebpackPlugin({
       template: "./public/index.html"
     })
