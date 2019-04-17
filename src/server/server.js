@@ -53,6 +53,6 @@ const adminRouter = require("./router/adminRouter");
 app.use("/api/plant", plantRouter);
 app.use("/api/admin", adminRouter);
 
-var httpServer = http.createServer(creds, app);
+var httpServer = http.createServer(app);
 
 httpServer.listen(process.env.PORT || 443);
