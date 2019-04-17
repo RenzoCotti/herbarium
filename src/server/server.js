@@ -39,7 +39,7 @@ app.use(
 );
 
 // Serve the static files from the React app
-app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "dist")));
 //cache? to look into in the future, for images
 // app.use(express.static(path.join(__dirname, 'public'), {
 //   maxAge: cacheTime
