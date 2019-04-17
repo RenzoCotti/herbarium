@@ -20,9 +20,6 @@ const Select = props => {
     });
   }
 
-  console.log(val)
-  console.log(props.arr)
-
   return (
     <div className="row-table">
       <div className="label-table sub-title">{props.label}</div>

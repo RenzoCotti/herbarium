@@ -59,9 +59,9 @@ class List extends Component {
       // console.log(plant);
       return (
         <div
-          key={index}
+          key={begin + index}
           className="entry-list padded"
-          onClick={e => this.goToPlant(e, index)}
+          onClick={e => this.goToPlant(e, begin + index)}
         >
           {listMax ?
             <div style={{ width: "60px" }}>{Math.round(plant.count * 100 / listMax) + "%"}</div>
@@ -90,7 +90,10 @@ class List extends Component {
     if (this.state.redirect) { return <Redirect push to="/plant/" />; }
 
 
-    console.log(this.props.list)
+    let temp = this.props.list;
+    temp.map(x => delete x._id && x.__v && x.uses.map(y => delete y._id) && x.images.map(y => delete y._id))
+
+    console.log(temp)
 
 
     return (

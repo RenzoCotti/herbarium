@@ -43,7 +43,7 @@ class AddUses extends Component {
       if (name === "type") {
         //wipe previous results
         this.setState({
-          type: e.target.value,
+          type: e.target.value.toLowerCase(),
           edibility: "",
           comment: "",
           medicalProperties: "",
@@ -91,8 +91,8 @@ class AddUses extends Component {
     };
 
 
-    if (use.title === "Other") {
-      temp.type = "Other"
+    if (use.title === "other") {
+      temp.type = "other"
       temp.title = use.title;
     } else {
       temp.type = use.title
@@ -110,13 +110,13 @@ class AddUses extends Component {
       title: this.state.type
     };
     switch (this.state.type) {
-      case "Edibility":
+      case "edibility":
         entry.edibility = this.state.edibility;
         break;
-      case "Medical":
+      case "medical":
         entry.medicalProperties = this.state.medicalProperties;
         break;
-      case "Other":
+      case "other":
         entry.title = this.state.title;
         break;
       default:
@@ -141,13 +141,13 @@ class AddUses extends Component {
       title: this.state.type
     };
     switch (this.state.type) {
-      case "Edibility":
+      case "edibility":
         entry.edibility = this.state.edibility;
         break;
-      case "Medical":
+      case "medical":
         entry.medicalProperties = this.state.medicalProperties;
         break;
-      case "Other":
+      case "other":
         entry.title = this.state.title;
         break;
       default:
@@ -184,17 +184,17 @@ class AddUses extends Component {
         arr.push({ name: "type" })
       } else {
         switch (this.state.type) {
-          case "Edibility":
+          case "edibility":
             if (!this.state.edibility) {
               arr.push({ name: "edibility" })
             }
             break;
-          case "Medical":
+          case "medical":
             if (!this.state.medicalProperties || this.state.medicalProperties.length === 0) {
               arr.push({ name: "medicalProperties" })
             }
             break;
-          case "Other":
+          case "other":
             if (!this.state.title) {
               arr.push({ name: "title" })
             } else if (this.state.title.length > 32) {
@@ -252,7 +252,7 @@ class AddUses extends Component {
               ""
             )}
 
-          {this.state.type === "Edibility" ? (
+          {this.state.type === "edibility" ? (
             <Select
               label="Edibile: *"
               name="edibility"
@@ -264,7 +264,7 @@ class AddUses extends Component {
           ) : (
               ""
             )}
-          {this.state.type === "Medical" ? (
+          {this.state.type === "medical" ? (
             <MultiSelect
               label="Medical Properties: *"
               name="medicalProperties"
@@ -276,7 +276,7 @@ class AddUses extends Component {
           ) : (
               ""
             )}
-          {this.state.type === "Other" ? (
+          {this.state.type === "other" ? (
             <Input
               label="Title: *"
               name="title"
