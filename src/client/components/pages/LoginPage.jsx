@@ -17,6 +17,7 @@ class LoginPage extends Component {
     this.createNewAccount = this.createNewAccount.bind(this);
     this.logout = this.logout.bind(this);
     this.validate = this.validate.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   handleChange(e) {
@@ -24,6 +25,12 @@ class LoginPage extends Component {
     this.setState({
       [name]: e.target.value
     });
+  }
+
+  handleKeyDown(e) {
+    if (e.key === 'Enter') {
+      this.validate()
+    }
   }
 
   async postRequest(url) {
@@ -88,8 +95,6 @@ class LoginPage extends Component {
       arr.push({ name: "password", errorMessage: "Please input a shorter password." });
     }
 
-    console.log(arr)
-
     if (arr.length === 0) {
       this.login();
     } else {
@@ -126,7 +131,7 @@ class LoginPage extends Component {
         <div className="super-title padded-bottom">Login</div>
 
         <div className="table-container">
-          <form>
+          <form onKeyDown={this.handleKeyDown}>
             <Input
               label="Username"
               name="username"

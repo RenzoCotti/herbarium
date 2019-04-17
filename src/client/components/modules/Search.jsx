@@ -58,7 +58,7 @@ class Search extends Component {
     this.fetchPlant("/api/plant/all");
   }
 
-  handleKeyDown = (e) => {
+  handleKeyDown(e) {
     if (e.key === 'Enter') {
       this.onSubmit()
     }
