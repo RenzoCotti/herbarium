@@ -1,0 +1,53 @@
+/*buttons for edit and delete*/
+.modify-plant {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 200px;
+}
+
+/*header containing title and buttons*/
+.desc-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+}
+
+/*makes the plant view wrap on shrink*/
+.plant-detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
+}
+
+.link:hover {
+  color: var(--yellow);
+  cursor: pointer;
+}
+
+/**IMAGE LIST*/
+
+.item-list {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+.item-list-entry {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: var(--background);
+}
+
+.item-list-label {
+  flex: 1;
+}
+
+.item-list-label:hover {
+  cursor: pointer;
+  background-color: var(--green);
+}

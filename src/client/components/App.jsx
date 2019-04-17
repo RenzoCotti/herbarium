@@ -4,15 +4,16 @@ import { connect } from "react-redux";
 import { updateLogin } from "../redux/actions";
 
 //styles
-import "./style/categories.css";
-import "./style/description.css";
-import "./style/general.css";
-import "./style/input.css";
-import "./style/layout.css";
-// import "./style/media.css";
-import "./style/table.css";
-import "./style/text.css";
-import "./style/list.css";
+import "../../../public/style/categories.css";
+import "../../../public/style/description.css";
+import "../../../public/style/general.css";
+import "../../../public/style/input.css";
+import "../../../public/style/layout.css";
+import "../../../public/style/media.css";
+import "../../../public/style/main.css";
+import "../../../public/style/table.css";
+import "../../../public/style/text.css";
+import "../../../public/style/list.css";
 
 
 //component pages

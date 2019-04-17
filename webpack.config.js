@@ -6,7 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const outputDirectory = "dist";
 
 module.exports = {
-  entry: ["babel-polyfill", "./src/client/index.js", "./public/style.css"],
+  entry: ["babel-polyfill", "./src/client/index.js"],
   output: {
     path: path.join(__dirname, outputDirectory),
     filename: "bundle.js"
@@ -50,7 +50,7 @@ module.exports = {
     open: true,
     proxy: {
       "/api": {
-        target: "https://localhost:443",
+        target: "https://localhost:5000",
         secure: false,
         changeOrigin: true
       }
@@ -63,9 +63,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/index.html"
     }),
-
   ],
   resolve: {
     extensions: [".js", ".jsx"]
-  }
+  },
+  target: 'node',
+  node: {
+    __dirname: false,
+  },
 };

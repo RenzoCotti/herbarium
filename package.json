@@ -5,11 +5,12 @@
   "main": "src/server/server.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "set HTTPS=true&&npm run server",
+    "start": "set NODE_ENV=production&npm run build && npm run server",
     "client": "webpack-dev-server --mode development --https --devtool inline-source-map --hot",
     "server": "node src/server/server.js",
-    "dev": "set HTTPS=true&&concurrently \"npm run server\" \"npm run client\"",
-    "seed": "node src/server/models/seed.js"
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "seed": "node src/server/models/seed.js",
+    "heroku-postbuild": "npm install && npm run build"
   },
   "author": "Renzo Cotti",
   "license": "ISC",
@@ -17,6 +18,8 @@
     "babel-polyfill": "^6.26.0",
     "bcrypt": "^3.0.5",
     "body-parser": "^1.18.3",
+    "connect-mongo": "^2.0.3",
+    "cross-env": "^5.2.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "express": "^4.16.4",

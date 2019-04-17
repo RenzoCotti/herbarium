@@ -1,11 +1,11 @@
 //modules import
 const express = require("express");
 const path = require("path");
-const http = require("https");
-const fs = require("fs");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+
 
 //constants for server
 const app = express();
@@ -34,12 +34,13 @@ app.use(
     secret: config.sessionSecret,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true, maxAge: 1000 * 60 * 60 * 24 }
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    cookie: { secure: true, maxAge: 1000 * 60 * 60 * 4 }
   })
 );
 
 // Serve the static files from the React app
-app.use(express.static(path.join(__dirname, "dist")));
+// app.use(express.static(path.join(__dirname, "../../dist")));
 //cache? to look into in the future, for images
 // app.use(express.static(path.join(__dirname, 'public'), {
 //   maxAge: cacheTime
@@ -50,9 +51,28 @@ app.use(bodyParser.json());
 const plantRouter = require("./router/plantRouter");
 const adminRouter = require("./router/adminRouter");
 
+
+
 app.use("/api/plant", plantRouter);
 app.use("/api/admin", adminRouter);
 
-var httpServer = http.createServer(app);
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.resolve('dist')));
 
-httpServer.listen(process.env.PORT || 443);
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve('dist/index.html'));
+  });
+}
+
+
+
+// app.use(express.static(__dirname + '../../dist'));
+
+// app.use(function (req, res) {
+//   res.sendFile(__dirname + '../../index.html')
+// });
+
+let port = process.env.PORT || 5000;
+
+app.listen(port);
+console.log(`Server running on port ${port}!`)
