@@ -50,6 +50,7 @@ module.exports = {
 
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
+    new CaseSensitivePathsPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/index.html"
     })
