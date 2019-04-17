@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 const outputDirectory = "dist";
 
