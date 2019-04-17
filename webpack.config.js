@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const outputDirectory = "dist";
 
@@ -26,12 +27,23 @@ module.exports = {
           loader: "babel-loader"
         }
       },
-      { test: /\.css$/, loader: "style-loader!css-loader" },
+      {
+        test: /\.css$/,
+        use:
+          ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [{
+              loader: 'css-loader'
+            }]
+
+          })
+
+      },
       {
         test: /\.(jpg|png|woff|woff2|eot|ttf|svg)$/,
         loader: "url-loader?limit=100000"
       }
-    ]
+    ],
   },
   devServer: {
     port: 3000,
@@ -46,10 +58,12 @@ module.exports = {
   },
 
   plugins: [
+    new ExtractTextPlugin({ filename: 'bundle.css' }),
     new CleanWebpackPlugin([outputDirectory]),
     new HtmlWebpackPlugin({
       template: "./public/index.html"
-    })
+    }),
+
   ],
   resolve: {
     extensions: [".js", ".jsx"]
