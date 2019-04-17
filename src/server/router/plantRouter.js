@@ -2,6 +2,16 @@ const express = require("express");
 const router = express.Router();
 const Plant = require("../models/plantModel");
 
+function sortPlants(plants) {
+  return plants.sort((a, b) => {
+    if (a.commonName == b.commonName) {
+      return 0;
+    } else {
+      return a.commonName < b.commonName ? -1 : 1;
+    }
+  });
+}
+
 //general search over the keywords of each plant
 router.get("/search/:string", (req, res) => {
   let arr = req.params.string.toLowerCase().split(" ");
@@ -24,7 +34,7 @@ router.get("/search/:string", (req, res) => {
 router.get("/category/:category/:name", (req, res) => {
   Plant.find(
     { [req.params.category]: new RegExp("^" + req.params.name + "$", "i") },
-    (err, list) => {
+    (err, plants) => {
       if (err) return console.log(err);
       console.log(
         "Retrieved " +
@@ -32,10 +42,10 @@ router.get("/category/:category/:name", (req, res) => {
         " - " +
         req.params.name +
         ". " +
-        list.length +
+        plants.length +
         " result(s)."
       );
-      return res.json({ list: list, tokens: [] });
+      return res.json({ list: sortPlants(plants), tokens: [] });
     }
   );
 });
@@ -110,7 +120,7 @@ router.get("/all", (req, res) => {
   Plant.find({}, (err, plants) => {
     if (err) return console.log(err);
     console.log("Fetching all plants");
-    return res.json({ list: plants, tokens: [] });
+    return res.json({ list: sortPlants(plants), tokens: [] });
   });
 });
 

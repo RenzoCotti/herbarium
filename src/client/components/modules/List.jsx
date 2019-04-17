@@ -30,17 +30,6 @@ class List extends Component {
     }
 
     this.setState({ max: Math.ceil(this.props.list.length / this.state.perPage) })
-
-
-    // if (list.length > 0 && list[0].count) {
-    //   list = list.sort((a, b) => {
-    //     if (a.commonName == b.commonName) {
-    //       return 0;
-    //     } else {
-    //       return a.commonName < b.commonName ? -1 : 1;
-    //     }
-    //   })
-    // }
   }
 
   async goToPlant(e, i) {
@@ -64,6 +53,8 @@ class List extends Component {
     let begin = this.state.perPage * this.state.page - this.state.perPage;
     list = list.slice(begin, begin + this.state.perPage)
 
+    let listMax = this.props.list[0].count;
+
     return list.map((plant, index) => {
       // console.log(plant);
       return (
@@ -72,6 +63,10 @@ class List extends Component {
           className="entry-list padded"
           onClick={e => this.goToPlant(e, index)}
         >
+          {listMax ?
+            <div style={{ width: "60px" }}>{Math.round(plant.count * 100 / listMax) + "%"}</div>
+            : ""
+          }
           <img
             src={
               plant.images[0]
@@ -82,9 +77,7 @@ class List extends Component {
             alt=""
           />
           <span className="label-list padded-left">
-            {/*for debug purposes added plant.count*/}
-            {capitalise(plant.commonName) +
-              (plant.count ? " - " + plant.count : "")}
+            {capitalise(plant.commonName)}
           </span>
         </div>
       );
