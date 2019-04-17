@@ -9,7 +9,7 @@ const session = require("express-session");
 
 //constants for server
 const app = express();
-// const config = require("./config/config");
+const config = require("./config");
 // const creds = {
 //   key: fs.readFileSync(__dirname + "/config/certs/server.key"),
 //   cert: fs.readFileSync(__dirname + "/config/certs/server.crt")
