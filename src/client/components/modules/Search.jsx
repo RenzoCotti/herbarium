@@ -64,7 +64,8 @@ class Search extends Component {
     }
   }
 
-  onSubmit() {
+  onSubmit(e) {
+    if (e) e.preventDefault();
     if (!this.state.query) {
       this.setState({ error: "Please input a query." })
       return;
@@ -83,7 +84,7 @@ class Search extends Component {
       <div className="secondary-container">
         <div className="super-title padded-bottom">Search</div>
         <div className="sub-title padded-top">Enter your search:</div>
-        <form>
+        <form onSubmit={this.onSubmit}>
           <input
             className="search"
             type="text"
