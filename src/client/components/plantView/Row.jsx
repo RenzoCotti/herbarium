@@ -4,11 +4,12 @@ import { capitalise } from "../../../utility/utility";
 //if toRender isnt null, render alt if is not null, otherwise render toRender
 //otherwise, don't render anything
 
+
 const Row = props => {
   if (props.toRender) {
     if (Array.isArray(props.toRender) && props.toRender.length === 0) return null;
 
-    let str = "./public/images" + props.link + props.toRender + ".png";
+    let str = props.toRender + ".png";
 
     let leave = (e) => document.getElementById(props.toRender).style.display = "none";
     let enter = (e) => document.getElementById(props.toRender).style.display = "block";

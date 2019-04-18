@@ -9,7 +9,6 @@ const MongoStore = require("connect-mongo")(session);
 
 //constants for server
 const app = express();
-const config = require("./config");
 // const creds = {
 //   key: fs.readFileSync(__dirname + "/config/certs/server.key"),
 //   cert: fs.readFileSync(__dirname + "/config/certs/server.crt")
@@ -18,10 +17,10 @@ const config = require("./config");
 // process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 //setting up mongoose
-mongoose.connect(config.dbURL, {
+mongoose.connect(process.env.dbURL, {
   auth: {
-    user: config.uname,
-    password: config.pword
+    user: process.env.uname,
+    password: process.env.pword
   },
   useNewUrlParser: true
 });
@@ -31,7 +30,7 @@ mongoose.Promise = global.Promise;
 //cookie of 5 min
 app.use(
   session({
-    secret: config.sessionSecret,
+    secret: process.env.sessionSecret,
     resave: false,
     saveUninitialized: true,
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
@@ -58,6 +57,8 @@ app.use("/api/admin", adminRouter);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.resolve('dist')));
+  app.use(express.static(path.resolve('public')));
+
 
   app.get("*", (req, res) => {
     res.sendFile(path.resolve('dist/index.html'));

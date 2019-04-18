@@ -1,10 +1,10 @@
 import React from "react";
+import leaf from "../../../../public/images/leaf.png"
 
 const HomePage = props => {
   return (
     <React.Fragment>
-      <img src="images/leaf.png" className="leaf-home" />
-      <img src="images/leaf.png" className="leaf-over" />
+      <img src={leaf} className="leaf-home" />
       <div className="home">Herbarium</div>
     </React.Fragment>
   );

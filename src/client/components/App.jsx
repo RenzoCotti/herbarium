@@ -16,6 +16,10 @@ import "../../../public/style/text.css";
 import "../../../public/style/list.css";
 
 
+
+import '../../../public/images/leaf192.png';
+
+
 //component pages
 import Navbar from "./general/Navbar";
 import Search from "./modules/Search";
@@ -30,9 +34,15 @@ import CreatePage from "./pages/CreatePage";
 import LoginPage from "./pages/LoginPage";
 import EditPage from "./pages/EditPage";
 
+function requireAll(r) { r.keys().forEach(r); }
+
+
 class App extends Component {
   constructor(props) {
     super(props);
+
+    requireAll(require.context('../../../public/images/', true, /\.png$/));
+
 
     //sync backend and frontend for login status
     fetch("/api/admin/status")

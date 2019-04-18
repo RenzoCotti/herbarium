@@ -41,8 +41,9 @@ module.exports = {
       },
       {
         test: /\.(jpg|png|woff|woff2|eot|ttf|svg)$/,
-        loader: "url-loader?limit=100000"
-      }
+        loader: 'file-loader?name=[name].[ext]'  // <-- retain original file name
+      },
+
     ],
   },
   devServer: {
@@ -61,7 +62,9 @@ module.exports = {
     new ExtractTextPlugin({ filename: 'bundle.css' }),
     new CleanWebpackPlugin([outputDirectory]),
     new HtmlWebpackPlugin({
-      template: "./public/index.html"
+      template: "./public/index.html",
+      favicon: 'public/images/leaf192.png'
+
     }),
   ],
   resolve: {
