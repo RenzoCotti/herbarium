@@ -14,6 +14,7 @@ import "../../../public/style/main.css";
 import "../../../public/style/table.css";
 import "../../../public/style/text.css";
 import "../../../public/style/list.css";
+import "../../../public/style/responsive.css";
 
 
 

@@ -93,7 +93,7 @@ class Search extends Component {
             onKeyDown={this.handleKeyDown}
           />
           <div className="errormsg" style={{ height: "30px" }}> {this.state.error} </div>
-          <div style={{ display: "flex", flexDirection: "row" }}>
+          <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
             <Button value="Search" fn={this.onSubmit} />
             <Button value="Random" fn={this.getRandom} />
             <Button value="All" fn={this.getAll} />

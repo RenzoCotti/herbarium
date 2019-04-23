@@ -5,7 +5,6 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin: 0 200px;
   height: 100vh;
   overflow-y: auto;
 
@@ -15,12 +14,6 @@
 
   background-color: var(--background);
   /* box-shadow: 0px 0px 5px rgba(var(--background), 0.8); */
-}
-
-@media (max-width: 900px) {
-  .main-container {
-    margin: 0 0 0 200px;
-  }
 }
 
 .main-container::-webkit-scrollbar {
