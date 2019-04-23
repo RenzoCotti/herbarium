@@ -51,7 +51,7 @@ module.exports = {
     open: true,
     proxy: {
       "/api": {
-        target: "https://localhost:5000",
+        target: "http://localhost:5000",
         secure: false,
         changeOrigin: true
       }
@@ -69,9 +69,5 @@ module.exports = {
   ],
   resolve: {
     extensions: [".js", ".jsx"]
-  },
-  target: 'node',
-  node: {
-    __dirname: false,
-  },
+  }
 };
