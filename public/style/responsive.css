@@ -1,6 +1,7 @@
 @media (min-width: 500px) {
   html {
     font-size: 26pt !important;
+    font-weight: 300;
   }
   .main-container {
     margin: 0 0 0 200px;
@@ -44,5 +45,6 @@
 
   html {
     font-size: 16pt !important;
+    font-weight: 100;
   }
 }
