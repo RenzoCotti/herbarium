@@ -19,8 +19,9 @@
 .plant-detail {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap-reverse;
+  width: 100%;
 }
 
 .link:hover {

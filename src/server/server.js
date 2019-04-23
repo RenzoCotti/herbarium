@@ -9,10 +9,11 @@ const MongoStore = require("connect-mongo")(session);
 
 //constants for server
 const app = express();
-const config = {};
+var config = {};
 try {
   config = require("./config/config");
 } catch (e) {
+  console.log(e)
 }
 // const creds = {
 //   key: fs.readFileSync(__dirname + "/config/certs/server.key"),
@@ -69,14 +70,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve('dist/index.html'));
   });
 }
-
-
-
-// app.use(express.static(__dirname + '../../dist'));
-
-// app.use(function (req, res) {
-//   res.sendFile(__dirname + '../../index.html')
-// });
 
 let port = process.env.PORT || 5000;
 
