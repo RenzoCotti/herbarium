@@ -9,7 +9,12 @@ const MongoStore = require("connect-mongo")(session);
 
 //constants for server
 const app = express();
-const config = require("./config/config");
+const config;
+try {
+  config = require("./config/config");
+} catch (e) {
+  config = {};
+}
 // const creds = {
 //   key: fs.readFileSync(__dirname + "/config/certs/server.key"),
 //   cert: fs.readFileSync(__dirname + "/config/certs/server.crt")
