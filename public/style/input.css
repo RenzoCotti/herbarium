@@ -12,7 +12,7 @@
   font-size: 16pt !important;
   height: 1.5em !important;
   width: 90% !important;
-  font-family: "Montserrat", arial !important;
+  /* font-family: "Montserrat", arial !important; */
 }
 
 .createForm {

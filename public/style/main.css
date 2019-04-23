@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
-
 html {
   /*palette*/
   --text: wheat;
@@ -23,7 +21,6 @@ body {
 
   height: 100vh;
 
-  font-family: "Montserrat", arial !important;
   color: var(--text);
   font-size: 16pt !important;
   font-weight: 100;

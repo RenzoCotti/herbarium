@@ -6,11 +6,11 @@
 
 .title {
   font-size: 18pt;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .super-title {
-  font-weight: bold;
+  font-weight: 600;
   font-size: 24pt;
   color: var(--yellow);
 }
