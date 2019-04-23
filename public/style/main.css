@@ -22,7 +22,6 @@ body {
   height: 100vh;
 
   color: var(--text);
-  font-size: 16pt !important;
   font-weight: 100;
 
   background-image: url("../images/backgrounds/bg2.jpg");

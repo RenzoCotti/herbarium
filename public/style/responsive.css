@@ -1,14 +1,48 @@
-@media (min-width: 300px) {
+@media (min-width: 500px) {
+  html {
+    font-size: 26pt !important;
+  }
   .main-container {
     margin: 0 0 0 200px;
   }
   .secondary-container {
     min-width: 150px;
   }
+
+  .category-label {
+    width: 170px;
+    padding: 0;
+  }
+
+  .sub-title {
+    font-size: 20pt;
+    font-style: italic;
+    line-height: 1.5em;
+  }
+
+  .title {
+    font-size: 30pt;
+    font-weight: 600;
+  }
+
+  .super-title {
+    font-weight: 600;
+    font-size: 42pt;
+    color: var(--yellow);
+  }
+
+  .foot-note {
+    font-size: 18pt;
+    font-style: italic;
+  }
 }
 
 @media (min-width: 1200px) {
   .main-container {
     margin: 0 200px;
+  }
+
+  html {
+    font-size: 16pt !important;
   }
 }

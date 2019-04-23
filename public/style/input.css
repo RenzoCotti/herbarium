@@ -29,7 +29,7 @@
 }
 
 .select-wrapper input {
-  width: 90% !important;
+  width: 100% !important;
 }
 
 .selectColour option {
@@ -93,8 +93,6 @@
 
 .caret {
   fill: var(--text) !important;
-  position: relative;
-  right: 20px !important;
 }
 
 .search {
