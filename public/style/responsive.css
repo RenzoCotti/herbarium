@@ -1,6 +1,6 @@
 @media screen and (max-width: 800px) {
   html {
-    font-size: 26pt !important;
+    font-size: 20pt !important;
     font-weight: 400;
   }
   .main-container {
@@ -16,25 +16,25 @@
   }
 
   .sub-title {
-    font-size: 20pt;
+    font-size: 18pt;
     font-style: italic;
     font-weight: 500;
-    line-height: 1.5em;
+    /* line-height: 3em; */
   }
 
   .title {
-    font-size: 30pt;
+    font-size: 25pt;
     font-weight: 600;
   }
 
   .super-title {
     font-weight: 600;
-    font-size: 42pt;
+    font-size: 35pt;
     color: var(--yellow);
   }
 
   .foot-note {
-    font-size: 18pt;
+    font-size: 14pt;
     font-style: italic;
   }
 
@@ -76,7 +76,7 @@
     width: 150px;
     height: 150px;
     position: relative;
-    bottom: 100px;
+    bottom: 120px;
     left: -30px;
   }
 }
