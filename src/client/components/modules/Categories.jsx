@@ -38,6 +38,7 @@ class Categories extends Component {
   }
 
   changeList(e, apiName, name) {
+    // e.target.parentNode.childNodes[1].className = "test";
     this.setState({ selected: name, displaying: apiName });
   }
 
@@ -87,12 +88,14 @@ class Categories extends Component {
         <div className="category-list">
           {list.map(k => {
             return (
-              <div
-                className={this.getClass(k.name)}
-                onClick={e => this.changeList(e, k.apiName, k.name)}
-                key={k.apiName}
+              <div onClick={e => this.changeList(e, k.apiName, k.name)} key={k.apiName}
               >
-                {k.name}
+                <div
+                  className={this.getClass(k.name)}
+                >
+                  {k.name}
+                </div>
+                <div className={k.name === this.state.selected ? "" : "category-hidden-list"}>{this.displayList()}</div>
               </div>
             );
           })}
@@ -136,7 +139,6 @@ class Categories extends Component {
               <br />
             )}
         </div>
-        {this.displayList()}
       </React.Fragment>
     );
   }

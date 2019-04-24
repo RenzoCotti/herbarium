@@ -27,14 +27,13 @@
   flex-wrap: wrap;
   width: 300px;
   max-height: 450px;
-  border-left: 1px solid transparent;
-  padding: 30px !important;
-}
-
-.category-full {
-  border-left: 1px solid var(--text);
+  padding: 10px !important;
 }
 
 .category-selected {
   color: var(--yellow);
+}
+
+.category-hidden-list {
+  display: none;
 }
