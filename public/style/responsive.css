@@ -1,10 +1,11 @@
 @media screen and (max-width: 800px) {
   html {
-    font-size: 20pt !important;
+    font-size: 18pt !important;
     font-weight: 400;
   }
   .main-container {
     margin: 0;
+    padding-top: 50px;
   }
   .secondary-container {
     min-width: 150px;
@@ -16,25 +17,25 @@
   }
 
   .sub-title {
-    font-size: 18pt;
+    font-size: 16pt;
     font-style: italic;
     font-weight: 500;
     /* line-height: 3em; */
   }
 
   .title {
-    font-size: 25pt;
+    font-size: 23pt;
     font-weight: 600;
   }
 
   .super-title {
     font-weight: 600;
-    font-size: 35pt;
+    font-size: 33pt;
     color: var(--yellow);
   }
 
   .foot-note {
-    font-size: 14pt;
+    font-size: 12pt;
     font-style: italic;
   }
 
@@ -78,6 +79,14 @@
     position: relative;
     bottom: 120px;
     left: -30px;
+  }
+
+  /* .plant-detail {
+    margin-top: 50px;
+  } */
+  .secondary-image {
+    width: 60px;
+    height: 60px;
   }
 }
 
