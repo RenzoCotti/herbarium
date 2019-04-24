@@ -149,7 +149,10 @@ let temp = {
     "gray",
     "white"
   ],
-  stemTexture: ["smooth", "hairy", "woody", "smooth bark", "rough bark"]
+  edibility: ["yes", "no", "toxic"],
+  evergreen: ["yes", "no"],
+  stemTexture: ["smooth", "hairy", "woody", "smooth bark", "rough bark"],
+  height: [30, 20, 10, 5, 0],
 };
 
 temp.medicalProperties = []
@@ -164,5 +167,8 @@ temp.medicalProperties = []
   .sort(function (a, b) {
     return a == b ? 0 : a < b ? -1 : 1;
   });
+
+temp.harvestMonth, temp.bloomMonth = temp.months;
+temp.leafLength = temp.height;
 
 module.exports = temp;

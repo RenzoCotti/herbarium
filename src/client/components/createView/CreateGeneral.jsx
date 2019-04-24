@@ -42,7 +42,7 @@ const CreateGeneral = props => (
     <Select
       label="Evergreen: *"
       name="evergreen"
-      arr={["yes", "no"]}
+      arr={definitions.evergreen}
       fn={props.select}
       obj={props.obj}
       errors={props.errors}

@@ -51,7 +51,7 @@ class Media extends Component {
 
     let width = Math.round(list.length / 3);
 
-    return <div className="side-images" style={{ width: (width * 90) + "px" }}>{list}</div>
+    return <div className="side-images" style={{ width: ((width + 1) * 90) + "px" }}>{list}</div>
 
   }
 

@@ -45,17 +45,31 @@ class Categories extends Component {
   //displays a new list, from the current selected category
   displayList() {
     let current = this.state.displaying;
-    if (!current)
-      return <div className="category-content secondary-container " />;
+    if (!current) { return <div className="category-content secondary-container " />; }
 
+    let first = true;
     let list = definitions[current].map(k => {
+      let str = capitalise(k);
+      let url = capitalise(k);
+      if (!isNaN(k)) {
+        if (first === true) {
+          str = "> " + k;
+          url = k + "/" + k;
+        } else {
+          str = first + " - " + k;
+          url = first + "/" + k;
+        }
+        //basically we're saving the last value to use on the next row
+        first = k;
+      }
+
       return (
         <div
           className={this.getSelectedEntryClass(k)}
-          onClick={e => this.queryCategory(e, k)}
+          onClick={e => this.queryCategory(e, url)}
           key={k}
         >
-          <span className="link">{capitalise(k)}</span>
+          <span className="link">{str}</span>
         </div>
       );
     });
@@ -116,7 +130,8 @@ class Categories extends Component {
             { name: "Shape", apiName: "leafShape" },
             { name: "Margin", apiName: "leafMargin" },
             { name: "Venation", apiName: "leafVenation" },
-            { name: "Arrangement", apiName: "leafArrangement" }
+            { name: "Arrangement", apiName: "leafArrangement" },
+            { name: "Leaf Length (cm)", apiName: "leafLength" }
           ])}
 
           {this.renderSection("Medicinal", [
@@ -130,7 +145,14 @@ class Categories extends Component {
 
           {this.renderSection("Various", [
             { name: "Regions", apiName: "regions" },
-            { name: "Plant Type", apiName: "plantType" }
+            { name: "Plant Type", apiName: "plantType" },
+            { name: "Height (m)", apiName: "height" },
+            { name: "Evergreen", apiName: "evergreen" },
+            { name: "Edibility", apiName: "edibility" },
+            { name: "Colour", apiName: "colour" },
+            { name: "Stem Texture", apiName: "stemTexture" },
+            { name: "Bloom month", apiName: "bloomMonth" },
+            { name: "Harvest month", apiName: "harvestMonth" },
           ])}
 
           {this.state.notFound ? (

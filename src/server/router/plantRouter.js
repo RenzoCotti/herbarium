@@ -31,9 +31,21 @@ router.get("/search/:string", (req, res) => {
 });
 
 //retrieves all plant in a category
-router.get("/category/:category/:name", (req, res) => {
+router.get("/category/:category/:name/:opt", (req, res) => {
+  let query = {};
+  let name = req.params.name;
+  let opt = req.params.opt;
+  if (name && opt && name === opt) {
+    query = { [req.params.category]: { $gte: name } }
+  } else if (name && opt && !isNaN(name) && !isNaN(opt)) {
+    query = { [req.params.category]: { $lte: name, $gte: opt } }
+  }
+  else {
+    query = { [req.params.category]: new RegExp("^" + name + "$", "i") }
+  }
+
   Plant.find(
-    { [req.params.category]: new RegExp("^" + req.params.name + "$", "i") },
+    query,
     (err, plants) => {
       if (err) return console.log(err);
       console.log(

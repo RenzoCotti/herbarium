@@ -258,7 +258,7 @@ class AddUses extends Component {
               name="edibility"
               fn={this.handleSelect}
               obj={this.state}
-              arr={["Yes", "No", "Toxic"]}
+              arr={definitions.edibility}
               errors={this.state.errors}
             />
           ) : (
