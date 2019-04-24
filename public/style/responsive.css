@@ -88,6 +88,8 @@
 
   .short-button {
     width: 50px !important;
+    min-width: 50px;
+    max-width: 50px;
   }
 }
 
