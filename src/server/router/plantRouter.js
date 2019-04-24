@@ -12,27 +12,10 @@ function sortPlants(plants) {
   });
 }
 
-//general search over the keywords of each plant
-router.get("/search/:string", (req, res) => {
-  let arr = req.params.string.toLowerCase().split(" ");
-  let query = [];
-
-  for (let str of arr) {
-    query.push({ keywords: str });
-  }
-
-  Plant.find({ $or: query }, (err, list) => {
-    if (err) return console.log(err);
-    console.log(
-      "Query '" + req.params.string + "' gave " + list.length + " result(s)."
-    );
-    return res.json({ list: list, tokens: arr });
-  });
-});
-
-//retrieves all plant in a category
-router.get("/category/:category/:name/:opt", (req, res) => {
+function handleCategories(req, res) {
   let query = {};
+
+  //handles numeric queries for height, ex.
   let name = req.params.name;
   let opt = req.params.opt;
   if (name && opt && name === opt) {
@@ -60,7 +43,29 @@ router.get("/category/:category/:name/:opt", (req, res) => {
       return res.json({ list: sortPlants(plants), tokens: [] });
     }
   );
+}
+
+//general search over the keywords of each plant
+router.get("/search/:string", (req, res) => {
+  let arr = req.params.string.toLowerCase().split(" ");
+  let query = [];
+
+  for (let str of arr) {
+    query.push({ keywords: str });
+  }
+
+  Plant.find({ $or: query }, (err, list) => {
+    if (err) return console.log(err);
+    console.log(
+      "Query '" + req.params.string + "' gave " + list.length + " result(s)."
+    );
+    return res.json({ list: list, tokens: arr });
+  });
 });
+
+//retrieves all plant in a category
+router.get("/category/:category/:name", handleCategories);
+router.get("/category/:category/:name/:opt", handleCategories);
 
 //creates a new plant
 router.post("/new", (req, res) => {

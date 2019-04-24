@@ -17,9 +17,10 @@ class Categories extends Component {
   }
 
   async queryCategory(e, category) {
-    this.setState({ selectedEntry: category });
     let query;
-    if (this.state.displaying.includes("medicinal")) {
+    if (this.state.displaying.includes("medicinal") ||
+      this.state.displaying.includes("edibility") ||
+      this.state.displaying.includes("colour")) {
       query = "api/plant/search/" + category;
     } else {
       query = "api/plant/category/" + this.state.displaying + "/" + category;
@@ -30,7 +31,7 @@ class Categories extends Component {
 
     if (plants.list.length === 0) {
       //no plants found
-      this.setState({ notFound: true });
+      this.setState({ notFound: true, selectedEntry: category });
     } else {
       this.props.updateList(plants.list);
       this.setState({ redirect: true });
@@ -50,7 +51,7 @@ class Categories extends Component {
     let first = true;
     let list = definitions[current].map(k => {
       let str = capitalise(k);
-      let url = capitalise(k);
+      let url = k;
       if (!isNaN(k)) {
         if (first === true) {
           str = "> " + k;
@@ -126,6 +127,14 @@ class Categories extends Component {
         <div className="secondary-container">
           <div className="super-title padded-bottom">Categories</div>
 
+          {this.renderSection("General", [
+            { name: "Plant Type", apiName: "plantType" },
+            { name: "Regions", apiName: "regions" },
+            { name: "Height (m)", apiName: "height" },
+            { name: "Evergreen", apiName: "evergreen" },
+            { name: "Stem Texture", apiName: "stemTexture" },
+          ])}
+
           {this.renderSection("Leaf", [
             { name: "Shape", apiName: "leafShape" },
             { name: "Margin", apiName: "leafMargin" },
@@ -144,13 +153,8 @@ class Categories extends Component {
           ])}
 
           {this.renderSection("Various", [
-            { name: "Regions", apiName: "regions" },
-            { name: "Plant Type", apiName: "plantType" },
-            { name: "Height (m)", apiName: "height" },
-            { name: "Evergreen", apiName: "evergreen" },
             { name: "Edibility", apiName: "edibility" },
-            { name: "Colour", apiName: "colour" },
-            { name: "Stem Texture", apiName: "stemTexture" },
+            { name: "Colour", apiName: "colours" },
             { name: "Bloom month", apiName: "bloomMonth" },
             { name: "Harvest month", apiName: "harvestMonth" },
           ])}
