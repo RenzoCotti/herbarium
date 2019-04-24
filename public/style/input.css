@@ -94,6 +94,8 @@
 .search {
   margin-bottom: 20px !important;
   width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
 }
 
 .dropdown-content {
