@@ -85,6 +85,10 @@
   .table-container {
     width: 90%;
   }
+
+  .short-button {
+    width: 50px !important;
+  }
 }
 
 /*bigger devices*/

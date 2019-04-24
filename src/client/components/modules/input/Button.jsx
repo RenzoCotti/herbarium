@@ -6,7 +6,7 @@ const Button = props => {
       type={"button"}
       value={props.value}
       onClick={props.fn}
-      className="button"
+      className={props.short ? "short-button button" : "button"}
     />
   );
 };

@@ -47,13 +47,13 @@
 }
 
 .button {
+  margin: 5px;
   padding: 7px !important;
-  width: 200px !important;
-  margin: 5px 10px;
   height: 2em !important;
+  width: 200px !important;
 }
 
-.button:hover,
+.button .button:hover,
 .select-wrapper input:hover {
   cursor: pointer;
 }

@@ -103,11 +103,11 @@ class List extends Component {
           {this.renderList()}
         </div>
         <div className="list-pages">
-          <Button value="<<" fn={() => this.goToPage(1)} />
-          <Button value="<" fn={() => this.addToPage(-1)} />
-          <div style={{ flexGrow: 1, textAlign: "center" }}>Page {this.state.page} of {this.state.max}</div>
-          <Button value=">" fn={() => this.addToPage(+1)} />
-          <Button value=">>" fn={() => this.goToPage(this.state.max)} />
+          <Button short={true} value="<<" fn={() => this.goToPage(1)} />
+          <Button short={true} value="<" fn={() => this.addToPage(-1)} />
+          <div style={{ flexGrow: 1, textAlign: "center", fontSize: "12pt" }}>Page {this.state.page} of {this.state.max}</div>
+          <Button short={true} value=">" fn={() => this.addToPage(+1)} />
+          <Button short={true} value=">>" fn={() => this.goToPage(this.state.max)} />
         </div>
       </div>
     );
