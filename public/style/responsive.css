@@ -82,8 +82,8 @@
     height: 200px;
   }
 
-  .row-table {
-    width: 100%;
+  .table-container {
+    width: 90%;
   }
 }
 
@@ -96,5 +96,9 @@
 
   .plant-detail {
     max-height: 1000px;
+  }
+
+  .table-container {
+    width: 50%;
   }
 }

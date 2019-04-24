@@ -1,7 +1,3 @@
-.table-container {
-  width: 50%;
-}
-
 .row-table {
   display: flex;
   flex-direction: row;
