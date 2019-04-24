@@ -8,20 +8,20 @@
 
 /*header containing title and buttons*/
 .desc-header {
-  width: 100%;
   display: flex;
   flex-direction: row;
-
+  height: 20%;
   justify-content: space-between;
 }
 
 /*makes the plant view wrap on shrink*/
 .plant-detail {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap-reverse;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
+  padding: 50px;
 }
 
 .link:hover {

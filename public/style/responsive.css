@@ -81,12 +81,26 @@
     left: -30px;
   }
 
-  /* .plant-detail {
-    margin-top: 50px;
-  } */
+  .plant-detail {
+    padding: 20px;
+    max-height: auto;
+  }
   .secondary-image {
     width: 60px;
     height: 60px;
+  }
+
+  .side-images {
+    max-height: 250px;
+    width: 150px;
+  }
+  .main-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .row-table {
+    width: 100%;
   }
 }
 
@@ -95,5 +109,9 @@
   .navbar {
     flex-direction: column;
     width: 200px;
+  }
+
+  .plant-detail {
+    max-height: 1000px;
   }
 }

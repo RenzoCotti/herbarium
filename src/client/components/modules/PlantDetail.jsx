@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import MediaAndProperties from "../plantView/MediaAndProperties";
 import Description from "../plantView/Description";
+import Header from "../plantView/Header";
+import Media from "../plantView/Media";
+import Properties from "../plantView/Properties";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import { getPlant, updatePlant } from "../../redux/actions";
+
+
 
 class PlantDetail extends Component {
 
@@ -17,8 +21,10 @@ class PlantDetail extends Component {
 
     return (
       <div className="plant-detail">
-        <MediaAndProperties plant={this.props.plant} />
+        <Header plant={this.props.plant} />
+        <Media plant={this.props.plant} />
         <Description plant={this.props.plant} />
+        <Properties plant={this.props.plant} />
       </div>
     );
   };

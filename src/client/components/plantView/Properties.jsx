@@ -56,7 +56,7 @@ class Properties extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="table-container">{this.getList()}</div>
+        {this.getList()}
       </React.Fragment>
     );
   }
