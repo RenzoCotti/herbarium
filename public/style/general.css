@@ -1,8 +1,8 @@
 .navbar {
+  flex-direction: column;
   position: fixed;
   display: flex;
-  flex-direction: column;
-  width: 200px;
+  z-index: 100;
 }
 
 .nav-element {
