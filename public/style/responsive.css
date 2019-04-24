@@ -1,8 +1,4 @@
 @media screen and (max-width: 800px) {
-  html {
-    font-size: 18pt !important;
-    font-weight: 400;
-  }
   .main-container {
     margin: 0;
     padding-top: 50px;
@@ -12,31 +8,8 @@
   }
 
   .category-label {
-    width: 170px;
+    width: 180px;
     padding: 0;
-  }
-
-  .sub-title {
-    font-size: 16pt;
-    font-style: italic;
-    font-weight: 500;
-    /* line-height: 3em; */
-  }
-
-  .title {
-    font-size: 23pt;
-    font-weight: 600;
-  }
-
-  .super-title {
-    font-weight: 600;
-    font-size: 33pt;
-    color: var(--yellow);
-  }
-
-  .foot-note {
-    font-size: 12pt;
-    font-style: italic;
   }
 
   .navbar {
@@ -67,6 +40,7 @@
     padding: 5px 20px;
     text-decoration: none;
     transition: all 0.2s ease;
+    font-size: 18pt;
   }
 
   .home {
