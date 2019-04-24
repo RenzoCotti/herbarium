@@ -6,7 +6,7 @@ html {
   --background: rgba(var(--backgroundRGB), 0.7);
   --yellow: #d3ba4e;
   --green: #415a10;
-
+  font-size: 14pt;
   background-color: var(--background);
 }
 
