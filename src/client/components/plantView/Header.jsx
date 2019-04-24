@@ -50,7 +50,7 @@ class Description extends Component {
                     display: "flex",
                     flexDirection: "column"
                 }}>
-                    <span className="super-title">
+                    <span className="plantName">
                         {capitaliseString(plant.commonName)}
                     </span>
                     <span className="sub-title">

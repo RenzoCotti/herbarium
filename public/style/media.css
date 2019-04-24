@@ -13,12 +13,13 @@
 .side-images {
   display: flex;
   flex-direction: column;
-  align-content: space-between;
+  /* align-content: space-between; */
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  max-height: 400px;
+  align-items: space-around;
+  max-height: 300px;
   width: 150px;
+  margin: 0 20px 0 10px;
 }
 
 /*small images one can select*/
@@ -31,7 +32,7 @@
 /*all img inside of side images*/
 .side-images img {
   margin-bottom: 10px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
 }
 
 /*contains both image and subimages*/
@@ -64,4 +65,8 @@
 
 .toggle-image:hover {
   cursor: pointer;
+}
+
+.media-container {
+  padding: 20px 0;
 }

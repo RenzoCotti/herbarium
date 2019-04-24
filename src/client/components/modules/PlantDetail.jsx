@@ -7,8 +7,6 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import { getPlant, updatePlant } from "../../redux/actions";
 
-
-
 class PlantDetail extends Component {
 
   componentWillUnmount() {

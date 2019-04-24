@@ -1,6 +1,5 @@
 .table-container {
-  display: flex;
-  flex-direction: column;
+  width: 50%;
 }
 
 .row-table {
@@ -9,11 +8,10 @@
   justify-content: space-between;
   align-items: top;
   margin-bottom: 5px;
-  width: 50%;
 }
 
 .label-table {
-  width: 170px;
+  width: 200px;
 }
 
 .content-table {

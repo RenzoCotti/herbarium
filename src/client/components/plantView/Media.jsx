@@ -34,7 +34,7 @@ class Media extends Component {
     let classSelected = "secondary-image selected-image";
     let classSecondary = "secondary-image";
 
-    return imgs.map((img, index) => {
+    let list = imgs.map((img, index) => {
       if (img.url === "") return "";
       return (
         <img
@@ -48,6 +48,11 @@ class Media extends Component {
         />
       );
     });
+
+    let width = Math.round(list.length / 3);
+
+    return <div className="side-images" style={{ width: (width * 90) + "px" }}>{list}</div>
+
   }
 
   switchImage(ev) {
@@ -59,7 +64,7 @@ class Media extends Component {
       <div className="media-container">
         <div className="image-container">
           <img className="main-image" src={this.getSrc()} alt="" />
-          <div className="side-images">{this.getSide()}</div>
+          {this.getSide()}
         </div>
         <div className="main-image-subtitle">
           {capitalise(this.getCaption())}

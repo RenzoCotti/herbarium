@@ -35,7 +35,7 @@ class Properties extends Component {
 
     return arr.map(use => {
       return (
-        <React.Fragment key={use.part}>
+        <div className="table-container" key={use.part}>
           <div className="row-table">
             <div className="title">{capitalise(use.part)}</div>
           </div>
@@ -48,7 +48,7 @@ class Properties extends Component {
           />
           <Row toRender={use.medicalPreparation} label="Medical Notes" />
           <Row toRender={use.otherComment} label={capitalise(use.otherTitle)} />
-        </React.Fragment>
+        </div>
       );
     });
   }

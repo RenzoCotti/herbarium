@@ -3,8 +3,10 @@ import Row from "./Row";
 
 function renderSection(title, arr) {
   return (
-    <React.Fragment>
-      <div className="title padded-top">{title}</div>
+    <div className="table-container">
+      <div className="row-table">
+        <div className="title">{title}</div>
+      </div>
       {arr.map((row, index) => (
         <Row
           key={index}
@@ -14,7 +16,7 @@ function renderSection(title, arr) {
           link={row.link}
         />
       ))}
-    </React.Fragment>
+    </div>
   );
 }
 

@@ -1,5 +1,5 @@
 .sub-title {
-  font-size: 14pt;
+  font-size: 12pt;
   font-style: italic;
   line-height: 1.5em;
 }
@@ -9,10 +9,15 @@
   font-weight: 600;
 }
 
-.super-title {
+.super-title,
+.plantName {
   font-weight: 600;
   font-size: 24pt;
   color: var(--yellow);
+}
+
+.super-title {
+  text-align: center;
 }
 
 .foot-note {

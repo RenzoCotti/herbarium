@@ -130,7 +130,7 @@ class LoginPage extends Component {
       <div className="secondary-container">
         <div className="super-title padded-bottom">Login</div>
 
-        <div className="table-container">
+        <div>
           <form onKeyDown={this.handleKeyDown}>
             <Input
               label="Username"

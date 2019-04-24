@@ -52,6 +52,10 @@
     font-size: 48pt;
   }
 
+  .home-container {
+    padding: 150px 0 0 0;
+  }
+
   .leaf-home {
     width: 150px;
     height: 150px;
