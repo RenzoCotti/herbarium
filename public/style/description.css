@@ -33,7 +33,7 @@
 /**IMAGE LIST*/
 
 .item-list {
-  width: 500px;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
 }

@@ -126,7 +126,8 @@ class AddImage extends Component {
           style={{
             display: "flex",
             flexDirection: "horizontal",
-            alignItems: "center"
+            alignItems: "center",
+            flexWrap: "wrap"
           }}
         >
           <img

@@ -203,7 +203,7 @@ class ModifyPlant extends Component {
 
     console.log(this.state)
     return (
-      <div style={{ width: "90%" }}>
+      <div style={{ padding: "20px", width: "100%" }}>
         <div className="super-title padded-bottom">
           {this.props.edit ? "Edit Plant" : "Create New Plant"}
         </div>
