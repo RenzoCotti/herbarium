@@ -49,9 +49,7 @@ class Media extends Component {
       );
     });
 
-    let width = Math.round(list.length / 3);
-
-    return <div className="side-images" style={{ width: ((width + 1) * 90) + "px" }}>{list}</div>
+    return <div className="side-images" >{list}</div>
 
   }
 
@@ -64,11 +62,12 @@ class Media extends Component {
       <div className="media-container">
         <div className="image-container">
           <img className="main-image" src={this.getSrc()} alt="" />
-          {this.getSide()}
+          <div className="main-image-subtitle">
+            {capitalise(this.getCaption())}
+          </div>
         </div>
-        <div className="main-image-subtitle">
-          {capitalise(this.getCaption())}
-        </div>
+        {this.getSide()}
+
       </div>
     );
   }

@@ -13,7 +13,6 @@
   }
 
   .label-table {
-    width: 100px;
     padding-right: 20px;
   }
 
@@ -74,12 +73,20 @@
   }
 
   .side-images {
-    max-height: 250px;
-    width: 150px;
+    /* max-height: 250px; */
+    width: 250px;
+    flex-direction: row;
+    justify-content: start;
+    margin: 0;
+    margin-top: 20px;
   }
   .main-image {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .image-container {
+    flex-wrap: wrap;
   }
 
   .table-container {

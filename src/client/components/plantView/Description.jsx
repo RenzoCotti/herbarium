@@ -1,5 +1,6 @@
 import React from "react";
 import Row from "./Row";
+import { toColour } from "../../../utility/utility";
 
 function renderSection(title, arr) {
   return (
@@ -10,7 +11,7 @@ function renderSection(title, arr) {
       {arr.map((row, index) => (
         <Row
           key={index}
-          toRender={row.property}
+          toRender={row.label === "Colour" ? toColour(row.property) : row.property}
           label={row.label}
           alt={row.alt}
           link={row.link}

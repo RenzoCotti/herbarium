@@ -77,9 +77,14 @@ class Categories extends Component {
 
     // console.log(current);
     return (
-      <div className="category-content secondary-container category-full">
-        {list}
-      </div>
+      <React.Fragment>
+        <div className="category-content secondary-container category-full">
+          {list}
+        </div>
+        <div className="errormsg">
+          {this.state.notFound ? "No plant found in this category." : ""}
+        </div>
+      </React.Fragment>
     );
   }
 
@@ -158,12 +163,6 @@ class Categories extends Component {
             { name: "Bloom month", apiName: "bloomMonth" },
             { name: "Harvest month", apiName: "harvestMonth" },
           ])}
-
-          {this.state.notFound ? (
-            <div>No such plant found.</div>
-          ) : (
-              <br />
-            )}
         </div>
       </React.Fragment>
     );

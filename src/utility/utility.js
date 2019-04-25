@@ -34,7 +34,7 @@ export function toColour(c) {
     case "greenyellow":
       return "Light Green";
   }
-  return c.charAt(0).toUpperCase() + c.slice(1);
+  return capitalise(c);
 }
 
 export function stringOrEmpty(obj, prop) {

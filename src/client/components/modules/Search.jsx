@@ -84,7 +84,7 @@ class Search extends Component {
       <div className="secondary-container">
         <div className="super-title padded-bottom">Search</div>
         <div className="sub-title padded-top">Enter your search:</div>
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.onSubmit} style={{ overflow: "hidden" }}>
           <input
             className="search"
             type="text"
