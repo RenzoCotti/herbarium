@@ -51,16 +51,12 @@
     font-size: 48pt;
   }
 
-  .home-container {
-    padding: 0;
-  }
-
   .leaf-home {
     width: 150px;
     height: 150px;
     position: relative;
     bottom: 120px;
-    left: -30px;
+    left: -110px;
   }
 
   .plant-detail {
