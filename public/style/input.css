@@ -47,7 +47,7 @@
   width: 200px !important;
 }
 
-.button .button:hover,
+.button:hover,
 .select-wrapper input:hover {
   cursor: pointer;
 }
