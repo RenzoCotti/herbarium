@@ -1,123 +1,5 @@
 [
   {
-    "latinName": "Artemisia absinthium",
-    "commonName": "Wormwood",
-    "plantType": "Herb",
-    "evergreen": "No",
-    "description": "A plant mostly known for its use as an additive to absinthe.",
-    "height": "1",
-    "regions": ["asia", "east-europe", "europe", "north-america"],
-    "habitat": "mountains, dry soil",
-    "stemColour": "Greenyellow",
-    "stemTexture": "Hairy",
-    "leafShape": "Palmate",
-    "leafMargin": "Entire",
-    "leafVenation": "Pinnipalmate",
-    "leafArrangement": "Whorled",
-    "leafLength": "25",
-    "flowerColour": "Yellow",
-    "bloomMonth": ["august", "sepember"],
-    "fruitColour": "Orange",
-    "fruitSize": "0.8",
-    "uses": [
-      {
-        "part": "leaves",
-        "comment": "take terminal leaves in july-september. Brew in a tea.",
-        "title": "medical",
-        "medicalProperties": [
-          "anti-inflammatory",
-          "antiseptic",
-          "cardiotonic",
-          "digestive",
-          "febrifuge",
-          "tonic"
-        ]
-      },
-      {
-        "part": "leaves",
-        "comment": "Used to prepare absinthe. It's a neurotoxin in high doses.",
-        "title": "edibility",
-        "edibility": "Toxic"
-      }
-    ],
-    "images": [
-      {
-        "url": "http://www.minnesotawildflowers.info/udata/r9ndp23q/pd/artemisia-absinthium-6.jpg",
-        "caption": "Artemisia absinthium."
-      },
-      {
-        "url": "https://erowid.org/plants/wormwood/images/archive/artemisia_absinthium_leaf__i2004e0149_disp.jpg",
-        "caption": "A detail on the leaf"
-      },
-      {
-        "url": "http://www.minnesotawildflowers.info/udata/r9ndp23q/pd/artemisia-absinthium-9.jpg",
-        "caption": "A detail on the flowers."
-      }
-    ]
-  },
-  {
-    "latinName": "Foeniculum vulgare",
-    "commonName": "Fennel",
-    "plantType": "Herb",
-    "evergreen": "No",
-    "height": "2",
-    "regions": ["europe", "middle-east"],
-    "habitat": "dry soils, riverbanks",
-    "stemColour": "Greenyellow",
-    "stemTexture": "Smooth",
-    "leafShape": "Acicular",
-    "leafDescription": "They resemble hay.",
-    "leafMargin": "Entire",
-    "leafVenation": "Pinnipalmate",
-    "leafArrangement": "Whorled",
-    "leafLength": "40",
-    "flowerColour": "Yellow",
-    "bloomMonth": ["june", "july", "august"],
-    "fruitColour": "Yellow",
-    "fruitSize": "0.5",
-    "uses": [
-      {
-        "part": "bulb",
-        "comment": "eat raw",
-        "title": "edibility",
-        "edibility": "Yes"
-      },
-      {
-        "part": "fruit",
-        "comment": "eat raw. Very aromatic.",
-        "title": "edibility",
-        "edibility": "Yes"
-      },
-      {
-        "part": "leaves",
-        "comment": "eat raw.",
-        "title": "edibility",
-        "edibility": "Yes"
-      },
-      {
-        "part": "seeds",
-        "comment": "brew in a tea.",
-        "title": "medical",
-        "medicalProperties": ["carminative", "digestive"]
-      }
-    ],
-    "images": [
-      {
-        "url": "https://keyserver.lucidcentral.org/weeds/data/media/Images/foeniculum_vulgare/foeniculumvulgare48.jpg",
-        "caption": "The fennel plant."
-      },
-      {
-        "url": "https://www.koop-phyto.org/arzneipflanzenlexikon/bilder_gr/fenchel.jpg",
-        "caption": "A detail on the flowers."
-      },
-      {
-        "url": "https://keyserver.lucidcentral.org/weeds/data/media/Images/foeniculum_vulgare/foeniculumvulgare1sh.jpg",
-        "caption": "a detail on the fennel fruit (commonly called seed)."
-      }
-    ],
-    "harvestMonth": ["august", "sepember"]
-  },
-  {
     "regions": ["east-europe", "europe", "middle-east"],
     "bloomMonth": [],
     "harvestMonth": [],
@@ -588,6 +470,142 @@
     "__v": 0
   },
   {
+    "regions": [
+      "asia",
+      "east-europe",
+      "europe",
+      "north-america",
+      "oceania",
+      "south-america"
+    ],
+    "bloomMonth": ["june", "july"],
+    "harvestMonth": [],
+    "keywords": [
+      "asia",
+      "east-europe",
+      "europe",
+      "north-america",
+      "oceania",
+      "south-america",
+      "june",
+      "july",
+      "matricaria",
+      "chamomilla",
+      "chamomile",
+      "herb",
+      "no",
+      "near",
+      "roads",
+      "landfills",
+      "greenyellow",
+      "smooth",
+      "oblong",
+      "entire",
+      "parallel",
+      "alternate",
+      "white",
+      "usually",
+      "not",
+      "larger",
+      "25",
+      "cm",
+      "leaves",
+      "eat",
+      "raw",
+      "edibility",
+      "yes",
+      "chamomile"
+    ],
+    "latinName": "matricaria chamomilla",
+    "commonName": "chamomile",
+    "plantType": "herb",
+    "evergreen": "No",
+    "height": 0.5,
+    "habitat": "near roads, landfills",
+    "stemColour": "greenyellow",
+    "stemTexture": "smooth",
+    "leafShape": "oblong",
+    "leafMargin": "entire",
+    "leafVenation": "parallel",
+    "leafArrangement": "alternate",
+    "leafLength": 2.5,
+    "flowerColour": "white",
+    "flowerDescription": "usually not larger than 2.5 cm",
+    "uses": [
+      {
+        "medicalProperties": [],
+        "_id": "5cc1bee53be8ea3318759f19",
+        "part": "leaves",
+        "comment": "eat raw",
+        "title": "edibility",
+        "edibility": "yes"
+      },
+      {
+        "medicalProperties": [],
+        "_id": "5cc1bee53be8ea3318759f18",
+        "part": "flowers",
+        "comment": "eat raw",
+        "title": "edibility",
+        "edibility": "yes"
+      },
+      {
+        "medicalProperties": ["anti-inflammatory", "relaxant", "sedative"],
+        "_id": "5cc1bee53be8ea3318759f17",
+        "part": "flowers",
+        "comment": "brew in a tea.\ncollect flower heads after they lose the petals, preferably.",
+        "title": "medical"
+      }
+    ],
+    "images": [
+      {
+        "_id": "5cc1bee53be8ea3318759f1b",
+        "url": "https://www.officinaliserboristeria.it/wp-content/uploads/2013/05/camomilla.jpg",
+        "caption": "the chamomile."
+      },
+      {
+        "_id": "5cc1bee53be8ea3318759f1a",
+        "url": "https://thumbs.dreamstime.com/z/matricaria-chamomilla-medical-chamomile-leaf-herb-lying-white-background-74898202.jpg",
+        "caption": "a detail of the chamomile leaves."
+      }
+    ],
+    "frequency": {
+      "25": 1,
+      "asia": 1,
+      "east-europe": 1,
+      "europe": 1,
+      "north-america": 1,
+      "oceania": 1,
+      "south-america": 1,
+      "june": 1,
+      "july": 1,
+      "matricaria": 1,
+      "chamomilla": 1,
+      "chamomile": 2,
+      "herb": 1,
+      "No": 1,
+      "near": 1,
+      "roads": 1,
+      "landfills": 1,
+      "greenyellow": 1,
+      "smooth": 1,
+      "oblong": 1,
+      "entire": 1,
+      "parallel": 1,
+      "alternate": 1,
+      "white": 1,
+      "usually": 1,
+      "not": 1,
+      "larger": 1,
+      "cm": 1,
+      "leaves": 1,
+      "eat": 1,
+      "raw": 1,
+      "edibility": 1,
+      "yes": 1
+    },
+    "__v": 0
+  },
+  {
     "regions": ["europe", "middle-east"],
     "bloomMonth": ["june", "july"],
     "harvestMonth": ["sepember", "october"],
@@ -718,6 +736,264 @@
       "edibility": 1,
       "yes": 1,
       "overview": 1
+    },
+    "__v": 0
+  },
+  {
+    "regions": ["europe"],
+    "bloomMonth": ["may", "june"],
+    "harvestMonth": ["july", "august", "sepember", "october"],
+    "keywords": [
+      "europe",
+      "may",
+      "june",
+      "july",
+      "august",
+      "sepember",
+      "october",
+      "malus",
+      "sylvestris",
+      "crab",
+      "apple",
+      "tree",
+      "no",
+      "edge",
+      "forests",
+      "marginal",
+      "positioning",
+      "gray",
+      "smooth",
+      "bark",
+      "elliptical",
+      "serrate",
+      "pinnate",
+      "whorled",
+      "white",
+      "greenyellow",
+      "apple",
+      "sour",
+      "edibility",
+      "yes",
+      "crab",
+      "apple",
+      "tree"
+    ],
+    "latinName": "malus sylvestris",
+    "commonName": "crab apple",
+    "plantType": "tree",
+    "evergreen": "No",
+    "height": 10,
+    "habitat": "edge of forests, marginal positioning",
+    "stemColour": "gray",
+    "stemTexture": "smooth bark",
+    "leafShape": "elliptical",
+    "leafMargin": "serrate",
+    "leafVenation": "pinnate",
+    "leafArrangement": "whorled",
+    "leafLength": 4,
+    "flowerColour": "white",
+    "fruitColour": "greenyellow",
+    "fruitSize": 4,
+    "uses": [
+      {
+        "medicalProperties": [],
+        "_id": "5cc1c3d13be8ea3318759f25",
+        "part": "apple",
+        "comment": "sour.",
+        "title": "edibility",
+        "edibility": "yes"
+      }
+    ],
+    "images": [
+      {
+        "_id": "5cc1c3d13be8ea3318759f29",
+        "url": "https://www.vdberk.com/site/assets/files/4094/medium_malus_sylvestris.jpg",
+        "caption": "the crab apple tree."
+      },
+      {
+        "_id": "5cc1c3d13be8ea3318759f28",
+        "url": "http://www.tree-guide.com/images/styles/600x450-copy_/public/european-crab-apple-trunk1.jpg?itok=g5sguhwt",
+        "caption": "the bark."
+      },
+      {
+        "_id": "5cc1c3d13be8ea3318759f27",
+        "url": "http://www.arbolapp.es/imagenes/especies/especie_040_04.jpg",
+        "caption": "the leaves."
+      },
+      {
+        "_id": "5cc1c3d13be8ea3318759f26",
+        "url": "https://www.woodlandtrust.org.uk/media/100741893/crab-apple-blossom-paul-sterry-npl.jpg?cb=-2103048378&preset=gallery-tab-main-image",
+        "caption": "the flowers."
+      }
+    ],
+    "frequency": {
+      "europe": 1,
+      "may": 1,
+      "june": 1,
+      "july": 1,
+      "august": 1,
+      "sepember": 1,
+      "october": 1,
+      "malus": 1,
+      "sylvestris": 1,
+      "crab": 2,
+      "apple": 3,
+      "tree": 2,
+      "No": 1,
+      "edge": 1,
+      "forests": 1,
+      "marginal": 1,
+      "positioning": 1,
+      "gray": 1,
+      "smooth": 1,
+      "bark": 1,
+      "elliptical": 1,
+      "serrate": 1,
+      "pinnate": 1,
+      "whorled": 1,
+      "white": 1,
+      "greenyellow": 1,
+      "sour": 1,
+      "edibility": 1,
+      "yes": 1
+    },
+    "__v": 0
+  },
+  {
+    "regions": ["europe", "middle-east"],
+    "bloomMonth": ["june", "july", "august"],
+    "harvestMonth": ["august", "sepember"],
+    "keywords": [
+      "europe",
+      "middle-east",
+      "june",
+      "july",
+      "august",
+      "august",
+      "sepember",
+      "foeniculum",
+      "vulgare",
+      "fennel",
+      "herb",
+      "no",
+      "dry",
+      "soils",
+      "riverbanks",
+      "greenyellow",
+      "smooth",
+      "acicular",
+      "resemble",
+      "hay",
+      "entire",
+      "pinnipalmate",
+      "whorled",
+      "yellow",
+      "yellow",
+      "bulb",
+      "eat",
+      "raw",
+      "edibility",
+      "yes",
+      "fennel",
+      "plant"
+    ],
+    "latinName": "foeniculum vulgare",
+    "commonName": "fennel",
+    "plantType": "herb",
+    "evergreen": "No",
+    "height": 2,
+    "habitat": "dry soils, riverbanks",
+    "stemColour": "greenyellow",
+    "stemTexture": "smooth",
+    "leafShape": "acicular",
+    "leafDescription": "they resemble hay.",
+    "leafMargin": "entire",
+    "leafVenation": "pinnipalmate",
+    "leafArrangement": "whorled",
+    "leafLength": 40,
+    "flowerColour": "yellow",
+    "fruitColour": "yellow",
+    "fruitSize": 0.5,
+    "uses": [
+      {
+        "medicalProperties": [],
+        "_id": "5cc18d0ba9e9aa29d8729680",
+        "part": "bulb",
+        "comment": "eat raw",
+        "title": "edibility",
+        "edibility": "yes"
+      },
+      {
+        "medicalProperties": [],
+        "_id": "5cc18d0ba9e9aa29d872967f",
+        "part": "fruit",
+        "comment": "eat raw. very aromatic.",
+        "title": "edibility",
+        "edibility": "yes"
+      },
+      {
+        "medicalProperties": [],
+        "_id": "5cc18d0ba9e9aa29d872967e",
+        "part": "leaves",
+        "comment": "eat raw.",
+        "title": "edibility",
+        "edibility": "yes"
+      },
+      {
+        "medicalProperties": ["carminative", "digestive"],
+        "_id": "5cc18d0ba9e9aa29d872967d",
+        "part": "seeds",
+        "comment": "brew in a tea.",
+        "title": "medical"
+      }
+    ],
+    "images": [
+      {
+        "_id": "5cc18d0ba9e9aa29d8729683",
+        "url": "https://keyserver.lucidcentral.org/weeds/data/media/images/foeniculum_vulgare/foeniculumvulgare48.jpg",
+        "caption": "the fennel plant."
+      },
+      {
+        "_id": "5cc18d0ba9e9aa29d8729682",
+        "url": "https://www.koop-phyto.org/arzneipflanzenlexikon/bilder_gr/fenchel.jpg",
+        "caption": "a detail on the flowers."
+      },
+      {
+        "_id": "5cc18d0ba9e9aa29d8729681",
+        "url": "https://keyserver.lucidcentral.org/weeds/data/media/images/foeniculum_vulgare/foeniculumvulgare1sh.jpg",
+        "caption": "a detail on the fennel fruit (commonly called seed)."
+      }
+    ],
+    "frequency": {
+      "europe": 1,
+      "middle-east": 1,
+      "june": 1,
+      "july": 1,
+      "august": 2,
+      "sepember": 1,
+      "foeniculum": 1,
+      "vulgare": 1,
+      "fennel": 2,
+      "herb": 1,
+      "No": 1,
+      "dry": 1,
+      "soils": 1,
+      "riverbanks": 1,
+      "greenyellow": 1,
+      "smooth": 1,
+      "acicular": 1,
+      "resemble": 1,
+      "hay": 1,
+      "entire": 1,
+      "pinnipalmate": 1,
+      "whorled": 1,
+      "yellow": 2,
+      "bulb": 1,
+      "eat": 1,
+      "raw": 1,
+      "edibility": 1,
+      "yes": 1,
+      "plant": 1
     },
     "__v": 0
   },
@@ -857,6 +1133,130 @@
       "yes": 1,
       "overall": 1,
       "view": 1
+    },
+    "__v": 0
+  },
+  {
+    "regions": ["asia", "east-europe", "europe"],
+    "bloomMonth": ["june", "july"],
+    "harvestMonth": [],
+    "keywords": [
+      "asia",
+      "east-europe",
+      "europe",
+      "june",
+      "july",
+      "tilia",
+      "cordata",
+      "linden",
+      "tree",
+      "no",
+      "heathland",
+      "gray",
+      "rough",
+      "bark",
+      "cordate",
+      "denticulate",
+      "palmate",
+      "alternate",
+      "white",
+      "saddlebrown",
+      "flowers",
+      "brew",
+      "tea",
+      "edibility",
+      "yes",
+      "overview",
+      "linden",
+      "tree"
+    ],
+    "latinName": "tilia cordata",
+    "commonName": "linden",
+    "plantType": "tree",
+    "evergreen": "No",
+    "height": 25,
+    "habitat": "heathland",
+    "stemColour": "gray",
+    "stemTexture": "rough bark",
+    "leafShape": "cordate",
+    "leafMargin": "denticulate",
+    "leafVenation": "palmate",
+    "leafArrangement": "alternate",
+    "leafLength": 6,
+    "flowerColour": "white",
+    "fruitColour": "saddlebrown",
+    "fruitSize": 0.5,
+    "uses": [
+      {
+        "medicalProperties": [],
+        "_id": "5cc1c1193be8ea3318759f1e",
+        "part": "flowers",
+        "comment": "brew in a tea.",
+        "title": "edibility",
+        "edibility": "yes"
+      },
+      {
+        "medicalProperties": [],
+        "_id": "5cc1c1193be8ea3318759f1d",
+        "part": "wood",
+        "comment": "good for carving. quite light.",
+        "title": "crafting"
+      }
+    ],
+    "images": [
+      {
+        "_id": "5cc1c1193be8ea3318759f23",
+        "url": "https://www.burncoose.co.uk/site/img/products/large/tilia_cordata_4165a.jpg",
+        "caption": "an overview of the linden tree."
+      },
+      {
+        "_id": "5cc1c1193be8ea3318759f22",
+        "url": "https://img.plantis.info/wp-content/uploads/2016/06/tilia-cordata-1.jpg",
+        "caption": "a detail on the leaves."
+      },
+      {
+        "_id": "5cc1c1193be8ea3318759f21",
+        "url": "https://www.brc.ac.uk/plantatlas/sites/www.brc.ac.uk.plantatlas/files/styles/largest_1152_870/public/images/tilia_cordata_kent_lrooney_3.jpg?itok=nfxfirlm",
+        "caption": "the flowers."
+      },
+      {
+        "_id": "5cc1c1193be8ea3318759f20",
+        "url": "http://www.tree-guide.com/images/styles/600x450-copy_/public/small-leaved-lime-fruit.jpg?itok=u5j2j1bw",
+        "caption": "a detail on the fruit."
+      },
+      {
+        "_id": "5cc1c1193be8ea3318759f1f",
+        "url": "https://previews.123rf.com/images/ahavelaar/ahavelaar1603/ahavelaar160300052/55209517-abstract-pattern-of-bark-on-tilia-cordata-or-small-leaved-linden.jpg",
+        "caption": "the linden's bark."
+      }
+    ],
+    "frequency": {
+      "asia": 1,
+      "east-europe": 1,
+      "europe": 1,
+      "june": 1,
+      "july": 1,
+      "tilia": 1,
+      "cordata": 1,
+      "linden": 2,
+      "tree": 2,
+      "No": 1,
+      "heathland": 1,
+      "gray": 1,
+      "rough": 1,
+      "bark": 1,
+      "cordate": 1,
+      "denticulate": 1,
+      "palmate": 1,
+      "alternate": 1,
+      "white": 1,
+      "saddlebrown": 1,
+      "flowers": 1,
+      "brew": 1,
+      "tea": 1,
+      "edibility": 1,
+      "yes": 1,
+      "overview": 1
     },
     "__v": 0
   },
@@ -3083,6 +3483,159 @@
       "tea": 1,
       "medical": 1,
       "overview": 1
+    },
+    "__v": 0
+  },
+  {
+    "regions": ["asia", "east-europe", "europe", "north-america"],
+    "bloomMonth": ["august", "sepember"],
+    "harvestMonth": [],
+    "keywords": [
+      "asia",
+      "east-europe",
+      "europe",
+      "north-america",
+      "august",
+      "sepember",
+      "artemisia",
+      "absinthium",
+      "wormwood",
+      "herb",
+      "no",
+      "plant",
+      "mostly",
+      "known",
+      "its",
+      "use",
+      "additive",
+      "absinthe",
+      "mountains",
+      "dry",
+      "soil",
+      "greenyellow",
+      "hairy",
+      "palmate",
+      "entire",
+      "pinnipalmate",
+      "whorled",
+      "yellow",
+      "orange",
+      "anti-inflammatory",
+      "antiseptic",
+      "cardiotonic",
+      "digestive",
+      "febrifuge",
+      "tonic",
+      "leaves",
+      "terminal",
+      "leaves",
+      "julyseptember",
+      "brew",
+      "tea",
+      "medical",
+      "artemisia",
+      "absinthium"
+    ],
+    "latinName": "artemisia absinthium",
+    "commonName": "wormwood",
+    "plantType": "herb",
+    "evergreen": "No",
+    "description": "a plant mostly known for its use as an additive to absinthe.",
+    "height": 1,
+    "habitat": "mountains, dry soil",
+    "stemColour": "greenyellow",
+    "stemTexture": "hairy",
+    "leafShape": "palmate",
+    "leafMargin": "entire",
+    "leafVenation": "pinnipalmate",
+    "leafArrangement": "whorled",
+    "leafLength": 25,
+    "flowerColour": "yellow",
+    "fruitColour": "orange",
+    "fruitSize": 0.8,
+    "uses": [
+      {
+        "medicalProperties": [
+          "anti-inflammatory",
+          "antiseptic",
+          "cardiotonic",
+          "digestive",
+          "febrifuge",
+          "tonic"
+        ],
+        "_id": "5cc18d0ba9e9aa29d8729678",
+        "part": "leaves",
+        "comment": "take terminal leaves in july-september. brew in a tea.",
+        "title": "medical"
+      },
+      {
+        "medicalProperties": [],
+        "_id": "5cc18d0ba9e9aa29d8729677",
+        "part": "leaves",
+        "comment": "used to prepare absinthe. it's a neurotoxin in high doses.",
+        "title": "edibility",
+        "edibility": "toxic"
+      }
+    ],
+    "images": [
+      {
+        "_id": "5cc18d0ba9e9aa29d872967b",
+        "url": "http://www.minnesotawildflowers.info/udata/r9ndp23q/pd/artemisia-absinthium-6.jpg",
+        "caption": "artemisia absinthium."
+      },
+      {
+        "_id": "5cc18d0ba9e9aa29d872967a",
+        "url": "https://erowid.org/plants/wormwood/images/archive/artemisia_absinthium_leaf__i2004e0149_disp.jpg",
+        "caption": "a detail on the leaf"
+      },
+      {
+        "_id": "5cc18d0ba9e9aa29d8729679",
+        "url": "http://www.minnesotawildflowers.info/udata/r9ndp23q/pd/artemisia-absinthium-9.jpg",
+        "caption": "a detail on the flowers."
+      }
+    ],
+    "frequency": {
+      "asia": 1,
+      "east-europe": 1,
+      "europe": 1,
+      "north-america": 1,
+      "august": 1,
+      "sepember": 1,
+      "artemisia": 2,
+      "absinthium": 2,
+      "wormwood": 1,
+      "herb": 1,
+      "No": 1,
+      "plant": 1,
+      "mostly": 1,
+      "known": 1,
+      "its": 1,
+      "use": 1,
+      "additive": 1,
+      "absinthe": 1,
+      "mountains": 1,
+      "dry": 1,
+      "soil": 1,
+      "greenyellow": 1,
+      "hairy": 1,
+      "palmate": 1,
+      "entire": 1,
+      "pinnipalmate": 1,
+      "whorled": 1,
+      "yellow": 1,
+      "orange": 1,
+      "anti-inflammatory": 1,
+      "antiseptic": 1,
+      "cardiotonic": 1,
+      "digestive": 1,
+      "febrifuge": 1,
+      "tonic": 1,
+      "leaves": 2,
+      "terminal": 1,
+      "julyseptember": 1,
+      "brew": 1,
+      "tea": 1,
+      "medical": 1
     },
     "__v": 0
   },

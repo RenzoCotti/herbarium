@@ -12,17 +12,27 @@
   flex-direction: row;
   height: 20%;
   justify-content: space-between;
+  flex-grow: 2;
 }
 
 /*makes the plant view wrap on shrink*/
 .plant-detail {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   /* align-items: center; */
   flex-wrap: wrap;
   width: 100%;
-  padding: 50px;
+  padding: 30px;
+}
+
+.plant-info {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .link:hover {

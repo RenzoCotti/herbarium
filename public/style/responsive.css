@@ -49,6 +49,7 @@
 
   .home {
     font-size: 48pt;
+    padding-top: 0px;
   }
 
   .leaf-home {
@@ -63,10 +64,6 @@
     padding: 20px;
     max-height: auto;
   }
-  .secondary-image {
-    width: 60px;
-    height: 60px;
-  }
 
   .side-images {
     /* max-height: 250px; */
@@ -74,7 +71,6 @@
     flex-direction: row;
     justify-content: start;
     margin: 0;
-    margin-top: 20px;
   }
   .main-image {
     width: 250px;
@@ -103,11 +99,11 @@
     width: 150px;
   }
 
-  .plant-detail {
+  .plant-info {
     max-height: 1000px;
   }
 
   .table-container {
-    width: 50%;
+    max-width: 50%;
   }
 }

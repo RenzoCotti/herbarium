@@ -1,19 +1,19 @@
 .row-table {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: top;
   margin-bottom: 5px;
 }
 
 .label-table {
-  width: 200px;
+  width: 150px;
 }
 
 .content-table {
-  width: 300px;
-  display: flex;
-  flex-direction: column;
+  max-width: 200px;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .content-inner {

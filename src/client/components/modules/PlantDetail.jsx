@@ -20,9 +20,11 @@ class PlantDetail extends Component {
     return (
       <div className="plant-detail">
         <Header plant={this.props.plant} />
-        <Media plant={this.props.plant} />
-        <Description plant={this.props.plant} />
-        <Properties plant={this.props.plant} />
+        <div className="plant-info">
+          <Media plant={this.props.plant} />
+          <Description plant={this.props.plant} />
+          <Properties plant={this.props.plant} />
+        </div>
       </div>
     );
   };
