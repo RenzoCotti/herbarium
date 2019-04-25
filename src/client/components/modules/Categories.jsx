@@ -7,7 +7,7 @@ import { Redirect } from "react-router";
 const definitions = require("../../../utility/definitions");
 
 class Categories extends Component {
-  state = {};
+  state = { selected: "", displaying: "", notFound: "" };
 
   constructor(props) {
     super(props);
@@ -40,7 +40,7 @@ class Categories extends Component {
 
   changeList(e, apiName, name) {
     // e.target.parentNode.childNodes[1].className = "test";
-    this.setState({ selected: name, displaying: apiName });
+    this.setState({ selected: name, displaying: apiName, notFound: "" });
   }
 
   //displays a new list, from the current selected category
