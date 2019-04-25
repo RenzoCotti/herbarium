@@ -4,38 +4,38 @@ const router = express.Router();
 
 const Admin = require("../models/adminModel");
 
-router.post("/new", (req, res) => {
-  let admin = new Admin(req.body);
-  console.log("Trying to create a new Admin...");
+// router.post("/new", (req, res) => {
+//   let admin = new Admin(req.body);
+//   console.log("Trying to create a new Admin...");
 
-  //we already have an admin
-  Admin.find({}, (err, list) => {
-    if (list.length > 1) {
-      console.log("Admin already exists.");
-      return res.sendStatus(403);
-    } else {
-      admin.save(admin, (err, saved) => {
-        console.log("Admin created successfully.");
-        return res.sendStatus(200);
-      });
-    }
-  });
-});
+//   //we already have an admin
+//   Admin.find({}, (err, list) => {
+//     if (list.length > 1) {
+//       console.log("Admin already exists.");
+//       return res.sendStatus(403);
+//     } else {
+//       admin.save(admin, (err, saved) => {
+//         console.log("Admin created successfully.");
+//         return res.sendStatus(200);
+//       });
+//     }
+//   });
+// });
 
 //deletes all instances of admin
-router.delete("/delete", (req, res) => {
-  Admin.deleteMany({}, (err, deleted) => {
-    console.log("Deleted Admin.");
-    return res.sendStatus(200);
-  });
-});
+// router.delete("/delete", (req, res) => {
+//   Admin.deleteMany({}, (err, deleted) => {
+//     console.log("Deleted Admin.");
+//     return res.sendStatus(200);
+//   });
+// });
 
-router.get("/list", (req, res) => {
-  Admin.find({}, (err, list) => {
-    console.log("Retrived list of Admins.");
-    return res.send(list);
-  });
-});
+// router.get("/list", (req, res) => {
+//   Admin.find({}, (err, list) => {
+//     console.log("Retrived list of Admins.");
+//     return res.send(list);
+//   });
+// });
 
 //logins the admin
 //to setup with tokens
@@ -60,7 +60,7 @@ router.post("/login", (req, res) => {
       return res.status(403).send("nope");
     } else {
       //impossible than there are more than 1 users
-      bcrypt.compare(pw, list[0].password, function(err, cmp) {
+      bcrypt.compare(pw, list[0].password, function (err, cmp) {
         if (err) {
           console.log(err);
           return res.sendStatus(500);
@@ -94,7 +94,7 @@ router.get("/logout", (req, res) => {
 router.get("/status", (req, res) => {
   let str = req.session.login ? " logged in." : "logged off.";
   console.log("User is currently " + str);
-  return res.send({ login: req.session.login });
+  return res.send(req.session);
 });
 
 module.exports = router;

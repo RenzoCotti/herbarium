@@ -19,7 +19,14 @@ export function getPlant(state) {
   return state.plant;
 }
 
+async function checkStatus() {
+  let req = await fetch("/api/admin/status");
+  let res = await req.text();
+  console.log(res)
+}
+
 export function getLogin(state) {
+  checkStatus();
   return state.login;
 }
 

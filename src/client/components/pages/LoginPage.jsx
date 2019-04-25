@@ -13,8 +13,8 @@ class LoginPage extends Component {
     this.postRequest = this.postRequest.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.login = this.login.bind(this);
-    this.deleteAccount = this.deleteAccount.bind(this);
-    this.createNewAccount = this.createNewAccount.bind(this);
+    // this.deleteAccount = this.deleteAccount.bind(this);
+    // this.createNewAccount = this.createNewAccount.bind(this);
     this.logout = this.logout.bind(this);
     this.validate = this.validate.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -57,25 +57,24 @@ class LoginPage extends Component {
     await this.postRequest("/api/admin/login");
   }
 
-  async createNewAccount(ev) {
-    ev.preventDefault();
-    await this.postRequest("/api/admin/new");
-  }
+  // async createNewAccount(ev) {
+  //   ev.preventDefault();
+  //   await this.postRequest("/api/admin/new");
+  // }
 
-  async deleteAccount(ev) {
-    ev.preventDefault();
-    let req = await fetch("/api/admin/delete", {
-      method: "DELETE",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    });
-    await req.text();
-  }
+  // async deleteAccount(ev) {
+  //   ev.preventDefault();
+  //   let req = await fetch("/api/admin/delete", {
+  //     method: "DELETE",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json"
+  //     }
+  //   });
+  //   await req.text();
+  // }
 
-  async logout(ev) {
-    ev.preventDefault();
+  async logout() {
     let req = await fetch("/api/admin/logout");
     let res = await req.text();
     if (res === "logout") this.props.updateLogin(false);
@@ -116,6 +115,7 @@ class LoginPage extends Component {
         </div>
       );
     }
+
 
     let general = "";
     if (this.state.errors) {

@@ -1,5 +1,123 @@
 [
   {
+    "latinName": "Artemisia absinthium",
+    "commonName": "Wormwood",
+    "plantType": "Herb",
+    "evergreen": "No",
+    "description": "A plant mostly known for its use as an additive to absinthe.",
+    "height": "1",
+    "regions": ["asia", "east-europe", "europe", "north-america"],
+    "habitat": "mountains, dry soil",
+    "stemColour": "Greenyellow",
+    "stemTexture": "Hairy",
+    "leafShape": "Palmate",
+    "leafMargin": "Entire",
+    "leafVenation": "Pinnipalmate",
+    "leafArrangement": "Whorled",
+    "leafLength": "25",
+    "flowerColour": "Yellow",
+    "bloomMonth": ["august", "sepember"],
+    "fruitColour": "Orange",
+    "fruitSize": "0.8",
+    "uses": [
+      {
+        "part": "leaves",
+        "comment": "take terminal leaves in july-september. Brew in a tea.",
+        "title": "medical",
+        "medicalProperties": [
+          "anti-inflammatory",
+          "antiseptic",
+          "cardiotonic",
+          "digestive",
+          "febrifuge",
+          "tonic"
+        ]
+      },
+      {
+        "part": "leaves",
+        "comment": "Used to prepare absinthe. It's a neurotoxin in high doses.",
+        "title": "edibility",
+        "edibility": "Toxic"
+      }
+    ],
+    "images": [
+      {
+        "url": "http://www.minnesotawildflowers.info/udata/r9ndp23q/pd/artemisia-absinthium-6.jpg",
+        "caption": "Artemisia absinthium."
+      },
+      {
+        "url": "https://erowid.org/plants/wormwood/images/archive/artemisia_absinthium_leaf__i2004e0149_disp.jpg",
+        "caption": "A detail on the leaf"
+      },
+      {
+        "url": "http://www.minnesotawildflowers.info/udata/r9ndp23q/pd/artemisia-absinthium-9.jpg",
+        "caption": "A detail on the flowers."
+      }
+    ]
+  },
+  {
+    "latinName": "Foeniculum vulgare",
+    "commonName": "Fennel",
+    "plantType": "Herb",
+    "evergreen": "No",
+    "height": "2",
+    "regions": ["europe", "middle-east"],
+    "habitat": "dry soils, riverbanks",
+    "stemColour": "Greenyellow",
+    "stemTexture": "Smooth",
+    "leafShape": "Acicular",
+    "leafDescription": "They resemble hay.",
+    "leafMargin": "Entire",
+    "leafVenation": "Pinnipalmate",
+    "leafArrangement": "Whorled",
+    "leafLength": "40",
+    "flowerColour": "Yellow",
+    "bloomMonth": ["june", "july", "august"],
+    "fruitColour": "Yellow",
+    "fruitSize": "0.5",
+    "uses": [
+      {
+        "part": "bulb",
+        "comment": "eat raw",
+        "title": "edibility",
+        "edibility": "Yes"
+      },
+      {
+        "part": "fruit",
+        "comment": "eat raw. Very aromatic.",
+        "title": "edibility",
+        "edibility": "Yes"
+      },
+      {
+        "part": "leaves",
+        "comment": "eat raw.",
+        "title": "edibility",
+        "edibility": "Yes"
+      },
+      {
+        "part": "seeds",
+        "comment": "brew in a tea.",
+        "title": "medical",
+        "medicalProperties": ["carminative", "digestive"]
+      }
+    ],
+    "images": [
+      {
+        "url": "https://keyserver.lucidcentral.org/weeds/data/media/Images/foeniculum_vulgare/foeniculumvulgare48.jpg",
+        "caption": "The fennel plant."
+      },
+      {
+        "url": "https://www.koop-phyto.org/arzneipflanzenlexikon/bilder_gr/fenchel.jpg",
+        "caption": "A detail on the flowers."
+      },
+      {
+        "url": "https://keyserver.lucidcentral.org/weeds/data/media/Images/foeniculum_vulgare/foeniculumvulgare1sh.jpg",
+        "caption": "a detail on the fennel fruit (commonly called seed)."
+      }
+    ],
+    "harvestMonth": ["august", "sepember"]
+  },
+  {
     "regions": ["east-europe", "europe", "middle-east"],
     "bloomMonth": [],
     "harvestMonth": [],

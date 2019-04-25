@@ -47,6 +47,10 @@
   width: 200px !important;
 }
 
+.short-button {
+  min-width: 100px !important;
+}
+
 .button:hover,
 .select-wrapper input:hover {
   cursor: pointer;

@@ -9,18 +9,13 @@ const MongoStore = require("connect-mongo")(session);
 
 //constants for server
 const app = express();
+//try to import the config, on dev there is none
 var config = {};
 try {
   config = require("./config/config");
 } catch (e) {
   console.log(e)
 }
-// const creds = {
-//   key: fs.readFileSync(__dirname + "/config/certs/server.key"),
-//   cert: fs.readFileSync(__dirname + "/config/certs/server.crt")
-// };
-
-// process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 //setting up mongoose
 mongoose.connect(process.env.dbURL || config.dbURL, {
@@ -33,38 +28,29 @@ mongoose.connect(process.env.dbURL || config.dbURL, {
 //Using default promises
 mongoose.Promise = global.Promise;
 
-//cookie of 5 min
+app.use(bodyParser.json());
+//cookie of 4h
 app.use(
   session({
     secret: process.env.sessionSecret || config.sessionSecret,
     resave: false,
     saveUninitialized: true,
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
-    cookie: { secure: true, maxAge: 1000 * 60 * 60 * 4 }
+    cookie: { maxAge: 1000 * 60 * 60 * 4 }
   })
 );
 
-// Serve the static files from the React app
-// app.use(express.static(path.join(__dirname, "../../dist")));
-//cache? to look into in the future, for images
-// app.use(express.static(path.join(__dirname, 'public'), {
-//   maxAge: cacheTime
-//  }))
 
-app.use(bodyParser.json());
+
 
 const plantRouter = require("./router/plantRouter");
 const adminRouter = require("./router/adminRouter");
-
-
-
 app.use("/api/plant", plantRouter);
 app.use("/api/admin", adminRouter);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.resolve('dist')));
   app.use(express.static(path.resolve('public')));
-
 
   app.get("*", (req, res) => {
     res.sendFile(path.resolve('dist/index.html'));

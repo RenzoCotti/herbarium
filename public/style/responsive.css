@@ -91,7 +91,7 @@
 
   .short-button {
     width: 50px !important;
-    min-width: 50px;
+    min-width: 50px !important;
     max-width: 50px;
   }
 }
@@ -100,7 +100,7 @@
 @media screen and (min-width: 800px) {
   .navbar {
     flex-direction: column;
-    width: 200px;
+    width: 150px;
   }
 
   .plant-detail {
