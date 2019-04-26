@@ -33,7 +33,6 @@ class ModifyPlant extends Component {
         description: "",
         height: "",
         regions: [],
-        habitat: "",
         stemColour: "",
         stemTexture: "",
         stemDescription: "",

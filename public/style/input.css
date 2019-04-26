@@ -20,8 +20,12 @@
 .createForm {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
+}
+
+.input-field {
+  margin: 0 !important;
 }
 
 .input,
@@ -91,7 +95,7 @@
 
 .caret {
   position: relative;
-  right: 20px !important;
+  /* right: 20px !important; */
   fill: var(--text) !important;
 }
 
@@ -100,6 +104,10 @@
   width: 100% !important;
   max-width: 100% !important;
   min-width: 100% !important;
+}
+
+.dropdown-trigger {
+  width: 94% !important;
 }
 
 .dropdown-content {
