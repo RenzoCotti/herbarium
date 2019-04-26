@@ -84,11 +84,7 @@ class ModifyPlant extends Component {
     if (!this.state.regions || this.state.regions.length === 0) {
       arr.push({ name: "regions" })
     }
-    if (!this.state.habitat) {
-      arr.push({ name: "habitat" })
-    } else if (this.state.habitat.length > 100) {
-      arr.push({ name: "habitat", errorMessage: "Please insert a shorter habitat." })
-    }
+
     if (!this.state.height) {
       arr.push({ name: "height" })
     } else if (isNaN(this.state.height)) {

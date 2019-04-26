@@ -55,13 +55,6 @@ const CreateGeneral = props => (
       obj={props.obj}
       errors={props.errors}
     />
-    <Input
-      label="Habitat: *"
-      name="habitat"
-      fn={props.change}
-      obj={props.obj}
-      errors={props.errors}
-    />
     <TextArea
       label="Description:"
       name="description"

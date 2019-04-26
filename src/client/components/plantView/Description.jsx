@@ -37,10 +37,6 @@ function renderGeneral(plant) {
       alt: plant.regions.join(", ")
     },
     {
-      property: plant.habitat,
-      label: "Habitat"
-    },
-    {
       property: plant.height,
       label: "Height",
       alt: plant.height + " m"

@@ -33,7 +33,6 @@ var plantPlaceholder = new Plant({
   description: "",
   height: 0,
   regions: [""],
-  habitat: "",
 
   /********* STEM *********/
   stemColour: "",

@@ -37,11 +37,6 @@ const Plant = new mongoose.Schema({
       enum: definitions.regions
     }
   ],
-  habitat: {
-    type: String,
-    lowercase: true,
-    required: true
-  },
   height: {
     type: Number, //m
     required: true

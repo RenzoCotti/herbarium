@@ -66,7 +66,7 @@
     "plantType": "tree",
     "evergreen": "no",
     "height": 30,
-    "habitat": "moist, basic soils",
+
     "stemColour": "gray",
     "stemTexture": "smooth bark",
     "stemDescription": "vertically fissured on old trees.",
@@ -234,7 +234,7 @@
       "plant": 2,
       "No": 1
     },
-    "habitat": "global",
+
     "height": 1,
     "images": [
       {
@@ -368,7 +368,7 @@
     "plantType": "tree",
     "evergreen": "No",
     "height": 30,
-    "habitat": "humid atmosphere, well drained soil",
+
     "stemColour": "gray",
     "stemTexture": "smooth bark",
     "stemDescription": "can crack vertically as the tree ages.",
@@ -559,7 +559,7 @@
     "evergreen": "no",
     "description": "a tree easily recognisable by its white bark.",
     "height": 20,
-    "habitat": "heathland, mountainsides",
+
     "stemColour": "white",
     "stemTexture": "smooth bark",
     "stemDescription": "develops thin, almost papery, white flakes.",
@@ -698,7 +698,7 @@
     "plantType": "tree",
     "evergreen": "no",
     "height": 25,
-    "habitat": "hot, dry environments",
+
     "stemColour": "saddlebrown",
     "stemTexture": "rough bark",
     "leafShape": "deltate",
@@ -838,7 +838,7 @@
     "plantType": "herb",
     "evergreen": "No",
     "height": 0.5,
-    "habitat": "near roads, landfills",
+
     "stemColour": "greenyellow",
     "stemTexture": "smooth",
     "leafShape": "oblong",
@@ -1015,7 +1015,7 @@
     "plantType": "tree",
     "evergreen": "No",
     "height": 25,
-    "habitat": "woody hills, low mountains",
+
     "stemColour": "saddlebrown",
     "stemTexture": "rough bark",
     "leafShape": "lanceolate",
@@ -1175,7 +1175,7 @@
     "plantType": "tree",
     "evergreen": "No",
     "height": 10,
-    "habitat": "edge of forests, marginal positioning",
+
     "stemColour": "gray",
     "stemTexture": "smooth bark",
     "leafShape": "elliptical",
@@ -1303,7 +1303,7 @@
     "plantType": "herb",
     "evergreen": "No",
     "height": 25,
-    "habitat": "uncultivated lands",
+
     "stemColour": "greenyellow",
     "stemTexture": "hairy",
     "stemDescription": "slightly hairy. contains a milky sap.",
@@ -1453,7 +1453,7 @@
     "plantType": "herb",
     "evergreen": "No",
     "height": 2,
-    "habitat": "dry soils, riverbanks",
+
     "stemColour": "greenyellow",
     "stemTexture": "smooth",
     "leafShape": "acicular",
@@ -1592,7 +1592,7 @@
     "plantType": "herb",
     "evergreen": "No",
     "height": 1.5,
-    "habitat": "pastures, forest clearings, burned-over lands",
+
     "stemColour": "red",
     "stemTexture": "smooth",
     "leafShape": "linear",
@@ -1718,7 +1718,7 @@
     "plantType": "herb",
     "evergreen": "No",
     "height": 0.6,
-    "habitat": "mountain",
+
     "stemColour": "green",
     "stemTexture": "smooth",
     "stemDescription": "the stem has vertical straight lines throughout it.",
@@ -1885,7 +1885,7 @@
     "plantType": "tree",
     "evergreen": "no",
     "height": 8,
-    "habitat": "deciduous woods",
+
     "stemColour": "gray",
     "stemTexture": "smooth bark",
     "leafShape": "cordate",
@@ -2047,7 +2047,7 @@
     "plantType": "tree",
     "evergreen": "Yes",
     "height": 10,
-    "habitat": "coast, heathland, mediterranean",
+
     "stemColour": "saddlebrown",
     "stemTexture": "smooth bark",
     "leafShape": "elliptical",
@@ -2198,7 +2198,7 @@
     "plantType": "tree",
     "evergreen": "No",
     "height": 25,
-    "habitat": "heathland",
+
     "stemColour": "gray",
     "stemTexture": "rough bark",
     "leafShape": "cordate",
@@ -2341,7 +2341,7 @@
     "plantType": "tree",
     "evergreen": "No",
     "height": 25,
-    "habitat": "lowland, low mountains",
+
     "stemColour": "gray",
     "stemTexture": "rough bark",
     "leafShape": "palmate",
@@ -2476,7 +2476,7 @@
     "plantType": "shrub",
     "evergreen": "No",
     "height": 8,
-    "habitat": "heathland",
+
     "stemColour": "saddlebrown",
     "stemTexture": "rough bark",
     "leafShape": "elliptical",
@@ -2657,7 +2657,7 @@
     "evergreen": "No",
     "description": "all the plant is covered with small hair which produce an inflammatory effect whenever they sting.",
     "height": 1.5,
-    "habitat": "humid places (close to rivers), fallow lands",
+
     "stemColour": "greenyellow",
     "stemTexture": "hairy",
     "leafShape": "ovate",
@@ -2793,7 +2793,7 @@
     "plantType": "herb",
     "evergreen": "No",
     "height": 2,
-    "habitat": "mountains, forest edges",
+
     "stemColour": "saddlebrown",
     "stemTexture": "smooth bark",
     "leafShape": "ovate",
@@ -2963,7 +2963,7 @@
     "evergreen": "no",
     "description": "a majestic tree, known for its longevity.",
     "height": 35,
-    "habitat": "continental woods",
+
     "stemColour": "saddlebrown",
     "stemTexture": "rough bark",
     "stemDescription": "",
@@ -3135,7 +3135,7 @@
     "plantType": "shrub",
     "evergreen": "Yes",
     "height": 4,
-    "habitat": "river banks, gravels",
+
     "stemColour": "green",
     "stemTexture": "smooth",
     "leafShape": "linear",
@@ -3264,7 +3264,7 @@
     "plantType": "tree",
     "evergreen": "Yes",
     "height": 15,
-    "habitat": "coastal areas, warm",
+
     "stemColour": "saddlebrown",
     "stemTexture": "rough bark",
     "leafShape": "elliptical",
@@ -3428,7 +3428,7 @@
     "plantType": "herb",
     "evergreen": "No",
     "height": 0.6,
-    "habitat": "hot, dry climate",
+
     "stemColour": "saddlebrown",
     "stemTexture": "hairy",
     "leafShape": "lanceolate",
@@ -3578,7 +3578,7 @@
     "evergreen": "No",
     "description": "do not confuse with other toxic species of fern!",
     "height": 1.7,
-    "habitat": "temperate regions",
+
     "stemColour": "greenyellow",
     "stemTexture": "hairy",
     "leafShape": "oblong",
@@ -3712,7 +3712,7 @@
     "plantType": "herb",
     "evergreen": "no",
     "height": 0.6,
-    "habitat": "moist",
+
     "stemColour": "red",
     "stemTexture": "smooth",
     "stemDescription": "can have some hair",
@@ -3851,7 +3851,7 @@
     "plantType": "herb",
     "evergreen": "No",
     "height": 30,
-    "habitat": "uncultivated lands",
+
     "stemColour": "greenyellow",
     "stemTexture": "hairy",
     "stemDescription": "slightly hairy.",
@@ -4030,7 +4030,7 @@
     "evergreen": "Yes",
     "description": "an aromatic herb often used in cooking.",
     "height": 1.5,
-    "habitat": "heathland, hills",
+
     "stemColour": "saddlebrown",
     "stemTexture": "woody",
     "leafShape": "linear",
@@ -4189,7 +4189,7 @@
     "plantType": "tree",
     "evergreen": "No",
     "height": 10,
-    "habitat": "plains, mountains",
+
     "stemColour": "gray",
     "stemTexture": "smooth",
     "leafShape": "oblong",
@@ -4333,7 +4333,7 @@
     "plantType": "bush",
     "evergreen": "yes",
     "height": 0.6,
-    "habitat": "gravel",
+
     "stemColour": "green",
     "stemTexture": "hairy",
     "stemDescription": "woody at the base",
@@ -4490,7 +4490,7 @@
     "plantType": "tree",
     "evergreen": "No",
     "height": 8,
-    "habitat": "woods, less than 1000 meters",
+
     "stemColour": "saddlebrown",
     "stemTexture": "rough bark",
     "stemDescription": "scored horizontally.",
@@ -4623,7 +4623,7 @@
     "plantType": "tree",
     "evergreen": "Yes",
     "height": 45,
-    "habitat": "alpine",
+
     "stemColour": "saddlebrown",
     "stemTexture": "rough bark",
     "leafShape": "acicular",
@@ -4781,7 +4781,7 @@
     "plantType": "shrub",
     "evergreen": "No",
     "height": 0.2,
-    "habitat": "thin, sandy, rocky soils",
+
     "stemColour": "saddlebrown",
     "stemTexture": "woody",
     "leafShape": "elliptical",
@@ -4941,7 +4941,7 @@
     "plantType": "herb",
     "evergreen": "No",
     "height": 0.7,
-    "habitat": "roadsides, uncultivated land",
+
     "stemColour": "greenyellow",
     "stemTexture": "smooth",
     "stemDescription": "slightly hairy",
@@ -5097,7 +5097,7 @@
     "plantType": "tree",
     "evergreen": "No",
     "height": 30,
-    "habitat": "forest",
+
     "stemColour": "saddlebrown",
     "stemTexture": "rough bark",
     "leafShape": "elliptical",
@@ -5256,7 +5256,7 @@
     "plantType": "tree",
     "evergreen": "No",
     "height": 30,
-    "habitat": "along rivers, under 400m",
+
     "stemColour": "saddlebrown",
     "stemTexture": "rough bark",
     "leafShape": "elliptical",
@@ -5409,7 +5409,7 @@
     "plantType": "bush",
     "evergreen": "No",
     "height": 0.4,
-    "habitat": "humid woods, along shady rivers",
+
     "stemColour": "greenyellow",
     "stemTexture": "smooth",
     "leafShape": "lanceolate",
@@ -5603,7 +5603,7 @@
     "plantType": "shrub",
     "evergreen": "No",
     "height": 3,
-    "habitat": "arid soils, mountains",
+
     "stemColour": "saddlebrown",
     "stemTexture": "smooth bark",
     "leafShape": "oval",
@@ -5777,7 +5777,7 @@
     "plantType": "tree",
     "evergreen": "No",
     "height": 20,
-    "habitat": "cold, wet areas. next to a river.",
+
     "stemColour": "saddlebrown",
     "stemTexture": "rough bark",
     "leafShape": "linear",
@@ -5960,7 +5960,7 @@
     "evergreen": "No",
     "description": "a plant mostly known for its use as an additive to absinthe.",
     "height": 1,
-    "habitat": "mountains, dry soil",
+
     "stemColour": "greenyellow",
     "stemTexture": "hairy",
     "leafShape": "palmate",
@@ -6136,7 +6136,7 @@
     "evergreen": "Yes",
     "description": "well known tree, both for its toxicity and uses in bowmaking.",
     "height": 15,
-    "habitat": "humid, shady locations",
+
     "stemColour": "saddlebrown",
     "stemTexture": "rough bark",
     "leafShape": "linear",
