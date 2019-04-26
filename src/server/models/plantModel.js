@@ -198,25 +198,23 @@ const Plant = new mongoose.Schema({
 });
 
 Plant.pre("save", function (next) {
-  if (this.keywords.length === 0) {
-    let tempArr = [];
+  let tempArr = [];
 
-    //iterate over all keys of the document
-    for (let key of Object.keys(this.toObject())) {
-      tempArr = tempArr.concat(extractKeywords(key, this));
-    }
+  //iterate over all keys of the document
+  for (let key of Object.keys(this.toObject())) {
+    tempArr = tempArr.concat(extractKeywords(key, this));
+  }
 
-    this.keywords = tempArr;
+  this.keywords = tempArr;
 
-    this.frequency = {};
+  this.frequency = new Map();
 
-    for (let str of tempArr) {
-      let res = this.frequency.get(str);
-      if (res) {
-        this.frequency.set(str, res + 1);
-      } else {
-        this.frequency.set(str, 1);
-      }
+  for (let str of tempArr) {
+    let res = this.frequency.get(str);
+    if (res) {
+      this.frequency.set(str, res + 1);
+    } else {
+      this.frequency.set(str, 1);
     }
   }
 
@@ -227,7 +225,7 @@ Plant.pre("save", function (next) {
 //in case of an array, it recurses on its length
 function extractKeywords(key, obj) {
   //skips mongoose id and urls
-  if (key === "_id" || key === "url") return [];
+  if (key === "_id" || key === "url" || key === "frequency") return [];
 
   let type = typeof obj[key];
   if (type === "string") {

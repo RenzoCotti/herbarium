@@ -19,7 +19,7 @@ class Description extends Component {
 
 
     async deletePlant() {
-        console.log("deleting");
+        // console.log("deleting");
         let req = await fetch("/api/plant/delete/" + this.props.plant._id, {
             method: "DELETE",
             headers: {
@@ -29,8 +29,9 @@ class Description extends Component {
         });
 
         let res = await req.text();
-        this.props.updatePlant("deleted");
-        // console.log(res);
+        if (res === "deleted") {
+            this.props.updatePlant("deleted");
+        }
     }
 
     editPlant() {

@@ -5,7 +5,7 @@ const Footbar = props => {
   return (
     <div className="foot">
       <div className="sub-title">&copy; {today} Renzo Cotti</div>
-      <div className="foot-note">All images used under fair use.</div>
+      <div className="foot-note">All images used under fair use. The information reported here shouldn't be taken as medical advice.</div>
     </div>);
 };
 

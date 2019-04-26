@@ -14,6 +14,9 @@ class EditPage extends Component {
 
   async onSubmit(toSend) {
 
+    console.log("sending dis")
+    console.log(toSend)
+
     //sends the update to backend
     let req = await fetch("/api/plant/edit", {
       method: "PUT",

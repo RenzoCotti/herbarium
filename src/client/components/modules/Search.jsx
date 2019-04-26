@@ -14,7 +14,6 @@ class Search extends Component {
     this.fetchPlant = this.fetchPlant.bind(this);
     this.getRandom = this.getRandom.bind(this);
     this.getAll = this.getAll.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   async fetchPlant(url) {
@@ -58,12 +57,6 @@ class Search extends Component {
     this.fetchPlant("/api/plant/all");
   }
 
-  handleKeyDown(e) {
-    if (e.key === 'Enter') {
-      this.onSubmit()
-    }
-  }
-
   onSubmit(e) {
     if (e) e.preventDefault();
     if (!this.state.query) {
@@ -90,7 +83,6 @@ class Search extends Component {
             type="text"
             onChange={this.handleChange}
             autoComplete="off"
-            onKeyDown={this.handleKeyDown}
           />
           <div className="errormsg" style={{ height: "30px" }}> {this.state.error} </div>
           <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>

@@ -90,7 +90,8 @@ class List extends Component {
     if (this.state.redirect) { return <Redirect push to="/plant/" />; }
 
 
-    let temp = this.props.list;
+    let temp = [];
+    this.props.list.forEach(x => temp.push(Object.assign({}, x)));
     temp.map(x => delete x._id && x.__v && x.uses.map(y => delete y._id) && x.images.map(y => delete y._id))
 
     console.log(temp)

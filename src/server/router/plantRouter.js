@@ -59,6 +59,7 @@ router.get("/search/:string", (req, res) => {
     console.log(
       "Query '" + req.params.string + "' gave " + list.length + " result(s)."
     );
+
     return res.json({ list: list, tokens: arr });
   });
 });
@@ -96,21 +97,16 @@ router.put("/edit", (req, res) => {
   }
 
   let plant = req.body;
-  // console.log(plant);
   let id = plant._id;
 
-  delete plant._v;
-  delete plant._id;
   delete plant.count;
 
-  Plant.findOneAndUpdate({ _id: id }, plant, { upsert: true }, function (
-    err,
-    plant
-  ) {
+  Plant.findOneAndUpdate({ _id: id }, plant, function (err, oldPlant) {
     if (err) {
       console.log(err);
       return res.send("error");
     }
+
     console.log("Edited " + plant.commonName);
     return res.send("ok");
   });
@@ -121,14 +117,21 @@ router.delete("/delete/:id", (req, res) => {
   if (!req.session.login) {
     //user isn't logged in
     console.log("Unauthorized delete");
-    res.status(403);
+    res.sendStatus(403);
+    return;
+  } else if (!req.params.id) {
+    console.log("No id provided.");
+    res.sendStatus(500);
     return;
   }
 
   Plant.findByIdAndRemove(req.params.id, (err, deleted) => {
-    if (err) return console.log(err);
+    if (err || !deleted) {
+      console.log(err);
+      return res.sendStatus(500);
+    }
     console.log("Deleted " + deleted.commonName);
-    return res.sendStatus(200);
+    return res.send("deleted");
   });
 });
 

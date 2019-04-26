@@ -23,7 +23,8 @@ mongoose.connect(process.env.dbURL || config.dbURL, {
     user: process.env.uname || config.uname,
     password: process.env.pword || config.pword
   },
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useFindAndModify: false
 });
 //Using default promises
 mongoose.Promise = global.Promise;
