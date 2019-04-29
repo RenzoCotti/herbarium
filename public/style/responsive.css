@@ -14,6 +14,24 @@
 
   .label-table {
     padding-right: 20px;
+    /* width: 100px; */
+  }
+
+  .content-table {
+    max-width: 150px;
+    min-width: 150px;
+  }
+
+  .plant-detail {
+    padding: 30px;
+  }
+
+  .list-pages {
+    margin-top: 15px;
+  }
+
+  .list-container {
+    height: 400px;
   }
 
   .navbar {
